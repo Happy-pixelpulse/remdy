@@ -1,17 +1,18 @@
-import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:remdy/sign_up_screen.dart';
-import 'package:remdy/splash%20_screen1.dart';
-import 'package:remdy/splash%20_screen2.dart';
+import 'package:remdy/auth/sign_up_screen.dart';
+import 'package:remdy/screen/search_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  SignUpScreen(),
+      home: //SignUpScreen(),
+      SearchScreen(),
     );
   }
 }

@@ -19,8 +19,6 @@ class _SplashState extends State<Splash> {
               Positioned(
                 top: MediaQuery.of(context).size.height / 2 - 60,
                 right: MediaQuery.of(context).size.width / 2 - 120,
-                // top: 335,
-                // left: 273,
                 child: Container(
                   width: 26,
                   height: 26,
