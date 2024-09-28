@@ -103,20 +103,20 @@ class _SearchScreenState extends State<SearchScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 21,
                       ),
                       Container(
                           width: 360,
                           height: 49,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   topRight: Radius.circular(10),
                                   bottomLeft: Radius.circular(10),
                                   bottomRight: Radius.circular(10)
                               ),
                               color: AppColors.secondary.withOpacity(1)),
-                          child: Padding(
+                          child: const Padding(
                             padding: EdgeInsets.only(left: 17, right: 17),
                             child: TextField(
                               decoration: InputDecoration(
@@ -130,20 +130,20 @@ class _SearchScreenState extends State<SearchScreen> {
                                   labelText: "Area / Sectore / Locality"),
                             ),
                           )),
-                      SizedBox(
+                      const SizedBox(
                         height: 21,
                       ),
                       Container(
                           width: 360,
                           height: 49,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   topRight: Radius.circular(10),
                                   bottomLeft: Radius.circular(10),
                                   bottomRight: Radius.circular(10)
                               ),
                               color: AppColors.secondary.withOpacity(1)),
-                          child: Padding(
+                          child:const Padding(
                             padding: EdgeInsets.only(left: 17, right: 17),
                             child: TextField(
                               decoration: InputDecoration(
@@ -157,7 +157,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                   labelText: "Building / Floor / Apartment"),
                             ),
                           )),
-                      SizedBox(
+                      const SizedBox(
                         height: 21,
                       ),
                       Container(
@@ -166,7 +166,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               color: AppColors.secondary.withOpacity(1)),
-                          child: Padding(
+                          child: const Padding(
                             padding: EdgeInsets.only(left: 17, right: 17),
                             child: TextField(
                               decoration: InputDecoration(
@@ -180,11 +180,11 @@ class _SearchScreenState extends State<SearchScreen> {
                                   labelText: "Near by Landmark (Optional)"),
                             ),
                           )),
-                      SizedBox(
+                      const SizedBox(
                         height: 94,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 17, right: 16),
+                        padding: const EdgeInsets.only(left: 17, right: 16),
                         child: SizedBox(
                           width: 361,
                           height: 52,
