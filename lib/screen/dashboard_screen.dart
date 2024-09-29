@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:remdy/colors/colors.dart';
-import 'package:remdy/list/doctor_card.dart';
+import 'package:remdy/common_widgets/doctor_card.dart';
 
-class SearchScreen extends StatefulWidget {
-  const SearchScreen({super.key});
+import '../utils/colors.dart';
+
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
 
   @override
-  State<SearchScreen> createState() => _SearchScreenState();
+  State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen> {
+class _DashboardScreenState extends State<DashboardScreen> {
   final List<Map<String, String>> doctors = [
     {
       "imagePath": "assets/profilpic.png",

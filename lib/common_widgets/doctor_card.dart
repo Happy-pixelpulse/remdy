@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../colors/colors.dart';
+import '../utils/colors.dart';
+
 
 class DoctorCard extends StatelessWidget {
   final String imagePath;

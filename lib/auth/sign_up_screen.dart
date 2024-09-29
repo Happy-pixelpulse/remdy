@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:remdy/colors/colors.dart';
-
-import '../button/sign_up_button.dart';
+import '../common_widgets/sign_up_button.dart';
+import '../utils/colors.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -36,7 +35,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               const SizedBox(height: 100),
               SignUpButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                    );
+                  },
                   imageName: 'assets/google.png',
                   buttonName: 'Continue with Google'),
               const SizedBox(height: 8),
