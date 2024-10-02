@@ -10,4 +10,7 @@ class AppColors {
   static const Color bottom_text = Color(0xFF393939);
   static const Color bottom_textfield = Color(0xFF929292);
   static const Color bottom_textfield_text = Color(0xFF4F4F4F);
+  static const Color review_text = Color(0xFF6B779A);
+  static const Color search_icon = Color(0xFF8a96bc);
+  static const Color dr_list = Color(0xFF263257);
 }

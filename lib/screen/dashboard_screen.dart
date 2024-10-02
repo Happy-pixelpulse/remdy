@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/doctor_card.dart';
+import 'package:remdy/screen/doctor_list.dart';
 
 import '../utils/colors.dart';
 
@@ -14,44 +15,68 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   final List<Map<String, String>> doctors = [
     {
-      "imagePath": "assets/profilpic.png",
+      "imagePath":
+          "https://pixelwallpaper.pixelpulseinc.com/assets/vactor/vactor_1.jfif",
       "name": "Dr. Bellamy N",
-      "specialty": "Viralogist"
+      "specialty": "Viralogist",
+      "reviews": "(135 reviews)",
+      "rating": "4.5"
     },
     {
-      "imagePath": "assets/profilpic.png",
+      "imagePath":
+          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_1.jfif",
       "name": "Dr. Mensah T",
-      "specialty": "Oncologists"
+      "specialty": "Oncologists",
+      "reviews": "(135 reviews)",
+      "rating": "4.3"
     },
     {
-      "imagePath": "assets/profilpic.png",
+      "imagePath":
+          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_2.jfif",
       "name": "Dr. Klimisch J",
-      "specialty": "Surgeon"
+      "specialty": "Surgeon",
+      "reviews": "(135 reviews)",
+      "rating": "4.5"
     },
     {
-      "imagePath": "assets/profilpic.png",
+      "imagePath":
+          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_3.jfif",
       "name": "Dr. Martinez K",
-      "specialty": "Pediatrician"
+      "specialty": "Pediatrician",
+      "reviews": "(135 reviews)",
+      "rating": "4.3"
     },
     {
-      "imagePath": "assets/profilpic.png",
+      "imagePath":
+          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif",
       "name": "Dr. Marc M",
-      "specialty": "Rheumatologists"
+      "specialty": "Rheumatologists",
+      "reviews": "(135 reviews)",
+      "rating": "4.3"
     },
     {
-      "imagePath": "assets/profilpic.png",
+      "imagePath":
+          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_5.jfif",
       "name": "Dr. O’Boyle J",
-      "specialty": "Radiologists"
+      "specialty": "Radiologists",
+      "reviews": "(135 reviews)",
+      "rating": "4.5"
     },
     {
-      "imagePath": "assets/profilpic.png",
+      "imagePath":
+          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_6.jfif",
       "name": "Dr. Mensah T",
-      "specialty": "Surgeon"
+      "specialty": "Surgeon",
+      "reviews": "(135 reviews)",
+      "rating": "4.3"
     },
     {
-      "imagePath": "assets/profilpic.png",
+      "imagePath":
+          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_7.jfif",
       "name": "Dr. Bellamy R",
-      "specialty": "Viralogist"
+      "specialty": "Viralogist",
+      "reviews": "(135 reviews)",
+      "rating": "4.5"
     },
   ];
 
@@ -100,7 +125,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       width: 17,
                                     ),
                                     GestureDetector(
-                                      onTap: () {},
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                      },
                                       child: Icon(
                                         Icons.cancel_outlined,
                                         weight: 19,
@@ -124,11 +151,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           bottomRight: Radius.circular(10)),
                                       color:
                                           AppColors.secondary.withOpacity(1)),
-                                  child: const Padding(
+                                  child: Padding(
                                     padding:
                                         EdgeInsets.only(left: 17, right: 17),
                                     child: TextField(
                                       decoration: InputDecoration(
+                                          suffixIcon: IconButton(
+                                            icon: Icon(Icons.cancel_outlined),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                          ),
                                           enabledBorder: OutlineInputBorder(
                                             borderRadius: BorderRadius.only(
                                                 topRight: Radius.circular(10),
@@ -153,11 +186,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           bottomRight: Radius.circular(10)),
                                       color:
                                           AppColors.secondary.withOpacity(1)),
-                                  child: const Padding(
+                                  child: Padding(
                                     padding:
                                         EdgeInsets.only(left: 17, right: 17),
                                     child: TextField(
                                       decoration: InputDecoration(
+                                          suffixIcon: IconButton(
+                                            icon: Icon(Icons.cancel_outlined),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                          ),
                                           enabledBorder: OutlineInputBorder(
                                             borderRadius: BorderRadius.only(
                                                 topRight: Radius.circular(10),
@@ -179,17 +218,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       borderRadius: BorderRadius.circular(15),
                                       color:
                                           AppColors.secondary.withOpacity(1)),
-                                  child: const Padding(
+                                  child: Padding(
                                     padding:
                                         EdgeInsets.only(left: 17, right: 17),
                                     child: TextField(
                                       decoration: InputDecoration(
+                                          suffixIcon: IconButton(
+                                            icon: Icon(Icons.cancel_outlined),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                          ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.only(
-                                                topRight: Radius.circular(10),
-                                                bottomLeft: Radius.circular(10),
-                                                bottomRight:
-                                                    Radius.circular(10)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(10)),
                                           ),
                                           labelText:
                                               "Near by Landmark (Optional)"),
@@ -212,7 +254,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
                                     child: Text(
                                       'Confirm Address',
                                       style: GoogleFonts.poppins(
@@ -240,72 +284,67 @@ class _DashboardScreenState extends State<DashboardScreen> {
       appBar: AppBar(
         flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
-              'assets/rectangle_appbar_bg.png',
-              fit: BoxFit.fill,
-            )),
+          'assets/rectangle_appbar_bg.png',
+          fit: BoxFit.fill,
+        )),
         toolbarHeight: 70,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Padding(
-          padding: const EdgeInsets.only(top: 20, left: 12, right: 12),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
+        title: Row(
+          children: [
+            SizedBox(
+                width: 24,
+                height: 24,
+                child: Image.asset(
+                  'assets/map-pin.png',
                   width: 24,
                   height: 24,
-                  child: Image.asset(
-                    'assets/map-pin.png',
-                    width: 24,
-                    height: 24,
-                  )),
-              const SizedBox(
-                width: 8,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Barrie',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w800,
-                      color: AppColors.secondary.withOpacity(1),
-                    ),
+                )),
+            const SizedBox(
+              width: 8,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  'Barrie',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                    color: AppColors.secondary.withOpacity(1),
                   ),
-                  const SizedBox(height: 2),
-                  Text(
-                    'Ontario, Canada',
-                    style: GoogleFonts.poppins(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.secondary.withOpacity(1),
-                    ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  'Ontario, Canada',
+                  style: GoogleFonts.poppins(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.secondary.withOpacity(1),
                   ),
-                ],
-              ),
-              const Spacer(),
-              SizedBox(
+                ),
+              ],
+            ),
+            const Spacer(),
+            SizedBox(
+                width: 24,
+                height: 24,
+                child: Image.asset(
+                  'assets/bell.png',
                   width: 24,
                   height: 24,
-                  child: Image.asset(
-                    'assets/bell.png',
-                    width: 24,
-                    height: 24,
-                  )),
-              const SizedBox(width: 12),
-              SizedBox(
+                )),
+            const SizedBox(width: 12),
+            SizedBox(
+                width: 44,
+                height: 44,
+                child: Image.asset(
+                  'assets/profilpic.png',
                   width: 44,
                   height: 44,
-                  child: Image.asset(
-                    'assets/profilpic.png',
-                    width: 44,
-                    height: 44,
-                  )),
-            ],
-          ),
+                )),
+          ],
         ),
         automaticallyImplyLeading: false,
         // flexibleSpace:
@@ -320,8 +359,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Image.asset('assets/rectangle.png'),
                 Positioned(
                   top: 110,
-                  left: 12,
-                  right: 12,
+                  left: 16,
+                  right: 16,
                   child: Text(
                     'Let’s find Family',
                     style: GoogleFonts.poppins(
@@ -333,8 +372,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 Positioned(
                   top: 145,
-                  left: 12,
-                  right: 12,
+                  left: 16,
+                  right: 16,
                   child: Text(
                     'doctor!',
                     style: GoogleFonts.poppins(
@@ -346,8 +385,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 Positioned(
                   top: 185,
-                  left: 215,
-                  right: 12,
+                  left: 222,
                   child: Row(
                     children: [
                       Text(
@@ -372,33 +410,41 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 230, left: 16, right: 16),
-                  child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: AppColors.secondary.withOpacity(1)),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 21.96),
-                          child: Image.asset(
-                            'assets/search.png',
-                            width: 26.35,
-                            height: 26.5,
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const DoctorList()),
+                      );
+                    },
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: AppColors.secondary.withOpacity(1)),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 21.96),
+                            child: Image.asset(
+                              'assets/search.png',
+                              width: 26.35,
+                              height: 26.5,
+                            ),
                           ),
-                        ),
-                        const SizedBox(
-                          width: 18,
-                        ),
-                        Text(
-                          'Search health issue.......',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.search_box_text.withOpacity(1),
+                          const SizedBox(
+                            width: 18,
                           ),
-                        ),
-                      ],
+                          Text(
+                            'Search health issue.......',
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.search_box_text.withOpacity(1),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -435,6 +481,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     imagePath: doctor["imagePath"]!,
                     doctorName: doctor["name"]!,
                     specialty: doctor["specialty"]!,
+                    reviews: doctor["reviews"]!,
+                    rating: doctor["rating"]!,
                   );
                 },
               ),
