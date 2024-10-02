@@ -46,7 +46,7 @@ class DoctorCard extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 19.31,
+              height: 12,
             ),
             Text(
               doctorName,
@@ -65,47 +65,50 @@ class DoctorCard extends StatelessWidget {
                 color: AppColors.review_text.withOpacity(1),
               ),
             ),
-            Row(
-              children: [
-                RatingBar.builder(
-                  direction: Axis.horizontal,
-                  minRating: 1,
-                  allowHalfRating: true,
-                  itemCount: 1,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                  itemBuilder: (context, _) => Icon(
-                    Icons.star,
-                    color: Colors.amber,
+            Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: Row(
+                children: [
+                  RatingBar.builder(
+                    direction: Axis.horizontal,
+                    minRating: 1,
+                    allowHalfRating: true,
+                    itemCount: 1,
+                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (rating) {
+                      print(rating);
+                    },
+                    itemSize: 17,
+                    unratedColor: Colors.grey[300],
+                    glow: false,
+                    glowColor: AppColors.search_screen_rating,
+                    ignoreGestures: false,
                   ),
-                  onRatingUpdate: (rating) {
-                    print(rating);
-                  },
-                  itemSize: 20,
-                  unratedColor: Colors.grey[300],
-                  glow: false,
-                  glowColor: Colors.amber.withOpacity(0.5),
-                  ignoreGestures: false,
-                ),
-                SizedBox(
-                  width: 1,
-                ),
-                Text(
-                  rating,
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.review_text.withOpacity(1),
+                  SizedBox(
+                    width: 1,
                   ),
-                ),
-                Text(
-                  reviews,
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.review_text.withOpacity(1),
+                  Text(
+                    rating,
+                    style: GoogleFonts.poppins(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.review_text.withOpacity(1),
+                    ),
                   ),
-                ),
-              ],
+                  Text(
+                    reviews,
+                    style: GoogleFonts.poppins(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.review_text.withOpacity(1),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

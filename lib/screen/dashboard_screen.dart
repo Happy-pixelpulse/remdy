@@ -152,25 +152,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       color:
                                           AppColors.secondary.withOpacity(1)),
                                   child: Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 17, right: 17),
+                                    padding: const EdgeInsets.only(
+                                        left: 17, right: 17),
                                     child: TextField(
                                       decoration: InputDecoration(
-                                          suffixIcon: IconButton(
-                                            icon: Icon(Icons.cancel_outlined),
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                          ),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.only(
-                                                topRight: Radius.circular(10),
-                                                bottomLeft: Radius.circular(10),
-                                                bottomRight:
-                                                    Radius.circular(10)),
-                                          ),
-                                          labelText:
-                                              "Area / Sectore / Locality"),
+                                        suffixIcon: IconButton(
+                                          icon:
+                                              const Icon(Icons.cancel_outlined),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                        enabledBorder: const OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10)),
+                                        ),
+                                        focusedBorder: const OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10)),
+                                        ),
+                                        labelText: "Area / Sectore / Locality",
+                                        labelStyle: const TextStyle(
+                                            color: AppColors.bottom_textfield),
+                                      ),
+                                      obscureText: true,
                                     ),
                                   )),
                               const SizedBox(
@@ -187,25 +192,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       color:
                                           AppColors.secondary.withOpacity(1)),
                                   child: Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 17, right: 17),
+                                    padding: const EdgeInsets.only(
+                                        left: 17, right: 17),
                                     child: TextField(
                                       decoration: InputDecoration(
-                                          suffixIcon: IconButton(
-                                            icon: Icon(Icons.cancel_outlined),
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                          ),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.only(
-                                                topRight: Radius.circular(10),
-                                                bottomLeft: Radius.circular(10),
-                                                bottomRight:
-                                                    Radius.circular(10)),
-                                          ),
-                                          labelText:
-                                              "Building / Floor / Apartment"),
+                                        suffixIcon: IconButton(
+                                          icon:
+                                              const Icon(Icons.cancel_outlined),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                        enabledBorder: const OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10)),
+                                        ),
+                                        focusedBorder: const OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10)),
+                                        ),
+                                        labelText:
+                                            "Building / Floor / Apartment",
+                                        labelStyle: const TextStyle(
+                                            color: AppColors.bottom_textfield),
+                                      ),
                                     ),
                                   )),
                               const SizedBox(
@@ -219,22 +229,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       color:
                                           AppColors.secondary.withOpacity(1)),
                                   child: Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 17, right: 17),
+                                    padding: const EdgeInsets.only(
+                                        left: 17, right: 17),
                                     child: TextField(
                                       decoration: InputDecoration(
-                                          suffixIcon: IconButton(
-                                            icon: Icon(Icons.cancel_outlined),
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                          ),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(10)),
-                                          ),
-                                          labelText:
-                                              "Near by Landmark (Optional)"),
+                                        contentPadding: EdgeInsets.symmetric(
+                                          vertical: 25.0,
+                                          horizontal: 10.0,
+                                        ),
+                                        suffixIcon: IconButton(
+                                          icon:
+                                              const Icon(Icons.cancel_outlined),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                        enabledBorder: const OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10)),
+                                        ),
+                                        labelText:
+                                            "Near by Landmark (Optional)",
+                                        labelStyle: const TextStyle(
+                                          color: AppColors.bottom_textfield,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 14,
+                                        ),
+                                      ),
                                     ),
                                   )),
                               const SizedBox(
@@ -411,10 +432,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top: 230, left: 16, right: 16),
                   child: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const DoctorList()),
+                        MaterialPageRoute(
+                            builder: (context) => const DoctorList()),
                       );
                     },
                     child: Container(
@@ -466,8 +488,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: GridView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.only(top: 20),
+                physics: const NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.only(top: 20),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 17,

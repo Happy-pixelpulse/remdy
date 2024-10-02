@@ -10,6 +10,8 @@ class Doctor extends StatelessWidget {
   final String specialty;
   final String patients;
   final String rating;
+  final bool isLiked;
+  final bool isAvailable;
 
   const Doctor({
     super.key,
@@ -18,12 +20,13 @@ class Doctor extends StatelessWidget {
     required this.specialty,
     required this.rating,
     required this.patients,
+    required this.isLiked,
+    required this.isAvailable,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 130,
+    return SizedBox(
       width: 161,
       child: Card(
         color: AppColors.secondary.withOpacity(1),
@@ -32,131 +35,145 @@ class Doctor extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20, left: 19.94),
-              child: Row(
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.network(
+                          imagePath,
+                          fit: BoxFit.fill,
+                          width: 60,
+                          height: 60,
+                        )),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          doctorName,
+                          style: GoogleFonts.poppins(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.dr_list.withOpacity(1),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          specialty,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.search_box_text.withOpacity(1),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          patients,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.search_box_text.withOpacity(1),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 31,
+                    ),
+                    if (isLiked)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 15,bottom: 35),
+                        child: Image.asset("assets/like_outline.png"),
+                      )
+                    else
+                      Padding(
+                        padding: const EdgeInsets.only(right: 15,bottom: 35),
+                        child: Image.asset("assets/like_outline.png"),
+                      ),
+                  ],
+                ),
+              ),
+              Row(
                 children: [
-                  Container(
-                      width: 59.83,
-                      height: 60,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: AppColors.secondary.withOpacity(1)),
-                      child: Image.network(imagePath)),
-                  SizedBox(
-                    width: 15,
+                  RatingBar.builder(
+                    maxRating: 5,
+                    direction: Axis.horizontal,
+                    minRating: 1,
+                    allowHalfRating: true,
+                    itemCount: 1,
+                    itemPadding: const EdgeInsets.symmetric(horizontal:20),
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star,
+                      color: AppColors.primary.withOpacity(1),
+                    ),
+                    onRatingUpdate: (rating) {
+                      print(rating);
+                    },
+                    itemSize: 17,
+                    unratedColor: Colors.grey[300],
+                    glow: true,
+                    glowColor: Colors.amber.withOpacity(0.5),
+                    ignoreGestures: false,
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        doctorName,
-                        style: GoogleFonts.poppins(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.dr_list.withOpacity(1),
+                  Text(
+                    rating,
+                    style: GoogleFonts.poppins(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.review_text.withOpacity(1),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 150,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: SizedBox(
+                      height: 34,
+                      width: 103,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            side: BorderSide(
+                              color: AppColors.sign_up_text_button_radius
+                                  .withOpacity(0.79),
+                              width: 1,
+                            ),
+                          ),
+                          backgroundColor: AppColors.secondary.withOpacity(0.25),
+                          shadowColor: AppColors.sign_text1.withOpacity(0.25),
+                          elevation: 0,
+                        ),
+                        onPressed:null,
+                        child: Text(
+                         isAvailable? "Available":"Full",
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: isAvailable?AppColors.primary.withOpacity(1):Colors.red,
+                          ),
                         ),
                       ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        specialty,
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.search_box_text.withOpacity(1),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        patients,
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.search_box_text.withOpacity(1),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  // Image.asset("like.png"),
-                  Icon(Icons.heart_broken, color: Colors.yellow[500])
                 ],
               ),
-            ),
-            Row(
-              children: [
-                RatingBar.builder(
-                  maxRating: 5,
-                  direction: Axis.horizontal,
-                  minRating: 1,
-                  allowHalfRating: true,
-                  itemCount: 1,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                  itemBuilder: (context, _) => Icon(
-                    Icons.star,
-                    color: AppColors.primary.withOpacity(1),
-                  ),
-                  onRatingUpdate: (rating) {
-                    print(rating);
-                  },
-                  itemSize: 20,
-                  unratedColor: Colors.grey[300],
-                  glow: false,
-                  glowColor: Colors.amber.withOpacity(0.5),
-                  ignoreGestures: false,
-                ),
-                SizedBox(
-                  width: 1,
-                ),
-                Text(
-                  rating,
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.review_text.withOpacity(1),
-                  ),
-                ),
-                SizedBox(width: 200,),
-                Positioned(
-                  left: 25,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        side: BorderSide(
-                          color: AppColors.sign_up_text_button_radius
-                              .withOpacity(0.79),
-                          width: 0.5,
-                        ),
-                      ),
-                      backgroundColor: AppColors.secondary.withOpacity(0.25),
-                      shadowColor: AppColors.sign_text1.withOpacity(0.25),
-                      elevation: 0,
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "Available",
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.review_text.withOpacity(1),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/search_button.dart';
+import 'package:remdy/screen/advance_search.dart';
+
 import '../common_widgets/dr_list.dart';
 import '../utils/colors.dart';
 
@@ -12,79 +14,67 @@ class DoctorList extends StatefulWidget {
 }
 
 class _DoctorListState extends State<DoctorList> {
-  final List<Map<String, String>> doctors = [
+  final List<Map<String, dynamic>> doctors = [
     {
       "imagePath":
           "https://pixelwallpaper.pixelpulseinc.com/assets/vactor/vactor_1.jfif",
-      "name": "Dr. Bellamy N",
-      "specialty": "Viralogist",
-      "patients": "(135 patients)",
-      "rating": "4.5"
+      "name": "Yong Gon Kim",
+      "specialty": "Lab technician",
+      "patients": "Accepting Patients",
+      "rating": "4.8",
+      "is_liked": false,
+      "is_available": true
     },
     {
       "imagePath":
           "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_1.jfif",
-      "name": "Dr. Mensah T",
-      "specialty": "Oncologists",
-      "patients": "(135 patients)",
-      "rating": "4.3"
+      "name": "Marc Berezin",
+      "specialty": "Pathologist",
+      "patients": "Accepting Patients",
+      "rating": "4.8",
+      "is_liked": false,
+      "is_available": false
     },
     {
       "imagePath":
           "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_2.jfif",
-      "name": "Dr. Klimisch J",
-      "specialty": "Surgeon",
-      "patients": "(135 patients)",
-      "rating": "4.5"
+      "name": "Michael Martynik",
+      "specialty": "General Practitioner",
+      "patients": "Accepting Patients",
+      "rating": "4.8",
+      "is_liked": false,
+      "is_available": true
     },
     {
       "imagePath":
           "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_3.jfif",
-      "name": "Dr. Martinez K",
-      "specialty": "Pediatrician",
-      "patients": "(135 patients)",
-      "rating": "4.3"
+      "name": "Alex Leyberman",
+      "specialty": "Neurologist",
+      "patients": "Accepting Patients",
+      "rating": "4.8",
+      "is_liked": false,
+      "is_available": true
     },
     {
       "imagePath":
           "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif",
-      "name": "Dr. Marc M",
-      "specialty": "Rheumatologists",
-      "patients": "(135 patients)",
-      "rating": "4.3"
+      "name": "John Danchik",
+      "specialty": "Nurse",
+      "patients": "Accepting Patients",
+      "rating": "4.8",
+      "is_liked": false,
+      "is_available": false
     },
     {
       "imagePath":
           "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_5.jfif",
-      "name": "Dr. O’Boyle J",
-      "specialty": "Radiologists",
-      "patients": "(135 patients)",
-      "rating": "4.5"
+      "name": "Marc Golden",
+      "specialty": "Pathologist",
+      "patients": "Accepting Patients",
+      "rating": "4.8",
+      "is_liked": false,
+      "is_available": true
     },
-    {
-      "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_6.jfif",
-      "name": "Dr. Mensah T",
-      "specialty": "Surgeon",
-      "patients": "(135 patients)",
-      "rating": "4.3"
-    },
-    {
-      "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_7.jfif",
-      "name": "Dr. Bellamy R",
-      "specialty": "Viralogist",
-      "patients": "(135 patients)",
-      "rating": "4.5"
-    },
-  ];
-  String dropdownvalue = 'Item 1';
-  var items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
   ];
 
   @override
@@ -123,13 +113,21 @@ class _DoctorListState extends State<DoctorList> {
                   const SizedBox(
                     width: 88,
                   ),
-                 Image.asset("assets/bell.png")
+                  Image.asset("assets/bell.png")
                 ],
               ),
               const SizedBox(
                 height: 16,
               ),
-              SearchButton(onPressed: () {}, buttonName: "Search Doctor")
+              SearchButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AdvanceSearch()),
+                    );
+                  },
+                  buttonName: "Search Doctor")
             ],
           ),
         ),
@@ -178,7 +176,7 @@ class _DoctorListState extends State<DoctorList> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 11,top: 10),
+                            padding: const EdgeInsets.only(left: 11, top: 10),
                             child: Text(
                               'Sort By',
                               style: GoogleFonts.poppins(
@@ -190,7 +188,7 @@ class _DoctorListState extends State<DoctorList> {
                           ),
                           const Spacer(),
                           Padding(
-                            padding: const EdgeInsets.only(left: 5,top: 10),
+                            padding: const EdgeInsets.only(left: 5, top: 10),
                             child: Image.asset("assets/chevron-down.png"),
                           ),
                         ],
@@ -206,7 +204,7 @@ class _DoctorListState extends State<DoctorList> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 10,top: 11),
+                            padding: const EdgeInsets.only(left: 10, top: 11),
                             child: Text(
                               'Filter',
                               style: GoogleFonts.poppins(
@@ -216,7 +214,9 @@ class _DoctorListState extends State<DoctorList> {
                               ),
                             ),
                           ),
-                          const SizedBox(width: 15,),
+                          const SizedBox(
+                            width: 15,
+                          ),
                           const Padding(
                             padding: EdgeInsets.only(top: 11),
                             child: Icon(Icons.tune),
@@ -234,7 +234,7 @@ class _DoctorListState extends State<DoctorList> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 5,top: 10),
+                            padding: const EdgeInsets.only(left: 5, top: 10),
                             child: Text(
                               'Review',
                               style: GoogleFonts.poppins(
@@ -246,7 +246,7 @@ class _DoctorListState extends State<DoctorList> {
                           ),
                           const Spacer(),
                           Padding(
-                            padding: const EdgeInsets.only(left: 5,top: 10),
+                            padding: const EdgeInsets.only(left: 5, top: 10),
                             child: Image.asset("assets/chevron-down.png"),
                           ),
                         ],
@@ -262,7 +262,7 @@ class _DoctorListState extends State<DoctorList> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 11,top: 10),
+                            padding: const EdgeInsets.only(left: 11, top: 10),
                             child: Text(
                               'Insurance',
                               style: GoogleFonts.poppins(
@@ -272,11 +272,6 @@ class _DoctorListState extends State<DoctorList> {
                               ),
                             ),
                           ),
-                          // Spacer(),
-                          // Padding(
-                          //   padding: const EdgeInsets.only(left: 5,top: 10),
-                          //   child: Image.asset("assets/chevron-down.png"),
-                          // ),
                         ],
                       ),
                     ),
@@ -285,7 +280,9 @@ class _DoctorListState extends State<DoctorList> {
               ),
             ),
           ),
-          const SizedBox(height: 3,),
+          const SizedBox(
+            height: 3,
+          ),
           Expanded(
             child: SizedBox(
               height: 50,
@@ -294,11 +291,13 @@ class _DoctorListState extends State<DoctorList> {
                 itemBuilder: (context, index) {
                   final doctor = doctors[index];
                   return Doctor(
-                    imagePath: doctor["imagePath"]!,
-                    doctorName: doctor["name"]!,
-                    specialty: doctor["specialty"]!,
-                    patients: doctor["patients"]!,
-                    rating: doctor["rating"]!,
+                    imagePath: doctor["imagePath"],
+                    doctorName: doctor["name"],
+                    specialty: doctor["specialty"],
+                    patients: doctor["patients"],
+                    rating: doctor["rating"],
+                    isLiked: doctor["is_liked"],
+                    isAvailable: doctor["is_available"],
                   );
                 },
               ),

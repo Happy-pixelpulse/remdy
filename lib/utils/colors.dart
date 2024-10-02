@@ -13,4 +13,5 @@ class AppColors {
   static const Color review_text = Color(0xFF6B779A);
   static const Color search_icon = Color(0xFF8a96bc);
   static const Color dr_list = Color(0xFF263257);
+  static const Color search_screen_rating = Color(0xFFfbc723);
 }

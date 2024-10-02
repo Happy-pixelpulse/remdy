@@ -47,8 +47,8 @@ class SearchButton extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 8,
-                    left: 68.95,
+                    top: 10,
+                    left: 69,
                     child: Text(
                       buttonName,
                       style: GoogleFonts.poppins(
