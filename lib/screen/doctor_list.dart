@@ -95,7 +95,9 @@ class _DoctorListState extends State<DoctorList> {
               Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: const Icon(Icons.arrow_back),
                     color: AppColors.secondary.withOpacity(1),
                   ),
