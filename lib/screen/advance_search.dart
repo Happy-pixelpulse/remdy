@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:remdy/common_widgets/common_app_bar.dart';
+
 
 import '../utils/colors.dart';
 
