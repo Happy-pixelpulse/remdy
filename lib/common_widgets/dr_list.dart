@@ -29,7 +29,7 @@ class Doctor extends StatelessWidget {
     return SizedBox(
       width: 161,
       child: Card(
-        color: AppColors.secondary.withOpacity(1),
+        color: AppColors.secondary,
         shadowColor: AppColors.sign_text1.withOpacity(0.06),
         semanticContainer: true,
         shape: RoundedRectangleBorder(
@@ -62,7 +62,7 @@ class Doctor extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
-                            color: AppColors.dr_list.withOpacity(1),
+                            color: AppColors.dr_list,
                           ),
                         ),
                         const SizedBox(
@@ -73,7 +73,7 @@ class Doctor extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
-                            color: AppColors.search_box_text.withOpacity(1),
+                            color: AppColors.search_box_text,
                           ),
                         ),
                         const SizedBox(
@@ -84,7 +84,7 @@ class Doctor extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
-                            color: AppColors.search_box_text.withOpacity(1),
+                            color: AppColors.search_box_text,
                           ),
                         ),
                       ],
@@ -116,7 +116,7 @@ class Doctor extends StatelessWidget {
                     itemPadding: const EdgeInsets.symmetric(horizontal:20),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
-                      color: AppColors.primary.withOpacity(1),
+                      color: AppColors.primary,
                     ),
                     onRatingUpdate: (rating) {
                       print(rating);
@@ -132,7 +132,7 @@ class Doctor extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: AppColors.review_text.withOpacity(1),
+                      color: AppColors.review_text,
                     ),
                   ),
                   const SizedBox(
@@ -164,7 +164,7 @@ class Doctor extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: isAvailable?AppColors.primary.withOpacity(1):Colors.red,
+                            color: isAvailable?AppColors.primary:Colors.red,
                           ),
                         ),
                       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/doctor_card.dart';
+import 'package:remdy/screen/advance_search.dart';
 import 'package:remdy/screen/doctor_list.dart';
 
 import '../utils/colors.dart';
@@ -101,7 +102,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(20),
                                 topRight: Radius.circular(20)),
-                            color: AppColors.secondary.withOpacity(1),
+                            color: AppColors.secondary,
                           ),
                           child: Column(
                             children: [
@@ -118,7 +119,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontSize: 22,
                                         fontWeight: FontWeight.w400,
                                         color: AppColors.bottom_text
-                                            .withOpacity(1),
+                                            ,
                                       ),
                                     ),
                                     const SizedBox(
@@ -132,7 +133,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         Icons.cancel_outlined,
                                         weight: 19,
                                         color:
-                                            AppColors.sign_text1.withOpacity(1),
+                                            AppColors.sign_text1,
                                       ),
                                     ),
                                   ],
@@ -150,7 +151,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           bottomLeft: Radius.circular(10),
                                           bottomRight: Radius.circular(10)),
                                       color:
-                                          AppColors.secondary.withOpacity(1)),
+                                          AppColors.secondary),
                                   child: Padding(
                                     padding: const EdgeInsets.only(
                                         left: 17, right: 17),
@@ -190,7 +191,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           bottomLeft: Radius.circular(10),
                                           bottomRight: Radius.circular(10)),
                                       color:
-                                          AppColors.secondary.withOpacity(1)),
+                                          AppColors.secondary),
                                   child: Padding(
                                     padding: const EdgeInsets.only(
                                         left: 17, right: 17),
@@ -227,7 +228,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
                                       color:
-                                          AppColors.secondary.withOpacity(1)),
+                                          AppColors.secondary),
                                   child: Padding(
                                     padding: const EdgeInsets.only(
                                         left: 17, right: 17),
@@ -270,7 +271,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor:
-                                          AppColors.primary.withOpacity(1),
+                                          AppColors.primary,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10),
                                       ),
@@ -284,7 +285,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontSize: 19,
                                         fontWeight: FontWeight.w400,
                                         color:
-                                            AppColors.secondary.withOpacity(1),
+                                            AppColors.secondary,
                                       ),
                                     ),
                                   ),
@@ -333,7 +334,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.w800,
-                    color: AppColors.secondary.withOpacity(1),
+                    color: AppColors.secondary,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -342,7 +343,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   style: GoogleFonts.poppins(
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
-                    color: AppColors.secondary.withOpacity(1),
+                    color: AppColors.secondary,
                   ),
                 ),
               ],
@@ -387,7 +388,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     style: GoogleFonts.poppins(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
-                      color: AppColors.secondary.withOpacity(1),
+                      color: AppColors.secondary,
                     ),
                   ),
                 ),
@@ -400,33 +401,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     style: GoogleFonts.poppins(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
-                      color: AppColors.secondary.withOpacity(1),
+                      color: AppColors.secondary,
                     ),
                   ),
                 ),
                 Positioned(
                   top: 185,
                   left: 222,
-                  child: Row(
-                    children: [
-                      Text(
-                        'Advance Search',
-                        style: GoogleFonts.poppins(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.secondary.withOpacity(1),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AdvanceSearch()),
+                      );
+                    },
+                    child: Row(
+                      children: [
+                        Text(
+                          'Advance Search',
+                          style: GoogleFonts.poppins(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.secondary,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 10),
-                      SizedBox(
-                          width: 22,
-                          height: 22,
-                          child: Image.asset(
-                            'assets/quicksearch.png',
+                        const SizedBox(width:6),
+                        SizedBox(
                             width: 22,
                             height: 22,
-                          )),
-                    ],
+                            child: Image.asset(
+                              'assets/quicksearch.png',
+                              width: 22,
+                              height: 22,
+                            )),
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
@@ -443,7 +453,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       height: 50,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: AppColors.secondary.withOpacity(1)),
+                          color: AppColors.secondary),
                       child: Row(
                         children: [
                           Padding(
@@ -462,7 +472,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
-                              color: AppColors.search_box_text.withOpacity(1),
+                              color: AppColors.search_box_text,
                             ),
                           ),
                         ],
@@ -480,7 +490,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.sign_text1.withOpacity(1),
+                  color: AppColors.sign_text1,
                 ),
               ),
             ),

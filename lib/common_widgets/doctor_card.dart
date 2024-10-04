@@ -26,7 +26,7 @@ class DoctorCard extends StatelessWidget {
       height: 198.33,
       width: 170,
       child: Card(
-        color: AppColors.secondary.withOpacity(1),
+        color: AppColors.secondary,
         shadowColor: AppColors.sign_text1.withOpacity(0.06),
         semanticContainer: true,
         shape: RoundedRectangleBorder(
@@ -53,7 +53,7 @@ class DoctorCard extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
-                color: AppColors.dr_name_text.withOpacity(1),
+                color: AppColors.dr_name_text,
               ),
             ),
             const SizedBox(height: 1.46),
@@ -62,7 +62,7 @@ class DoctorCard extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
-                color: AppColors.review_text.withOpacity(1),
+                color: AppColors.review_text,
               ),
             ),
             Padding(
@@ -96,7 +96,7 @@ class DoctorCard extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: AppColors.review_text.withOpacity(1),
+                      color: AppColors.review_text,
                     ),
                   ),
                   Text(
@@ -104,7 +104,7 @@ class DoctorCard extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: AppColors.review_text.withOpacity(1),
+                      color: AppColors.review_text,
                     ),
                   ),
                 ],

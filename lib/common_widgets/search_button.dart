@@ -28,11 +28,11 @@ class SearchButton extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14.19),
                   // side:  BorderSide(
-                  //   color: AppColors.secondary.withOpacity(1),
+                  //   color: AppColors.secondary,
                   //   width: 0.5,
                   // ),
                 ),
-                backgroundColor: AppColors.secondary.withOpacity(1),
+                backgroundColor: AppColors.secondary,
                 elevation: 0,
               ),
               onPressed: onPressed,
@@ -43,7 +43,7 @@ class SearchButton extends StatelessWidget {
                     top: 8,
                     child: Icon(
                       Icons.search_outlined,
-                      color: AppColors.search_icon.withOpacity(1),
+                      color: AppColors.search_icon,
                     ),
                   ),
                   Positioned(
@@ -54,7 +54,7 @@ class SearchButton extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
-                        color: AppColors.search_icon.withOpacity(1),
+                        color: AppColors.search_icon,
                       ),
                     ),
                   ),

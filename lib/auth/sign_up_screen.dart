@@ -31,7 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 style: GoogleFonts.poppins(
                   fontSize: 35,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.primary.withOpacity(1),
+                  color: AppColors.primary,
                 ),
               ),
               const SizedBox(height: 100),
@@ -55,7 +55,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 style: GoogleFonts.poppins(
                   fontSize: 13,
                   fontWeight: FontWeight.w400,
-                  color: AppColors.sign_text1.withOpacity(1),
+                  color: AppColors.sign_text1,
                 ),
               ),
             ],
@@ -72,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: 'By signning up,I agree to RemdY’s ',
                 style: GoogleFonts.poppins(
                   fontSize: 10,
-                  color: AppColors.sign_text1.withOpacity(1),
+                  color: AppColors.sign_text1,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -80,7 +80,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: 'Terms of Service',
                 style: GoogleFonts.poppins(
                   fontSize: 10,
-                  color: AppColors.primary.withOpacity(1),
+                  color: AppColors.primary,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -88,7 +88,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: ' and ',
                 style: GoogleFonts.poppins(
                   fontSize: 10,
-                  color: AppColors.sign_text1.withOpacity(1),
+                  color: AppColors.sign_text1,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -96,7 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: 'Privacy Policy',
                 style: GoogleFonts.poppins(
                   fontSize: 10,
-                  color: AppColors.primary.withOpacity(1),
+                  color: AppColors.primary,
                   fontWeight: FontWeight.w400,
                 ),
               ),
