@@ -55,7 +55,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 style: GoogleFonts.poppins(
                   fontSize: 13,
                   fontWeight: FontWeight.w400,
-                  color: AppColors.sign_text1,
+                  color: AppColors.signText1,
                 ),
               ),
             ],
@@ -72,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: 'By signning up,I agree to RemdY’s ',
                 style: GoogleFonts.poppins(
                   fontSize: 10,
-                  color: AppColors.sign_text1,
+                  color: AppColors.signText1,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -88,7 +88,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: ' and ',
                 style: GoogleFonts.poppins(
                   fontSize: 10,
-                  color: AppColors.sign_text1,
+                  color: AppColors.signText1,
                   fontWeight: FontWeight.w400,
                 ),
               ),

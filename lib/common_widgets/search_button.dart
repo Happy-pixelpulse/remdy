@@ -43,7 +43,7 @@ class SearchButton extends StatelessWidget {
                     top: 8,
                     child: Icon(
                       Icons.search_outlined,
-                      color: AppColors.search_icon,
+                      color: AppColors.searchIcon,
                     ),
                   ),
                   Positioned(
@@ -54,7 +54,7 @@ class SearchButton extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
-                        color: AppColors.search_icon,
+                        color: AppColors.searchIcon,
                       ),
                     ),
                   ),

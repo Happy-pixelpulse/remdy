@@ -30,7 +30,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 style: GoogleFonts.poppins(
                   fontSize: 28,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.sign_text1,
+                  color: AppColors.signText1,
                 ),
               ),
             ),
@@ -46,7 +46,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
-                      color: AppColors.sign_text1,
+                      color: AppColors.signText1,
                     ),
                   ),
                 ),
@@ -60,7 +60,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       borderRadius: BorderRadius.circular(15),
                       // Adjust radius as needed
                       border: Border.all(
-                          color: AppColors.sign_up_text_button_radius,
+                          color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
                   ),
@@ -79,7 +79,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
-                      color: AppColors.sign_text1,
+                      color: AppColors.signText1,
                     ),
                   ),
                 ),
@@ -93,7 +93,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       borderRadius: BorderRadius.circular(15),
                       // Adjust radius as needed
                       border: Border.all(
-                          color: AppColors.sign_up_text_button_radius,
+                          color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
                   ),
@@ -112,7 +112,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
-                      color: AppColors.sign_text1,
+                      color: AppColors.signText1,
                     ),
                   ),
                 ),
@@ -126,7 +126,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       borderRadius: BorderRadius.circular(15),
                       // Adjust radius as needed
                       border: Border.all(
-                          color: AppColors.sign_up_text_button_radius,
+                          color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
                   ),
@@ -143,7 +143,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
-                      color: AppColors.sign_text1,
+                      color: AppColors.signText1,
                     ),
                   ),
                 ),
@@ -166,7 +166,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
-                            color: AppColors.sign_text1,
+                            color: AppColors.signText1,
                           ),
                         ),
                       ],
@@ -187,7 +187,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
-                            color: AppColors.sign_text1,
+                            color: AppColors.signText1,
                           ),
                         ),
                       ],
@@ -208,7 +208,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
-                            color: AppColors.sign_text1,
+                            color: AppColors.signText1,
                           ),
                         ),
                       ],
@@ -231,7 +231,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
-                        color: AppColors.sign_text1,
+                        color: AppColors.signText1,
                       ),
                     ),
                   ],
@@ -245,7 +245,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 style: GoogleFonts.poppins(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
-                  color: AppColors.sign_text1,
+                  color: AppColors.signText1,
                 ),
               ),
             ),
@@ -268,7 +268,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
-                        color: AppColors.sign_text1,
+                        color: AppColors.signText1,
                       ),
                     ),
                   ],
@@ -289,7 +289,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
-                        color: AppColors.sign_text1,
+                        color: AppColors.signText1,
                       ),
                     ),
                   ],
@@ -310,7 +310,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
-                        color: AppColors.sign_text1,
+                        color: AppColors.signText1,
                       ),
                     ),
                   ],
@@ -329,7 +329,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
-                      color: AppColors.sign_text1,
+                      color: AppColors.signText1,
                     ),
                   ),
                 ),
@@ -346,7 +346,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       borderRadius: BorderRadius.circular(15),
                       // Adjust radius as needed
                       border: Border.all(
-                          color: AppColors.sign_up_text_button_radius,
+                          color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
                     child: Padding(
@@ -369,7 +369,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
-                      color: AppColors.sign_text1,
+                      color: AppColors.signText1,
                     ),
                   ),
                 ),
@@ -383,7 +383,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       borderRadius: BorderRadius.circular(15),
                       // Adjust radius as needed
                       border: Border.all(
-                          color: AppColors.sign_up_text_button_radius,
+                          color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
                     child: Padding(
@@ -409,7 +409,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       borderRadius: BorderRadius.circular(15),
                       // Adjust radius as needed
                       border: Border.all(
-                          color: AppColors.sign_up_text_button_radius,
+                          color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
                     child: Center(
@@ -435,7 +435,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       borderRadius: BorderRadius.circular(15),
                       // Adjust radius as needed
                       border: Border.all(
-                          color: AppColors.sign_up_text_button_radius,
+                          color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
                     child: Center(
@@ -446,7 +446,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: AppColors.sign_up_text_button_radius,
+                            color: AppColors.signUpTextButtonRadius,
                           ),
                         ),
                       ),

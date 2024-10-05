@@ -23,12 +23,12 @@ class SignUpButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
               side:  BorderSide(
-                color: AppColors.sign_up_text_button_radius.withOpacity(0.79),
+                color: AppColors.signUpTextButtonRadius.withOpacity(0.79),
                 width: 0.5,
               ),
             ),
             backgroundColor: AppColors.secondary.withOpacity(0.25),
-            shadowColor:AppColors.sign_text1.withOpacity(0.25),
+            shadowColor:AppColors.signText1.withOpacity(0.25),
             elevation: 0,
           ),
           onPressed: onPressed,
@@ -53,7 +53,7 @@ class SignUpButton extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      color: AppColors.sign_text1.withOpacity(0.8),
+                      color: AppColors.signText1.withOpacity(0.8),
                     ),
                   ),
                 ),
