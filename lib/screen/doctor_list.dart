@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/search_button.dart';
+import 'package:remdy/screen/notification_screen.dart';
+import 'package:remdy/screen/widgets/filter_widget.dart';
 
 import '../common_widgets/doctor_filter_list.dart';
 import '../common_widgets/dr_list.dart';
+import '../common_widgets/filter_list_manager.dart';
 import '../utils/colors.dart';
 
+enum FilterEnum { distance, availability, gender, experience }
 
-enum FilterEnum{distance,availability,gender, experience}
 class DoctorList extends StatefulWidget {
   const DoctorList({super.key});
 
@@ -78,28 +81,27 @@ class _DoctorListState extends State<DoctorList> {
       "is_available": true
     },
   ];
-
-  final List<DoctorFilterListData> _distanceDataList=[
-    DoctorFilterListData(id: 1,name: "Less than 2 kms"),
-    DoctorFilterListData(id: 2,name: "Less than 15 kms"),
-    DoctorFilterListData(id: 3,name: "Less than 10 kms"),
-    DoctorFilterListData(id: 4,name: "Entire city"),
+  final List<DoctorFilterListData> _distanceDataList = [
+    DoctorFilterListData(id: 1, name: "Less than 2 kms"),
+    DoctorFilterListData(id: 2, name: "Less than 15 kms"),
+    DoctorFilterListData(id: 3, name: "Less than 10 kms"),
+    DoctorFilterListData(id: 4, name: "Entire city"),
   ];
-  final List<DoctorFilterListData> _availabilityDataList=[
-    DoctorFilterListData(id: 1,name: "Available"),
-    DoctorFilterListData(id: 2,name: "Full"),
+  final List<DoctorFilterListData> _availabilityDataList = [
+    DoctorFilterListData(id: 1, name: "Available"),
+    DoctorFilterListData(id: 2, name: "Full"),
   ];
-  final List<DoctorFilterListData> _genderDataList=[
-    DoctorFilterListData(id: 1,name: "Male"),
-    DoctorFilterListData(id: 2,name: "Female"),
+  final List<DoctorFilterListData> _genderDataList = [
+    DoctorFilterListData(id: 1, name: "Male"),
+    DoctorFilterListData(id: 2, name: "Female"),
   ];
-  final List<DoctorFilterListData> _experienceDataList=[
-    DoctorFilterListData(id: 1,name: "High Expression"),
-    DoctorFilterListData(id: 2,name: "Less than 5 kms"),
-    DoctorFilterListData(id: 3,name: "Less than 15 kms"),
+  final List<DoctorFilterListData> _experienceDataList = [
+    DoctorFilterListData(id: 1, name: "High Expression"),
+    DoctorFilterListData(id: 2, name: "Less than 5 kms"),
+    DoctorFilterListData(id: 3, name: "Less than 15 kms"),
   ];
-  List<DoctorFilterListData> _getFilterList(FilterEnum filterEnum){
-    switch(filterEnum){
+  List<DoctorFilterListData> _getFilterList(FilterEnum filterEnum) {
+    switch (filterEnum) {
       case FilterEnum.distance:
         return _distanceDataList;
       case FilterEnum.availability:
@@ -110,15 +112,14 @@ class _DoctorListState extends State<DoctorList> {
         return _experienceDataList;
       default:
         return _distanceDataList;
-
     }
   }
+
   void showFilterOptions(
       BuildContext context,
       FilterEnum filterEnum,
       DoctorFilterListData? selectedValue,
-      Function(DoctorFilterListData) onSelected
-      ) {
+      Function(DoctorFilterListData) onSelected) {
     List<DoctorFilterListData> options = _getFilterList(filterEnum);
 
     showModalBottomSheet(
@@ -134,7 +135,7 @@ class _DoctorListState extends State<DoctorList> {
               onChanged: (DoctorFilterListData? value) {
                 if (value != null) {
                   onSelected(value);
-                  Navigator.pop(context);  // Close modal after selection
+                  Navigator.pop(context); // Close modal after selection
                 }
               },
             );
@@ -182,15 +183,21 @@ class _DoctorListState extends State<DoctorList> {
                   const SizedBox(
                     width: 88,
                   ),
-                  Image.asset("assets/bell.png")
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const NotificationScreen()),
+                        );
+                      },
+                      child: Image.asset("assets/bell.png"))
                 ],
               ),
               const SizedBox(
                 height: 16,
               ),
-              SearchButton(
-                  onPressed: () {},
-                  buttonName: "Search Doctor")
+              SearchButton(onPressed: () {}, buttonName: "Search Doctor")
             ],
           ),
         ),
@@ -205,210 +212,237 @@ class _DoctorListState extends State<DoctorList> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  const SizedBox(width: 16,),
+                  const SizedBox(
+                    width: 16,
+                  ),
                   Container(
                     width: 98,
                     height: 43,
                     child: Card(
                       child: GestureDetector(
-                        onTap: (){
-                          showModalBottomSheet(context: context, builder: (BuildContext context){
-                            return Container(
-                              width: 394,
-                              height: 433,
-                              decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20)),
-                                color: AppColors.secondary,
-                              ),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 17,
-                                      left: 150,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          'Sort By',
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.w400,
-                                            color: AppColors.bottomText,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 95           ,
-                                        ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child:const Icon(
-                                            Icons.cancel_outlined,
-                                            weight: 19,
-                                            color:
-                                            AppColors.signText1,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                        onTap: () {
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  width: 394,
+                                  height: 433,
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20),
+                                        topRight: Radius.circular(20)),
+                                    color: AppColors.secondary,
                                   ),
-                                  const SizedBox(
-                                    height: 21,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 17,right: 17),
-                                    child: Container(
-                                        width: 360,
-                                        height: 49,
-                                        decoration: BoxDecoration(
-                                            borderRadius: const BorderRadius.all(Radius.circular(15)),
-                                            border: Border.all(color: AppColors.bottomTextfield, width: 1),
-                                            color: AppColors.secondary
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 17,
+                                          left: 150,
                                         ),
                                         child: Row(
                                           children: [
-                                            Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Text(
-                                                'Number of patient stories-High to low',
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: AppColors.bottomText1,
-                                                ),
+                                            Text(
+                                              'Sort By',
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 22,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.bottomText,
                                               ),
                                             ),
-                                            const Icon(
-                                              Icons.circle_outlined,
-                                              weight: 19,
-                                              color:
-                                              AppColors.signText1,
+                                            const SizedBox(
+                                              width: 95,
                                             ),
-                                          ],
-                                        )
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 21,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 17,right: 17),
-                                    child: Container(
-                                        width: 360,
-                                        height: 49,
-                                        decoration: BoxDecoration(
-                                            borderRadius: const BorderRadius.all(Radius.circular(15)),
-                                            border: Border.all(color: AppColors.bottomTextfield, width: 1),
-                                            color: AppColors.secondary
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Text(
-                                                'Experience-High to Low',
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: AppColors.bottomText1,
-                                                ),
-                                              ),
-                                            ),
-                                            const Padding(
-                                              padding:  EdgeInsets.only(left: 115),
-                                              child: Icon(
-                                                Icons.circle_outlined,
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: const Icon(
+                                                Icons.cancel_outlined,
                                                 weight: 19,
-                                                color:
-                                                AppColors.signText1,
+                                                color: AppColors.signText1,
                                               ),
                                             ),
                                           ],
-                                        )
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 21,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 17,right: 17),
-                                    child: Container(
-                                        width: 360,
-                                        height: 49,
-                                        decoration: BoxDecoration(
-                                            borderRadius: const BorderRadius.all(Radius.circular(15)),
-                                            border: Border.all(color: AppColors.bottomTextfield, width: 1),
-                                            color: AppColors.secondary
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Row(
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: Text(
-                                                  'Distance-Near to Far',
-                                                  style: GoogleFonts.poppins(
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors.bottomText1,
-                                                  ),
-                                                ),
-                                              ),
-                                              const Padding(
-                                                padding: EdgeInsets.only(left: 122),
-                                                child: Icon(
-                                                  Icons.circle_outlined,
-                                                  weight: 19,
-                                                  color:
-                                                  AppColors.signText1,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        )
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 94,
-                                  ),
-                                  Padding(
-                                    padding:
-                                    const EdgeInsets.only(left: 17, right: 16),
-                                    child: SizedBox(
-                                      width: 361,
-                                      height: 52,
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor:
-                                          AppColors.primary,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(10),
-                                          ),
-                                        ),
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text(
-                                          'Apply',
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 19,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                            AppColors.secondary,
-                                          ),
                                         ),
                                       ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            );
-                          } );
+                                      const SizedBox(
+                                        height: 21,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 17, right: 17),
+                                        child: Container(
+                                            width: 360,
+                                            height: 49,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                        Radius.circular(15)),
+                                                border: Border.all(
+                                                    color: AppColors
+                                                        .bottomTextfield,
+                                                    width: 1),
+                                                color: AppColors.secondary),
+                                            child: Row(
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Text(
+                                                    'Number of patient stories-High to low',
+                                                    style: GoogleFonts.poppins(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color:
+                                                          AppColors.bottomText1,
+                                                    ),
+                                                  ),
+                                                ),
+                                                const Icon(
+                                                  Icons.circle_outlined,
+                                                  weight: 19,
+                                                  color: AppColors.signText1,
+                                                ),
+                                              ],
+                                            )),
+                                      ),
+                                      const SizedBox(
+                                        height: 21,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 17, right: 17),
+                                        child: Container(
+                                            width: 360,
+                                            height: 49,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                        Radius.circular(15)),
+                                                border: Border.all(
+                                                    color: AppColors
+                                                        .bottomTextfield,
+                                                    width: 1),
+                                                color: AppColors.secondary),
+                                            child: Row(
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Text(
+                                                    'Experience-High to Low',
+                                                    style: GoogleFonts.poppins(
+                                                      fontSize: 15,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color:
+                                                          AppColors.bottomText1,
+                                                    ),
+                                                  ),
+                                                ),
+                                                const Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 115),
+                                                  child: Icon(
+                                                    Icons.circle_outlined,
+                                                    weight: 19,
+                                                    color: AppColors.signText1,
+                                                  ),
+                                                ),
+                                              ],
+                                            )),
+                                      ),
+                                      const SizedBox(
+                                        height: 21,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 17, right: 17),
+                                        child: Container(
+                                            width: 360,
+                                            height: 49,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                        Radius.circular(15)),
+                                                border: Border.all(
+                                                    color: AppColors
+                                                        .bottomTextfield,
+                                                    width: 1),
+                                                color: AppColors.secondary),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Row(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                      'Distance-Near to Far',
+                                                      style:
+                                                          GoogleFonts.poppins(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        color: AppColors
+                                                            .bottomText1,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  const Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 122),
+                                                    child: Icon(
+                                                      Icons.circle_outlined,
+                                                      weight: 19,
+                                                      color:
+                                                          AppColors.signText1,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )),
+                                      ),
+                                      const SizedBox(
+                                        height: 94,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 17, right: 16),
+                                        child: SizedBox(
+                                          width: 361,
+                                          height: 52,
+                                          child: ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                              backgroundColor:
+                                                  AppColors.primary,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                            ),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              'Apply',
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 19,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.secondary,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              });
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -439,274 +473,13 @@ class _DoctorListState extends State<DoctorList> {
                     width: 98,
                     height: 43,
                     child: GestureDetector(
-                      onTap: (){
-                          showModalBottomSheet(
-                            context: context,
-                            builder: (context) {
-                              return Container(
-                                width: 393,
-                                height: 451,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20)),
-                                  color: AppColors.secondary,
-                                ),
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        top: 17,
-                                        left: 150,
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            'Filter',
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 22,
-                                              fontWeight: FontWeight.w400,
-                                              color: AppColors.bottomText,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            width: 95,
-                                          ),
-                                          GestureDetector(
-                                            onTap: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child:const Icon(
-                                              Icons.cancel_outlined,
-                                              weight: 19,
-                                              color:
-                                              AppColors.signText1,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Divider(
-                                      color:AppColors.bottomTextfield,
-                                      thickness: 1,
-                                      indent : 10,
-                                      endIndent : 10,
-                                    ),
-                                    SizedBox(height: 10,),
-                                    Row(children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 17),
-                                        child: Column(
-                                          children: [
-                                            Container(
-                                              height:38,
-                                              width:130,
-                                              child: Text(
-                                                'Distance',
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 19,
-                                                  fontWeight: FontWeight.w400,
-                                                  color:
-                                                  AppColors.filterText,
-                                                ),
-                                              ),
-                                            ),
-                                            Divider(
-                                              color:AppColors.bottomTextfield,
-                                              thickness: 1,
-                                              indent : 10,
-                                              endIndent : 10,
-                                            ),
-                                            // Divider(
-                                            //   height: 10,
-                                            //   color: Colors.green,
-                                            //   thickness: 1,
-                                            //   indent : 10,
-                                            //   endIndent : 10,
-                                            // ),
-                                            Container(
-                                              height:38,
-                                              width:130,
-                                              child: Text(
-                                                'Availability',
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 19,
-                                                  fontWeight: FontWeight.w400,
-                                                  color:
-                                                  AppColors.filterText,
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(height: 5,),
-                                            Container(
-                                              height:38,
-                                              width:130,
-                                              child: Text(
-                                                'Gender',
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 19,
-                                                  fontWeight: FontWeight.w400,
-                                                  color:
-                                                  AppColors.filterText,
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(height: 5,),
-                                            Container(
-                                              height:38,
-                                              width:130,
-                                              child: Text(
-                                                'Experience',
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 19,
-                                                  fontWeight: FontWeight.w400,
-                                                  color:
-                                                  AppColors.filterText,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Spacer(),
-                                      Column(
-                                        children: [
-                                          Container(
-                                            height:38,
-                                            width:130,
-                                            child: Text(
-                                              'ClearFilters',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.w400,
-                                                color:
-                                                AppColors.filterText,
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(height: 5,),
-                                          // Divider(
-                                          //   height: 10,
-                                          //   color: Colors.green,
-                                          //   thickness: 1,
-                                          //   indent : 10,
-                                          //   endIndent : 10,
-                                          // ),
-                                          Container(
-                                            height:38,
-                                            width:130,
-                                            child: Text(
-                                              'ClearFilters',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.w400,
-                                                color:
-                                                AppColors.filterText,
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(height: 5,),
-                                          Container(
-                                            height:38,
-                                            width:130,
-                                            child: Text(
-                                              'ClearFilters',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.w400,
-                                                color:
-                                                AppColors.filterText,
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(height: 5,),
-                                          Container(
-                                            height:38,
-                                            width:130,
-                                            child: Text(
-                                              'ClearFilters',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.w400,
-                                                color:
-                                                AppColors.filterText,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],),
-                                    const SizedBox(
-                                      height: 100,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Padding(
-                                          padding:
-                                          const EdgeInsets.only(left: 17, right: 16),
-                                          child: SizedBox(
-                                            width: 145,
-                                            height: 50,
-                                            child: ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                backgroundColor:
-                                                AppColors.secondary,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(10),
-                                                ),
-                                              ),
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: Text(
-                                                'ClearFilters',
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 19,
-                                                  fontWeight: FontWeight.w400,
-                                                  color:
-                                                  AppColors.filterText,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Spacer(),
-                                        Padding(
-                                          padding:
-                                          const EdgeInsets.only(right: 16),
-                                          child: SizedBox(
-                                            width: 145,
-                                            height: 50,
-                                            child: ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                backgroundColor:
-                                                AppColors.primary,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(10),
-                                                ),
-                                              ),
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: Text(
-                                                'Show Doctors',
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w400,
-                                                  color:
-                                                  AppColors.secondary,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          );
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) {
+                            return const FilterWidget();
+                          },
+                        );
                       },
                       child: Card(
                         child: Row(

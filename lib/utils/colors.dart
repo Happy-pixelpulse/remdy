@@ -5,6 +5,7 @@ class AppColors {
   static const Color secondary = Color(0xFFF2F2F2);
   static const Color signUpTextButtonRadius = Color(0xFF979797);
   static const Color signText1 = Color(0xFF000000);
+  static const Color lightBlack = Color(0xFF252525);
   static const Color searchBoxText = Color(0xFF8A96BC);
   static const Color drNameText = Color(0xFF222B45);
   static const Color bottomText = Color(0xFF393939);
