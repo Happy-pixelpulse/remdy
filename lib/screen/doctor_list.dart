@@ -81,6 +81,7 @@ class _DoctorListState extends State<DoctorList> {
       "is_available": true
     },
   ];
+  String? selected;
   final List<DoctorFilterListData> _distanceDataList = [
     DoctorFilterListData(id: 1, name: "Less than 2 kms"),
     DoctorFilterListData(id: 2, name: "Less than 15 kms"),
@@ -251,7 +252,7 @@ class _DoctorListState extends State<DoctorList> {
                                               ),
                                             ),
                                             const SizedBox(
-                                              width: 95,
+                                              width: 80,
                                             ),
                                             GestureDetector(
                                               onTap: () {
@@ -272,140 +273,113 @@ class _DoctorListState extends State<DoctorList> {
                                       Padding(
                                         padding: const EdgeInsets.only(
                                             left: 17, right: 17),
-                                        child: Container(
-                                            width: 360,
-                                            height: 49,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                        Radius.circular(15)),
-                                                border: Border.all(
-                                                    color: AppColors
-                                                        .bottomTextfield,
-                                                    width: 1),
-                                                color: AppColors.secondary),
-                                            child: Row(
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    'Number of patient stories-High to low',
-                                                    style: GoogleFonts.poppins(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color:
-                                                          AppColors.bottomText1,
-                                                    ),
-                                                  ),
-                                                ),
-                                                const Icon(
-                                                  Icons.circle_outlined,
-                                                  weight: 19,
-                                                  color: AppColors.signText1,
-                                                ),
-                                              ],
-                                            )),
-                                      ),
-                                      const SizedBox(
-                                        height: 21,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 17, right: 17),
-                                        child: Container(
-                                            width: 360,
-                                            height: 49,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                        Radius.circular(15)),
-                                                border: Border.all(
-                                                    color: AppColors
-                                                        .bottomTextfield,
-                                                    width: 1),
-                                                color: AppColors.secondary),
-                                            child: Row(
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    'Experience-High to Low',
-                                                    style: GoogleFonts.poppins(
-                                                      fontSize: 15,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color:
-                                                          AppColors.bottomText1,
-                                                    ),
-                                                  ),
-                                                ),
-                                                const Padding(
-                                                  padding: EdgeInsets.only(
-                                                      left: 115),
-                                                  child: Icon(
-                                                    Icons.circle_outlined,
-                                                    weight: 19,
-                                                    color: AppColors.signText1,
-                                                  ),
-                                                ),
-                                              ],
-                                            )),
-                                      ),
-                                      const SizedBox(
-                                        height: 21,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 17, right: 17),
-                                        child: Container(
-                                            width: 360,
-                                            height: 49,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                        Radius.circular(15)),
-                                                border: Border.all(
-                                                    color: AppColors
-                                                        .bottomTextfield,
-                                                    width: 1),
-                                                color: AppColors.secondary),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Row(
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            8.0),
-                                                    child: Text(
-                                                      'Distance-Near to Far',
-                                                      style:
-                                                          GoogleFonts.poppins(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color: AppColors
-                                                            .bottomText1,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  const Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 122),
-                                                    child: Icon(
-                                                      Icons.circle_outlined,
-                                                      weight: 19,
-                                                      color:
-                                                          AppColors.signText1,
-                                                    ),
-                                                  ),
-                                                ],
+                                        child:   Container(
+                                          width: 360,
+                                          height: 49,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              const BorderRadius.all(
+                                                  Radius.circular(15)),
+                                              border: Border.all(
+                                                  color: AppColors
+                                                      .bottomTextfield,
+                                                  width: 1),
+                                              color: AppColors.secondary),
+                                          child:  RadioListTile<String>(
+                                            controlAffinity: ListTileControlAffinity.trailing,
+                                            title: Text(
+                                              'Number of patient stories-High to low',
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.bottomTextfieldText,
                                               ),
-                                            )),
+                                            ),
+                                            value: 'patientStories',
+                                            groupValue: selected,
+                                            onChanged: (String? value) {
+                                              setState(() {
+                                                selected = value;
+                                              });
+                                            },
+                                          ),),
+                                      ),
+                                      const SizedBox(
+                                        height: 21,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 17, right: 17),
+                                        child: Container(
+                                          width: 360,
+                                          height: 49,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              const BorderRadius.all(
+                                                  Radius.circular(15)),
+                                              border: Border.all(
+                                                  color: AppColors
+                                                      .bottomTextfield,
+                                                  width: 1),
+                                              color: AppColors.secondary),
+                                          child:  RadioListTile<String>(
+                                            controlAffinity: ListTileControlAffinity.trailing,
+                                            title: Text(
+                                              'Experience-High to Low',
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w400,
+                                                color: AppColors.bottomTextfieldText,
+                                              ),
+                                            ),
+                                            value: 'patientStories',
+                                            groupValue: selected,
+                                            onChanged: (String? value) {
+                                              setState(() {
+                                                selected = value;
+                                              });
+                                            },
+                                          ),),
+                                      ),
+                                      const SizedBox(
+                                        height: 21,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 17, right: 17),
+                                        child: Container(
+                                          width: 360,
+                                          height: 49,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              const BorderRadius.all(
+                                                  Radius.circular(15)),
+                                              border: Border.all(
+                                                  color: AppColors
+                                                      .bottomTextfield,
+                                                  width: 1),
+                                              color: AppColors.secondary),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(bottom: 15),
+                                            child: RadioListTile<String>(
+                                              controlAffinity: ListTileControlAffinity.trailing,
+                                              title: Text(
+                                                'Distance-Near to Far',
+                                                style: GoogleFonts.poppins(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: AppColors.bottomTextfieldText,
+                                                ),
+                                              ),
+                                              value: 'patientStories',
+                                              groupValue: selected,
+                                              onChanged: (String? value) {
+                                                setState(() {
+                                                  selected = value;
+                                                });
+                                              },
+                                            ),
+                                          ),),
                                       ),
                                       const SizedBox(
                                         height: 94,

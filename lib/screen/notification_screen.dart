@@ -31,54 +31,333 @@ class NotificationScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        toolbarHeight: 70,
+        toolbarHeight: 100,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: SizedBox(
-                height: 74,
-                width: 363,
-                child: Card(
-                  elevation: 1,
-                  child: ListTile(
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: CircleAvatar(
-                          radius: 30,
-                          backgroundImage: NetworkImage(
-                              'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif')),
-                    ),
-                    title: Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.signText1,
+      body: ListView(
+        shrinkWrap: true,
+        // scrollDirection: Axis.vertical,
+        children: [
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 14, left: 11),
+                child: Container(
+                  width: 363,
+                  height: 74,
+                  decoration: BoxDecoration(
+                    color: AppColors.drContainer,
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 65,
+                        width: 65,
+                        decoration: BoxDecoration(
+                            color: AppColors.primary,
+                            borderRadius: BorderRadius.circular(30)
+                        ),
+                        child: CircleAvatar(
+                            radius: 30,
+                            backgroundImage: NetworkImage(
+                                'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif')),
                       ),
-                    ),
-                    subtitle: const Text('1m ago'),
-                    trailing: CircleAvatar(
-                      radius: 12,
-                      backgroundColor: Colors.red,
-                      child: const Text(
-                        '1',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15,left: 8),
+                            child: Text(
+                              'Lorem ipsum dolor sit amet, consectetur',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.signText1,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 137),
+                            child: Text(
+                              'adipiscing elit.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.signText1,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 172),
+                            child: Text(
+                              '1m ago.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.notificationText,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 10,),
+                      CircleAvatar(
+                        radius: 12,
+                        backgroundColor: Colors.red,
+                        child:Text(
+                          '1',
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.secondary,
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
               ),
-            );
-          },
-        ),
+              Divider(
+                color: Colors.grey,
+                thickness: 1,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8,right: 8),
+                child: Container(
+                  width: 363,
+                  height: 74,
+                  decoration: BoxDecoration(
+                    color: AppColors.drContainer,
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 65,
+                        width: 65,
+                        decoration: BoxDecoration(
+                            color: AppColors.primary,
+                          borderRadius: BorderRadius.circular(30)
+                        ),
+                        child: CircleAvatar(
+                            radius: 30,
+                            backgroundImage: NetworkImage(
+                                'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif')),
+                      ),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15,left: 8),
+                            child: Text(
+                              'Lorem ipsum dolor sit amet, consectetur',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.signText1,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 137),
+                            child: Text(
+                              'adipiscing elit.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.signText1,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 172),
+                            child: Text(
+                              '1m ago.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.notificationText,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 10,),
+                      CircleAvatar(
+                        radius: 12,
+                        backgroundColor: Colors.red,
+                        child:Text(
+                          '1',
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.secondary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Divider(
+                color: Colors.grey,
+                thickness: 1,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8,right: 8),
+                child: Container(
+                  width: 363,
+                  height: 74,
+                  decoration: BoxDecoration(
+                    color: AppColors.drContainer,
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 65,
+                        width: 65,
+                        decoration: BoxDecoration(
+                            color: AppColors.primary,
+                            borderRadius: BorderRadius.circular(30)
+                        ),
+                        child: CircleAvatar(
+                            radius: 30,
+                            backgroundImage: NetworkImage(
+                                'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif')),
+                      ),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15,left: 8),
+                            child: Text(
+                              'Lorem ipsum dolor sit amet, consectetur',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.signText1,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 137),
+                            child: Text(
+                              'adipiscing elit.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.signText1,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 172),
+                            child: Text(
+                              '1m ago.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.notificationText,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 10,),
+                      CircleAvatar(
+                        radius: 12,
+                        backgroundColor: Colors.red,
+                        child:Text(
+                          '1',
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.secondary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Divider(
+                color: Colors.grey,
+                thickness: 1,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8,right: 8),
+                child: Container(
+                  width: 363,
+                  height: 74,
+                  decoration: BoxDecoration(
+                    color: AppColors.drContainer,
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 65,
+                        width: 65,
+                        decoration: BoxDecoration(
+                            color: AppColors.primary,
+                            borderRadius: BorderRadius.circular(30)
+                        ),
+                        child: CircleAvatar(
+                            radius: 30,
+                            backgroundImage: NetworkImage(
+                                'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif')),
+                      ),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15,left: 8),
+                            child: Text(
+                              'Lorem ipsum dolor sit amet, consectetur',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.signText1,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 137),
+                            child: Text(
+                              'adipiscing elit.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.signText1,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 172),
+                            child: Text(
+                              '1m ago.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.notificationText,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 10,),
+                      CircleAvatar(
+                        radius: 12,
+                        backgroundColor: Colors.red,
+                        child:Text(
+                          '1',
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.secondary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }

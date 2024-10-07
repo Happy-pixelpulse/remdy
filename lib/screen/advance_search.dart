@@ -153,6 +153,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     Row(
                       children: [
                         Radio<String>(
+                          activeColor: AppColors.primary,
                           value: 'Female',
                           groupValue: selectedGender,
                           onChanged: (value) {
@@ -174,6 +175,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     Row(
                       children: [
                         Radio<String>(
+                          activeColor: AppColors.primary,
                           value: 'Male',
                           groupValue: selectedGender,
                           onChanged: (value) {
@@ -195,6 +197,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     Row(
                       children: [
                         Radio<String>(
+                          activeColor: AppColors.primary,
                           value: 'Non-Binary',
                           groupValue: selectedGender,
                           onChanged: (value) {
@@ -218,6 +221,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Row(
                   children: [
                     Radio<String>(
+                      activeColor: AppColors.primary,
                       value: 'All',
                       groupValue: selectedGender,
                       onChanged: (value) {
@@ -255,6 +259,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Row(
                   children: [
                     Radio<String>(
+                      activeColor: AppColors.primary,
                       value: 'Family Doctor',
                       groupValue: selectedDoctorType,
                       onChanged: (value) {
@@ -276,6 +281,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Row(
                   children: [
                     Radio<String>(
+                      activeColor: AppColors.primary,
                       value: 'Specialist',
                       groupValue: selectedDoctorType,
                       onChanged: (value) {
@@ -297,6 +303,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Row(
                   children: [
                     Radio<String>(
+                      activeColor: AppColors.primary,
                       value: 'All',
                       groupValue: selectedDoctorType,
                       onChanged: (value) {

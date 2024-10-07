@@ -19,4 +19,5 @@ class AppColors {
   static const Color drContainer = Color(0xFFF7F8F8);
   static const Color tp = Color(0xFFFFFFFF);
   static const Color filterText = Color(0xFFBABABC);
+  static const Color notificationText = Color(0xFF6C6C6C);
 }

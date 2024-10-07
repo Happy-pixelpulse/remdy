@@ -151,8 +151,8 @@ class _FilterWidgetState extends State<FilterWidget> {
                             const Divider(
                               color: AppColors.bottomTextfield,
                               thickness: 1,
-                              indent: 10,
-                              endIndent: 10,
+                              indent: 5,
+                              endIndent: 5,
                             ),
                             const SizedBox(
                               height: 5,
