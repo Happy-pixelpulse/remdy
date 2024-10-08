@@ -4,12 +4,11 @@ import 'package:remdy/common_widgets/search_button.dart';
 import 'package:remdy/screen/notification_screen.dart';
 import 'package:remdy/screen/widgets/filter_widget.dart';
 
-import '../common_widgets/doctor_filter_list.dart';
 import '../common_widgets/dr_list.dart';
-import '../common_widgets/filter_list_manager.dart';
 import '../utils/colors.dart';
 
 enum FilterEnum { distance, availability, gender, experience }
+enum SortOptions { patientStories, experience, distance }
 
 class DoctorList extends StatefulWidget {
   const DoctorList({super.key});
@@ -81,70 +80,7 @@ class _DoctorListState extends State<DoctorList> {
       "is_available": true
     },
   ];
-  String? selected;
-  final List<DoctorFilterListData> _distanceDataList = [
-    DoctorFilterListData(id: 1, name: "Less than 2 kms"),
-    DoctorFilterListData(id: 2, name: "Less than 15 kms"),
-    DoctorFilterListData(id: 3, name: "Less than 10 kms"),
-    DoctorFilterListData(id: 4, name: "Entire city"),
-  ];
-  final List<DoctorFilterListData> _availabilityDataList = [
-    DoctorFilterListData(id: 1, name: "Available"),
-    DoctorFilterListData(id: 2, name: "Full"),
-  ];
-  final List<DoctorFilterListData> _genderDataList = [
-    DoctorFilterListData(id: 1, name: "Male"),
-    DoctorFilterListData(id: 2, name: "Female"),
-  ];
-  final List<DoctorFilterListData> _experienceDataList = [
-    DoctorFilterListData(id: 1, name: "High Expression"),
-    DoctorFilterListData(id: 2, name: "Less than 5 kms"),
-    DoctorFilterListData(id: 3, name: "Less than 15 kms"),
-  ];
-  List<DoctorFilterListData> _getFilterList(FilterEnum filterEnum) {
-    switch (filterEnum) {
-      case FilterEnum.distance:
-        return _distanceDataList;
-      case FilterEnum.availability:
-        return _availabilityDataList;
-      case FilterEnum.gender:
-        return _genderDataList;
-      case FilterEnum.experience:
-        return _experienceDataList;
-      default:
-        return _distanceDataList;
-    }
-  }
-
-  void showFilterOptions(
-      BuildContext context,
-      FilterEnum filterEnum,
-      DoctorFilterListData? selectedValue,
-      Function(DoctorFilterListData) onSelected) {
-    List<DoctorFilterListData> options = _getFilterList(filterEnum);
-
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: options.map((DoctorFilterListData option) {
-            return RadioListTile<DoctorFilterListData>(
-              title: Text(option.name),
-              value: option,
-              groupValue: selectedValue,
-              onChanged: (DoctorFilterListData? value) {
-                if (value != null) {
-                  onSelected(value);
-                  Navigator.pop(context); // Close modal after selection
-                }
-              },
-            );
-          }).toList(),
-        );
-      },
-    );
-  }
+  SortOptions? _selectedOption = SortOptions.patientStories;
 
   @override
   Widget build(BuildContext context) {
@@ -216,7 +152,7 @@ class _DoctorListState extends State<DoctorList> {
                   const SizedBox(
                     width: 16,
                   ),
-                  Container(
+                  SizedBox(
                     width: 98,
                     height: 43,
                     child: Card(
@@ -285,7 +221,8 @@ class _DoctorListState extends State<DoctorList> {
                                                       .bottomTextfield,
                                                   width: 1),
                                               color: AppColors.secondary),
-                                          child:  RadioListTile<String>(
+                                          child:  RadioListTile<SortOptions>(
+                                            activeColor: AppColors.primary,
                                             controlAffinity: ListTileControlAffinity.trailing,
                                             title: Text(
                                               'Number of patient stories-High to low',
@@ -295,11 +232,11 @@ class _DoctorListState extends State<DoctorList> {
                                                 color: AppColors.bottomTextfieldText,
                                               ),
                                             ),
-                                            value: 'patientStories',
-                                            groupValue: selected,
-                                            onChanged: (String? value) {
+                                            value: SortOptions.patientStories,
+                                            groupValue: _selectedOption,
+                                            onChanged: (SortOptions? value) {
                                               setState(() {
-                                                selected = value;
+                                                _selectedOption = value;
                                               });
                                             },
                                           ),),
@@ -322,7 +259,7 @@ class _DoctorListState extends State<DoctorList> {
                                                       .bottomTextfield,
                                                   width: 1),
                                               color: AppColors.secondary),
-                                          child:  RadioListTile<String>(
+                                          child:  RadioListTile<SortOptions>(
                                             controlAffinity: ListTileControlAffinity.trailing,
                                             title: Text(
                                               'Experience-High to Low',
@@ -332,11 +269,11 @@ class _DoctorListState extends State<DoctorList> {
                                                 color: AppColors.bottomTextfieldText,
                                               ),
                                             ),
-                                            value: 'patientStories',
-                                            groupValue: selected,
-                                            onChanged: (String? value) {
+                                            value: SortOptions.patientStories,
+                                            groupValue: _selectedOption,
+                                            onChanged: (SortOptions? value) {
                                               setState(() {
-                                                selected = value;
+                                                _selectedOption = value;
                                               });
                                             },
                                           ),),
@@ -361,7 +298,7 @@ class _DoctorListState extends State<DoctorList> {
                                               color: AppColors.secondary),
                                           child: Padding(
                                             padding: const EdgeInsets.only(bottom: 15),
-                                            child: RadioListTile<String>(
+                                            child: RadioListTile<SortOptions>(
                                               controlAffinity: ListTileControlAffinity.trailing,
                                               title: Text(
                                                 'Distance-Near to Far',
@@ -371,11 +308,11 @@ class _DoctorListState extends State<DoctorList> {
                                                   color: AppColors.bottomTextfieldText,
                                                 ),
                                               ),
-                                              value: 'patientStories',
-                                              groupValue: selected,
-                                              onChanged: (String? value) {
+                                              value: SortOptions.patientStories,
+                                              groupValue: _selectedOption,
+                                              onChanged: (SortOptions? value) {
                                                 setState(() {
-                                                  selected = value;
+                                                  _selectedOption = value;
                                                 });
                                               },
                                             ),

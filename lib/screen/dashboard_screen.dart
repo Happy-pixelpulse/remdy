@@ -256,10 +256,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       left: 17, right: 17),
                                   child: TextField(
                                     decoration: InputDecoration(
-                                      contentPadding: EdgeInsets.symmetric(
-                                        vertical: 25.0,
-                                        horizontal: 10.0,
-                                      ),
                                       suffixIcon: IconButton(
                                         icon:
                                         const Icon(Icons.cancel_outlined),
@@ -271,13 +267,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
+                                      focusedBorder: const OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10)),
+                                      ),
                                       labelText:
                                       "Near by Landmark (Optional)",
                                       labelStyle: const TextStyle(
-                                        color: AppColors.bottomTextfield,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
+                                          color: AppColors.bottomTextfield),
                                     ),
                                   ),
                                 )),

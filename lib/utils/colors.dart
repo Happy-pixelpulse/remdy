@@ -20,4 +20,9 @@ class AppColors {
   static const Color tp = Color(0xFFFFFFFF);
   static const Color filterText = Color(0xFFBABABC);
   static const Color notificationText = Color(0xFF6C6C6C);
+  static const Color drRating = Color(0xFFD87234);
+  static const Color drPatients = Color(0xFF7ACEFA);
+  static const Color drExperience = Color(0xFFFDF1F3);
+  static const Color drRatings = Color(0xFFFEF6EC);
+  static const Color drRatingsIcon = Color(0xFFF7C480);
 }

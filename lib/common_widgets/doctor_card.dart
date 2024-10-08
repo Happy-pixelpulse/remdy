@@ -6,6 +6,8 @@ import 'package:remdy/screen/doctor_details.dart';
 
 import '../utils/colors.dart';
 
+
+
 class DoctorCard extends StatelessWidget {
   final String imagePath;
   final String doctorName;
