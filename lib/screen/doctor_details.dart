@@ -64,9 +64,8 @@ class _DoctorDetailsState extends State<DoctorDetails> {
         actions: [
           IconButton(
             onPressed: () {
-              // Navigator.pop(context);
             },
-            icon: const Icon(Icons.add),
+            icon: Icon(Icons.more_vert),
             color: AppColors.signText1,
           ),
         ],
