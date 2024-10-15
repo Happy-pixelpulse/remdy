@@ -75,6 +75,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
@@ -376,15 +377,12 @@ class _DoctorDetailsState extends State<DoctorDetails> {
               const SizedBox(
                 height: 11,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 230),
-                child: Text(
-                  'Quick Facts',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.drNameText,
-                  ),
+              Text(
+                'Quick Facts',
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.drNameText,
                 ),
               ),
               const SizedBox(
@@ -511,141 +509,111 @@ class _DoctorDetailsState extends State<DoctorDetails> {
               const SizedBox(
                 height: 13,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 220),
-                child: Text(
-                  'About Doctor',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.drNameText,
-                  ),
+              Text(
+                'About Doctor',
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.drNameText,
                 ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 5),
-                child: Text(
-                  'Dr. Bellamy Nicholasis an interventional cardiologist and the Director of the Cardiorenal Program at Columbia University Irving Medical Center/NewYork-Presbyterian Hospital. She earned her medical degree from the University of Southern California and a Master\s in Clinical Research and Translational Science from Mayo Clinic Rochester.',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.reviewText,
-                  ),
+              Text(
+                'Dr. Bellamy Nicholasis an interventional cardiologist and the Director of the Cardiorenal Program at Columbia University Irving Medical Center/NewYork-Presbyterian Hospital. She earned her medical degree from the University of Southern California and a Master\s in Clinical Research and Translational Science from Mayo Clinic Rochester.',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.reviewText,
                 ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 270),
-                child: Text(
-                  'Specialties',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.drNameText,
-                  ),
+              Text(
+                'Specialties',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.drNameText,
                 ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 125),
-                child: Text(
-                  'SPECIALTY : Diagnostic Radiology \nISSUED ON : Effective:30 Jun 2021\nTYPE : RCPSC Specialist',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.reviewText,
-                  ),
+              Text(
+                'SPECIALTY : Diagnostic Radiology \nISSUED ON : Effective:30 Jun 2021\nTYPE : RCPSC Specialist',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.reviewText,
                 ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 190),
-                child: Text(
-                  'Postgraduate Training',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.drNameText,
-                  ),
+              Text(
+                'Postgraduate Training',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.drNameText,
                 ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 40),
-                child: Text(
-                  'University of Toronto, 01 Jul 2016 to 22 Sep 2016\nAVP - Diagnostic Radiology\nUniversity of Toronto, 01 Jul 2016 to 22 Sep 2016\nAVP - Diagnostic Radiology',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.reviewText,
-                  ),
+              Text(
+                'University of Toronto, 01 Jul 2016 to 22 Sep 2016\nAVP - Diagnostic Radiology\nUniversity of Toronto, 01 Jul 2016 to 22 Sep 2016\nAVP - Diagnostic Radiology',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.reviewText,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 200),
-                child: Text(
-                  'Registration History',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.drNameText,
-                  ),
+              Text(
+                'Registration History',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.drNameText,
                 ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 40),
-                child: Text(
-                  'First certificate of registration issued: Pre Entry Assessment Program Certificate ISSUE DATE : Effective: 01 Jul 2016 Transfer of class of registration to: Postgraduate Education Certificate ISSUE DATE : Effective: 23 Sep 2016',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.reviewText,
-                  ),
+              Text(
+                'First certificate of registration issued: Pre Entry Assessment Program Certificate ISSUE DATE : Effective: 01 Jul 2016 Transfer of class of registration to: Postgraduate Education Certificate ISSUE DATE : Effective: 23 Sep 2016',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.reviewText,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 180),
-                child: Text(
-                  'Hospital Privileges  ',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.drNameText,
-                  ),
+              Text(
+                'Hospital Privileges  ',
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.drNameText,
                 ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 100),
-                child: Text(
-                  'Royal Victoria Regional Health Centre Barrie',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.reviewText,
-                  ),
+              Text(
+                'Royal Victoria Regional Health Centre Barrie',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.reviewText,
                 ),
               ),
               const SizedBox(
@@ -677,255 +645,225 @@ class _DoctorDetailsState extends State<DoctorDetails> {
               const SizedBox(
                 height: 5,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 185),
-                child: Text(
-                  'Accepting New Patients',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.reviewText,
-                  ),
+              Text(
+                'Accepting New Patients',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.reviewText,
                 ),
               ),
               const SizedBox(
                 height: 13,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 120),
-                child: Text(
-                  'Insurance Plans Accepted',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.drNameText,
-                  ),
+              Text(
+                'Insurance Plans Accepted',
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.drNameText,
                 ),
               ),
               const SizedBox(
                 height: 5,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 70),
-                child: Text(
-                  'AETNA\nAffinity Health Plan\nAgeWell\nAmida Care\nCIGNA\nEmblem/GHI\nEmblem/Hip\nEmpire Blue Cross Blue Shield Healthplus',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.reviewText,
-                  ),
+              Text(
+                'AETNA\nAffinity Health Plan\nAgeWell\nAmida Care\nCIGNA\nEmblem/GHI\nEmblem/Hip\nEmpire Blue Cross Blue Shield Healthplus',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.reviewText,
                 ),
               ),
               const SizedBox(
                 height: 13,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 15),
-                child: Container(
-                  width: 361,
-                  height: 372,
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(1)),
-                      color: AppColors.secondary),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Dr. Bellamy Nicholas’s Patient Review ',
+              Container(
+                width: 361,
+                height: 372,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(1)),
+                    color: AppColors.secondary),
+                child: Column(
+                  children: [
+                    Text(
+                      'Dr. Bellamy Nicholas’s Patient Review ',
+                      style: GoogleFonts.poppins(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.drNameText,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          '4.1',
+                          style: GoogleFonts.poppins(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.drNameText,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Column(
+                          children: [
+                            RatingBar.builder(
+                              maxRating: 5,
+                              direction: Axis.horizontal,
+                              minRating: 1,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              itemBuilder: (context, _) => const Icon(
+                                Icons.star,
+                                color: AppColors.drRating,
+                              ),
+                              onRatingUpdate: (rating) {
+                                if (kDebugMode) {
+                                  print(rating);
+                                }
+                              },
+                              itemSize: 17,
+                              unratedColor: Colors.grey[300],
+                              glow: true,
+                              glowColor: Colors.amber.withOpacity(0.5),
+                              ignoreGestures: false,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              '45 Ratings with 11 comments',
+                              style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.reviewText,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        minimumSize: const Size(345, 40),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        'Write Review ',
                         style: GoogleFonts.poppins(
                           fontSize: 17,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.drNameText,
+                          color: AppColors.signText1,
                         ),
                       ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      Row(
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      width: 181,
+                      height: 34,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              color: AppColors.signText1.withOpacity(0.13),
+                              width: 2),
+                          borderRadius: const BorderRadius.all(Radius.circular(15)),
+                          color: AppColors.secondary),
+                      child: Row(
                         children: [
-                          Text(
-                            '4.1',
-                            style: GoogleFonts.poppins(
-                              fontSize: 32,
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.drNameText,
+                          const SizedBox(width: 11,),
+                          Center(
+                            child: Text(
+                              'Sort Most recent',
+                              style: GoogleFonts.poppins(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.signText1,
+                              ),
                             ),
                           ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 105),
-                                child: RatingBar.builder(
-                                  maxRating: 5,
-                                  direction: Axis.horizontal,
-                                  minRating: 1,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemBuilder: (context, _) => const Icon(
-                                    Icons.star,
-                                    color: AppColors.drRating,
-                                  ),
-                                  onRatingUpdate: (rating) {
-                                    if (kDebugMode) {
-                                      print(rating);
-                                    }
-                                  },
-                                  itemSize: 17,
-                                  unratedColor: Colors.grey[300],
-                                  glow: true,
-                                  glowColor: Colors.amber.withOpacity(0.5),
-                                  ignoreGestures: false,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                '45 Ratings with 11 comments',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.reviewText,
-                                ),
-                              ),
-                            ],
-                          ),
+                          const SizedBox(width: 11,),
+                          SizedBox(
+                              height: 24,
+                              width: 24,
+                              child: Image.asset(
+                                'assets/chevron-down.png',
+                                height: 24,
+                                width: 24,
+                                fit: BoxFit.cover,
+                              ))
                         ],
                       ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.primary,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          minimumSize: const Size(345, 40),
-                        ),
-                        onPressed: () {},
-                        child: Text(
-                          'Write Review ',
-                          style: GoogleFonts.poppins(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.signText1,
-                          ),
-                        ),
+                    ),
+                    const SizedBox(height: 12,),
+                    Text(
+                      'Comments',
+                      style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.reviewText,
                       ),
-                      const SizedBox(
-                        height: 15,
+                    ),
+                    const SizedBox(height: 6,),
+                    RatingBar.builder(
+                      maxRating: 5,
+                      direction: Axis.horizontal,
+                      minRating: 1,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      itemBuilder: (context, _) => const Icon(
+                        Icons.star,
+                        color: AppColors.drRating,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 150),
-                        child: Container(
-                          width: 181,
-                          height: 34,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: AppColors.signText1.withOpacity(0.13),
-                                  width: 2),
-                              borderRadius: const BorderRadius.all(Radius.circular(15)),
-                              color: AppColors.secondary),
-                          child: Row(
-                            children: [
-                              const SizedBox(width: 11,),
-                              Center(
-                                child: Text(
-                                  'Sort Most recent',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                    color: AppColors.signText1,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 11,),
-                              SizedBox(
-                                  height: 24,
-                                  width: 24,
-                                  child: Image.asset(
-                                    'assets/chevron-down.png',
-                                    height: 24,
-                                    width: 24,
-                                    fit: BoxFit.cover,
-                                  ))
-                            ],
-                          ),
-                        ),
+                      onRatingUpdate: (rating) {
+                        if (kDebugMode) {
+                          print(rating);
+                        }
+                      },
+                      itemSize: 17,
+                      unratedColor: Colors.grey[300],
+                      glow: true,
+                      glowColor: Colors.amber.withOpacity(0.5),
+                      ignoreGestures: false,
+                    ),
+                    const SizedBox(height: 6,),
+                    Text(
+                      'April 21st , 2024',
+                      style: GoogleFonts.poppins(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.reviewText,
                       ),
-                      const SizedBox(height: 12,),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 240),
-                        child: Text(
-                          'Comments',
-                          style: GoogleFonts.poppins(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.reviewText,
-                          ),
+                    ),
+                    Text(
+                      'I had a cryptogenic stroke in the setting of a PFO Dr.\nSommer did a PFO closure for me quick and painless, his NP\nBarbara is also extremely astute and caring.',
+                      style: GoogleFonts.poppins(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.reviewText,
+                      ),
+                    ),
+                   const SizedBox(height: 22,),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 40),
+                      child: Text(
+                        'Show More',
+                        style: GoogleFonts.poppins(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.signUpTextButtonRadius,
                         ),
                       ),
-                      const SizedBox(height: 6,),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 240),
-                        child: RatingBar.builder(
-                          maxRating: 5,
-                          direction: Axis.horizontal,
-                          minRating: 1,
-                          allowHalfRating: true,
-                          itemCount: 5,
-                          itemBuilder: (context, _) => const Icon(
-                            Icons.star,
-                            color: AppColors.drRating,
-                          ),
-                          onRatingUpdate: (rating) {
-                            if (kDebugMode) {
-                              print(rating);
-                            }
-                          },
-                          itemSize: 17,
-                          unratedColor: Colors.grey[300],
-                          glow: true,
-                          glowColor: Colors.amber.withOpacity(0.5),
-                          ignoreGestures: false,
-                        ),
-                      ),
-                      const SizedBox(height: 6,),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 250),
-                        child: Text(
-                          'April 21st , 2024',
-                          style: GoogleFonts.poppins(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.reviewText,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: Text(
-                          'I had a cryptogenic stroke in the setting of a PFO Dr.\nSommer did a PFO closure for me quick and painless, his NP\nBarbara is also extremely astute and caring.',
-                          style: GoogleFonts.poppins(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.reviewText,
-                          ),
-                        ),
-                      ),
-                     const SizedBox(height: 22,),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 40),
-                        child: Text(
-                          'Show More',
-                          style: GoogleFonts.poppins(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.signUpTextButtonRadius,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],

@@ -29,4 +29,7 @@ class AppColors {
   static const Color headLine = Color(0xFF1C2A3A);
   static const Color hospitalText = Color(0xFF4B5563);
   static const Color hospitalLocationText = Color(0xFF6B7280);
+  static const Color container = Color(0xFFD8AA34);
+  static const Color profileSearch = Color(0xFF868686);
+  static const Color profileContainer = Color(0xFF8A8A8A);
 }

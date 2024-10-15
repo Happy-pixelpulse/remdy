@@ -4,9 +4,9 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/screen/advance_search.dart';
 import 'package:remdy/screen/doctor_list.dart';
-import 'package:remdy/screen/hospitaldetails.dart';
 import 'package:remdy/utils/colors.dart';
 
+import 'hospital_list.dart';
 import 'notification_screen.dart';
 
 class HospitalSearchScreenSearchScreen extends StatelessWidget {
@@ -661,7 +661,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const HospitalDetails()),
+                                  builder: (context) => const HospitalList()),
                             );
                           },
                           child: SizedBox(

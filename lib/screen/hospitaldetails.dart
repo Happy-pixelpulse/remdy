@@ -26,7 +26,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
           onPressed: () {},
           backgroundColor: Colors.green,
-          child: Icon(Icons.phone,color: AppColors.secondary,),
+          child: const Icon(Icons.phone,color: AppColors.secondary,),
           tooltip: 'Phone',
         ),
                 ),
@@ -35,14 +35,14 @@ class _HospitalDetailsState extends State<HospitalDetails> {
 
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
             onPressed: () {
             },
           ),
@@ -55,7 +55,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 9,),
+              const SizedBox(height: 9,),
               Container(
                 height: 213,
                 width: 371,
@@ -72,7 +72,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Text(
                 'Sunrise Health Clinic',
                 style: GoogleFonts.poppins(
@@ -81,7 +81,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                     color: AppColors.hospitalText
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 'Explore care at Hospital Center at Orange in Orange, NJ, and compare its services, physicians, and hospital ratings on Healthgrades. Find the best healthcare options for your needs, all in one place.',
                 style: GoogleFonts.poppins(
@@ -90,7 +90,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                     color: AppColors.reviewText,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -112,7 +112,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.secondary,
@@ -130,7 +130,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.secondary,
@@ -148,7 +148,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.secondary,
@@ -169,7 +169,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   ],
                 ),
               ),
-              SizedBox(height: 12,),
+              const SizedBox(height: 12,),
               Text(
                 'Quick Facts',
                 style: GoogleFonts.poppins(
@@ -178,7 +178,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                     color: AppColors.drNameText
                 ),
               ),
-              SizedBox(height: 11,),
+              const SizedBox(height: 11,),
               Column(
                 children: [
                   Row(
@@ -240,8 +240,8 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   ),
                 ],
               ),
-              SizedBox(height: 12,),
-              Container(
+              const SizedBox(height: 12,),
+              SizedBox(
                 width: 357,
                 height: 248,
                 child: Column(
@@ -255,7 +255,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                           color: AppColors.drNameText
                       ),
                     ),
-                    SizedBox(height: 15,),
+                    const SizedBox(height: 15,),
                     Row(
                       children: [
                         Image.asset('assets/map-pin.png',color: AppColors.signText1,),
@@ -275,7 +275,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   ],
                 ),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               Text(
                 'Insurance Plans Accepted',
                 style: GoogleFonts.poppins(
@@ -295,7 +295,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   color: AppColors.reviewText,
                 ),
               ),
-              SizedBox(height: 12,),
+              const SizedBox(height: 12,),
               Text(
                 'Hospital Quality',
                 style: GoogleFonts.poppins(
@@ -304,7 +304,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                     color: AppColors.drNameText
                 ),
               ),
-              SizedBox(height: 5,),
+              const SizedBox(height: 5,),
               Text(
                 'Clinical Ratings',
                 style: GoogleFonts.poppins(
@@ -321,7 +321,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   color: AppColors.reviewText,
                 ),
               ),
-              SizedBox(height: 12,),
+              const SizedBox(height: 12,),
               Container(
                 width: 361,
                 height: 372,
@@ -331,7 +331,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 7,),
+                    const SizedBox(height: 7,),
                     Text(
                       'Sunrise Health Clinic',
                       style: GoogleFonts.poppins(
@@ -395,7 +395,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12,),
+                    const SizedBox(height: 12,),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primary,
