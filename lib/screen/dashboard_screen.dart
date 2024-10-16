@@ -5,7 +5,7 @@ import 'package:remdy/screen/advance_search.dart';
 import 'package:remdy/screen/doctor_list.dart';
 import 'package:remdy/screen/hospital_search_screen.dart';
 import 'package:remdy/screen/notification_screen.dart';
-import 'package:remdy/screen/profile_screen.dart';
+import 'package:remdy/screen/setting_screen.dart';
 
 import '../utils/colors.dart';
 
@@ -112,7 +112,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ProfileScreen()),
+                        builder: (context) => const SettingScreen()),
                   );
                 },
                 child: Image.asset('assets/Profile.png')),
