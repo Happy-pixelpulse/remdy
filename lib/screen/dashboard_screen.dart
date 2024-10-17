@@ -138,8 +138,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       return Container(
                         width: 394,
                         height: 433,
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20)),
                           color: AppColors.secondary,
@@ -169,7 +169,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     onTap: () {
                                       Navigator.pop(context);
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.cancel_outlined,
                                       weight: 19,
                                       color:
@@ -185,8 +185,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             Container(
                                 width: 360,
                                 height: 49,
-                                decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
                                         bottomLeft: Radius.circular(10),
                                         bottomRight: Radius.circular(10)),
@@ -225,8 +225,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             Container(
                                 width: 360,
                                 height: 49,
-                                decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
                                         bottomLeft: Radius.circular(10),
                                         bottomRight: Radius.circular(10)),
@@ -353,8 +353,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       return Container(
                         width: 394,
                         height: 433,
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20)),
                           color: AppColors.secondary,
@@ -384,7 +384,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     onTap: () {
                                       Navigator.pop(context);
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.cancel_outlined,
                                       weight: 19,
                                       color:
@@ -400,8 +400,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             Container(
                                 width: 360,
                                 height: 49,
-                                decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
                                         bottomLeft: Radius.circular(10),
                                         bottomRight: Radius.circular(10)),
@@ -440,8 +440,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             Container(
                                 width: 360,
                                 height: 49,
-                                decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
                                         bottomLeft: Radius.circular(10),
                                         bottomRight: Radius.circular(10)),
@@ -489,7 +489,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       left: 17, right: 17),
                                   child: TextField(
                                     decoration: InputDecoration(
-                                      contentPadding: EdgeInsets.symmetric(
+                                      contentPadding: const EdgeInsets.symmetric(
                                         vertical: 25.0,
                                         horizontal: 10.0,
                                       ),

@@ -35,7 +35,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
                 onPressed: () {},
                 backgroundColor: Colors.green,
-                child: Icon(Icons.email,color: AppColors.secondary,),
+                child: const Icon(Icons.email,color: AppColors.secondary,),
                 tooltip: 'Email',
               ),
             ),
@@ -47,7 +47,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
               onPressed: () {},
               backgroundColor: Colors.green,
-              child: Icon(Icons.phone,color: AppColors.secondary,),
+              child: const Icon(Icons.phone,color: AppColors.secondary,),
               tooltip: 'Phone',
             ),
           ),
@@ -65,7 +65,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           IconButton(
             onPressed: () {
             },
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
             color: AppColors.signText1,
           ),
         ],

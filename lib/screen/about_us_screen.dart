@@ -28,7 +28,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
           onTap: (){
             Navigator.pop(context);
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back,
             color: AppColors.secondary,
           ),
@@ -49,7 +49,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
                 Text(
                   'About RemdY: Finding Family Doctors Near You',
                   style: GoogleFonts.poppins(
@@ -66,7 +66,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                     color: AppColors.signUpTextButtonRadius,
                   ),
                 ),
-                SizedBox(height: 25,),
+                const SizedBox(height: 25,),
                 Text(
                   'Our Approach',
                   style: GoogleFonts.poppins(
@@ -83,7 +83,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                     color: AppColors.signUpTextButtonRadius,
                   ),
                 ),
-                SizedBox(height: 25,),
+                const SizedBox(height: 25,),
                 Text(
                   'How RemdY Works',
                   style: GoogleFonts.poppins(
@@ -100,7 +100,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                     color: AppColors.signUpTextButtonRadius,
                   ),
                 ),
-                SizedBox(height: 25,),
+                const SizedBox(height: 25,),
                 Text(
                   'Our Commitment',
                   style: GoogleFonts.poppins(
@@ -117,7 +117,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                     color: AppColors.signUpTextButtonRadius,
                   ),
                 ),
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
                 Text(
                   'Join RemdY today and discover the difference personalized healthcare can make',
                   style: GoogleFonts.poppins(
