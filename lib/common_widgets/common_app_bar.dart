@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../screen/notification_screen.dart';
 import '../utils/colors.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget{
@@ -43,7 +44,15 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget{
                 const SizedBox(
                   width: 55,
                 ),
-                Image.asset("assets/bell.png")
+                GestureDetector(
+                    onTap:(){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NotificationScreen()),
+                      );
+                    },
+                    child: Image.asset("assets/bell.png"))
               ],
             ),
           ],

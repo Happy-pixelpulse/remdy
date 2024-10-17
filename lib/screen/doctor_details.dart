@@ -13,12 +13,6 @@ class DoctorDetails extends StatefulWidget {
 }
 
 class _DoctorDetailsState extends State<DoctorDetails> {
-  final List<String> items = [
-    'Summary',
-    'Location',
-    'Patient Review',
-    'Insurance'
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -337,39 +331,81 @@ class _DoctorDetailsState extends State<DoctorDetails> {
               const SizedBox(height: 11),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
-                child: SingleChildScrollView(
+                child:  SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      ...[
-                        for (int i = 0; i < 4; i++)
-                          Row(
-                            children: [
-                              Container(
-                                width: 98,
-                                height: 43,
-                                decoration: const BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(15)),
-                                    color: AppColors.secondary),
-                                child: Center(
-                                  child: Text(
-                                    '',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      color:
-                                          AppColors.signText1.withOpacity(0.70),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                            ],
-                          )
-                      ]
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.secondary,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          minimumSize: const Size(98, 43),
+                        ),
+                        onPressed: () {},
+                        child:  Text(
+                          'Summary',
+                          style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.signText1.withOpacity(0.70)
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.secondary,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          minimumSize: const Size(98 , 43),
+                        ),
+                        onPressed: () {},
+                        child:  Text(
+                          'Location',
+                          style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.signText1.withOpacity(0.70)
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.secondary,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          minimumSize: const Size(132, 43),
+                        ),
+                        onPressed: () {},
+                        child:  Text(
+                          'Patient Review',
+                          style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.signText1.withOpacity(0.70)
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.secondary,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          minimumSize: const Size(87, 43),
+                        ),
+                        onPressed: () {},
+                        child:  Text(
+                          'Insurance',
+                          style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.signText1.withOpacity(0.70)
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -685,6 +721,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     borderRadius: BorderRadius.all(Radius.circular(1)),
                     color: AppColors.secondary),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Dr. Bellamy Nicholas’s Patient Review ',
@@ -711,6 +748,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           width: 15,
                         ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             RatingBar.builder(
                               maxRating: 5,
@@ -853,7 +891,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     ),
                    const SizedBox(height: 22,),
                     Padding(
-                      padding: const EdgeInsets.only(top: 40),
+                      padding: const EdgeInsets.only(top: 40,left: 135),
                       child: Text(
                         'Show More',
                         style: GoogleFonts.poppins(
