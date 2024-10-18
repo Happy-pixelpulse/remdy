@@ -80,7 +80,7 @@ class _DoctorListState extends State<DoctorList> {
       "is_available": true
     },
   ];
-  SortOptions? _selectedOption = SortOptions.patientStories;
+  SortOptions? _selectedOption;
 
   @override
   Widget build(BuildContext context) {
@@ -260,6 +260,7 @@ class _DoctorListState extends State<DoctorList> {
                                                   width: 1),
                                               color: AppColors.secondary),
                                           child:  RadioListTile<SortOptions>(
+                                            activeColor: AppColors.primary,
                                             controlAffinity: ListTileControlAffinity.trailing,
                                             title: Text(
                                               'Experience-High to Low',
@@ -299,6 +300,7 @@ class _DoctorListState extends State<DoctorList> {
                                           child: Padding(
                                             padding: const EdgeInsets.only(bottom: 15),
                                             child: RadioListTile<SortOptions>(
+                                              activeColor: AppColors.primary,
                                               controlAffinity: ListTileControlAffinity.trailing,
                                               title: Text(
                                                 'Distance-Near to Far',

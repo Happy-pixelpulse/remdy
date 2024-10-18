@@ -26,8 +26,8 @@ class _HospitalDetailsState extends State<HospitalDetails> {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
           onPressed: () {},
           backgroundColor: Colors.green,
-          child: const Icon(Icons.phone,color: AppColors.secondary,),
           tooltip: 'Phone',
+          child: const Icon(Icons.phone,color: AppColors.secondary,),
         ),
                 ),
       ],
@@ -314,7 +314,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                 ),
               ),
               Text(
-                'Research hospital performance and talk to your\ndoctor about what\s right for you',
+                "Research hospital performance and talk to your\ndoctor about what's right for you",
                 style: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,

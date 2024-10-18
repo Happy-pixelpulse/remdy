@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/screen/advance_search.dart';
-import 'package:remdy/screen/doctor_list.dart';
 import 'package:remdy/utils/colors.dart';
 
 import 'hospital_list.dart';
@@ -478,9 +477,6 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
           ],
         ),
         automaticallyImplyLeading: false,
-        // flexibleSpace:
-        // FlexibleSpaceBar(
-        //     background:  Image.asset('assets/rectangle.png',fit: BoxFit.fill,),),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -556,7 +552,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const DoctorList()),
+                            builder: (context) => const HospitalList()),
                       );
                     },
                     child: Container(
@@ -578,7 +574,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                             width: 18,
                           ),
                           Text(
-                            'Search health issue.......',
+                            'Search Hospital......',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
@@ -656,174 +652,165 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                   children: [
                     ...[
                       for (int i = 0; i < 4; i++)
-                        GestureDetector(
-                          onTap:(){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HospitalList()),
-                            );
-                          },
-                          child: SizedBox(
-                            height: 252,
-                            width: 232,
-                            child: Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              elevation: 3,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Stack(
-                                      children: [
-                                    ClipRRect(
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(16.0),
-                                        topRight: Radius.circular(16.0),
-                                      ),
-                                      child: Image.network(
-                                        'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif',
-                                        height: 120,
-                                        width: double.infinity,
-                                        fit: BoxFit.cover,
-                                      ),
+                        SizedBox(
+                          height: 252,
+                          width: 232,
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            elevation: 3,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                    children: [
+                                  ClipRRect(
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(16.0),
+                                      topRight: Radius.circular(16.0),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 167),
-                                      child: IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.favorite_border,
-                                          color: AppColors.tp,
-                                        ),
-                                        iconSize: 35,
-                                      ),
-                                    ),
-                                  ]),
-                                  Padding(
-                                    padding: const EdgeInsets.all(12.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Sunrise Health Clinic',
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: AppColors.hospitalText,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 4),
-                                         Row(
-                                          children: [
-                                            // Image.asset('assets/map-pin.png'),
-                                            const Icon(Icons.location_on, size: 16),
-                                            const SizedBox(width: 4),
-                                            Text(
-                                              '123 Oak Street, CA 98765',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors.hospitalLocationText,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(height: 4),
-                                        Row(
-                                          children: [
-                                             Text(
-                                              '5.0',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors.hospitalLocationText,
-                                              ),
-                                            ),
-                                            // RatingBarIndicator(
-                                            //   rating: 5.0,
-                                            //   itemBuilder: (context, index) =>
-                                            //   const Icon(
-                                            //     Icons.star,
-                                            //     color: Colors.amber,
-                                            //   ),
-                                            //   itemCount: 5,
-                                            //   itemSize: 18.0,
-                                            //   direction: Axis.horizontal,
-                                            // ),
-                                            const SizedBox(width: 5),
-                                            RatingBar.builder(
-                                              direction: Axis.horizontal,
-                                              //minRating: 1,
-                                              allowHalfRating: true,
-                                              itemCount:5,
-                                              itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
-                                              itemBuilder: (context, _) =>  const Icon(
-                                                Icons.star,
-                                                color: Colors.amber,
-                                              ),
-                                              onRatingUpdate: (rating) {
-                                                if (kDebugMode) {
-                                                  print(rating);
-                                                }
-                                              },
-                                              itemSize: 17,
-                                              unratedColor: Colors.grey[300],
-                                              glow: false,
-                                              glowColor: AppColors.searchScreenRating,
-                                              ignoreGestures: false,
-                                            ),
-                                            const SizedBox(width: 4),
-                                            Text(
-                                              '(58 Reviews) ',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors.hospitalLocationText,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(height: 8),
-                                        const Divider(
-                                          color: AppColors.notificationText,
-                                          thickness: 1,
-                                          height: 10,
-                                        ),
-                                        Row(
-                                          children:  [
-                                            Image.asset('assets/routing.png',height: 22,width: 22,
-                                            fit: BoxFit.fill,),
-                                            const SizedBox(width: 4),
-                                            Text(
-                                              '2.5 km/40min',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors.hospitalLocationText,
-                                              ),
-                                            ),
-                                            const SizedBox(width: 10),
-                                            Image.asset('assets/Hospital.png',height: 22,width: 22,
-                                              fit: BoxFit.fill,),
-                                            const SizedBox(width: 4),
-                                            Text(
-                                              'Hospital',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors.hospitalLocationText,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                    child: Image.network(
+                                      'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif',
+                                      height: 120,
+                                      width: double.infinity,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                ],
-                              ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 167),
+                                    child: IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        Icons.favorite_border,
+                                        color: AppColors.tp,
+                                      ),
+                                      iconSize: 35,
+                                    ),
+                                  ),
+                                ]),
+                                Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Sunrise Health Clinic',
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColors.hospitalText,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                       Row(
+                                        children: [
+                                          // Image.asset('assets/map-pin.png'),
+                                          const Icon(Icons.location_on, size: 16),
+                                          const SizedBox(width: 4),
+                                          Text(
+                                            '123 Oak Street, CA 98765',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors.hospitalLocationText,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Row(
+                                        children: [
+                                           Text(
+                                            '5.0',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors.hospitalLocationText,
+                                            ),
+                                          ),
+                                          // RatingBarIndicator(
+                                          //   rating: 5.0,
+                                          //   itemBuilder: (context, index) =>
+                                          //   const Icon(
+                                          //     Icons.star,
+                                          //     color: Colors.amber,
+                                          //   ),
+                                          //   itemCount: 5,
+                                          //   itemSize: 18.0,
+                                          //   direction: Axis.horizontal,
+                                          // ),
+                                          const SizedBox(width: 5),
+                                          RatingBar.builder(
+                                            direction: Axis.horizontal,
+                                            //minRating: 1,
+                                            allowHalfRating: true,
+                                            itemCount:5,
+                                            itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
+                                            itemBuilder: (context, _) =>  const Icon(
+                                              Icons.star,
+                                              color: Colors.amber,
+                                            ),
+                                            onRatingUpdate: (rating) {
+                                              if (kDebugMode) {
+                                                print(rating);
+                                              }
+                                            },
+                                            itemSize: 17,
+                                            unratedColor: Colors.grey[300],
+                                            glow: false,
+                                            glowColor: AppColors.searchScreenRating,
+                                            ignoreGestures: false,
+                                          ),
+                                          const SizedBox(width: 4),
+                                          Text(
+                                            '(58 Reviews) ',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors.hospitalLocationText,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 8),
+                                      const Divider(
+                                        color: AppColors.notificationText,
+                                        thickness: 1,
+                                        height: 10,
+                                      ),
+                                      Row(
+                                        children:  [
+                                          Image.asset('assets/routing.png',height: 22,width: 22,
+                                          fit: BoxFit.fill,),
+                                          const SizedBox(width: 4),
+                                          Text(
+                                            '2.5 km/40min',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors.hospitalLocationText,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 10),
+                                          Image.asset('assets/Hospital.png',height: 22,width: 22,
+                                            fit: BoxFit.fill,),
+                                          const SizedBox(width: 4),
+                                          Text(
+                                            'Hospital',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors.hospitalLocationText,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),

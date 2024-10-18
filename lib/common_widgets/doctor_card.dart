@@ -48,7 +48,7 @@ class DoctorCard extends StatelessWidget {
             children: [
               Padding(
                 padding:
-                    const EdgeInsets.only(top: 22.47, right: 44.94, left: 46.9),
+                    const EdgeInsets.only(top: 22,right: 45, left: 47),
                 child:  Container(
                   width: 78,
                   height: 78,
@@ -56,9 +56,11 @@ class DoctorCard extends StatelessWidget {
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                   ),
-                  child: Image.network(
-                    imagePath,
-                    fit: BoxFit.cover,
+                  child:CircleAvatar(
+                    //radius: 60,
+                    backgroundImage: NetworkImage(
+                      imagePath,
+                    ),
                   ),
                 ),
               ),

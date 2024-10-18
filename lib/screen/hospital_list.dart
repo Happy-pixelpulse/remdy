@@ -86,7 +86,7 @@ class _HospitalListState extends State<HospitalList> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             SizedBox(
               height: 50,
               child: ListView(
@@ -459,7 +459,7 @@ class _HospitalListState extends State<HospitalList> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      SizedBox(width: 10,),
+                                      const SizedBox(width: 10,),
                                       Text(
                                         'Sunrise Health Clinic',
                                         style: GoogleFonts.poppins(
@@ -468,7 +468,7 @@ class _HospitalListState extends State<HospitalList> {
                                           color: AppColors.hospitalText,
                                         ),
                                       ),
-                                      SizedBox(width: 65,),
+                                      const SizedBox(width: 65,),
                                       Padding(
                                         padding: const EdgeInsets.only(left:50),
                                         child: IconButton(
@@ -546,7 +546,7 @@ class _HospitalListState extends State<HospitalList> {
                                             color: AppColors.hospitalLocationText,
                                           ),
                                         ),
-                                        SizedBox(width: 10,),
+                                        const SizedBox(width: 10,),
                                         Column(
                                           children: [
                                             Container(
@@ -571,13 +571,13 @@ class _HospitalListState extends State<HospitalList> {
                                                         color: AppColors.container,
                                                       ),
                                                     ),
-                                                    SizedBox(width: 5,),
+                                                    const SizedBox(width: 5,),
                                                     Image.asset('assets/trendingup.png')
                                                   ],
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(height: 4,),
+                                            const SizedBox(height: 4,),
                                             Text(
                                               'Estimated Wait Time : 00:30 hrs',
                                               style: GoogleFonts.poppins(
@@ -596,7 +596,7 @@ class _HospitalListState extends State<HospitalList> {
                                     thickness: 1,
                                     height: 10,
                                   ),
-                                  SizedBox(height: 5,),
+                                  const SizedBox(height: 5,),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Row(
