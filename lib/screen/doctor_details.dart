@@ -17,35 +17,16 @@ class _DoctorDetailsState extends State<DoctorDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Stack(
-        alignment: Alignment.bottomRight,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 70),
-            child: SizedBox(
-              height: 65,
-              width: 65,
-              child: FloatingActionButton(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-                onPressed: () {},
-                backgroundColor: Colors.green,
-                child: const Icon(Icons.email,color: AppColors.secondary,),
-                tooltip: 'Email',
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 65,
-            width: 65,
-            child: FloatingActionButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-              onPressed: () {},
-              backgroundColor: Colors.green,
-              child: const Icon(Icons.phone,color: AppColors.secondary,),
-              tooltip: 'Phone',
-            ),
-          ),
-        ],
+      floatingActionButton: SizedBox(
+        height: 65,
+        width: 65,
+        child: FloatingActionButton(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          onPressed: () {},
+          backgroundColor: Colors.green,
+          child: const Icon(Icons.phone,color: AppColors.secondary,),
+          tooltip: 'Phone',
+        ),
       ),
       appBar: AppBar(
         leading: IconButton(
