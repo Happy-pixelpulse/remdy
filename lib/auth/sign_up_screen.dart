@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:remdy/screen/dashboard_screen.dart';
 import 'package:remdy/screen/home_screen.dart';
 import '../common_widgets/sign_up_button.dart';
 import '../utils/colors.dart';
