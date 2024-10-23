@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:remdy/common_widgets/doctor_card.dart';
-import 'package:remdy/screen/advance_search.dart';
-import 'package:remdy/screen/doctor_list.dart';
-import 'package:remdy/screen/hospital_search_screen.dart';
-import 'package:remdy/screen/notification_screen.dart';
-import 'package:remdy/screen/setting_screen.dart';
-
+import '../common_widgets/doctor_card.dart';
 import '../utils/colors.dart';
+import 'advance_search.dart';
+import 'doctor_list.dart';
+import 'notification_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
-
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
 }
@@ -20,7 +15,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<Map<String, String>> doctors = [
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/vactor/vactor_1.jfif",
+      "https://pixelwallpaper.pixelpulseinc.com/assets/vactor/vactor_1.jfif",
       "name": "Dr. Bellamy N",
       "specialty": "Viralogist",
       "reviews": "(135 reviews)",
@@ -28,7 +23,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_1.jfif",
+      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_1.jfif",
       "name": "Dr. Mensah T",
       "specialty": "Oncologists",
       "reviews": "(135 reviews)",
@@ -36,7 +31,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_2.jfif",
+      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_2.jfif",
       "name": "Dr. Klimisch J",
       "specialty": "Surgeon",
       "reviews": "(135 reviews)",
@@ -44,7 +39,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_3.jfif",
+      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_3.jfif",
       "name": "Dr. Martinez K",
       "specialty": "Pediatrician",
       "reviews": "(135 reviews)",
@@ -52,7 +47,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif",
+      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif",
       "name": "Dr. Marc M",
       "specialty": "Rheumatologists",
       "reviews": "(135 reviews)",
@@ -60,7 +55,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_5.jfif",
+      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_5.jfif",
       "name": "Dr. O’Boyle J",
       "specialty": "Radiologists",
       "reviews": "(135 reviews)",
@@ -68,7 +63,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_6.jfif",
+      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_6.jfif",
       "name": "Dr. Mensah T",
       "specialty": "Surgeon",
       "reviews": "(135 reviews)",
@@ -76,62 +71,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_7.jfif",
+      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_7.jfif",
       "name": "Dr. Bellamy R",
       "specialty": "Viralogist",
       "reviews": "(135 reviews)",
       "rating": "4.5"
     },
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            GestureDetector(
-                onTap: () {
-                },
-                child: Image.asset('assets/Home.png')),
-            GestureDetector(
-              onTap: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const HospitalSearchScreenSearchScreen()),
-                );
-              },
-                child: Image.asset('assets/Hospital.png')),
-            Image.asset('assets/Favorite.png'),
-            GestureDetector(
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SettingScreen()),
-                  );
-                },
-                child: Image.asset('assets/Profile.png')),
-          ],
-        ),
-      ),
       appBar: AppBar(
         flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
-          'assets/rectangle_appbar_bg.png',
-          fit: BoxFit.fill,
-        )),
+              'assets/rectangle_appbar_bg.png',
+              fit: BoxFit.fill,
+            )),
         toolbarHeight: 70,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Row(
           children: [
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) {
@@ -158,8 +121,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     style: GoogleFonts.poppins(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
-                                      color: AppColors.bottomText
-                                      ,
+                                      color: AppColors.bottomText,
                                     ),
                                   ),
                                   const SizedBox(
@@ -172,8 +134,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     child: const Icon(
                                       Icons.cancel_outlined,
                                       weight: 19,
-                                      color:
-                                      AppColors.signText1,
+                                      color: AppColors.signText1,
                                     ),
                                   ),
                                 ],
@@ -190,16 +151,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         topRight: Radius.circular(10),
                                         bottomLeft: Radius.circular(10),
                                         bottomRight: Radius.circular(10)),
-                                    color:
-                                    AppColors.secondary),
+                                    color: AppColors.secondary),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
                                       left: 17, right: 17),
                                   child: TextField(
                                     decoration: InputDecoration(
                                       suffixIcon: IconButton(
-                                        icon:
-                                        const Icon(Icons.cancel_outlined),
+                                        icon: const Icon(Icons.cancel_outlined),
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
@@ -230,16 +189,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         topRight: Radius.circular(10),
                                         bottomLeft: Radius.circular(10),
                                         bottomRight: Radius.circular(10)),
-                                    color:
-                                    AppColors.secondary),
+                                    color: AppColors.secondary),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
                                       left: 17, right: 17),
                                   child: TextField(
                                     decoration: InputDecoration(
                                       suffixIcon: IconButton(
-                                        icon:
-                                        const Icon(Icons.cancel_outlined),
+                                        icon: const Icon(Icons.cancel_outlined),
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
@@ -252,8 +209,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText:
-                                      "Building / Floor / Apartment",
+                                      labelText: "Building / Floor / Apartment",
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -267,16 +223,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 height: 49,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15),
-                                    color:
-                                    AppColors.secondary),
+                                    color: AppColors.secondary),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
                                       left: 17, right: 17),
                                   child: TextField(
                                     decoration: InputDecoration(
                                       suffixIcon: IconButton(
-                                        icon:
-                                        const Icon(Icons.cancel_outlined),
+                                        icon: const Icon(Icons.cancel_outlined),
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
@@ -289,8 +243,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText:
-                                      "Near by Landmark (Optional)",
+                                      labelText: "Near by Landmark (Optional)",
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -307,8 +260,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 height: 52,
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                    AppColors.primary,
+                                    backgroundColor: AppColors.primary,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
@@ -321,8 +273,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     style: GoogleFonts.poppins(
                                       fontSize: 19,
                                       fontWeight: FontWeight.w400,
-                                      color:
-                                      AppColors.secondary,
+                                      color: AppColors.secondary,
                                     ),
                                   ),
                                 ),
@@ -346,7 +297,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               width: 8,
             ),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) {
@@ -373,8 +324,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     style: GoogleFonts.poppins(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
-                                      color: AppColors.bottomText
-                                      ,
+                                      color: AppColors.bottomText,
                                     ),
                                   ),
                                   const SizedBox(
@@ -387,8 +337,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     child: const Icon(
                                       Icons.cancel_outlined,
                                       weight: 19,
-                                      color:
-                                      AppColors.signText1,
+                                      color: AppColors.signText1,
                                     ),
                                   ),
                                 ],
@@ -405,16 +354,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         topRight: Radius.circular(10),
                                         bottomLeft: Radius.circular(10),
                                         bottomRight: Radius.circular(10)),
-                                    color:
-                                    AppColors.secondary),
+                                    color: AppColors.secondary),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
                                       left: 17, right: 17),
                                   child: TextField(
                                     decoration: InputDecoration(
                                       suffixIcon: IconButton(
-                                        icon:
-                                        const Icon(Icons.cancel_outlined),
+                                        icon: const Icon(Icons.cancel_outlined),
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
@@ -445,16 +392,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         topRight: Radius.circular(10),
                                         bottomLeft: Radius.circular(10),
                                         bottomRight: Radius.circular(10)),
-                                    color:
-                                    AppColors.secondary),
+                                    color: AppColors.secondary),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
                                       left: 17, right: 17),
                                   child: TextField(
                                     decoration: InputDecoration(
                                       suffixIcon: IconButton(
-                                        icon:
-                                        const Icon(Icons.cancel_outlined),
+                                        icon: const Icon(Icons.cancel_outlined),
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
@@ -467,8 +412,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText:
-                                      "Building / Floor / Apartment",
+                                      labelText: "Building / Floor / Apartment",
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -482,20 +426,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 height: 49,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15),
-                                    color:
-                                    AppColors.secondary),
+                                    color: AppColors.secondary),
                                 child: Padding(
                                   padding: const EdgeInsets.only(
                                       left: 17, right: 17),
                                   child: TextField(
                                     decoration: InputDecoration(
-                                      contentPadding: const EdgeInsets.symmetric(
+                                      contentPadding:
+                                      const EdgeInsets.symmetric(
                                         vertical: 25.0,
                                         horizontal: 10.0,
                                       ),
                                       suffixIcon: IconButton(
-                                        icon:
-                                        const Icon(Icons.cancel_outlined),
+                                        icon: const Icon(Icons.cancel_outlined),
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
@@ -504,8 +447,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText:
-                                      "Near by Landmark (Optional)",
+                                      labelText: "Near by Landmark (Optional)",
                                       labelStyle: const TextStyle(
                                         color: AppColors.bottomTextfield,
                                         fontWeight: FontWeight.w400,
@@ -525,8 +467,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 height: 52,
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                    AppColors.primary,
+                                    backgroundColor: AppColors.primary,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
@@ -539,8 +480,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     style: GoogleFonts.poppins(
                                       fontSize: 19,
                                       fontWeight: FontWeight.w400,
-                                      color:
-                                      AppColors.secondary,
+                                      color: AppColors.secondary,
                                     ),
                                   ),
                                 ),
@@ -577,7 +517,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             const Spacer(),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -605,9 +545,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ],
         ),
         automaticallyImplyLeading: false,
-        // flexibleSpace:
-        // FlexibleSpaceBar(
-        //     background:  Image.asset('assets/rectangle.png',fit: BoxFit.fill,),),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -645,7 +582,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   top: 185,
                   left: 222,
                   child: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -662,7 +599,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             color: AppColors.secondary,
                           ),
                         ),
-                        const SizedBox(width:6),
+                        const SizedBox(width: 6),
                         SizedBox(
                             width: 22,
                             height: 22,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/screen/dashboard_screen.dart';
+import 'package:remdy/screen/home_screen.dart';
 import '../common_widgets/sign_up_button.dart';
 import '../utils/colors.dart';
 
@@ -39,7 +40,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                      MaterialPageRoute(builder: (context) =>  HomeScreen()),
                     );
                   },
                   imageName: 'assets/google.png',

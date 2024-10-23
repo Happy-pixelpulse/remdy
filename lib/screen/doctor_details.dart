@@ -24,8 +24,33 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
           onPressed: () {},
           backgroundColor: Colors.green,
-          child: const Icon(Icons.phone,color: AppColors.secondary,),
           tooltip: 'Phone',
+          child:  const Icon(Icons.phone,color: AppColors.secondary,),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(left: 23, right: 23),
+        child: ElevatedButton(
+          onPressed: () {
+            // ScaffoldMessenger.of(context).showSnackBar(
+            //   SnackBar(content: Text("Profile updated")),
+            // );
+          },
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            minimumSize: const Size(347, 57),
+            backgroundColor: AppColors.container,
+          ),
+          child: Text(
+            'Join Waiting List',
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: AppColors.secondary,
+            ),
+          ),
         ),
       ),
       appBar: AppBar(
@@ -879,6 +904,84 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
                           color: AppColors.signUpTextButtonRadius,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 23,right: 23),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    //   SnackBar(content: Text("Profile updated")),
+                    // );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    minimumSize: const Size(347, 57),
+                    backgroundColor: AppColors.primary,
+                  ),
+                  child: Text(
+                    'Send Request',
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.secondary,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10,),
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10),
+                child: Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // ScaffoldMessenger.of(context).showSnackBar(
+                        //   SnackBar(content: Text("Profile updated")),
+                        // );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        minimumSize: const Size(50, 57),
+                        backgroundColor: AppColors.primary,
+                      ),
+                      child: Text(
+                        'Send Request',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.secondary,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 5,),
+                    ElevatedButton(
+                      onPressed: () {
+                        // ScaffoldMessenger.of(context).showSnackBar(
+                        //   SnackBar(content: Text("Profile updated")),
+                        // );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        minimumSize: const Size(50, 57),
+                        backgroundColor: AppColors.primary,
+                      ),
+                      child: Text(
+                        'Join Waiting List',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.secondary,
                         ),
                       ),
                     ),
