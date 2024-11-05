@@ -32,4 +32,5 @@ class AppColors {
   static const Color container = Color(0xFFD8AA34);
   static const Color profileSearch = Color(0xFF868686);
   static const Color profileContainer = Color(0xFF8A8A8A);
+  static const Color hintText = Color(0xFF525252);
 }

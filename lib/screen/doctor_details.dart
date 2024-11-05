@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:remdy/screen/patients_details.dart';
 
 import '../utils/colors.dart';
 
@@ -43,12 +44,21 @@ class _DoctorDetailsState extends State<DoctorDetails> {
             minimumSize: const Size(347, 57),
             backgroundColor: AppColors.container,
           ),
-          child: Text(
-            'Join Waiting List',
-            style: GoogleFonts.poppins(
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-              color: AppColors.secondary,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 55),
+            child: Row(
+              children: [
+                Text(
+                  'Join Waiting List',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.secondary,
+                  ),
+                ),
+                const SizedBox(width: 10,),
+                const Icon(Icons.av_timer_rounded,color: AppColors.secondary,size: 20,)
+              ],
             ),
           ),
         ),
@@ -799,7 +809,13 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                             borderRadius: BorderRadius.circular(10)),
                         minimumSize: const Size(345, 40),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DrDetails()),
+                        );
+                      },
                       child: Text(
                         'Write Review ',
                         style: GoogleFonts.poppins(
@@ -913,11 +929,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
               Padding(
                 padding: const EdgeInsets.only(left: 23,right: 23),
                 child: ElevatedButton(
-                  onPressed: () {
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    //   SnackBar(content: Text("Profile updated")),
-                    // );
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
@@ -925,69 +937,28 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     minimumSize: const Size(347, 57),
                     backgroundColor: AppColors.primary,
                   ),
-                  child: Text(
-                    'Send Request',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.secondary,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 55),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Send Request',
+                          style: GoogleFonts.poppins(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.secondary,
+                          ),
+                        ),
+                        const SizedBox(width: 10,),
+                        const Icon(Icons.ios_share,color: AppColors.secondary,size: 20,),
+                      ],
                     ),
                   ),
                 ),
               ),
               const SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.only(left: 10,right: 10),
-                child: Row(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // ScaffoldMessenger.of(context).showSnackBar(
-                        //   SnackBar(content: Text("Profile updated")),
-                        // );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        minimumSize: const Size(50, 57),
-                        backgroundColor: AppColors.primary,
-                      ),
-                      child: Text(
-                        'Send Request',
-                        style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.secondary,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 5,),
-                    ElevatedButton(
-                      onPressed: () {
-                        // ScaffoldMessenger.of(context).showSnackBar(
-                        //   SnackBar(content: Text("Profile updated")),
-                        // );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        minimumSize: const Size(50, 57),
-                        backgroundColor: AppColors.primary,
-                      ),
-                      child: Text(
-                        'Join Waiting List',
-                        style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.secondary,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
             ],
           ),
         ),

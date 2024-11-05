@@ -8,9 +8,39 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home:
+      SplashScreen(),
     );
   }
 }
+
+
+
+
+
+  // Widget build(BuildContext context) {
+  //   return BlocProvider(
+  //     create: (context) => LocalizationBloc(),
+  //     child: BlocBuilder<LocalizationBloc, LocalizationState>(
+  //       builder: (context, state) {
+  //         return MaterialApp(
+  //           locale: state.locale,
+  //           localizationsDelegates: [
+  //             AppLocalizations.delegate,
+  //             GlobalMaterialLocalizations.delegate,
+  //             GlobalWidgetsLocalizations.delegate,
+  //             GlobalCupertinoLocalizations.delegate,
+  //           ],
+  //           supportedLocales: const [
+  //             Locale('en', ''),
+  //             Locale('fr', ''),
+  //           ],
+  //           home: LanguageToggleScreen(),
+  //         );
+  //       },
+  //     ),
+  //   );
+  // }
+
