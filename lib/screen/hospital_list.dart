@@ -22,7 +22,7 @@ class HospitalList extends StatefulWidget {
 }
 
 class _HospitalListState extends State<HospitalList> {
-
+  String _selectedReview = "Review";
   SortOptions? _selectedOption = SortOptions.patientStories;
   @override
   Widget build(BuildContext context) {
@@ -369,23 +369,36 @@ class _HospitalListState extends State<HospitalList> {
                     child: Card(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 5, top: 10),
-                            child: Text(
-                              'Review',
-                              style: GoogleFonts.poppins(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.signText1.withOpacity(0.70),
-                              ),
+                          Text(
+                            _selectedReview,
+                            style: GoogleFonts.poppins(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black.withOpacity(0.70),
                             ),
                           ),
-                          const Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 5, top: 10),
-                            child: Image.asset("assets/chevron-down.png"),
+                          PopupMenuButton<String>(
+                            onSelected: (value) {
+                              setState(() {
+                                _selectedReview = value;
+                              });
+                            },
+                            icon: Image.asset("assets/chevron-down.png"),
+                            itemBuilder: (context) => [
+                              const PopupMenuItem(
+                                value: "5 / 4 star",
+                                child: Text("5 / 4 star"),
+                              ),
+                              const PopupMenuItem(
+                                value: "3 / 2 star",
+                                child: Text("3 / 2 star"),
+                              ),
+                              const PopupMenuItem(
+                                value: "1 star",
+                                child: Text("1 star"),
+                              ),
+                            ],
                           ),
                         ],
                       ),

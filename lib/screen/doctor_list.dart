@@ -229,7 +229,7 @@ class _DoctorListState extends State<DoctorList> {
                                             title: Text(
                                               'Number of patient stories-High to low',
                                               style: GoogleFonts.poppins(
-                                                fontSize: 16,
+                                                fontSize: 14,
                                                 fontWeight: FontWeight.w400,
                                                 color: AppColors.bottomTextfieldText,
                                               ),

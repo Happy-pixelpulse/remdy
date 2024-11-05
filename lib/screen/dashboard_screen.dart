@@ -5,6 +5,7 @@ import '../utils/colors.dart';
 import 'advance_search.dart';
 import 'doctor_list.dart';
 import 'notification_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -556,8 +557,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   top: 110,
                   left: 16,
                   right: 16,
-                  child: Text(
-                    'Let’s find Family',
+                   child:Text(//"Let's find a Family",
+                    AppLocalizations.of(context)!.title,
                     style: GoogleFonts.poppins(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
@@ -570,7 +571,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   left: 16,
                   right: 16,
                   child: Text(
-                    'doctor!',
+                    AppLocalizations.of(context)!.subTitle,
                     style: GoogleFonts.poppins(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
