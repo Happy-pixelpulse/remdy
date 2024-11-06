@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/screen/home_screen.dart';
 import '../common_widgets/sign_up_button.dart';
 import '../utils/colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -27,7 +28,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
           Column(
             children: [
               Text(
-                "Let’s Get Started",
+                AppLocalizations.of(context)!.signUpScreenTitle,
+                // "Let’s Get Started",
                 style: GoogleFonts.poppins(
                   fontSize: 35,
                   fontWeight: FontWeight.w600,
@@ -43,15 +45,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     );
                   },
                   imageName: 'assets/google.png',
-                  buttonName: 'Continue with Google'),
+                  buttonName: AppLocalizations.of(context)!.buttonName1,),
               const SizedBox(height: 8),
               SignUpButton(
                   onPressed: () {},
                   imageName: 'assets/apple.png',
-                  buttonName: 'Continue with Apple'),
+                  buttonName: AppLocalizations.of(context)!.buttonName2,),
               const SizedBox(height: 8),
               Text(
-                "Sign up with Your Account",
+                AppLocalizations.of(context)!.signUpScreenText,
+                // "Sign up with Your Account",
                 style: GoogleFonts.poppins(
                   fontSize: 13,
                   fontWeight: FontWeight.w400,
@@ -69,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           text: TextSpan(
             children: [
               TextSpan(
-                text: 'By signning up,I agree to RemdY’s ',
+                text: AppLocalizations.of(context)!.signUpTextSpan1,
                 style: GoogleFonts.poppins(
                   fontSize: 10,
                   color: AppColors.signText1,
@@ -77,7 +80,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               TextSpan(
-                text: 'Terms of Service',
+                text: AppLocalizations.of(context)!.signUpTextSpan2,
                 style: GoogleFonts.poppins(
                   fontSize: 10,
                   color: AppColors.primary,
@@ -85,7 +88,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               TextSpan(
-                text: ' and ',
+                text: AppLocalizations.of(context)!.signUpTextSpan3,
                 style: GoogleFonts.poppins(
                   fontSize: 10,
                   color: AppColors.signText1,
@@ -93,7 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               TextSpan(
-                text: 'Privacy Policy',
+                text: AppLocalizations.of(context)!.signUpTextSpan4,
                 style: GoogleFonts.poppins(
                   fontSize: 10,
                   color: AppColors.primary,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/auth/sign_up_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Align(
         alignment: Alignment.center,
         child: Text(
-          'RemdY',
+          AppLocalizations.of(context)!.splashScreenTitle,
           style: GoogleFonts.poppins(
             fontSize: 80,
             fontWeight: FontWeight.w700,

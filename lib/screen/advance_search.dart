@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/common_app_bar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 import '../utils/colors.dart';
@@ -22,11 +23,12 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
       appBar: const CommonAppBar(),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 29, right: 76),
+              padding: const EdgeInsets.only(top: 29, right: 56),
               child: Text(
-                'Advanced Search',
+                AppLocalizations.of(context)!.advanceSearch,
                 style: GoogleFonts.poppins(
                   fontSize: 28,
                   fontWeight: FontWeight.w600,
@@ -38,11 +40,12 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
               height: 20,
             ),
             Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 230),
+                  padding: const EdgeInsets.only(right: 200),
                   child: Text(
-                    'Full Name:',
+                    AppLocalizations.of(context)!.advanceSearchTextField1,
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -75,7 +78,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Padding(
                   padding: const EdgeInsets.only(right: 230),
                   child: Text(
-                    'City/Town:',
+                    AppLocalizations.of(context)!.advanceSearchTextField2,
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -106,9 +109,9 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 150),
+                  padding: const EdgeInsets.only(right: 80),
                   child: Text(
-                    'Postal Code(eg. M5G):',
+                    AppLocalizations.of(context)!.advanceSearchTextField3,
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -139,7 +142,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Padding(
                   padding: const EdgeInsets.only(right: 275),
                   child: Text(
-                    'Gender',
+                    AppLocalizations.of(context)!.gender,
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -154,7 +157,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       children: [
                         Radio<String>(
                           activeColor: AppColors.primary,
-                          value: 'Female',
+                          value: 'Male',
                           groupValue: selectedGender,
                           onChanged: (value) {
                             setState(() {
@@ -163,7 +166,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           },
                         ),
                         Text(
-                          'Female',
+                          AppLocalizations.of(context)!.genderOption1,
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
@@ -176,7 +179,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       children: [
                         Radio<String>(
                           activeColor: AppColors.primary,
-                          value: 'Male',
+                          value: 'Female',
                           groupValue: selectedGender,
                           onChanged: (value) {
                             setState(() {
@@ -185,7 +188,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           },
                         ),
                         Text(
-                          'Male',
+                          AppLocalizations.of(context)!.genderOption2,
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
@@ -207,7 +210,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           },
                         ),
                         Text(
-                          'Non-Binary',
+                          AppLocalizations.of(context)!.genderOption3,
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
@@ -231,7 +234,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       },
                     ),
                     Text(
-                      'All',
+                      AppLocalizations.of(context)!.genderOption4,
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -243,9 +246,9 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 225),
+              padding: const EdgeInsets.only(right: 200),
               child: Text(
-                'Type of Doctor:',
+                AppLocalizations.of(context)!.typeofDoctor,
                 style: GoogleFonts.poppins(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
@@ -269,9 +272,9 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       },
                     ),
                     Text(
-                      'Family Doctor',
+                      AppLocalizations.of(context)!.typeofDoctor1,
                       style: GoogleFonts.poppins(
-                        fontSize: 15,
+                        fontSize: 12,
                         fontWeight: FontWeight.w500,
                         color: AppColors.signText1,
                       ),
@@ -291,9 +294,9 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       },
                     ),
                     Text(
-                      'Specialist',
+                      AppLocalizations.of(context)!.typeofDoctor2,
                       style: GoogleFonts.poppins(
-                        fontSize: 15,
+                        fontSize: 12,
                         fontWeight: FontWeight.w500,
                         color: AppColors.signText1,
                       ),
@@ -313,9 +316,9 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       },
                     ),
                     Text(
-                      'All',
+                      AppLocalizations.of(context)!.genderOption4,
                       style: GoogleFonts.poppins(
-                        fontSize: 15,
+                        fontSize: 12,
                         fontWeight: FontWeight.w500,
                         color: AppColors.signText1,
                       ),
@@ -332,7 +335,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Padding(
                   padding: const EdgeInsets.only(right: 170),
                   child: Text(
-                    'Residency Hospital',
+                    AppLocalizations.of(context)!.advanceSearchTextField4,
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -370,9 +373,9 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 170, bottom: 5),
+                  padding: const EdgeInsets.only(right: 190, bottom: 5),
                   child: Text(
-                    'Languages Spoken:',
+                    AppLocalizations.of(context)!.advanceSearchTextField5,
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -423,7 +426,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       child: InkWell(
                         onTap: () {},
                         child: Text(
-                          'Submit',
+                          AppLocalizations.of(context)!.advanceSearchButton1,
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -449,7 +452,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       child: InkWell(
                         onTap: () {},
                         child: Text(
-                          'CLEAR',
+                          AppLocalizations.of(context)!.advanceSearchButton2,
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,

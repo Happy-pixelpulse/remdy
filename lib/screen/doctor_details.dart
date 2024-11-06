@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/screen/patients_details.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/colors.dart';
 
 class DoctorDetails extends StatefulWidget {
@@ -45,11 +45,11 @@ class _DoctorDetailsState extends State<DoctorDetails> {
             backgroundColor: AppColors.container,
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 55),
+            padding: const EdgeInsets.only(left: 35),
             child: Row(
               children: [
                 Text(
-                  'Join Waiting List',
+                  AppLocalizations.of(context)!.doctorDetailsJoinWaitingListButton,
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
@@ -817,7 +817,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                         );
                       },
                       child: Text(
-                        'Write Review ',
+                        AppLocalizations.of(context)!.doctorDetailsReviewButton,
                         style: GoogleFonts.poppins(
                           fontSize: 17,
                           fontWeight: FontWeight.w600,
@@ -943,7 +943,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Send Request',
+                          AppLocalizations.of(context)!.doctorDetailsSendRequestButton,
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -958,7 +958,6 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                 ),
               ),
               const SizedBox(height: 10,),
-
             ],
           ),
         ),

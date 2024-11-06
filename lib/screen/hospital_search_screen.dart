@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/screen/advance_search.dart';
 import 'package:remdy/screen/setting_screen.dart';
 import 'package:remdy/utils/colors.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'hospital_list.dart';
 import 'notification_screen.dart';
 
@@ -32,7 +32,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                 showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) {
-                      return Container(
+                      return  Container(
                         width: 394,
                         height: 433,
                         decoration: const BoxDecoration(
@@ -46,12 +46,12 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(
                                 top: 17,
-                                left: 64,
+                                left: 34,
                               ),
                               child: Row(
                                 children: [
                                   Text(
-                                    'Enter Complete Address',
+                                    AppLocalizations.of(context)!.address,
                                     style: GoogleFonts.poppins(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
@@ -105,7 +105,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Area / Sectore / Locality",
+                                      labelText: AppLocalizations.of(context)!.area,
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -143,7 +143,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Building / Floor / Apartment",
+                                      labelText: AppLocalizations.of(context)!.building,
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -177,7 +177,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Near by Landmark (Optional)",
+                                      labelText: AppLocalizations.of(context)!.landMark,
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -188,7 +188,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.only(left: 17, right: 16),
+                              const EdgeInsets.only(left: 17, right: 16),
                               child: SizedBox(
                                 width: 361,
                                 height: 52,
@@ -203,7 +203,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                                     Navigator.pop(context);
                                   },
                                   child: Text(
-                                    'Confirm Address',
+                                    AppLocalizations.of(context)!.confirmAddress,
                                     style: GoogleFonts.poppins(
                                       fontSize: 19,
                                       fontWeight: FontWeight.w400,
@@ -235,7 +235,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                 showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) {
-                      return Container(
+                      return  Container(
                         width: 394,
                         height: 433,
                         decoration: const BoxDecoration(
@@ -249,12 +249,12 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(
                                 top: 17,
-                                left: 50,
+                                left: 34,
                               ),
                               child: Row(
                                 children: [
                                   Text(
-                                    'Enter Complete Address',
+                                    AppLocalizations.of(context)!.address,
                                     style: GoogleFonts.poppins(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
@@ -308,7 +308,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Area / Sectore / Locality",
+                                      labelText: AppLocalizations.of(context)!.area,
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -346,7 +346,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Building / Floor / Apartment",
+                                      labelText: AppLocalizations.of(context)!.building,
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -366,10 +366,6 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                                       left: 17, right: 17),
                                   child: TextField(
                                     decoration: InputDecoration(
-                                      contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 25.0,
-                                        horizontal: 10.0,
-                                      ),
                                       suffixIcon: IconButton(
                                         icon: const Icon(Icons.cancel_outlined),
                                         onPressed: () {
@@ -380,12 +376,13 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Near by Landmark (Optional)",
-                                      labelStyle: const TextStyle(
-                                        color: AppColors.bottomTextfield,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
+                                      focusedBorder: const OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10)),
                                       ),
+                                      labelText: AppLocalizations.of(context)!.landMark,
+                                      labelStyle: const TextStyle(
+                                          color: AppColors.bottomTextfield),
                                     ),
                                   ),
                                 )),
@@ -394,7 +391,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.only(left: 17, right: 16),
+                              const EdgeInsets.only(left: 17, right: 16),
                               child: SizedBox(
                                 width: 361,
                                 height: 52,
@@ -409,7 +406,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                                     Navigator.pop(context);
                                   },
                                   child: Text(
-                                    'Confirm Address',
+                                    AppLocalizations.of(context)!.confirmAddress,
                                     style: GoogleFonts.poppins(
                                       fontSize: 19,
                                       fontWeight: FontWeight.w400,
@@ -429,7 +426,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'Barrie',
+                    AppLocalizations.of(context)!.location,
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w800,
@@ -438,7 +435,7 @@ class HospitalSearchScreenSearchScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    'Ontario, Canada',
+                    AppLocalizations.of(context)!.country,
                     style: GoogleFonts.poppins(
                       fontSize: 13,
                       fontWeight: FontWeight.w400,

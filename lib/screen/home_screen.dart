@@ -12,6 +12,9 @@ import 'package:remdy/screen/profile_screen.dart';
 import 'package:remdy/screen/support_screen.dart';
 import 'package:remdy/screen/term_policy_scrreen.dart';
 import 'package:remdy/utils/colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -103,7 +106,7 @@ class _HospitalPageState extends State<HospitalPage> {
                 showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) {
-                      return Container(
+                      return  Container(
                         width: 394,
                         height: 433,
                         decoration: const BoxDecoration(
@@ -117,12 +120,12 @@ class _HospitalPageState extends State<HospitalPage> {
                             Padding(
                               padding: const EdgeInsets.only(
                                 top: 17,
-                                left: 64,
+                                left: 34,
                               ),
                               child: Row(
                                 children: [
                                   Text(
-                                    'Enter Complete Address',
+                                    AppLocalizations.of(context)!.address,
                                     style: GoogleFonts.poppins(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
@@ -176,7 +179,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Area / Sectore / Locality",
+                                      labelText: AppLocalizations.of(context)!.area,
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -214,7 +217,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Building / Floor / Apartment",
+                                      labelText: AppLocalizations.of(context)!.building,
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -248,7 +251,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Near by Landmark (Optional)",
+                                      labelText: AppLocalizations.of(context)!.landMark,
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -259,7 +262,7 @@ class _HospitalPageState extends State<HospitalPage> {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.only(left: 17, right: 16),
+                              const EdgeInsets.only(left: 17, right: 16),
                               child: SizedBox(
                                 width: 361,
                                 height: 52,
@@ -274,7 +277,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                     Navigator.pop(context);
                                   },
                                   child: Text(
-                                    'Confirm Address',
+                                    AppLocalizations.of(context)!.confirmAddress,
                                     style: GoogleFonts.poppins(
                                       fontSize: 19,
                                       fontWeight: FontWeight.w400,
@@ -306,7 +309,7 @@ class _HospitalPageState extends State<HospitalPage> {
                 showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) {
-                      return Container(
+                      return  Container(
                         width: 394,
                         height: 433,
                         decoration: const BoxDecoration(
@@ -320,12 +323,12 @@ class _HospitalPageState extends State<HospitalPage> {
                             Padding(
                               padding: const EdgeInsets.only(
                                 top: 17,
-                                left: 50,
+                                left: 34,
                               ),
                               child: Row(
                                 children: [
                                   Text(
-                                    'Enter Complete Address',
+                                    AppLocalizations.of(context)!.address,
                                     style: GoogleFonts.poppins(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
@@ -379,7 +382,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Area / Sectore / Locality",
+                                      labelText: AppLocalizations.of(context)!.area,
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -417,7 +420,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Building / Floor / Apartment",
+                                      labelText: AppLocalizations.of(context)!.building,
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -437,11 +440,6 @@ class _HospitalPageState extends State<HospitalPage> {
                                       left: 17, right: 17),
                                   child: TextField(
                                     decoration: InputDecoration(
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                        vertical: 25.0,
-                                        horizontal: 10.0,
-                                      ),
                                       suffixIcon: IconButton(
                                         icon: const Icon(Icons.cancel_outlined),
                                         onPressed: () {
@@ -452,12 +450,13 @@ class _HospitalPageState extends State<HospitalPage> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: "Near by Landmark (Optional)",
-                                      labelStyle: const TextStyle(
-                                        color: AppColors.bottomTextfield,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
+                                      focusedBorder: const OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10)),
                                       ),
+                                      labelText: AppLocalizations.of(context)!.landMark,
+                                      labelStyle: const TextStyle(
+                                          color: AppColors.bottomTextfield),
                                     ),
                                   ),
                                 )),
@@ -466,7 +465,7 @@ class _HospitalPageState extends State<HospitalPage> {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.only(left: 17, right: 16),
+                              const EdgeInsets.only(left: 17, right: 16),
                               child: SizedBox(
                                 width: 361,
                                 height: 52,
@@ -481,7 +480,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                     Navigator.pop(context);
                                   },
                                   child: Text(
-                                    'Confirm Address',
+                                    AppLocalizations.of(context)!.confirmAddress,
                                     style: GoogleFonts.poppins(
                                       fontSize: 19,
                                       fontWeight: FontWeight.w400,
@@ -501,7 +500,7 @@ class _HospitalPageState extends State<HospitalPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'Barrie',
+                    AppLocalizations.of(context)!.location,
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w800,
@@ -510,7 +509,7 @@ class _HospitalPageState extends State<HospitalPage> {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    'Ontario, Canada',
+                    AppLocalizations.of(context)!.country,
                     style: GoogleFonts.poppins(
                       fontSize: 13,
                       fontWeight: FontWeight.w400,
@@ -563,7 +562,7 @@ class _HospitalPageState extends State<HospitalPage> {
                   left: 16,
                   right: 16,
                   child: Text(
-                    'Let’s find Family',
+                    AppLocalizations.of(context)!.title,
                     style: GoogleFonts.poppins(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
@@ -576,7 +575,7 @@ class _HospitalPageState extends State<HospitalPage> {
                   left: 16,
                   right: 16,
                   child: Text(
-                    'doctor!',
+                    AppLocalizations.of(context)!.subTitle,
                     style: GoogleFonts.poppins(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
@@ -586,7 +585,7 @@ class _HospitalPageState extends State<HospitalPage> {
                 ),
                 Positioned(
                   top: 185,
-                  left: 222,
+                  left: 200,
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -598,7 +597,7 @@ class _HospitalPageState extends State<HospitalPage> {
                     child: Row(
                       children: [
                         Text(
-                          'Advance Search',
+                          AppLocalizations.of(context)!.advanceSearch,
                           style: GoogleFonts.poppins(
                             fontSize: 13,
                             fontWeight: FontWeight.w400,
@@ -647,7 +646,7 @@ class _HospitalPageState extends State<HospitalPage> {
                             width: 18,
                           ),
                           Text(
-                            'Search Hospital......',
+                            AppLocalizations.of(context)!.searchHospital,
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
@@ -677,13 +676,13 @@ class _HospitalPageState extends State<HospitalPage> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 6, left: 2),
+                  padding: const EdgeInsets.only(top: 5, left: 2),
                   child: Column(
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(right: 15),
                         child: Text(
-                          'If you are in need of serious medical attention,',
+                          AppLocalizations.of(context)!.hospitalTitle,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
@@ -692,9 +691,9 @@ class _HospitalPageState extends State<HospitalPage> {
                         ),
                       ),
                       Text(
-                        'CALL 911 or go to your nearest Emergency Department.',
+                        AppLocalizations.of(context)!.hospitalSubTitle,
                         style: GoogleFonts.poppins(
-                          fontSize: 12,
+                          fontSize: 10,
                           fontWeight: FontWeight.w400,
                           color: AppColors.waring,
                         ),
@@ -708,7 +707,7 @@ class _HospitalPageState extends State<HospitalPage> {
             Padding(
               padding: const EdgeInsets.only(left: 16),
               child: Text(
-                'Nearby Medical Centers',
+                AppLocalizations.of(context)!.nearbyMedicalCenters,
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,

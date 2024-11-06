@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/colors.dart';
 
 class HospitalDetails extends StatefulWidget {
@@ -104,7 +104,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                       ),
                       onPressed: () {},
                       child:  Text(
-                        'Overview ',
+                        AppLocalizations.of(context)!.hospitalDetailsButton1,
                         style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
@@ -122,7 +122,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                       ),
                       onPressed: () {},
                       child:  Text(
-                        'Hospital Quality',
+                        AppLocalizations.of(context)!.hospitalDetailsButton2,
                         style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
@@ -140,7 +140,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                       ),
                       onPressed: () {},
                       child:  Text(
-                        'Reviews',
+                        AppLocalizations.of(context)!.hospitalDetailsButton3,
                         style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
@@ -158,7 +158,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                       ),
                       onPressed: () {},
                       child:  Text(
-                        'Location',
+                        AppLocalizations.of(context)!.hospitalDetailsButton4,
                         style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
@@ -405,7 +405,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                       ),
                       onPressed: () {},
                       child: Text(
-                        'Write Review ',
+                        AppLocalizations.of(context)!.doctorDetailsReviewButton,
                         style: GoogleFonts.poppins(
                           fontSize: 17,
                           fontWeight: FontWeight.w600,

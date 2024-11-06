@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../common_widgets/doctor_filter_list.dart';
 import '../../common_widgets/filter_list_manager.dart';
 import '../../utils/colors.dart';
@@ -81,7 +81,7 @@ class _FilterWidgetState extends State<FilterWidget> {
             child: Row(
               children: [
                 Text(
-                  'Filter',
+                  AppLocalizations.of(context)!.filter,
                   style: GoogleFonts.poppins(
                     fontSize: 22,
                     fontWeight: FontWeight.w400,
@@ -220,9 +220,9 @@ class _FilterWidgetState extends State<FilterWidget> {
                       Navigator.pop(context);
                     },
                     child: Text(
-                      'ClearFilters',
+                      AppLocalizations.of(context)!.clearFilters,
                       style: GoogleFonts.poppins(
-                        fontSize: 19,
+                        fontSize: 11,
                         fontWeight: FontWeight.w400,
                         color: AppColors.filterText,
                       ),
@@ -247,9 +247,9 @@ class _FilterWidgetState extends State<FilterWidget> {
                       Navigator.pop(context);
                     },
                     child: Text(
-                      'Show Doctors',
+                      AppLocalizations.of(context)!.showDoctors,
                       style: GoogleFonts.poppins(
-                        fontSize: 15,
+                        fontSize: 10,
                         fontWeight: FontWeight.w400,
                         color: AppColors.secondary,
                       ),

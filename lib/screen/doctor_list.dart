@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/search_button.dart';
 import 'package:remdy/screen/notification_screen.dart';
 import 'package:remdy/screen/widgets/filter_widget.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../common_widgets/dr_list.dart';
 import '../utils/colors.dart';
 
@@ -111,7 +111,7 @@ class _DoctorListState extends State<DoctorList> {
                     width: 70,
                   ),
                   Text(
-                    'Top Doctor',
+                    AppLocalizations.of(context)!.doctorListTitle,
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -119,7 +119,7 @@ class _DoctorListState extends State<DoctorList> {
                     ),
                   ),
                   const SizedBox(
-                    width: 88,
+                    width: 48,
                   ),
                   GestureDetector(
                       onTap: () {
@@ -135,7 +135,7 @@ class _DoctorListState extends State<DoctorList> {
               const SizedBox(
                 height: 16,
               ),
-              SearchButton(onPressed: () {}, buttonName: "Search Doctor")
+              SearchButton(onPressed: () {}, buttonName: AppLocalizations.of(context)!.doctorListSearchButton,)
             ],
           ),
         ),
@@ -177,12 +177,12 @@ class _DoctorListState extends State<DoctorList> {
                                       Padding(
                                         padding: const EdgeInsets.only(
                                           top: 17,
-                                          left: 150,
+                                          left: 120,
                                         ),
                                         child: Row(
                                           children: [
                                             Text(
-                                              'Sort By',
+                                              AppLocalizations.of(context)!.sortBy,
                                               style: GoogleFonts.poppins(
                                                 fontSize: 22,
                                                 fontWeight: FontWeight.w400,
@@ -190,7 +190,7 @@ class _DoctorListState extends State<DoctorList> {
                                               ),
                                             ),
                                             const SizedBox(
-                                              width: 80,
+                                              width: 40,
                                             ),
                                             GestureDetector(
                                               onTap: () {
@@ -227,7 +227,7 @@ class _DoctorListState extends State<DoctorList> {
                                             activeColor: AppColors.primary,
                                             controlAffinity: ListTileControlAffinity.trailing,
                                             title: Text(
-                                              'Number of patient stories-High to low',
+                                              AppLocalizations.of(context)!.sortByTextField1,
                                               style: GoogleFonts.poppins(
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w400,
@@ -265,7 +265,7 @@ class _DoctorListState extends State<DoctorList> {
                                             activeColor: AppColors.primary,
                                             controlAffinity: ListTileControlAffinity.trailing,
                                             title: Text(
-                                              'Experience-High to Low',
+                                              AppLocalizations.of(context)!.sortByTextField2,
                                               style: GoogleFonts.poppins(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w400,
@@ -305,7 +305,7 @@ class _DoctorListState extends State<DoctorList> {
                                               activeColor: AppColors.primary,
                                               controlAffinity: ListTileControlAffinity.trailing,
                                               title: Text(
-                                                'Distance-Near to Far',
+                                                AppLocalizations.of(context)!.sortByTextField3,
                                                 style: GoogleFonts.poppins(
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w400,
@@ -344,7 +344,7 @@ class _DoctorListState extends State<DoctorList> {
                                               Navigator.pop(context);
                                             },
                                             child: Text(
-                                              'Apply',
+                                              AppLocalizations.of(context)!.applyButton,
                                               style: GoogleFonts.poppins(
                                                 fontSize: 19,
                                                 fontWeight: FontWeight.w400,
@@ -364,17 +364,16 @@ class _DoctorListState extends State<DoctorList> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(left: 11, top: 10),
+                              padding: const EdgeInsets.only(left: 5, top: 10),
                               child: Text(
-                                'Sort By',
+                                AppLocalizations.of(context)!.sortBy,
                                 style: GoogleFonts.poppins(
-                                  fontSize: 15,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.w400,
                                   color: AppColors.signText1.withOpacity(0.70),
                                 ),
                               ),
                             ),
-                            const Spacer(),
                             Padding(
                               padding: const EdgeInsets.only(left: 5, top: 10),
                               child: Image.asset("assets/chevron-down.png"),
@@ -404,7 +403,7 @@ class _DoctorListState extends State<DoctorList> {
                             Padding(
                               padding: const EdgeInsets.only(left: 10, top: 11),
                               child: Text(
-                                'Filter',
+                                AppLocalizations.of(context)!.filter,
                                 style: GoogleFonts.poppins(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w400,
@@ -447,17 +446,17 @@ class _DoctorListState extends State<DoctorList> {
                             },
                             icon: Image.asset("assets/chevron-down.png"),
                             itemBuilder: (context) => [
-                              const PopupMenuItem(
+                               PopupMenuItem(
                                 value: "5 / 4 star",
-                                child: Text("5 / 4 star"),
+                                child: Text( AppLocalizations.of(context)!.review1,),
                               ),
-                              const PopupMenuItem(
+                               PopupMenuItem(
                                 value: "3 / 2 star",
-                                child: Text("3 / 2 star"),
+                                child: Text(AppLocalizations.of(context)!.review2),
                               ),
-                              const PopupMenuItem(
+                               PopupMenuItem(
                                 value: "1 star",
-                                child: Text("1 star"),
+                                child: Text(AppLocalizations.of(context)!.review3),
                               ),
                             ],
                           ),
@@ -476,7 +475,7 @@ class _DoctorListState extends State<DoctorList> {
                           Padding(
                             padding: const EdgeInsets.only(left: 11, top: 10),
                             child: Text(
-                              'Insurance',
+                              AppLocalizations.of(context)!.insurance,
                               style: GoogleFonts.poppins(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w400,
