@@ -15,21 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LocalizationBloc(),
-      child: BlocBuilder<LocalizationBloc, LocalizationState>(
+      create: (context) => AppLocalizationBloc(),
+      child: BlocBuilder<AppLocalizationBloc, AppLocalizationState>(
         builder: (context, state) {
           return MaterialApp(
-            locale: Locale('fr'),
-            localizationsDelegates: [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate
-            ],
-            supportedLocales: [
-              Locale('en'),
-              Locale('fr')
-            ],
+            locale: const Locale('en'),
+            //locale: state.selectedLanguage.value,
+            supportedLocales: AppLocalizations.supportedLocales,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
             debugShowCheckedModeBanner: false,
             home: SplashScreen(),
           );

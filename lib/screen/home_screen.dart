@@ -1021,14 +1021,14 @@ class _SettingScreenState extends State<SettingScreen> {
                 )),
             const SizedBox(width: 75),
             Text(
-              'Settings',
+              AppLocalizations.of(context)!.proFileTitle,
               style: GoogleFonts.poppins(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
                 color: AppColors.secondary,
               ),
             ),
-            const SizedBox(width: 100),
+            const SizedBox(width: 70),
             const Icon(
               Icons.question_mark_outlined,
               color: AppColors.secondary,
@@ -1065,7 +1065,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       top: 10,
                       left: 69,
                       child: Text(
-                        "Search settings",
+                        AppLocalizations.of(context)!.proFileScreeSearchButton,
                         style: GoogleFonts.poppins(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
@@ -1108,7 +1108,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 15, top: 10),
                           child: Text(
-                            'Account',
+                            AppLocalizations.of(context)!.proFileScreenAccountButton,
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
@@ -1147,7 +1147,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           Padding(
                             padding: const EdgeInsets.only(left: 25, top: 10),
                             child: Text(
-                              'About',
+                              AppLocalizations.of(context)!.proFileScreenAboutButton,
                               style: GoogleFonts.poppins(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
@@ -1183,11 +1183,11 @@ class _SettingScreenState extends State<SettingScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 11, top: 10),
+                            padding: const EdgeInsets.only(top: 10),
                             child: Text(
-                              'Terms and Policy',
+                              AppLocalizations.of(context)!.proFileScreenTcButton,
                               style: GoogleFonts.poppins(
-                                fontSize: 14,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.profileContainer,
                               ),
@@ -1234,7 +1234,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Padding(
                       padding: const EdgeInsets.only(top: 16, left: 85),
                       child: Text(
-                        'Profile',
+                        AppLocalizations.of(context)!.proFileScreeProFileButton,
                         style: GoogleFonts.poppins(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
@@ -1288,7 +1288,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Padding(
                       padding: const EdgeInsets.only(top: 16, left: 85),
                       child: Text(
-                        'Notification',
+                        AppLocalizations.of(context)!.proFileScreeNotificationButton,
                         style: GoogleFonts.poppins(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -1334,7 +1334,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 16, left: 85),
                     child: Text(
-                      'Invite Link',
+                      AppLocalizations.of(context)!.proFileScreeInviteLinkButton,
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
@@ -1343,7 +1343,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(top: 16, left: 80),
+                    padding: EdgeInsets.only(top: 16, left: 50),
                     child: Icon(
                       Icons.arrow_forward_ios_rounded,
                       color: AppColors.signUpTextButtonRadius,
@@ -1387,7 +1387,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Padding(
                       padding: const EdgeInsets.only(top: 16, left: 85),
                       child: Text(
-                        'Support',
+                        AppLocalizations.of(context)!.proFileScreeSupportButton,
                         style: GoogleFonts.poppins(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
@@ -1441,7 +1441,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     Padding(
                       padding: const EdgeInsets.only(top: 16, left: 55),
                       child: Text(
-                        'Choose Language',
+                        AppLocalizations.of(context)!.proFileScreeChooseLanguageButton,
                         style: GoogleFonts.poppins(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,

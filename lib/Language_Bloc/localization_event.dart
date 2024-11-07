@@ -1,8 +1,14 @@
 part of 'localization_bloc.dart';
 
-abstract class LocalizationEvent {}
-
-class ChangeLanguageEvent extends LocalizationEvent {
-  final Locale locale;
-  ChangeLanguageEvent(this.locale);
+class AppLocalizationEvent extends Equatable{
+  const AppLocalizationEvent();
+  @override
+List<Object> get props => [];
 }
+class ChangeAppLocalization extends AppLocalizationEvent{
+  final Language selectedLanguage;
+  const ChangeAppLocalization({required this.selectedLanguage});
+  @override
+  List<Object> get props => [selectedLanguage];
+}
+class GetLanguage extends AppLocalizationEvent{}
