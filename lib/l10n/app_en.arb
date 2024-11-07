@@ -1,0 +1,304 @@
+{
+  "@@locale": "en",
+  "splashScreenTitle": "RemdY",
+  "@splashScreenTitle": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "signUpScreenTitle": "Let’s Get Started",
+  "@signUpScreenTitle": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "signUpScreenText": "Sign up with Your Account",
+  "@signUpScreenText": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "buttonName1": "Continue with Google",
+  "@buttonName1": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "buttonName2": "Continue with Apple",
+  "@buttonName2": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "signUpTextSpan1": "By signning up,I agree to RemdY’s",
+  "@signUpTextSpan1": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "signUpTextSpan2": "Terms of Service",
+  "@signUpTextSpan2": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "signUpTextSpan3": "and",
+  "@signUpTextSpan3": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "signUpTextSpan4": "Privacy Policy",
+  "@signUpTextSpan4": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "advanceSearchTextField1": "Full Name:",
+  "@advanceSearchTextField1": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "advanceSearchTextField2": "City/Town:",
+  "@advanceSearchTextField2": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "advanceSearchTextField3": "Postal Code(eg. M5G):",
+  "@advanceSearchTextField3": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "gender": "Gender",
+  "@gender": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "genderOption1": "Male",
+  "@genderOption1": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "genderOption2": "Female",
+  "@genderOption2": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "genderOption3": "Non-Binary",
+  "@genderOption3": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "genderOption4": "All",
+  "@genderOption4": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "typeofDoctor": "Type of Doctor:",
+  "@typeofDoctor": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "typeofDoctor1": "Family Doctor",
+  "@typeofDoctor1": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "typeofDoctor2": "Specialist",
+  "@typeofDoctor2": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "advanceSearchTextField4": "Residency Hospital",
+  "@advanceSearchTextField4": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "advanceSearchTextField5": "Languages Spoken:",
+  "@advanceSearchTextField5": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "advanceSearchButton1": "Submit",
+  "@advanceSearchButton1": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "advanceSearchButton2": "CLEAR",
+  "@advanceSearchButton2": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "doctorDetailsReviewButton": "Write Review ",
+  "@doctorDetailsReviewButton": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "doctorListTitle": "Top Doctor",
+  "@doctorListTitle": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "doctorListSearchButton": "Search Doctor",
+  "@doctorListSearchButton": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "doctorDetailsSendRequestButton": "Send Request",
+  "@doctorDetailsSendRequestButton": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "doctorDetailsJoinWaitingListButton": "Join Waiting List",
+  "@doctorDetailsJoinWaitingListButton": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "sortBy": "Sort By",
+  "@sortBy": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "sortByTextField1": "Number of patient stories-High to low",
+  "@sortByTextField1": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "sortByTextField2": "Experience-High to Low",
+  "@sortByTextField2": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "applyButton": "Apply",
+  "@applyButton": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "sortByTextField3": "Distance-Near to Far",
+  "@sortByTextField3": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "filter": "Filter",
+  "@filter": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "clearFilters": "ClearFilters",
+  "@clearFilters": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "showDoctors": "Show Doctors",
+  "@showDoctors": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "review": "Review",
+  "@review": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "review1": "5 / 4 star",
+  "@review1": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "review2": "3 / 2 star",
+  "@review2": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "review3": "1 star",
+  "@review3": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "insurance": "Insurance",
+  "@insurance": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "proFileTitle": "Settings",
+  "@proFileTitle": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "proFileScreeSearchButton": "Search settings",
+  "@proFileScreeSearchButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "proFileScreenAboutButton": "About",
+  "@proFileScreenAboutButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "proFileScreenTcButton": "Terms and Policy",
+  "@proFileScreenTcButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "proFileScreenAccountButton": "Account",
+  "@proFileScreenAccountButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "proFileScreeProFileButton": "Profile",
+  "@proFileScreeProFileButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "proFileScreeNotificationButton": "Notification",
+  "@proFileScreeNotificationButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "proFileScreeInviteLinkButton": "Invite Link",
+  "@proFileScreeInviteLinkButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "proFileScreeSupportButton": "Support",
+  "@proFileScreeSupportButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "proFileScreeChooseLanguageButton": "Choose Language",
+  "@proFileScreeChooseLanguageButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "languageScreenTitle": "Language",
+  "@languageScreenTitle": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "languageScreenButton": "UPDATE",
+  "@languageScreenButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "title": "Let's find a Family",
+  "@title": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "subTitle": "doctor!",
+  "@subTitle": {
+    "description": "Subtitle text completing the title with an exclamation."
+  },
+  "searchHospital": "Search Hospital...",
+  "@searchHospital": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "topHospitals": "Top Hospitals",
+  "@topHospitals": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "searchHospitals": "Search Hospitals",
+  "@searchHospitals": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "hospitalDetailsButton1": "Overview",
+  "@hospitalDetailsButton1": {
+    "description": "Placeholder text for the hospital search bar."
+  }, "hospitalDetailsButton2": "Hospital Quality",
+  "@hospitalDetailsButton2": {
+    "description": "Placeholder text for the hospital search bar."
+  }, "hospitalDetailsButton3": "Reviews",
+  "@hospitalDetailsButton3": {
+    "description": "Placeholder text for the hospital search bar."
+  }, "hospitalDetailsButton4": "Location",
+  "@hospitalDetailsButton4": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "searchHealthIssue": "Search health issue.......",
+  "@searchHealthIssue": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "hospitalTitle": "If you are in need of serious medical attention,",
+  "@hospitalTitle": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "hospitalSubTitle": "CALL 911 or go to your nearest Emergency Department.",
+  "@hospitalSubTitle": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "nearbyMedicalCenters": "Nearby Medical Centers",
+  "@nearbyMedicalCenters": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "advanceSearch": "Advance Search",
+  "@advanceSearch": {
+    "description": "Label for the advanced search option."
+  },
+  "nearbyDoctor": "Nearby doctor",
+  "@nearbyDoctor": {
+    "description": "Label for nearby doctor section."
+  },
+  "location": "Barrie",
+  "@location": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "country": "Ontario, Canada",
+  "@country": {
+    "description": "Title "
+  },
+  "address": "Enter Complete Address",
+  "@address": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "area": "Area / Sectore / Locality",
+  "@area": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "building": "Building / Floor / Apartment",
+  "@building": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "landMark": "Near by Landmark (Optional)",
+  "@LandMark": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
+  "confirmAddress": "Confirm Address",
+  "@confirmAddress": {
+    "description": "Title text encouraging the user to find a family doctor."
+  }
+}
