@@ -216,6 +216,10 @@
   "@languageScreenButton": {
     "description": "Title text encouraging the user to find a family doctor."
   },
+  "languageScreenLanguageButton": "French",
+  "@languageScreenLanguageButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
   "title": "Let's find a Family",
   "@title": {
     "description": "Title text encouraging the user to find a family doctor."

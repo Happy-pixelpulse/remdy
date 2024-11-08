@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/common_app_bar.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:remdy/extensions/localization_extension.dart';
+
 
 
 import '../utils/colors.dart';
@@ -28,7 +29,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
             Padding(
               padding: const EdgeInsets.only(top: 29, right: 56),
               child: Text(
-                AppLocalizations.of(context)!.advanceSearch,
+                context.getLocalization()?.advanceSearch??'',
                 style: GoogleFonts.poppins(
                   fontSize: 28,
                   fontWeight: FontWeight.w600,
@@ -45,7 +46,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Padding(
                   padding: const EdgeInsets.only(right: 200),
                   child: Text(
-                    AppLocalizations.of(context)!.advanceSearchTextField1,
+                    context.getLocalization()?.advanceSearchTextField1??'',
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -78,7 +79,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Padding(
                   padding: const EdgeInsets.only(right: 230),
                   child: Text(
-                    AppLocalizations.of(context)!.advanceSearchTextField2,
+                    context.getLocalization()?.advanceSearchTextField2??'',
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -111,7 +112,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Padding(
                   padding: const EdgeInsets.only(right: 80),
                   child: Text(
-                    AppLocalizations.of(context)!.advanceSearchTextField3,
+                    context.getLocalization()?.advanceSearchTextField3??'',
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -142,7 +143,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Padding(
                   padding: const EdgeInsets.only(right: 275),
                   child: Text(
-                    AppLocalizations.of(context)!.gender,
+                    context.getLocalization()?.gender??'',
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -166,7 +167,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           },
                         ),
                         Text(
-                          AppLocalizations.of(context)!.genderOption1,
+                          context.getLocalization()?.genderOption1??'',
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
@@ -188,7 +189,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           },
                         ),
                         Text(
-                          AppLocalizations.of(context)!.genderOption2,
+                          context.getLocalization()?.genderOption2??'',
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
@@ -210,7 +211,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           },
                         ),
                         Text(
-                          AppLocalizations.of(context)!.genderOption3,
+                          context.getLocalization()?.genderOption3??'',
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
@@ -234,7 +235,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       },
                     ),
                     Text(
-                      AppLocalizations.of(context)!.genderOption4,
+                      context.getLocalization()?.genderOption4??'',
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -248,7 +249,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
             Padding(
               padding: const EdgeInsets.only(right: 200),
               child: Text(
-                AppLocalizations.of(context)!.typeofDoctor,
+                context.getLocalization()?.typeofDoctor??'',
                 style: GoogleFonts.poppins(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
@@ -272,7 +273,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       },
                     ),
                     Text(
-                      AppLocalizations.of(context)!.typeofDoctor1,
+                      context.getLocalization()?.typeofDoctor1??'',
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -294,7 +295,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       },
                     ),
                     Text(
-                      AppLocalizations.of(context)!.typeofDoctor2,
+                      context.getLocalization()?.typeofDoctor2??'',
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -316,7 +317,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       },
                     ),
                     Text(
-                      AppLocalizations.of(context)!.genderOption4,
+                      context.getLocalization()?.genderOption4??'',
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -335,7 +336,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Padding(
                   padding: const EdgeInsets.only(right: 170),
                   child: Text(
-                    AppLocalizations.of(context)!.advanceSearchTextField4,
+                    context.getLocalization()?.advanceSearchTextField4??'',
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -375,7 +376,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 Padding(
                   padding: const EdgeInsets.only(right: 190, bottom: 5),
                   child: Text(
-                    AppLocalizations.of(context)!.advanceSearchTextField5,
+                    context.getLocalization()?.advanceSearchTextField5??'',
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -426,7 +427,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       child: InkWell(
                         onTap: () {},
                         child: Text(
-                          AppLocalizations.of(context)!.advanceSearchButton1,
+                          context.getLocalization()?.advanceSearchButton1??'',
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -452,7 +453,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       child: InkWell(
                         onTap: () {},
                         child: Text(
-                          AppLocalizations.of(context)!.advanceSearchButton2,
+                          context.getLocalization()?.advanceSearchButton2??'',
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,

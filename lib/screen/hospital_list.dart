@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/widgets/filter_widget.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../common_widgets/search_button.dart';
 import '../utils/colors.dart';
 import 'hospitaldetails.dart';
@@ -52,7 +52,7 @@ class _HospitalListState extends State<HospitalList> {
                     width: 40,
                   ),
                   Text(
-                    AppLocalizations.of(context)!.topHospitals,
+                    context.getLocalization()?.topHospitals??'',
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -76,7 +76,7 @@ class _HospitalListState extends State<HospitalList> {
               const SizedBox(
                 height: 16,
               ),
-              SearchButton(onPressed: () {}, buttonName: AppLocalizations.of(context)!.searchHospitals,)
+              SearchButton(onPressed: () {}, buttonName: context.getLocalization()?.searchHospitals??'',)
             ],
           ),
         ),
@@ -123,7 +123,7 @@ class _HospitalListState extends State<HospitalList> {
                                         child: Row(
                                           children: [
                                             Text(
-                                              AppLocalizations.of(context)!.sortBy,
+                                              context.getLocalization()?.sortBy??'',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 22,
                                                 fontWeight: FontWeight.w400,
@@ -168,7 +168,7 @@ class _HospitalListState extends State<HospitalList> {
                                             activeColor: AppColors.primary,
                                             controlAffinity: ListTileControlAffinity.trailing,
                                             title: Text(
-                                              AppLocalizations.of(context)!.sortByTextField1,
+                                              context.getLocalization()?.sortByTextField1??'',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w400,
@@ -206,7 +206,7 @@ class _HospitalListState extends State<HospitalList> {
                                             activeColor: AppColors.primary,
                                             controlAffinity: ListTileControlAffinity.trailing,
                                             title: Text(
-                                              AppLocalizations.of(context)!.sortByTextField2,
+                                              context.getLocalization()?.sortByTextField2??'',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w400,
@@ -246,7 +246,7 @@ class _HospitalListState extends State<HospitalList> {
                                               activeColor: AppColors.primary,
                                               controlAffinity: ListTileControlAffinity.trailing,
                                               title: Text(
-                                                AppLocalizations.of(context)!.sortByTextField3,
+                                                context.getLocalization()?.sortByTextField3??'',
                                                 style: GoogleFonts.poppins(
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w400,
@@ -285,7 +285,7 @@ class _HospitalListState extends State<HospitalList> {
                                               Navigator.pop(context);
                                             },
                                             child: Text(
-                                              AppLocalizations.of(context)!.applyButton,
+                                              context.getLocalization()?.applyButton??'',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 19,
                                                 fontWeight: FontWeight.w400,
@@ -307,7 +307,7 @@ class _HospitalListState extends State<HospitalList> {
                             Padding(
                               padding: const EdgeInsets.only(left: 5, top: 10),
                               child: Text(
-                                AppLocalizations.of(context)!.sortBy,
+                                context.getLocalization()?.sortBy??'',
                                 style: GoogleFonts.poppins(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
@@ -344,7 +344,7 @@ class _HospitalListState extends State<HospitalList> {
                             Padding(
                               padding: const EdgeInsets.only(left: 10, top: 11),
                               child: Text(
-                                AppLocalizations.of(context)!.filter,
+                                context.getLocalization()?.filter??'',
                                 style: GoogleFonts.poppins(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w400,
@@ -389,15 +389,15 @@ class _HospitalListState extends State<HospitalList> {
                             itemBuilder: (context) => [
                               PopupMenuItem(
                                 value: "5 / 4 star",
-                                child: Text( AppLocalizations.of(context)!.review1,),
+                                child: Text( context.getLocalization()?.review1??'',),
                               ),
                               PopupMenuItem(
                                 value: "3 / 2 star",
-                                child: Text(AppLocalizations.of(context)!.review2),
+                                child: Text(context.getLocalization()?.review2??''),
                               ),
                               PopupMenuItem(
                                 value: "1 star",
-                                child: Text(AppLocalizations.of(context)!.review3),
+                                child: Text(context.getLocalization()?.review3??''),
                               ),
                             ],
                           ),
@@ -416,7 +416,7 @@ class _HospitalListState extends State<HospitalList> {
                           Padding(
                             padding: const EdgeInsets.only(left: 11, top: 10),
                             child: Text(
-                              AppLocalizations.of(context)!.insurance,
+                              context.getLocalization()?.insurance??'',
                               style: GoogleFonts.poppins(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w400,

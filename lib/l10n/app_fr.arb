@@ -260,6 +260,10 @@
   "@languageScreenButton": {
     "description": "Title text encouraging the user to find a family doctor."
   },
+  "languageScreenLanguageButton": "Francais",
+  "@languageScreenLanguageButton": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
   "subTitle": "medecin!",
   "@subTitle": {
     "description": "Sous-titre complétant le titre avec une exclamation."

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:remdy/extensions/localization_extension.dart';
 import '../screen/notification_screen.dart';
 import '../utils/colors.dart';
 
@@ -34,7 +34,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget{
                   width: 30,
                 ),
                 Text(
-                  AppLocalizations.of(context)!.advanceSearch,
+                  context.getLocalization()?.advanceSearch??'',
                   style: GoogleFonts.poppins(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,

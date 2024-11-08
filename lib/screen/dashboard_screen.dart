@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:remdy/extensions/localization_extension.dart';
 import '../common_widgets/doctor_card.dart';
 import '../utils/colors.dart';
 import 'advance_search.dart';
 import 'doctor_list.dart';
 import 'notification_screen.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -120,7 +121,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               child: Row(
                                 children: [
                                   Text(
-                                    AppLocalizations.of(context)!.address,
+                                    context.getLocalization()?.address ?? '',
                                     style: GoogleFonts.poppins(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
@@ -174,7 +175,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: AppLocalizations.of(context)!.area,
+                                      labelText: context.getLocalization()?.area??'',
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -212,7 +213,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: AppLocalizations.of(context)!.building,
+                                      labelText: context.getLocalization()?.building??'',
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -246,7 +247,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: AppLocalizations.of(context)!.landMark,
+                                      labelText: context.getLocalization()?.landMark??'',
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -272,7 +273,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     Navigator.pop(context);
                                   },
                                   child: Text(
-                                    AppLocalizations.of(context)!.confirmAddress,
+                                    context.getLocalization()?.confirmAddress??'',
                                     style: GoogleFonts.poppins(
                                       fontSize: 19,
                                       fontWeight: FontWeight.w400,
@@ -323,7 +324,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               child: Row(
                                 children: [
                                   Text(
-                                    AppLocalizations.of(context)!.address,
+                                    context.getLocalization()?.address??'',
                                     style: GoogleFonts.poppins(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w400,
@@ -377,7 +378,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: AppLocalizations.of(context)!.area,
+                                      labelText:context.getLocalization()?.area??'',
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -415,7 +416,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: AppLocalizations.of(context)!.building,
+                                      labelText: context.getLocalization()?.building??'',
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -449,7 +450,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText: AppLocalizations.of(context)!.landMark,
+                                      labelText: context.getLocalization()?.landMark??'',
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -475,7 +476,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     Navigator.pop(context);
                                   },
                                   child: Text(
-                                    AppLocalizations.of(context)!.confirmAddress,
+                                    context.getLocalization()?.confirmAddress??'',
                                     style: GoogleFonts.poppins(
                                       fontSize: 19,
                                       fontWeight: FontWeight.w400,
@@ -495,7 +496,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.location,
+                    context.getLocalization()?.location??'',
                     // 'Barrie',
                     style: GoogleFonts.poppins(
                       fontSize: 16,
@@ -505,7 +506,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    AppLocalizations.of(context)!.country,
+                    context.getLocalization()?.country??'',
                     // 'Ontario, Canada',
                     style: GoogleFonts.poppins(
                       fontSize: 13,
@@ -559,7 +560,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   left: 16,
                   right: 16,
                    child:Text(//"Let's find a Family",
-                    AppLocalizations.of(context)!.title,
+                     context.getLocalization()?.title??'',
                     style: GoogleFonts.poppins(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
@@ -573,7 +574,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   right: 16,
                   child: Text(
                     // "doctor!",
-                     AppLocalizations.of(context)!.subTitle,
+                    context.getLocalization()?.subTitle??'',
                     style: GoogleFonts.poppins(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
@@ -595,7 +596,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     child: Row(
                       children: [
                         Text(
-                          AppLocalizations.of(context)!.advanceSearch,
+                          context.getLocalization()?.advanceSearch??'',
                           // 'Advance Search',
                           style: GoogleFonts.poppins(
                             fontSize: 13,
@@ -645,7 +646,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             width: 18,
                           ),
                           Text(
-                            AppLocalizations.of(context)!.searchHealthIssue,
+                            context.getLocalization()?.searchHealthIssue ?? '',
                             // 'Search health issue.......',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
@@ -664,7 +665,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Padding(
               padding: const EdgeInsets.only(right: 180, top: 10),
               child: Text(
-                AppLocalizations.of(context)!.nearbyDoctor,
+                context.getLocalization()?.nearbyDoctor??'',
                 // 'Nearby doctor',
                 style: GoogleFonts.poppins(
                   fontSize: 16,

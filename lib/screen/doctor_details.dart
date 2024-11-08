@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/patients_details.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/colors.dart';
 
 class DoctorDetails extends StatefulWidget {
@@ -49,7 +49,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
             child: Row(
               children: [
                 Text(
-                  AppLocalizations.of(context)!.doctorDetailsJoinWaitingListButton,
+                  context.getLocalization()?.doctorDetailsJoinWaitingListButton??'',
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
@@ -817,7 +817,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                         );
                       },
                       child: Text(
-                        AppLocalizations.of(context)!.doctorDetailsReviewButton,
+                        context.getLocalization()?.doctorDetailsReviewButton??'',
                         style: GoogleFonts.poppins(
                           fontSize: 17,
                           fontWeight: FontWeight.w600,
@@ -943,7 +943,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          AppLocalizations.of(context)!.doctorDetailsSendRequestButton,
+                          context.getLocalization()?.doctorDetailsSendRequestButton??'',
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,

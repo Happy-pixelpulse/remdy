@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/search_button.dart';
+import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/notification_screen.dart';
 import 'package:remdy/screen/widgets/filter_widget.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import '../common_widgets/dr_list.dart';
 import '../utils/colors.dart';
 
 enum FilterEnum { distance, availability, gender, experience }
+
 enum SortOptions { patientStories, experience, distance }
 
 class DoctorList extends StatefulWidget {
@@ -111,7 +113,7 @@ class _DoctorListState extends State<DoctorList> {
                     width: 70,
                   ),
                   Text(
-                    AppLocalizations.of(context)!.doctorListTitle,
+                    context.getLocalization()?.doctorListTitle ?? '',
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -135,7 +137,11 @@ class _DoctorListState extends State<DoctorList> {
               const SizedBox(
                 height: 16,
               ),
-              SearchButton(onPressed: () {}, buttonName: AppLocalizations.of(context)!.doctorListSearchButton,)
+              SearchButton(
+                onPressed: () {},
+                buttonName:
+                    context.getLocalization()?.doctorListSearchButton ?? '',
+              )
             ],
           ),
         ),
@@ -182,7 +188,7 @@ class _DoctorListState extends State<DoctorList> {
                                         child: Row(
                                           children: [
                                             Text(
-                                              AppLocalizations.of(context)!.sortBy,
+                                              context.getLocalization()?.sortBy??'',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 22,
                                                 fontWeight: FontWeight.w400,
@@ -211,27 +217,30 @@ class _DoctorListState extends State<DoctorList> {
                                       Padding(
                                         padding: const EdgeInsets.only(
                                             left: 17, right: 17),
-                                        child:   Container(
+                                        child: Container(
                                           width: 360,
                                           height: 49,
                                           decoration: BoxDecoration(
                                               borderRadius:
-                                              const BorderRadius.all(
-                                                  Radius.circular(15)),
+                                                  const BorderRadius.all(
+                                                      Radius.circular(15)),
                                               border: Border.all(
-                                                  color: AppColors
-                                                      .bottomTextfield,
+                                                  color:
+                                                      AppColors.bottomTextfield,
                                                   width: 1),
                                               color: AppColors.secondary),
-                                          child:  RadioListTile<SortOptions>(
+                                          child: RadioListTile<SortOptions>(
                                             activeColor: AppColors.primary,
-                                            controlAffinity: ListTileControlAffinity.trailing,
+                                            controlAffinity:
+                                                ListTileControlAffinity
+                                                    .trailing,
                                             title: Text(
-                                              AppLocalizations.of(context)!.sortByTextField1,
+                                              context.getLocalization()?.sortByTextField1??'',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w400,
-                                                color: AppColors.bottomTextfieldText,
+                                                color: AppColors
+                                                    .bottomTextfieldText,
                                               ),
                                             ),
                                             value: SortOptions.patientStories,
@@ -241,7 +250,8 @@ class _DoctorListState extends State<DoctorList> {
                                                 _selectedOption = value;
                                               });
                                             },
-                                          ),),
+                                          ),
+                                        ),
                                       ),
                                       const SizedBox(
                                         height: 21,
@@ -254,22 +264,25 @@ class _DoctorListState extends State<DoctorList> {
                                           height: 49,
                                           decoration: BoxDecoration(
                                               borderRadius:
-                                              const BorderRadius.all(
-                                                  Radius.circular(15)),
+                                                  const BorderRadius.all(
+                                                      Radius.circular(15)),
                                               border: Border.all(
-                                                  color: AppColors
-                                                      .bottomTextfield,
+                                                  color:
+                                                      AppColors.bottomTextfield,
                                                   width: 1),
                                               color: AppColors.secondary),
-                                          child:  RadioListTile<SortOptions>(
+                                          child: RadioListTile<SortOptions>(
                                             activeColor: AppColors.primary,
-                                            controlAffinity: ListTileControlAffinity.trailing,
+                                            controlAffinity:
+                                                ListTileControlAffinity
+                                                    .trailing,
                                             title: Text(
-                                              AppLocalizations.of(context)!.sortByTextField2,
+                                              context.getLocalization()?.sortByTextField2??'',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w400,
-                                                color: AppColors.bottomTextfieldText,
+                                                color: AppColors
+                                                    .bottomTextfieldText,
                                               ),
                                             ),
                                             value: SortOptions.patientStories,
@@ -279,7 +292,8 @@ class _DoctorListState extends State<DoctorList> {
                                                 _selectedOption = value;
                                               });
                                             },
-                                          ),),
+                                          ),
+                                        ),
                                       ),
                                       const SizedBox(
                                         height: 21,
@@ -292,24 +306,28 @@ class _DoctorListState extends State<DoctorList> {
                                           height: 49,
                                           decoration: BoxDecoration(
                                               borderRadius:
-                                              const BorderRadius.all(
-                                                  Radius.circular(15)),
+                                                  const BorderRadius.all(
+                                                      Radius.circular(15)),
                                               border: Border.all(
-                                                  color: AppColors
-                                                      .bottomTextfield,
+                                                  color:
+                                                      AppColors.bottomTextfield,
                                                   width: 1),
                                               color: AppColors.secondary),
                                           child: Padding(
-                                            padding: const EdgeInsets.only(bottom: 15),
+                                            padding: const EdgeInsets.only(
+                                                bottom: 15),
                                             child: RadioListTile<SortOptions>(
                                               activeColor: AppColors.primary,
-                                              controlAffinity: ListTileControlAffinity.trailing,
+                                              controlAffinity:
+                                                  ListTileControlAffinity
+                                                      .trailing,
                                               title: Text(
-                                                AppLocalizations.of(context)!.sortByTextField3,
+                                                context.getLocalization()?.sortByTextField3??'',
                                                 style: GoogleFonts.poppins(
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w400,
-                                                  color: AppColors.bottomTextfieldText,
+                                                  color: AppColors
+                                                      .bottomTextfieldText,
                                                 ),
                                               ),
                                               value: SortOptions.patientStories,
@@ -320,7 +338,8 @@ class _DoctorListState extends State<DoctorList> {
                                                 });
                                               },
                                             ),
-                                          ),),
+                                          ),
+                                        ),
                                       ),
                                       const SizedBox(
                                         height: 94,
@@ -344,7 +363,7 @@ class _DoctorListState extends State<DoctorList> {
                                               Navigator.pop(context);
                                             },
                                             child: Text(
-                                              AppLocalizations.of(context)!.applyButton,
+                                              context.getLocalization()?.applyButton??'',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 19,
                                                 fontWeight: FontWeight.w400,
@@ -366,7 +385,7 @@ class _DoctorListState extends State<DoctorList> {
                             Padding(
                               padding: const EdgeInsets.only(left: 5, top: 10),
                               child: Text(
-                                AppLocalizations.of(context)!.sortBy,
+                                context.getLocalization()?.sortBy??'',
                                 style: GoogleFonts.poppins(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
@@ -403,7 +422,7 @@ class _DoctorListState extends State<DoctorList> {
                             Padding(
                               padding: const EdgeInsets.only(left: 10, top: 11),
                               child: Text(
-                                AppLocalizations.of(context)!.filter,
+                                context.getLocalization()?.filter??'',
                                 style: GoogleFonts.poppins(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w400,
@@ -446,17 +465,21 @@ class _DoctorListState extends State<DoctorList> {
                             },
                             icon: Image.asset("assets/chevron-down.png"),
                             itemBuilder: (context) => [
-                               PopupMenuItem(
+                              PopupMenuItem(
                                 value: "5 / 4 star",
-                                child: Text( AppLocalizations.of(context)!.review1,),
+                                child: Text(
+                                  context.getLocalization()?.review1??'',
+                                ),
                               ),
-                               PopupMenuItem(
+                              PopupMenuItem(
                                 value: "3 / 2 star",
-                                child: Text(AppLocalizations.of(context)!.review2),
+                                child:
+                                    Text(context.getLocalization()?.review2??''),
                               ),
-                               PopupMenuItem(
+                              PopupMenuItem(
                                 value: "1 star",
-                                child: Text(AppLocalizations.of(context)!.review3),
+                                child:
+                                    Text(context.getLocalization()?.review3??''),
                               ),
                             ],
                           ),
@@ -475,7 +498,7 @@ class _DoctorListState extends State<DoctorList> {
                           Padding(
                             padding: const EdgeInsets.only(left: 11, top: 10),
                             child: Text(
-                              AppLocalizations.of(context)!.insurance,
+                              context.getLocalization()?.insurance??'',
                               style: GoogleFonts.poppins(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w400,
@@ -518,6 +541,4 @@ class _DoctorListState extends State<DoctorList> {
       ),
     );
   }
-
-
 }

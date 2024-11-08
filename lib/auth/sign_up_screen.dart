@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
 import '../common_widgets/sign_up_button.dart';
 import '../utils/colors.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -28,7 +28,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           Column(
             children: [
               Text(
-                AppLocalizations.of(context)!.signUpScreenTitle,
+                context.getLocalization()?.signUpScreenTitle ?? '',
                 // "Let’s Get Started",
                 style: GoogleFonts.poppins(
                   fontSize: 35,
@@ -45,15 +45,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     );
                   },
                   imageName: 'assets/google.png',
-                  buttonName: AppLocalizations.of(context)!.buttonName1,),
+                  buttonName:context.getLocalization()?.buttonName1 ?? '',),
               const SizedBox(height: 8),
               SignUpButton(
                   onPressed: () {},
                   imageName: 'assets/apple.png',
-                  buttonName: AppLocalizations.of(context)!.buttonName2,),
+                  buttonName: context.getLocalization()?.buttonName2 ?? '',),
               const SizedBox(height: 8),
               Text(
-                AppLocalizations.of(context)!.signUpScreenText,
+                context.getLocalization()?.signUpScreenText ?? '',
                 // "Sign up with Your Account",
                 style: GoogleFonts.poppins(
                   fontSize: 13,
@@ -72,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           text: TextSpan(
             children: [
               TextSpan(
-                text: AppLocalizations.of(context)!.signUpTextSpan1,
+                text: context.getLocalization()?.signUpTextSpan1 ?? '',
                 style: GoogleFonts.poppins(
                   fontSize: 10,
                   color: AppColors.signText1,
@@ -80,7 +80,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               TextSpan(
-                text: AppLocalizations.of(context)!.signUpTextSpan2,
+                text: context.getLocalization()?.signUpTextSpan2 ?? '',
                 style: GoogleFonts.poppins(
                   fontSize: 10,
                   color: AppColors.primary,
@@ -88,7 +88,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               TextSpan(
-                text: AppLocalizations.of(context)!.signUpTextSpan3,
+                text: context.getLocalization()?.signUpTextSpan3 ?? '',
                 style: GoogleFonts.poppins(
                   fontSize: 10,
                   color: AppColors.signText1,
@@ -96,7 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               TextSpan(
-                text: AppLocalizations.of(context)!.signUpTextSpan4,
+                text: context.getLocalization()?.signUpTextSpan4 ?? '',
                 style: GoogleFonts.poppins(
                   fontSize: 10,
                   color: AppColors.primary,
