@@ -464,7 +464,7 @@ class _HospitalListState extends State<HospitalList> {
                                       topRight: Radius.circular(16.0),
                                     ),
                                     child: Image.network(
-                                      'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif',
+                                      'https://thumbs.dreamstime.com/b/doctors-hospital-corridor-nurse-pushing-gurney-stretcher-bed-male-senior-female-patient-32154012.jpg',
                                       height: 121,
                                       width: 358 ,
                                       fit: BoxFit.cover,
@@ -475,14 +475,14 @@ class _HospitalListState extends State<HospitalList> {
                                     children: [
                                       const SizedBox(width: 10,),
                                       Text(
-                                        'Sunrise Health Clinic',
+                                        'Saskatoon City Hospital',
                                         style: GoogleFonts.poppins(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
                                           color: AppColors.hospitalText,
                                         ),
                                       ),
-                                      const SizedBox(width: 65,),
+                                      const SizedBox(width: 35,),
                                       Padding(
                                         padding: const EdgeInsets.only(left:50),
                                         child: IconButton(
@@ -506,7 +506,7 @@ class _HospitalListState extends State<HospitalList> {
                                         const Icon(Icons.location_on, size: 18),
                                         const SizedBox(width: 4),
                                         Text(
-                                          '123 Oak Street, CA 98765',
+                                          '701 Queen St, Saskatoon',
                                           style: GoogleFonts.poppins(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w400,

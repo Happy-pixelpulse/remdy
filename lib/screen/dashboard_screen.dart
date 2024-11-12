@@ -19,65 +19,65 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<Map<String, String>> doctors = [
     {
       "imagePath":
-      "https://pixelwallpaper.pixelpulseinc.com/assets/vactor/vactor_1.jfif",
-      "name": "Dr. Bellamy N",
-      "specialty": "Viralogist",
+      "https://static.vecteezy.com/system/resources/previews/027/186/029/large_2x/smiling-male-doctor-with-good-test-results-wearing-a-white-coat-and-stethoscope-looking-into-camera-on-isolated-white-background-copy-space-for-health-free-photo.jpg",
+      "name": "Dr sua",
+      "specialty": "Endocrinology",
       "reviews": "(135 reviews)",
       "rating": "4.5"
     },
     {
       "imagePath":
-      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_1.jfif",
-      "name": "Dr. Mensah T",
-      "specialty": "Oncologists",
+      "https://i1.feedspot.com/200/5348256.jpg?t=1638262713",
+      "name": "Dr  Matthew Nagra",
+      "specialty": "Victoria",
       "reviews": "(135 reviews)",
       "rating": "4.3"
     },
     {
       "imagePath":
-      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_2.jfif",
-      "name": "Dr. Klimisch J",
-      "specialty": "Surgeon",
+      "https://static.vecteezy.com/system/resources/previews/027/187/026/large_2x/black-doctor-with-dreadlocks-and-stethoscope-poses-in-lab-coat-against-white-background-vertical-medicine-clinic-health-photo.jpg",
+      "name": "Dr Joey  Shulman",
+      "specialty": "Holistic Nutritionist",
       "reviews": "(135 reviews)",
       "rating": "4.5"
     },
     {
       "imagePath":
-      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_3.jfif",
-      "name": "Dr. Martinez K",
-      "specialty": "Pediatrician",
+      "https://static.vecteezy.com/system/resources/previews/027/215/837/large_2x/male-doctor-with-a-stethoscope-smiling-at-the-camera-wearing-a-white-coat-and-glasses-posing-on-a-gray-isolated-background-photo.jpg",
+      "name": "Dr Bill",
+      "specialty": "Physicians",
       "reviews": "(135 reviews)",
       "rating": "4.3"
     },
     {
       "imagePath":
-      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif",
-      "name": "Dr. Marc M",
-      "specialty": "Rheumatologists",
+      "https://static.vecteezy.com/system/resources/previews/026/375/411/large_2x/ai-generative-portrait-of-doctor-standing-in-corridor-at-hospital-doctor-looking-at-camera-photo.jpg",
+      "name": "Dr  Andrew Denton",
+      "specialty": "Plastic Surgeon",
       "reviews": "(135 reviews)",
       "rating": "4.3"
     },
     {
       "imagePath":
-      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_5.jfif",
-      "name": "Dr. O’Boyle J",
-      "specialty": "Radiologists",
+      "https://static.vecteezy.com/system/resources/previews/023/570/077/large_2x/portrait-of-girl-doctor-illustration-ai-generative-free-photo.jpg",
+      "name": "Dr Schlee",
+      "specialty": "Naturopathic",
       "reviews": "(135 reviews)",
       "rating": "4.5"
     },
     {
       "imagePath":
-      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_6.jfif",
-      "name": "Dr. Mensah T",
-      "specialty": "Surgeon",
+      "https://static.vecteezy.com/system/resources/previews/027/298/490/large_2x/doctor-posing-portrait-free-photo.jpg",
+      "name": "Dr Daniel Durand",
+      "specialty": "Plastic Surgeon",
       "reviews": "(135 reviews)",
       "rating": "4.3"
     },
     {
       "imagePath":
-      "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_7.jfif",
-      "name": "Dr. Bellamy R",
-      "specialty": "Viralogist",
+      "https://static.vecteezy.com/system/resources/previews/003/653/082/large_2x/young-asia-male-doctor-in-white-medical-uniform-with-stethoscope-looking-at-camera-smile-and-arms-crossed-while-video-conference-call-with-patient-in-health-hospital-consulting-and-therapy-concept-photo.jpg",
+      "name": "Dr Courtney",
+      "specialty": "Emergency Physician",
       "reviews": "(135 reviews)",
       "rating": "4.5"
     },

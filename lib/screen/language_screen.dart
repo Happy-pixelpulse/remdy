@@ -15,12 +15,23 @@ class LanguageScreen extends StatefulWidget {
 }
 
 class _LanguageScreenState extends State<LanguageScreen> {
-  Language? _selectedLanguage = Language.english;
+  Language? _isSelectedLanguage;
 
+  void _setSelectedLanguage() async{
+    var pref =await SharedPreferences.getInstance();
+    if(pref.getString(languagePrefsKey) == 'fr'){
+      _isSelectedLanguage = Language.french;
+    }else{
+      _isSelectedLanguage = Language.english;
+    }
+  }
   @override
   void initState() {
-    SharedPreferences.getInstance();
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      _setSelectedLanguage();
+      setState(() {});
+    });
   }
 
   @override
@@ -30,7 +41,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
       BlocProvider.of<LanguageBloc>(context).add(
         ChangeLanguage(
           selectedLanguage:
-          lang == 'English' ? Language.english : Language.french,
+          lang == 'english' ? Language.english : Language.french,
         ),
       );
     }
@@ -39,7 +50,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
         padding: const EdgeInsets.only(left: 16, right: 17),
         child: ElevatedButton(
           onPressed: () {
-            toggleLanguage(_selectedLanguage?.name??'');
+            toggleLanguage(_isSelectedLanguage?.name??'');
           },
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
@@ -103,16 +114,16 @@ class _LanguageScreenState extends State<LanguageScreen> {
               child: RadioListTile<Language>(
                 controlAffinity: ListTileControlAffinity.trailing,
                 value: Language.english,
-                groupValue: _selectedLanguage,
+                groupValue: _isSelectedLanguage,
                 onChanged: (Language? value) {
                   setState(() {
-                    _selectedLanguage = value;
+                    _isSelectedLanguage = value;
                   });
                 },
                 title: Text(
                   'English',
                   style: TextStyle(
-                    color: _selectedLanguage == Language.english
+                    color: _isSelectedLanguage == Language.english
                         ? AppColors.primary
                         : AppColors.signText1,
                     fontSize: 18,
@@ -132,16 +143,16 @@ class _LanguageScreenState extends State<LanguageScreen> {
               child: RadioListTile<Language>(
                 controlAffinity: ListTileControlAffinity.trailing,
                 value: Language.french,
-                groupValue: _selectedLanguage,
+                groupValue: _isSelectedLanguage,
                 onChanged: (Language? value) {
                   setState(() {
-                    _selectedLanguage = value;
+                    _isSelectedLanguage = value;
                   });
                 },
                 title: Text(
                   context.getLocalization()?.languageScreenLanguageButton?? '',
                   style: TextStyle(
-                    color: _selectedLanguage == Language.french
+                    color: _isSelectedLanguage == Language.french
                         ? AppColors.primary
                         : AppColors.signText1,
                     fontSize: 18,

@@ -4,12 +4,52 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import '../utils/colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HospitalDetails extends StatefulWidget {
   const HospitalDetails({super.key});
 
   @override
   State<HospitalDetails> createState() => _HospitalDetailsState();
+}
+
+//  Future<void> openMap(BuildContext context, double lat, double lng) async {
+// String url = '';
+// String urlAppleMaps = '';
+// if (Platform.isAndroid) {
+// url = 'https://www.google.com/maps/search/?api=1&query=$lat,$lng';
+// if (await canLaunchUrl(Uri.parse(url))) {
+// await launchUrl(Uri.parse(url));
+// } else {
+// throw 'Could not launch $url';
+// }
+// } else {
+// urlAppleMaps = 'https://maps.apple.com/?q=$lat,$lng';
+// url = 'comgooglemaps://?saddr=&daddr=$lat,$lng&directionsmode=driving';
+// if (await canLaunchUrl(Uri.parse(url))) {
+// await launchUrl(Uri.parse(url));
+// } else if (await canLaunchUrl(Uri.parse(urlAppleMaps))) {
+// await launchUrl(Uri.parse(urlAppleMaps));
+// } else {
+// throw 'Could not launch $url';
+// }
+// }
+// }
+_launchMaps() async {
+  String googleUrl =
+  'https://www.google.com/maps/search/?api=1&query=23.0210323,72.6373944';
+      // "comgooglemaps://?center=23.0096896,72.6269952";
+  String appleUrl =
+      "https://maps.apple.com/?sll=23.0210323,72.6373944";
+  if (await canLaunchUrl(Uri.parse(googleUrl))) {
+    print('launching com googleUrl');
+    await launchUrl(Uri.parse(googleUrl));
+  } else if (await canLaunchUrl(Uri.parse(appleUrl))) {
+    print('launching apple url');
+    await launchUrl(Uri.parse(appleUrl));
+  } else {
+    throw 'Could not launch url';
+  }
 }
 
 class _HospitalDetailsState extends State<HospitalDetails> {
@@ -24,8 +64,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
         width: 65,
         child: FloatingActionButton(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-          onPressed: () {},
-          backgroundColor: Colors.green,
+          onPressed: () {
+          },
+          backgroundColor: AppColors.primary,
           tooltip: 'Phone',
           child: const Icon(Icons.phone,color: AppColors.secondary,),
         ),
@@ -65,7 +106,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
                   child: Image.network(
-                    'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_1.jfif',
+                    'https://thumbs.dreamstime.com/b/doctors-hospital-corridor-nurse-pushing-gurney-stretcher-bed-male-senior-female-patient-32154012.jpg',
                     width: double.infinity,
                     //height: 200,
                     fit: BoxFit.cover,
@@ -74,7 +115,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
               ),
               const SizedBox(height: 15),
               Text(
-                'Sunrise Health Clinic',
+                "Saskatoon City Hospital",
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                     fontWeight: FontWeight.w700,
@@ -242,8 +283,6 @@ class _HospitalDetailsState extends State<HospitalDetails> {
               ),
               const SizedBox(height: 12,),
               SizedBox(
-                width: 357,
-                height: 248,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -255,7 +294,49 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                           color: AppColors.drNameText
                       ),
                     ),
-                    const SizedBox(height: 15,),
+                    SizedBox(height: 5,),
+                    Column(
+                      children: [
+                        GestureDetector(
+                          onTap: (){
+                            _launchMaps();
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(16),
+                            child: Image.network(
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGmvZIregf4zKT_r9yJftlIyqZg8asvGM90Q&s',
+                              width: double.infinity,
+                              //height: 200,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        Row(
+                          children: [
+                            Text(
+                              'Saskatoon City Hospital',
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.drNameText,
+                              ),
+                            ),
+                            SizedBox(width: 60,),
+                            Text(
+                              'Directions',
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.primary,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+
+                    Divider(thickness: 1,),
                     Row(
                       children: [
                         Image.asset('assets/map-pin.png',color: AppColors.signText1,),
@@ -263,7 +344,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                           width: 10,
                         ),
                         Text(
-                          '23 Insurances Accepted',
+                          '701 Queen St, Saskatoon',
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,

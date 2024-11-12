@@ -1,0 +1,72 @@
+[
+  {
+    "No": "1",
+    "Doctor name": "Dr sua",
+    "speciality": "Endocrinology",
+    "Rating": "4.5",
+    "Reviews": "(135 reviews)"
+  },
+  {
+    "No": "2",
+    "Doctor name": "Dr Matthew Nagra",
+    "speciality": "Victoria",
+    "Rating": "4.3",
+    "Reviews": "(135 reviews)"
+  },
+  {
+    "No": "3",
+    "Doctor name": "Dr Joey Shulman ",
+    "speciality": "holistic nutritionist",
+    "Rating": "4.5",
+    "Reviews": "(135 reviews)"
+  },
+  {
+    "No": "4",
+    "Doctor name": "Dr Bill",
+    "speciality": "physicians",
+    "Rating": "4.3",
+    "Reviews": "(135 reviews)"
+  },
+  {
+    "No": "5",
+    "Doctor name": "Dr Andrew Denton",
+    "speciality": "Plastic Surgeon",
+    "Rating": "4.3",
+    "Reviews": "(135 reviews)"
+  },
+  {
+    "No": "6",
+    "Doctor name": "Dr Schlee",
+    "speciality": "Naturopathic",
+    "Rating": "4.5",
+    "Reviews": "(135 reviews)"
+  },
+  {
+    "No": "7",
+    "Doctor name": "Dr Daniel Durand",
+    "speciality": "Plastic Surgeon",
+    "Rating": "4.3",
+    "Reviews": "(135 reviews)"
+  },
+  {
+    "No": "8",
+    "Doctor name": "Dr  Courtney Howard",
+    "speciality": "Emergency Physician",
+    "Rating": "4.5",
+    "Reviews": "(135 reviews)"
+  },
+  {
+    "No": "9",
+    "Doctor name": "Dr Courtney Holmberg ND",
+    "speciality": "Naturopathic",
+    "Rating": "4.3",
+    "Reviews": "(135 reviews)"
+  },
+  {
+    "No": "10",
+    "Doctor name": "Dr Adella Gerry",
+    "speciality": "Naturopathic",
+    "Rating": "4.5",
+    "Reviews": "(135 reviews)"
+  }
+]

@@ -23,7 +23,7 @@ class _DoctorListState extends State<DoctorList> {
   final List<Map<String, dynamic>> doctors = [
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/vactor/vactor_1.jfif",
+          "https://static.vecteezy.com/system/resources/previews/027/186/029/large_2x/smiling-male-doctor-with-good-test-results-wearing-a-white-coat-and-stethoscope-looking-into-camera-on-isolated-white-background-copy-space-for-health-free-photo.jpg",
       "name": "Yong Gon Kim",
       "specialty": "Lab technician",
       "patients": "Accepting Patients",
@@ -33,7 +33,7 @@ class _DoctorListState extends State<DoctorList> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_1.jfif",
+          "https://i1.feedspot.com/200/5348256.jpg?t=1638262713",
       "name": "Marc Berezin",
       "specialty": "Pathologist",
       "patients": "Accepting Patients",
@@ -43,7 +43,7 @@ class _DoctorListState extends State<DoctorList> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_2.jfif",
+          "https://static.vecteezy.com/system/resources/previews/027/187/026/large_2x/black-doctor-with-dreadlocks-and-stethoscope-poses-in-lab-coat-against-white-background-vertical-medicine-clinic-health-photo.jpg",
       "name": "Michael Martynik",
       "specialty": "General Practitioner",
       "patients": "Accepting Patients",
@@ -53,7 +53,7 @@ class _DoctorListState extends State<DoctorList> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_3.jfif",
+          "https://static.vecteezy.com/system/resources/previews/027/215/837/large_2x/male-doctor-with-a-stethoscope-smiling-at-the-camera-wearing-a-white-coat-and-glasses-posing-on-a-gray-isolated-background-photo.jpg",
       "name": "Alex Leyberman",
       "specialty": "Neurologist",
       "patients": "Accepting Patients",
@@ -63,7 +63,7 @@ class _DoctorListState extends State<DoctorList> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif",
+          "https://static.vecteezy.com/system/resources/previews/026/375/411/large_2x/ai-generative-portrait-of-doctor-standing-in-corridor-at-hospital-doctor-looking-at-camera-photo.jpg",
       "name": "John Danchik",
       "specialty": "Nurse",
       "patients": "Accepting Patients",
@@ -73,7 +73,7 @@ class _DoctorListState extends State<DoctorList> {
     },
     {
       "imagePath":
-          "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_5.jfif",
+          "https://static.vecteezy.com/system/resources/previews/023/570/077/large_2x/portrait-of-girl-doctor-illustration-ai-generative-free-photo.jpg",
       "name": "Marc Golden",
       "specialty": "Pathologist",
       "patients": "Accepting Patients",

@@ -94,10 +94,10 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     child: ClipRRect(
                       borderRadius: const BorderRadius.all(Radius.circular(30)),
                       child: Image.network(
-                        'https://pixelwallpaper.pixelpulseinc.com/assets/vactor/vactor_1.jfif',
+                        'https://static.vecteezy.com/system/resources/previews/027/186/029/large_2x/smiling-male-doctor-with-good-test-results-wearing-a-white-coat-and-stethoscope-looking-into-camera-on-isolated-white-background-copy-space-for-health-free-photo.jpg',
                         width: 117,
                         height: 142,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
