@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
 import '../common_widgets/sign_up_button.dart';
@@ -13,6 +15,18 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
+  signInWithGoogle() async {
+    final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+    final GoogleSignInAuthentication gAuth = await gUser!.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: gAuth.accessToken,
+      idToken:  gAuth.idToken
+    );
+    return await auth.signInWithCredential(credential);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +53,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 100),
               SignUpButton(
                   onPressed: () {
+                    signInWithGoogle();
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) =>  HomeScreen()),
+                      MaterialPageRoute(
+                          builder: (context) =>  HomeScreen()),
                     );
                   },
                   imageName: 'assets/google.png',

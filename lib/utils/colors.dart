@@ -26,6 +26,7 @@ class AppColors {
   static const Color drRatings = Color(0xFFFEF6EC);
   static const Color drRatingsIcon = Color(0xFFF7C480);
   static const Color waring = Color(0xFFFE0F0A);
+  static const Color waring1 = Color(0xFFFF0000);
   static const Color headLine = Color(0xFF1C2A3A);
   static const Color hospitalText = Color(0xFF4B5563);
   static const Color hospitalLocationText = Color(0xFF6B7280);
