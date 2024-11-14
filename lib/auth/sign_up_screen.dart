@@ -18,15 +18,39 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final FirebaseAuth auth = FirebaseAuth.instance;
 
-  signInWithGoogle() async {
-    final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
-    final GoogleSignInAuthentication gAuth = await gUser!.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: gAuth.accessToken,
-      idToken:  gAuth.idToken
-    );
-    return await auth.signInWithCredential(credential);
+  Future<void> signInWithGoogle(BuildContext context) async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
+      final AuthCredential googleCredential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+      UserCredential userCredential = await auth.signInWithCredential(googleCredential);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    } catch (e) {
+      print("Error during Google sign-in: $e");
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Error during sign-in: $e")),
+      );
+    }
   }
+
+  // signInWithGoogle() async {
+  //   final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+  //   final GoogleSignInAuthentication gAuth = await gUser!.authentication;
+  //   final credential = GoogleAuthProvider.credential(
+  //     accessToken: gAuth.accessToken,
+  //     idToken:  gAuth.idToken
+  //   );
+  //   return await auth.signInWithCredential(credential);
+  // }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,12 +77,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 100),
               SignUpButton(
                   onPressed: () {
-                    signInWithGoogle();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>  HomeScreen()),
-                    );
+                    signInWithGoogle(context);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) =>  HomeScreen()),
+                    // );
                   },
                   imageName: 'assets/google.png',
                   buttonName:context.getLocalization()?.buttonName1 ?? '',),

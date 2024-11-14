@@ -224,7 +224,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         icon:
                         const Icon(Icons.keyboard_arrow_down),
                         onPressed: () {
-                          Navigator.pop(context);
+                          // Navigator.pop(context);
                         },
                       ),
                       enabledBorder: const OutlineInputBorder(
