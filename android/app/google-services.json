@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "60301424444",
+    "project_id": "remdy-f09ed",
+    "storage_bucket": "remdy-f09ed.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60301424444:android:65a111bd9e53fd8758d039",
+        "android_client_info": {
+          "package_name": "com.example.remdy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7c5UavXvGeSl7-BBTTPoybcIce596tBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
