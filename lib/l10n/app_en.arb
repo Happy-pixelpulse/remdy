@@ -269,6 +269,74 @@
   "@nearbyMedicalCenters": {
     "description": "Placeholder text for the hospital search bar."
   },
+  "patientsDetailsTitle": "Patients Details",
+  "@patientsDetailsTitle": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "notification": "Notification",
+  "@notification": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "favorite": "Favorite",
+  "@favorite": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsName": "Full Name:",
+  "@patientsName": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsEmail": "Email",
+  "@patientsEmail": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsPhoneNumber": "Phone Number",
+  "@patientsPhoneNumber": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsAddress": "Address",
+  "@patientsAddress": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsCity": "City",
+  "@patientsCity": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsProvince": "Province",
+  "@patientsProvince": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsPinCode": "Pin Code",
+  "@patientsPinCode": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsGender": "Gender",
+  "@patientsGender": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsDateOfBirth": "Date Of Birth",
+  "@patientsDateOfBirth": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsPreviously": "Did you previously had a family doctor ?",
+  "@patientsPreviously": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsOption1": "Yes",
+  "@patientsOption1": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsOption2": "No",
+  "@patientsOption2": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsFamilyDoctor": "If yes name of the doctor",
+  "@patientsFamilyDoctor": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsDoneButton": "Done",
+  "@patientsDoneButton": {
+    "description": "Placeholder text for the hospital search bar."
+  },
   "advanceSearch": "Advance Search",
   "@advanceSearch": {
     "description": "Label for the advanced search option."

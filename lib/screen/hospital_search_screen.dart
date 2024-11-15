@@ -712,38 +712,45 @@ class _HospitalPageState extends State<HospitalPage> {
               ),
             ),
             const SizedBox(height: 10),
-            SizedBox(
-              height: 252,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: hospitalList.length,
-                itemBuilder: (context, index) {
-                  final hospitals = hospitalList[index];
-                  return HospitalCard(
-                    hospitalImage: hospitals["hospitalImage"],
-                    hospitalName: hospitals["hospitalName"],
-                    address: hospitals["address"],
-                    rating: hospitals["rating"],
-                    reviews: hospitals["reviews"],
-                    isLiked: hospitals["is_liked"],
-                    hospitalText: hospitals["hospitalText"],
-                    distanceText: hospitals["distanceText"],
-                  );
-                },
+            Padding(
+              padding: const EdgeInsets.only(left:12),
+              child: SizedBox(
+                height: 230,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: hospitalList.length,
+                  itemBuilder: (context, index) {
+                    final hospitals = hospitalList[index];
+                    return HospitalCard(
+                      hospitalImage: hospitals["hospitalImage"],
+                      hospitalName: hospitals["hospitalName"],
+                      address: hospitals["address"],
+                      rating: hospitals["rating"],
+                      reviews: hospitals["reviews"],
+                      isLiked: hospitals["is_liked"],
+                      hospitalText: hospitals["hospitalText"],
+                      distanceText: hospitals["distanceText"],
+                    );
+                  },
+                ),
               ),
             ),
-            SizedBox(
-              height: 252,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: clinicList.length,
-                itemBuilder: (context, index) {
-                  final clinic = clinicList[index];
-                  return ClinicCard(
-                    clinicImage: clinic["clinicImage"],
-                    clinicName: clinic["clinicName"],
-                  );
-                },
+            SizedBox(height: 14,),
+            Padding(
+              padding: const EdgeInsets.only(left: 12),
+              child: SizedBox(
+                height: 220,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: clinicList.length,
+                  itemBuilder: (context, index) {
+                    final clinic = clinicList[index];
+                    return ClinicCard(
+                      clinicImage: clinic["clinicImage"],
+                      clinicName: clinic["clinicName"],
+                    );
+                  },
+                ),
               ),
             ),
           ],

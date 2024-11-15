@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/screen/doctor_details.dart';
 
+import '../screen/doctor_list.dart';
 import '../utils/colors.dart';
 
 
@@ -31,7 +32,7 @@ class DoctorCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => const DoctorDetails()),
+              builder: (context) => const DoctorList()),
         );
       },
       child: SizedBox(

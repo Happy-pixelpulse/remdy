@@ -56,6 +56,74 @@
   "@searchHealthIssue": {
     "description": "Placeholder text for the hospital search bar."
   },
+  "notification": "Notification",
+  "@notification": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "favorite": "Préférée",
+  "@favorite": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsDetailsTitle": "Détails des patients",
+  "@patientsDetailsTitle": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsName": "Nom et prénom:",
+  "@patientsName": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsEmail": "E-mail",
+  "@patientsEmail": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsPhoneNumber": "Numéro de téléphone",
+  "@patientsPhoneNumber": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsAddress": "Adresse",
+  "@patientsAddress": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsCity": "Ville",
+  "@patientsCity": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsProvince": "Province",
+  "@patientsProvince": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsPinCode": "Code PIN",
+  "@patientsPinCode": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsGender": "Genre",
+  "@patientsGender": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsDateOfBirth": "Date de naissance",
+  "@patientsDateOfBirth": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsPreviously": "Avez-vous déjà eu un médecin de famille ?",
+  "@patientsPreviously": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsOption1": "Oui",
+  "@patientsOption1": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsOption2": "Non",
+  "@patientsOption2": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsFamilyDoctor": "Si oui nom du médecin",
+  "@patientsFamilyDoctor": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "patientsDoneButton": "Fait",
+  "@patientsDoneButton": {
+    "description": "Placeholder text for the hospital search bar."
+  },
   "hospitalTitle": "Si vous avez besoin de soins medicaux serieux,",
   "@hospitalTitle": {
     "description": "Placeholder text for the hospital search bar."

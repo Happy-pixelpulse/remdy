@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:remdy/extensions/localization_extension.dart';
 
 import '../utils/colors.dart';
 
@@ -23,7 +24,7 @@ class NotificationScreen extends StatelessWidget {
           color: AppColors.secondary,
         ),
         title: Text(
-          'Notification',
+          context.getLocalization()?.notification??'',
           style: GoogleFonts.poppins(
             fontSize: 20,
             fontWeight: FontWeight.w400,

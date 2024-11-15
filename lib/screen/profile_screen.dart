@@ -11,6 +11,11 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
+
+  List<String> options = <String>['Male','Female','Other'];
+  String dropdownValue = 'Male';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,28 +84,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 120),
+            const Padding(
+              padding: EdgeInsets.only(left: 120),
               child: Stack(
                   children: [
                 CircleAvatar(
                   radius: 60,
-                  backgroundImage: NetworkImage(
-                    "https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_1.jfif",
-                  ),
+                  backgroundImage: AssetImage('assets/profilpic.png'),
                 ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 80,left: 80),
+                      padding: EdgeInsets.only(top: 80,left: 80),
                       child: Icon(Icons.add,color: AppColors.signText1,size: 35,),
                     )
               ]),
             ),
-             SizedBox(height: 19,),
+             const SizedBox(height: 19,),
             Container(
                 width: 360,
                 height: 49,
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
                         topRight: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
                         bottomRight: Radius.circular(10)),
@@ -134,82 +137,82 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     obscureText: true,
                   ),
                 )),
-            SizedBox(height: 11,),
+            const SizedBox(height: 11,),
             Container(
                 width: 360,
                 height: 49,
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
                         topRight: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
                         bottomRight: Radius.circular(10)),
                     color:
                     AppColors.tp),
-                child: Padding(
-                  padding: const EdgeInsets.only(
+                child: const Padding(
+                  padding: EdgeInsets.only(
                       left: 17, right: 17),
                   child: TextField(
                     decoration: InputDecoration(
                     suffixText: "Change",
-                      suffixStyle:  const TextStyle(
+                      suffixStyle:  TextStyle(
                           color: AppColors.waring),
-                      enabledBorder: const OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(10),
                         ),
                       ),
-                      focusedBorder: const OutlineInputBorder(
+                      focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                             Radius.circular(10)),
                       ),
                       labelText: "Mobile",
-                      labelStyle: const TextStyle(
+                      labelStyle: TextStyle(
                           color: AppColors.signUpTextButtonRadius),
                     ),
                     obscureText: true,
                   ),
                 )),
-            SizedBox(height: 11,),
+            const SizedBox(height: 11,),
             Container(
                 width: 360,
                 height: 49,
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
                         topRight: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
                         bottomRight: Radius.circular(10)),
                     color:
                     AppColors.tp),
-                child: Padding(
-                  padding: const EdgeInsets.only(
+                child: const Padding(
+                  padding: EdgeInsets.only(
                       left: 17, right: 17),
                   child: TextField(
                     decoration: InputDecoration(
                       suffixText: "Change",
-                      suffixStyle:  const TextStyle(
+                      suffixStyle:  TextStyle(
                           color: AppColors.waring),
-                      enabledBorder: const OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(10),
                         ),
                       ),
-                      focusedBorder: const OutlineInputBorder(
+                      focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                             Radius.circular(10)),
                       ),
                       labelText: "Email",
-                      labelStyle: const TextStyle(
+                      labelStyle: TextStyle(
                           color: AppColors.signUpTextButtonRadius),
                     ),
                     obscureText: true,
                   ),
                 )),
-            SizedBox(height: 11,),
+            const SizedBox(height: 11,),
             Container(
                 width: 360,
                 height: 49,
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
                         topRight: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
                         bottomRight: Radius.circular(10)),
@@ -218,15 +221,105 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(
                       left: 17, right: 17),
-                  child: TextField(
+                  child:
+                  // DropdownButton<String>(
+                  //   value: dropdownValue,
+                  //   onChanged: (String? value) {
+                  //     setState(() {
+                  //       dropdownValue = value!;
+                  //     });
+                  //   },
+                  //   underline: const SizedBox(),
+                  //   isExpanded: true,
+                  //   style: const TextStyle(color: Colors.black),
+                  //   dropdownColor: Colors.white,
+                  //   selectedItemBuilder: (BuildContext context) {
+                  //     return options.map((String value) {
+                  //       return Align(
+                  //         alignment: Alignment.centerLeft,
+                  //         child: Text(
+                  //           dropdownValue,
+                  //         ),
+                  //       );
+                  //     }).toList();
+                  //   },
+                  //   items: options.map<DropdownMenuItem<String>>((String value) {
+                  //     return DropdownMenuItem<String>(
+                  //       value: value,
+                  //       child: Text(value),
+                  //     );
+                  //   }).toList(),
+                  // ),
+                  TextField(
+                    // readOnly: true,
                     decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        icon:
-                        const Icon(Icons.keyboard_arrow_down),
-                        onPressed: () {
-                          // Navigator.pop(context);
-                        },
+                      suffixIcon:
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: DropdownButton<String>(
+                          value: dropdownValue,
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropdownValue = value!;
+                            });
+                          },
+                          underline: const SizedBox(),
+                          isExpanded: true,
+                          style: const TextStyle(color: Colors.black),
+                          dropdownColor: Colors.white,
+                          selectedItemBuilder: (BuildContext context) {
+                            return options.map((String value) {
+                              return Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  dropdownValue,
+                                ),
+                              );
+                            }).toList();
+                          },
+                          items: options.map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                        ),
                       ),
+                      // IconButton(
+                      //   icon:
+                      //   const Icon(Icons.keyboard_arrow_down),
+                      //   onPressed: () {
+                      //     DropdownButton<String>(
+                      //       value: dropdownValue,
+                      //       onChanged: (String? value) {
+                      //         setState(() {
+                      //           dropdownValue = value!;
+                      //         });
+                      //       },
+                      //       underline: const SizedBox(),
+                      //       isExpanded: true,
+                      //       style: const TextStyle(color: Colors.black),
+                      //       dropdownColor: Colors.white,
+                      //       icon: const Icon(Icons.keyboard_arrow_down, color: Colors.black),
+                      //       selectedItemBuilder: (BuildContext context) {
+                      //         return options.map((String value) {
+                      //           return Align(
+                      //             alignment: Alignment.centerLeft,
+                      //             child: Text(
+                      //               dropdownValue,
+                      //             ),
+                      //           );
+                      //         }).toList();
+                      //       },
+                      //       items: options.map<DropdownMenuItem<String>>((String value) {
+                      //         return DropdownMenuItem<String>(
+                      //           value: value,
+                      //           child: Text(value),
+                      //         );
+                      //       }).toList(),
+                      //     );
+                      //   },
+                      // ),
                       enabledBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(10),

@@ -128,12 +128,12 @@ class _HospitalState extends State<Hospital> {
         ),
         automaticallyImplyLeading: false,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 17, top: 14),
-            child: SizedBox(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
               height: 50,
               child: ListView(
                 scrollDirection: Axis.horizontal,
@@ -424,47 +424,50 @@ class _HospitalState extends State<Hospital> {
                     ),
                   ),
                   SizedBox(
-                    width: 98,
+                    width: 110,
                     height: 43,
                     child: Card(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            _selectedReview,
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black.withOpacity(0.70),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 3),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              _selectedReview,
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black.withOpacity(0.70),
+                              ),
                             ),
-                          ),
-                          PopupMenuButton<String>(
-                            onSelected: (value) {
-                              setState(() {
-                                _selectedReview = value;
-                              });
-                            },
-                            icon: Image.asset("assets/chevron-down.png"),
-                            itemBuilder: (context) => [
-                              PopupMenuItem(
-                                value: "5 / 4 star",
-                                child: Text(
-                                  context.getLocalization()?.review1??'',
+                            PopupMenuButton<String>(
+                              onSelected: (value) {
+                                setState(() {
+                                  _selectedReview = value;
+                                });
+                              },
+                              icon: Icon(Icons.keyboard_arrow_down),
+                              itemBuilder: (context) => [
+                                PopupMenuItem(
+                                  value: "5 / 4 star",
+                                  child: Text(
+                                    context.getLocalization()?.review1??'',
+                                  ),
                                 ),
-                              ),
-                              PopupMenuItem(
-                                value: "3 / 2 star",
-                                child:
-                                Text(context.getLocalization()?.review2??''),
-                              ),
-                              PopupMenuItem(
-                                value: "1 star",
-                                child:
-                                Text(context.getLocalization()?.review3??''),
-                              ),
-                            ],
-                          ),
-                        ],
+                                PopupMenuItem(
+                                  value: "3 / 2 star",
+                                  child:
+                                  Text(context.getLocalization()?.review2??''),
+                                ),
+                                PopupMenuItem(
+                                  value: "1 star",
+                                  child:
+                                  Text(context.getLocalization()?.review3??''),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -494,30 +497,30 @@ class _HospitalState extends State<Hospital> {
                 ],
               ),
             ),
-          ),
-          const SizedBox(height: 10,),
-          Expanded(
-            child: ListView.builder(
-              // scrollDirection: Axis.horizontal,
-              itemCount: hospital.length,
-              itemBuilder: (context, index) {
-                final hospitals = hospital[index];
-                return HospitalList(
-                  hospitalImage: hospitals["hospitalImage"],
-                  hospitalName: hospitals["hospitalName"],
-                  address: hospitals["address"],
-                  rating: hospitals["rating"],
-                  isLiked: hospitals["is_liked"],
-                  reviews: hospitals["reviews"],
-                  chart: hospitals["chart"],
-                  waitingTime: hospitals["waitingTime"],
-                  hospitalText: hospitals["hospitalText"],
-                  distanceText: hospitals["distanceText"],
-                );
-              },
+            const SizedBox(height: 10,),
+            Expanded(
+              child: ListView.builder(
+                // scrollDirection: Axis.horizontal,
+                itemCount: hospital.length,
+                itemBuilder: (context, index) {
+                  final hospitals = hospital[index];
+                  return HospitalList(
+                    hospitalImage: hospitals["hospitalImage"],
+                    hospitalName: hospitals["hospitalName"],
+                    address: hospitals["address"],
+                    rating: hospitals["rating"],
+                    isLiked: hospitals["is_liked"],
+                    reviews: hospitals["reviews"],
+                    chart: hospitals["chart"],
+                    waitingTime: hospitals["waitingTime"],
+                    hospitalText: hospitals["hospitalText"],
+                    distanceText: hospitals["distanceText"],
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

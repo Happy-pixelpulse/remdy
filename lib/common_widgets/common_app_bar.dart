@@ -22,6 +22,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget{
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
                   onPressed: () {

@@ -74,130 +74,136 @@ class HospitalCard extends StatelessWidget {
                   ),
                 ),
               ]),
-              Column(
-                crossAxisAlignment:
-                CrossAxisAlignment.start,
-                children: [
-                  Text(
-               hospitalName,
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.hospitalText,
+              Padding(
+                padding: const EdgeInsets.only(left: 12),
+                child: Column(
+                  crossAxisAlignment:
+                  CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                 hospitalName,
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.hospitalText,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  Row(
-                    children: [
-                      // Image.asset('assets/map-pin.png'),
-                      const Icon(Icons.location_on,
-                          size: 16),
-                      const SizedBox(width: 4),
-                      Text(
-                        address,
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors
-                              .hospitalLocationText,
+                    const SizedBox(height: 4),
+                    Row(
+                      children: [
+                        // Image.asset('assets/map-pin.png'),
+                        const Icon(Icons.location_on,
+                            size: 16),
+                        const SizedBox(width: 4),
+                        Text(
+                          address,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors
+                                .hospitalLocationText,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  Row(
-                    children: [
-                      Text(
-                        rating,
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors
-                              .hospitalLocationText,
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    Row(
+                      children: [
+                        Text(
+                          rating,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors
+                                .hospitalLocationText,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 5),
-                      RatingBar.builder(
-                        direction: Axis.horizontal,
-                        //minRating: 1,
-                        allowHalfRating: true,
-                        itemCount: 5,
-                        itemPadding:
-                        const EdgeInsets.symmetric(
-                            horizontal: 1.0),
-                        itemBuilder: (context, _) =>
-                        const Icon(
-                          Icons.star,
-                          color: Colors.amber,
+                        const SizedBox(width: 5),
+                        RatingBar.builder(
+                          direction: Axis.horizontal,
+                          //minRating: 1,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemPadding:
+                          const EdgeInsets.symmetric(
+                              horizontal: 1.0),
+                          itemBuilder: (context, _) =>
+                          const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          onRatingUpdate: (rating) {
+                            if (kDebugMode) {
+                              print(rating);
+                            }
+                          },
+                          itemSize: 17,
+                          unratedColor: Colors.grey[300],
+                          glow: false,
+                          glowColor:
+                          AppColors.searchScreenRating,
+                          ignoreGestures: false,
                         ),
-                        onRatingUpdate: (rating) {
-                          if (kDebugMode) {
-                            print(rating);
-                          }
-                        },
-                        itemSize: 17,
-                        unratedColor: Colors.grey[300],
-                        glow: false,
-                        glowColor:
-                        AppColors.searchScreenRating,
-                        ignoreGestures: false,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                       reviews,
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors
-                              .hospitalLocationText,
+                        const SizedBox(width: 4),
+                        Text(
+                         reviews,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors
+                                .hospitalLocationText,
+                          ),
                         ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: Divider(
+                        color: AppColors.dividerBorder,
+                        thickness: 1,
+                        height: 10,
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  const Divider(
-                    color: AppColors.notificationText,
-                    thickness: 1,
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Image.asset(
-                        'assets/routing.png',
-                        height: 22,
-                        width: 22,
-                        fit: BoxFit.fill,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        distanceText,
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors
-                              .hospitalLocationText,
+                    ),
+                    Row(
+                      children: [
+                        Image.asset(
+                          'assets/routing.png',
+                          height: 22,
+                          width: 22,
+                          fit: BoxFit.fill,
                         ),
-                      ),
-                      const SizedBox(width: 10),
-                      Image.asset(
-                        'assets/Hospital.png',
-                        height: 22,
-                        width: 22,
-                        fit: BoxFit.fill,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        hospitalText,
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors
-                              .hospitalLocationText,
+                        const SizedBox(width: 4),
+                        Text(
+                          distanceText,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors
+                                .hospitalLocationText,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        const SizedBox(width: 20),
+                        Image.asset(
+                          'assets/hospital_normal.png',
+                          height: 22,
+                          width: 22,
+                          fit: BoxFit.fill,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          hospitalText,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors
+                                .hospitalLocationText,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

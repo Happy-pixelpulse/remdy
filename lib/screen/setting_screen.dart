@@ -30,36 +30,33 @@ class _SettingScreenState extends State<SettingScreen> {
         toolbarHeight: 70,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Row(
-          children: [
-            const SizedBox(
-              width: 8,
-            ),
-            SizedBox(
-                width: 44,
-                height: 44,
-                child: Image.asset(
-                  'assets/profilpic.png',
-                  width: 44,
-                  height: 44,
-                )),
-            const SizedBox(width: 75),
-            Text(
-              context.getLocalization()?.proFileTitle ?? '',
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: AppColors.secondary,
-              ),
-            ),
-            const SizedBox(width: 70),
-            const Icon(
+        leading:SizedBox(
+            width: 44,
+            height: 44,
+            child: Image.asset(
+              'assets/profilpic.png',
+              width: 44,
+              height: 44,
+            )) ,
+         title: Text(
+           context.getLocalization()?.proFileTitle ?? '',
+           style: GoogleFonts.poppins(
+             fontSize: 20,
+             fontWeight: FontWeight.w600,
+             color: AppColors.secondary,
+           ),
+         ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(
               Icons.question_mark_outlined,
               color: AppColors.secondary,
               size: 20,
-            )
-          ],
-        ),
+            ),
+            onPressed: () {},
+          ),
+        ],
         automaticallyImplyLeading: false,
       ),
       body: Padding(

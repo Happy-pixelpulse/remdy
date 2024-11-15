@@ -61,34 +61,37 @@ class HospitalList extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    hospitalName,
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.hospitalText,
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 9),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      hospitalName,
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.hospitalText,
+                      ),
                     ),
-                  ),
-                  // const SizedBox(
-                  //   width: 25,
-                  // ),
-                  IconButton(
-                    onPressed: () {},
-                    icon:  Icon(
-                      Icons.favorite_border,
-                      color: AppColors.signText1,
+                    // const SizedBox(
+                    //   width: 25,
+                    // ),
+                    IconButton(
+                      onPressed: () {},
+                      icon:  Icon(
+                        Icons.favorite_border,
+                        color: AppColors.signText1,
+                      ),
+                      // iconSize: 35,
                     ),
-                    // iconSize: 35,
-                  ),
-                ],
+                  ],
+                ),
               ),
-              const SizedBox(height: 4),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     // Image.asset('assets/map-pin.png'),
                     const Icon(Icons.location_on, size: 18),
@@ -104,10 +107,11 @@ class HospitalList extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       rating,
@@ -117,13 +121,12 @@ class HospitalList extends StatelessWidget {
                         color: AppColors.hospitalLocationText,
                       ),
                     ),
-                    const SizedBox(width: 5),
                     RatingBar.builder(
                       direction: Axis.horizontal,
                       //minRating: 1,
                       allowHalfRating: true,
                       itemCount: 5,
-                      itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
+                      itemPadding: EdgeInsets.zero,
                       itemBuilder: (context, _) => const Icon(
                         Icons.star,
                         color: Colors.amber,
@@ -139,7 +142,7 @@ class HospitalList extends StatelessWidget {
                       glowColor: AppColors.searchScreenRating,
                       ignoreGestures: false,
                     ),
-                    const SizedBox(width: 4),
+                    const SizedBox(width: 5),
                     Text(
                       reviews,
                       style: GoogleFonts.poppins(
@@ -149,7 +152,7 @@ class HospitalList extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 15,
                     ),
                     Column(
                       children: [
@@ -200,17 +203,18 @@ class HospitalList extends StatelessWidget {
                   ],
                 ),
               ),
-              const Divider(
-                color: AppColors.notificationText,
-                thickness: 1,
-                height: 10,
-              ),
-              const SizedBox(
-                height: 5,
-              ),
+               Padding(
+                 padding: const EdgeInsets.only(left: 10,right: 10),
+                 child: Divider(
+                  color: AppColors.signText1,
+                  thickness: 0.1,
+                  height: 10,
+                               ),
+               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(left: 10,right: 15),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Image.asset(
                       // distanceImage,
@@ -229,13 +233,7 @@ class HospitalList extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 120),
-                    Image.asset(
-                      'assets/Hospital.png',
-                      // hospitalImage,
-                      height: 29,
-                      width: 30,
-                      fit: BoxFit.fill,
-                    ),
+                 Icon(Icons.local_hospital_outlined,color: AppColors.hospitalLocationText,),
                     const SizedBox(width: 4),
                     Text(
                       hospitalText,

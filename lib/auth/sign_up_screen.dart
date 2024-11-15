@@ -18,26 +18,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final FirebaseAuth auth = FirebaseAuth.instance;
 
-  Future<void> signInWithGoogle(BuildContext context) async {
-    try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
-      final AuthCredential googleCredential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-      UserCredential userCredential = await auth.signInWithCredential(googleCredential);
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
-      );
-    } catch (e) {
-      print("Error during Google sign-in: $e");
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Error during sign-in: $e")),
-      );
-    }
-  }
+  // Future<void> signInWithGoogle(BuildContext context) async {
+  //   try {
+  //     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  //     final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
+  //     final AuthCredential googleCredential = GoogleAuthProvider.credential(
+  //       accessToken: googleAuth.accessToken,
+  //       idToken: googleAuth.idToken,
+  //     );
+  //     UserCredential userCredential = await auth.signInWithCredential(googleCredential);
+  //     Navigator.pushReplacement(
+  //       context,
+  //       MaterialPageRoute(builder: (context) => HomeScreen()),
+  //     );
+  //   } catch (e) {
+  //     print("Error during Google sign-in: $e");
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(content: Text("Error during sign-in: $e")),
+  //     );
+  //   }
+  // }
 
   // signInWithGoogle() async {
   //   final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
@@ -77,12 +77,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 100),
               SignUpButton(
                   onPressed: () {
-                    signInWithGoogle(context);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) =>  HomeScreen()),
-                    // );
+                    // signInWithGoogle(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>  HomeScreen()),
+                    );
                   },
                   imageName: 'assets/google.png',
                   buttonName:context.getLocalization()?.buttonName1 ?? '',),

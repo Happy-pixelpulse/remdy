@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:remdy/screen/dashboard_screen.dart';
 import 'package:remdy/screen/setting_screen.dart';
+
+import 'favorite_screen.dart';
 import 'hospital_search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     const DashboardScreen(),
     const HospitalPage(),
+    const FavoriteScreen(),
     const SettingScreen(),
   ];
 
@@ -32,31 +35,37 @@ class _HomeScreenState extends State<HomeScreen> {
                   _selectedIndex = 0;
                 });
               },
-              child: Image.asset('assets/Home.png'),
+              child: _selectedIndex == 0
+                  ? Image.asset('assets/home_green.png')
+                  : Image.asset('assets/home_normal.png'),
             ),
+            GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _selectedIndex = 1;
+                  });
+                },
+                child: _selectedIndex == 1
+                    ? Image.asset('assets/hospital_green.png')
+                    : Image.asset('assets/hospital_normal.png')),
+            GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _selectedIndex = 2;
+                  });
+                },
+                child: _selectedIndex == 2
+                    ? Image.asset('assets/favorite_green.png')
+                    : Image.asset('assets/favorite_normal.png')),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  _selectedIndex = 1;
+                  _selectedIndex = 3;
                 });
               },
-              child: Image.asset('assets/Hospital.png'),
-            ),
-            GestureDetector(
-              onTap: () {
-                // setState(() {
-                //   _selectedIndex = 2;
-                // });
-              },
-              child: Image.asset('assets/Favorite.png'),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  _selectedIndex = 2;
-                });
-              },
-              child: Image.asset('assets/Profile.png'),
+              child: _selectedIndex == 3
+                  ? Image.asset('assets/profile_green.png')
+                  : Image.asset('assets/profile_normal.png'),
             ),
           ],
         ),

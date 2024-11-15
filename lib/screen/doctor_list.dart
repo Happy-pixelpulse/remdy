@@ -101,6 +101,7 @@ class _DoctorListState extends State<DoctorList> {
           child: Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconButton(
                     onPressed: () {
@@ -151,7 +152,7 @@ class _DoctorListState extends State<DoctorList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 17, top: 14),
+            padding: const EdgeInsets.only(top: 14),
             child: SizedBox(
               height: 50,
               child: ListView(
@@ -393,9 +394,10 @@ class _DoctorListState extends State<DoctorList> {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 5, top: 10),
-                              child: Image.asset("assets/chevron-down.png"),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 5, top: 10),
+                              child: Icon(Icons.keyboard_arrow_down),
+                              // Image.asset("assets/chevron-down.png"),
                             ),
                           ],
                         ),
@@ -443,47 +445,50 @@ class _DoctorListState extends State<DoctorList> {
                     ),
                   ),
                   SizedBox(
-                    width: 98,
-                    height: 43,
+
                     child: Card(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            _selectedReview,
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black.withOpacity(0.70),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 4),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              _selectedReview,
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black.withOpacity(0.70),
+                              ),
                             ),
-                          ),
-                          PopupMenuButton<String>(
-                            onSelected: (value) {
-                              setState(() {
-                                _selectedReview = value;
-                              });
-                            },
-                            icon: Image.asset("assets/chevron-down.png"),
-                            itemBuilder: (context) => [
-                              PopupMenuItem(
-                                value: "5 / 4 star",
-                                child: Text(
-                                  context.getLocalization()?.review1??'',
+                            PopupMenuButton<String>(
+                              onSelected: (value) {
+                                setState(() {
+                                  _selectedReview = value;
+                                });
+                              },
+                              itemBuilder: (context) => [
+                                PopupMenuItem(
+                                  value: "5/4 star",
+                                  child: Text(
+                                    context.getLocalization()?.review1??'',
+                                  ),
                                 ),
-                              ),
-                              PopupMenuItem(
-                                value: "3 / 2 star",
-                                child:
-                                    Text(context.getLocalization()?.review2??''),
-                              ),
-                              PopupMenuItem(
-                                value: "1 star",
-                                child:
-                                    Text(context.getLocalization()?.review3??''),
-                              ),
-                            ],
-                          ),
-                        ],
+                                PopupMenuItem(
+                                  value: "3/2 star",
+                                  child:
+                                      Text(context.getLocalization()?.review2??''),
+                                ),
+                                PopupMenuItem(
+                                  value: "1 star",
+                                  child:
+                                      Text(context.getLocalization()?.review3??''),
+                                ),
+                              ],
+                              icon: Icon(Icons.keyboard_arrow_down),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

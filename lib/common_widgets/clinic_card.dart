@@ -52,16 +52,8 @@ class ClinicCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            const Divider(
-              color: AppColors.notificationText,
-              thickness: 1,
-              height: 10,
-            ),
-            const SizedBox(
-              height: 2,
-            ),
             Padding(
-              padding: const EdgeInsets.only(left: 12),
+              padding: const EdgeInsets.only(left:12,top:8),
               child: Text(
                 clinicName,
                 style: GoogleFonts.poppins(
