@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
+import 'package:remdy/splash/splash%20_screen1.dart';
 import '../common_widgets/sign_up_button.dart';
 import '../utils/colors.dart';
 
@@ -17,27 +19,32 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
 
   final FirebaseAuth auth = FirebaseAuth.instance;
+  String getUserEmail()=>auth.currentUser?.email ?? "User";
 
-  // Future<void> signInWithGoogle(BuildContext context) async {
-  //   try {
-  //     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-  //     final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
-  //     final AuthCredential googleCredential = GoogleAuthProvider.credential(
-  //       accessToken: googleAuth.accessToken,
-  //       idToken: googleAuth.idToken,
-  //     );
-  //     UserCredential userCredential = await auth.signInWithCredential(googleCredential);
-  //     Navigator.pushReplacement(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => HomeScreen()),
-  //     );
-  //   } catch (e) {
-  //     print("Error during Google sign-in: $e");
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(content: Text("Error during sign-in: $e")),
-  //     );
-  //   }
-  // }
+  Future<StatefulWidget?> signInWithGoogle(BuildContext context) async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
+      final AuthCredential googleCredential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+      UserCredential userCredential = await auth.signInWithCredential(googleCredential);
+      if(userCredential == null){
+        return const SplashScreen();
+      }else{
+        return HomeScreen();
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error during Google sign-in: $e");
+      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Error during sign-in: $e")),
+      );
+    }
+    return null;
+  }
 
   // signInWithGoogle() async {
   //   final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
@@ -48,8 +55,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   //   );
   //   return await auth.signInWithCredential(credential);
   // }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 100),
               SignUpButton(
                   onPressed: () {
-                    // signInWithGoogle(context);
+                     //signInWithGoogle(context);
                     Navigator.push(
                       context,
                       MaterialPageRoute(

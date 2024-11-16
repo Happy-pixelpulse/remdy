@@ -17,6 +17,8 @@ class AdvanceSearch extends StatefulWidget {
 class _AdvanceSearchState extends State<AdvanceSearch> {
   String? selectedGender;
   String? selectedDoctorType;
+  List<String> options = <String>['English', 'French'];
+  String dropdownValue = 'English';
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,12 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
+                    child: TextField(
+                      showCursor: false,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -89,6 +97,12 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
+                    child:  TextField(
+                      showCursor: false,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -116,6 +130,12 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       border: Border.all(
                           color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
+                    ),
+                    child:  TextField(
+                      showCursor: false,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
                     ),
                   )
                 ],
@@ -369,9 +389,37 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 280),
-                      child: Icon(Icons.keyboard_arrow_down),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: DropdownButton<String>(
+                        value: dropdownValue,
+                        onChanged: (String? value) {
+                          setState(() {
+                            dropdownValue = value!;
+                          });
+                        },
+                        underline: const SizedBox(),
+                        isExpanded: true,
+                        style: const TextStyle(color: Colors.black),
+                        dropdownColor: Colors.white,
+                        icon: const Icon(Icons.keyboard_arrow_down, color: Colors.black),
+                        selectedItemBuilder: (BuildContext context) {
+                          return options.map((String value) {
+                            return Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                dropdownValue,
+                              ),
+                            );
+                          }).toList();
+                        },
+                        items: options.map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
                     ),
                   )
                 ],
