@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -126,12 +127,14 @@ class Doctor extends StatelessWidget {
                         allowHalfRating: true,
                         itemCount: 1,
                         itemPadding: const EdgeInsets.symmetric(horizontal:20),
-                        itemBuilder: (context, _) => Icon(
+                        itemBuilder: (context, _) => const Icon(
                           Icons.star,
                           color: AppColors.primary,
                         ),
                         onRatingUpdate: (rating) {
-                          print(rating);
+                          if (kDebugMode) {
+                            print(rating);
+                          }
                         },
                         itemSize: 17,
                         unratedColor: Colors.grey[300],

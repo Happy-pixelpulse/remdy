@@ -735,7 +735,7 @@ class _HospitalPageState extends State<HospitalPage> {
                 ),
               ),
             ),
-            SizedBox(height: 14,),
+            const SizedBox(height: 14,),
             Padding(
               padding: const EdgeInsets.only(left: 12),
               child: SizedBox(

@@ -63,7 +63,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
-                    child: TextField(
+                    child: const TextField(
                       showCursor: false,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -97,7 +97,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
-                    child:  TextField(
+                    child:  const TextField(
                       showCursor: false,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -131,7 +131,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
-                    child:  TextField(
+                    child:  const TextField(
                       showCursor: false,
                       decoration: InputDecoration(
                         border: InputBorder.none,

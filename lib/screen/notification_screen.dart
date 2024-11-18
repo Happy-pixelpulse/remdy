@@ -5,7 +5,7 @@ import 'package:remdy/extensions/localization_extension.dart';
 import '../utils/colors.dart';
 
 class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({Key? key}) : super(key: key);
+  const NotificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class NotificationScreen extends StatelessWidget {
                 child: Container(
                   width: 363,
                   height: 74,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: AppColors.drContainer,
                   ),
                   child: Row(
@@ -57,7 +57,7 @@ class NotificationScreen extends StatelessWidget {
                             color: AppColors.primary,
                             borderRadius: BorderRadius.circular(30)
                         ),
-                        child: CircleAvatar(
+                        child: const CircleAvatar(
                             radius: 30,
                             backgroundImage: NetworkImage(
                                 'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif')),
@@ -99,7 +99,7 @@ class NotificationScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       CircleAvatar(
                         radius: 12,
                         backgroundColor: Colors.red,
@@ -116,7 +116,7 @@ class NotificationScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.grey,
                 thickness: 1,
               ),
@@ -125,7 +125,7 @@ class NotificationScreen extends StatelessWidget {
                 child: Container(
                   width: 363,
                   height: 74,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: AppColors.drContainer,
                   ),
                   child: Row(
@@ -137,7 +137,7 @@ class NotificationScreen extends StatelessWidget {
                             color: AppColors.primary,
                           borderRadius: BorderRadius.circular(30)
                         ),
-                        child: CircleAvatar(
+                        child: const CircleAvatar(
                             radius: 30,
                             backgroundImage: NetworkImage(
                                 'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif')),
@@ -179,7 +179,7 @@ class NotificationScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       CircleAvatar(
                         radius: 12,
                         backgroundColor: Colors.red,
@@ -196,7 +196,7 @@ class NotificationScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.grey,
                 thickness: 1,
               ),
@@ -205,7 +205,7 @@ class NotificationScreen extends StatelessWidget {
                 child: Container(
                   width: 363,
                   height: 74,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: AppColors.drContainer,
                   ),
                   child: Row(
@@ -217,7 +217,7 @@ class NotificationScreen extends StatelessWidget {
                             color: AppColors.primary,
                             borderRadius: BorderRadius.circular(30)
                         ),
-                        child: CircleAvatar(
+                        child: const CircleAvatar(
                             radius: 30,
                             backgroundImage: NetworkImage(
                                 'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif')),
@@ -259,7 +259,7 @@ class NotificationScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       CircleAvatar(
                         radius: 12,
                         backgroundColor: Colors.red,
@@ -276,7 +276,7 @@ class NotificationScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.grey,
                 thickness: 1,
               ),
@@ -285,7 +285,7 @@ class NotificationScreen extends StatelessWidget {
                 child: Container(
                   width: 363,
                   height: 74,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: AppColors.drContainer,
                   ),
                   child: Row(
@@ -297,7 +297,7 @@ class NotificationScreen extends StatelessWidget {
                             color: AppColors.primary,
                             borderRadius: BorderRadius.circular(30)
                         ),
-                        child: CircleAvatar(
+                        child: const CircleAvatar(
                             radius: 30,
                             backgroundImage: NetworkImage(
                                 'https://pixelwallpaper.pixelpulseinc.com/assets/nature/Nature_4.jfif')),
@@ -339,7 +339,7 @@ class NotificationScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       CircleAvatar(
                         radius: 12,
                         backgroundColor: Colors.red,

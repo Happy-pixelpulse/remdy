@@ -79,7 +79,7 @@ class HospitalList extends StatelessWidget {
                     // ),
                     IconButton(
                       onPressed: () {},
-                      icon:  Icon(
+                      icon:  const Icon(
                         Icons.favorite_border,
                         color: AppColors.signText1,
                       ),
@@ -203,8 +203,8 @@ class HospitalList extends StatelessWidget {
                   ],
                 ),
               ),
-               Padding(
-                 padding: const EdgeInsets.only(left: 10,right: 10),
+               const Padding(
+                 padding: EdgeInsets.only(left: 10,right: 10),
                  child: Divider(
                   color: AppColors.signText1,
                   thickness: 0.1,
@@ -233,7 +233,7 @@ class HospitalList extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 120),
-                 Icon(Icons.local_hospital_outlined,color: AppColors.hospitalLocationText,),
+                 const Icon(Icons.local_hospital_outlined,color: AppColors.hospitalLocationText,),
                     const SizedBox(width: 4),
                     Text(
                       hospitalText,

@@ -6,6 +6,8 @@ import 'favorite_screen.dart';
 import 'hospital_search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

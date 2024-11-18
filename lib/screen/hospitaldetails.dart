@@ -20,10 +20,14 @@ _launchMaps() async {
   String appleUrl =
       "https://maps.apple.com/?sll=23.0210323,72.6373944";
   if (await canLaunchUrl(Uri.parse(googleUrl))) {
-    print('launching com googleUrl');
+    if (kDebugMode) {
+      print('launching com googleUrl');
+    }
     await launchUrl(Uri.parse(googleUrl));
   } else if (await canLaunchUrl(Uri.parse(appleUrl))) {
-    print('launching apple url');
+    if (kDebugMode) {
+      print('launching apple url');
+    }
     await launchUrl(Uri.parse(appleUrl));
   } else {
     throw 'Could not launch url';
@@ -272,7 +276,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                           color: AppColors.drNameText
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    const SizedBox(height: 5,),
                     Column(
                       children: [
                         GestureDetector(
@@ -289,7 +293,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                         Row(
                           children: [
                             Text(
@@ -300,7 +304,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                                 color: AppColors.drNameText,
                               ),
                             ),
-                            SizedBox(width: 60,),
+                            const SizedBox(width: 60,),
                             Text(
                               'Directions',
                               style: GoogleFonts.poppins(
@@ -314,7 +318,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                       ],
                     ),
 
-                    Divider(thickness: 1,),
+                    const Divider(thickness: 1,),
                     Row(
                       children: [
                         Image.asset('assets/map-pin.png',color: AppColors.signText1,),

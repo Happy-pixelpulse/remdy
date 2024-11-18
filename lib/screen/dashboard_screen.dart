@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/extensions/localization_extension.dart';
-import 'package:remdy/screen/doctor_details.dart';
 import 'package:remdy/screen/profile_screen.dart';
 import '../common_widgets/doctor_card.dart';
 import '../utils/colors.dart';

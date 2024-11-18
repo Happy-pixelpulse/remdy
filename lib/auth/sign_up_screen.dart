@@ -21,7 +21,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final FirebaseAuth auth = FirebaseAuth.instance;
   String getUserEmail()=>auth.currentUser?.email ?? "User";
 
-  Future<StatefulWidget?> signInWithGoogle(BuildContext context) async {
+  Future<User?> signInWithGoogle(BuildContext context) async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
       final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
@@ -30,11 +30,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
         idToken: googleAuth.idToken,
       );
       UserCredential userCredential = await auth.signInWithCredential(googleCredential);
-      if(userCredential == null){
-        return const SplashScreen();
-      }else{
-        return HomeScreen();
-      }
+      return userCredential.user;
+      // if(userCredential == null){
+      //   return const SplashScreen();
+      // }else{
+      //   return const HomeScreen();
+      // }
     } catch (e) {
       if (kDebugMode) {
         print("Error during Google sign-in: $e");
@@ -72,7 +73,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             children: [
               Text(
                 context.getLocalization()?.signUpScreenTitle ?? '',
-                // "Let’s Get Started",
                 style: GoogleFonts.poppins(
                   fontSize: 35,
                   fontWeight: FontWeight.w600,
@@ -86,7 +86,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>  HomeScreen()),
+                          builder: (context) =>  const HomeScreen()),
                     );
                   },
                   imageName: 'assets/google.png',
@@ -99,7 +99,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 8),
               Text(
                 context.getLocalization()?.signUpScreenText ?? '',
-                // "Sign up with Your Account",
                 style: GoogleFonts.poppins(
                   fontSize: 13,
                   fontWeight: FontWeight.w400,

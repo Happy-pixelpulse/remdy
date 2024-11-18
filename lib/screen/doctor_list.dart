@@ -485,7 +485,7 @@ class _DoctorListState extends State<DoctorList> {
                                       Text(context.getLocalization()?.review3??''),
                                 ),
                               ],
-                              icon: Icon(Icons.keyboard_arrow_down),
+                              icon:const Icon(Icons.keyboard_arrow_down),
                             ),
                           ],
                         ),

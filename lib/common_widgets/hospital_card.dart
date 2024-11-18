@@ -157,8 +157,8 @@ class HospitalCard extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 8),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 15),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 15),
                       child: Divider(
                         color: AppColors.dividerBorder,
                         thickness: 1,

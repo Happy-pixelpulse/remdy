@@ -67,7 +67,7 @@ class _SettingScreenState extends State<SettingScreen> {
             const SizedBox(
               height: 22,
             ),
-            Container(
+            SizedBox(
               height: 45,
               width: 355,
               child: TextButton(
