@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +19,24 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
+// String imei = "number";
+// @override
+// void initState(){
+//   super.initState();
+//   lodeInfo();
+// }
+//   void lodeInfo() async{
+//     DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+//     if(Platform.isAndroid){
+//       BaseDeviceInfo androidDeviceInfo = await deviceInfoPlugin.androidInfo;
+//       print("${androidDeviceInfo.data}");
+//       setState(() {
+//         androidDeviceInfo;
+//       });
+//     }else {
+//       null;
+//     }
+//   }
   final FirebaseAuth auth = FirebaseAuth.instance;
   String getUserEmail()=>auth.currentUser?.email ?? "User";
 
@@ -69,7 +89,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
             height: 5,
           ),
           Column(
-            children: [
+             children: [
+            //   Text(
+            //     imei,
+            //     style: GoogleFonts.poppins(
+            //       fontSize: 35,
+            //       fontWeight: FontWeight.w600,
+            //       color: AppColors.primary,
+            //     ),
+            //   ),
               Text(
                 context.getLocalization()?.signUpScreenTitle ?? '',
                 style: GoogleFonts.poppins(
