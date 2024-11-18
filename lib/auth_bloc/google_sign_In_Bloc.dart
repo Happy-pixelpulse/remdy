@@ -12,7 +12,6 @@ class GoogleSignInBloc extends Bloc<GoogleSignInEvent, GoogleSignInState> {
 
   GoogleSignInBloc() : super(GoogleSignInInitial());
 
-  @override
   Stream<GoogleSignInState> mapEventToState(GoogleSignInEvent event) async* {
     if (event is GoogleSignInRequested) {
       yield GoogleSignInInProgress();

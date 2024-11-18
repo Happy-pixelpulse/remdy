@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
-import 'package:remdy/splash/splash%20_screen1.dart';
 import '../common_widgets/sign_up_button.dart';
 import '../utils/colors.dart';
 
