@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:remdy/auth_bloc/google_sign_in_event.dart';
-import 'package:remdy/auth_bloc/google_sign_in_state.dart';
+import 'package:remdy/auth/auth_bloc/google_sign_in_event.dart';
+
+import 'google_sign_in_state.dart';
+
 
 
 
@@ -34,15 +36,16 @@ class GoogleSignInBloc extends Bloc<GoogleSignInEvent, GoogleSignInState> {
       } catch (e) {
         yield GoogleSignInFailure(e.toString());
       }
-    } else if (event is GoogleSignOutRequested) {
-      yield GoogleSignInInProgress();
-      try {
-        await _googleSignIn.signOut();
-        await _firebaseAuth.signOut();
-        yield GoogleSignInInitial();
-      } catch (e) {
-        yield GoogleSignInFailure(e.toString());
-      }
-    }
+     }
+    //else if (event is GoogleSignOutRequested) {
+    //   yield GoogleSignInInProgress();
+    //   try {
+    //     await _googleSignIn.signOut();
+    //     await _firebaseAuth.signOut();
+    //     yield GoogleSignInInitial();
+    //   } catch (e) {
+    //     yield GoogleSignInFailure(e.toString());
+    //   }
+    // }
   }
 }

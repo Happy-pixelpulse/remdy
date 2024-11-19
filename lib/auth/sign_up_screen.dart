@@ -1,5 +1,6 @@
+import 'dart:convert';
 import 'dart:io';
-
+import 'package:http/http.dart' as http;
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -8,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
+import '../bloc/doctor_bloc/model/doctor_list_request.dart';
 import '../common_widgets/sign_up_button.dart';
 import '../utils/colors.dart';
 
@@ -65,7 +67,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
     return null;
   }
-
+  void fetchUser() async {
+    const url = 'http://184.169.211.131:3000/api/v1/homepage/get-doctors-by-postal-code';
+    final uri = Uri.parse(url);
+    final response = await http.get(uri);
+    final body = response.body;
+    print(body);
+  }
+  // https://reqres.in/api/login
+  //http://184.169.211.131:3000/api/v1/homepage/get-doctors-by-postal-code
   // signInWithGoogle() async {
   //   final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
   //   final GoogleSignInAuthentication gAuth = await gUser!.authentication;
@@ -120,7 +130,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   buttonName:context.getLocalization()?.buttonName1 ?? '',),
               const SizedBox(height: 8),
               SignUpButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    fetchUser();
+                  },
                   imageName: 'assets/apple.png',
                   buttonName: context.getLocalization()?.buttonName2 ?? '',),
               const SizedBox(height: 8),

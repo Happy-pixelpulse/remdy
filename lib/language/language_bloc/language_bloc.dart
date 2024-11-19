@@ -11,8 +11,7 @@ const languagePrefsKey = 'languagePrefs';
 
 
 class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
-  LanguageBloc() : super(const LanguageState())  {
-
+  LanguageBloc() : super(const LanguageState()){
     on<ChangeLanguage>(onChangeLanguage);
     on<GetLanguage>(onGetLanguage);
   }
