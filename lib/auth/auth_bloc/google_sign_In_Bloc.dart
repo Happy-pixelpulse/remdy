@@ -2,10 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:remdy/auth/auth_bloc/google_sign_in_event.dart';
-
 import 'google_sign_in_state.dart';
-
-
 
 
 class GoogleSignInBloc extends Bloc<GoogleSignInEvent, GoogleSignInState> {

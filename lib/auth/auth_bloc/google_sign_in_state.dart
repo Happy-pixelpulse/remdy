@@ -1,5 +1,4 @@
 
-
 abstract class GoogleSignInState {}
 
 class GoogleSignInInitial extends GoogleSignInState {}
