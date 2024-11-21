@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +33,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
       );
       UserCredential result = await auth.signInWithCredential(authCredential);
       User? user = result.user;
-      print(user);
+      if (kDebugMode) {
+        print(user);
+      }
       if (result != null) {
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('accessToken', googleSignInAuthentication.accessToken!);
@@ -49,11 +49,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final uri = Uri.parse(url);
     final response = await http.post(uri);
     final body = response.body;
-    print(body);
+    if (kDebugMode) {
+      print(body);
+    }
     final prefs = await SharedPreferences.getInstance();
     final accessToken = prefs.getString('accessToken');
     if (accessToken == null) {
-      print('Access token not found. Please sign in first.');
+      if (kDebugMode) {
+        print('Access token not found. Please sign in first.');
+      }
       return;
     }
   }
