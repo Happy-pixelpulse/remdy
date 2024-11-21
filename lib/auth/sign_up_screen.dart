@@ -67,6 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           Image.asset(
             'assets/Vector.png',
             fit: BoxFit.cover,
+            width: MediaQuery.of(context).size.width,
           ),
           const SizedBox(
             height: 5,
