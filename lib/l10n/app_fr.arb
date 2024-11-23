@@ -4,6 +4,10 @@
   "@splashScreenTitle": {
     "description": "Title text encouraging the user to find a family doctor."
   },
+  "splashScreenTitle2": "Guerison simplifiee",
+  "@splashScreenTitle2": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
    "hospitalTitle": "Allons trouver",
     "@hospitalTitle": {
       "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
@@ -100,8 +104,8 @@
   "@patientsCity": {
     "description": "Placeholder text for the hospital search bar."
   },
-  "patientsProvince": "Province",
-  "@patientsProvince": {
+  "patientsProvience": "Province",
+  "@patientsProvience": {
     "description": "Placeholder text for the hospital search bar."
   },
   "patientsPinCode": "Code PIN",

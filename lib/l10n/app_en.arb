@@ -4,6 +4,10 @@
   "@splashScreenTitle": {
     "description": "Title text encouraging the user to find a family doctor."
   },
+  "splashScreenTitle2": "Healing Simplified",
+  "@splashScreenTitle2": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
   "signUpScreenTitle1": "Welcome",
     "@signUpScreenTitle1": {
       "description": "Title text encouraging the user to find a family doctor."
@@ -309,8 +313,8 @@
   "@patientsCity": {
     "description": "Placeholder text for the hospital search bar."
   },
-  "patientsProvince": "Province",
-  "@patientsProvince": {
+  "patientsProvience": "Provience",
+  "@patientsProveince": {
     "description": "Placeholder text for the hospital search bar."
   },
   "patientsPinCode": "Pin Code",

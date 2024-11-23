@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const SignUpScreen()),
@@ -28,16 +28,32 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      body: Align(
-        alignment: Alignment.center,
-        child: Text(
-          context.getLocalization()?.splashScreenTitle ?? '',
-          style: GoogleFonts.poppins(
-            fontSize: 80,
-            fontWeight: FontWeight.w700,
-            color: const Color.fromRGBO(242, 242, 242, 1),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 45),
+            child: Text(
+              maxLines: 1,
+              overflow: TextOverflow.fade,
+              context.getLocalization()?.splashScreenTitle ?? '',
+              style: GoogleFonts.poppins(
+                fontSize: 80,
+                fontWeight: FontWeight.w700,
+                color: AppColors.tp,
+              ),
+            ),
           ),
-        ),
+          Text(
+            context.getLocalization()?.splashScreenTitle2 ?? '',
+            style: GoogleFonts.poppins(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+              color: AppColors.tp,
+            ),
+          ),
+        ],
       ),
     );
   }

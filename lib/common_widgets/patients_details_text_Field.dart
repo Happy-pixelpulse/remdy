@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utils/colors.dart';
@@ -10,7 +11,7 @@ class PatientsDetailsTextField extends StatefulWidget {
   const PatientsDetailsTextField(
       {super.key,
       this.showBottomArrow = false,
-      required this.title,
+       this.title='',
        this.hintText=''});
 
   @override
@@ -38,6 +39,12 @@ class _PatientsDetailsTextFieldState extends State<PatientsDetailsTextField> {
           ),
           TextField(
             decoration: InputDecoration(
+              hintText: widget.hintText,
+              hintStyle: GoogleFonts.poppins(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: AppColors.hintText,
+              ),
               suffix: widget.showBottomArrow
                   ? const RotatedBox(
                       quarterTurns: 3, child: Icon(Icons.arrow_back_ios))
@@ -45,9 +52,17 @@ class _PatientsDetailsTextFieldState extends State<PatientsDetailsTextField> {
               focusColor: AppColors.signUpTextButtonRadius,
               fillColor: AppColors.signUpTextButtonRadius,
               enabledBorder: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
+                borderSide: BorderSide(
+                    color: AppColors.signUpTextButtonRadius,
+                    width: 2.0),
+                borderRadius: BorderRadius.all(Radius.circular(15),
+
+                ),
               ),
               focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: AppColors.signUpTextButtonRadius,
+                    width: 2.0),
                 borderRadius: BorderRadius.all(Radius.circular(15)),
               ),
             ),

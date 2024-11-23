@@ -129,7 +129,7 @@ class _DrDetailsState extends State<DrDetails> {
                                 child: PatientsDetailsTextField(
                                   title: context
                                       .getLocalization()
-                                      ?.patientsProvince ??
+                                      ?.patientsProvience ??
                                       '',
                                 showBottomArrow: true,),
                               ),
@@ -291,7 +291,7 @@ class _DrDetailsState extends State<DrDetails> {
                             ],
                           ),
                           PatientsDetailsTextField(
-                            title: context
+                            hintText: context
                                 .getLocalization()
                                 ?.patientsFamilyDoctor ??
                                 '',),
