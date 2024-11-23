@@ -30,78 +30,73 @@ class HospitalCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GestureDetector(
+    return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
-              builder: (context) => const Hospital()),
+          MaterialPageRoute(builder: (context) => const Hospital()),
         );
       },
       child: SizedBox(
-        height: 500,
-        width: 232,
+        // height: 500,
+        width: MediaQuery.of(context).size.width / 1.55,
         child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.0),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
           ),
           elevation: 3,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Stack(children: [
+              Stack(fit: StackFit.passthrough, children: [
                 ClipRRect(
                   borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(16.0),
-                    topRight: Radius.circular(16.0),
+                    topLeft: Radius.circular(8),
+                    topRight: Radius.circular(8),
                   ),
                   child: Image.network(
-                   hospitalImage,
+                    hospitalImage,
                     height: 120,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 167),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.favorite_border,
-                      color: AppColors.tp,
-                    ),
-                    iconSize: 35,
-                  ),
+                  padding: const EdgeInsets.only(top: 8,right: 8),
+                  child: Align(
+                      alignment: Alignment.topRight,
+                      child: Image.asset(
+                        'assets/hospital_like_normal.png',
+                        height: 25,
+                        width: 27,
+                      )),
                 ),
               ]),
               Padding(
-                padding: const EdgeInsets.only(left: 12),
+                padding: const EdgeInsets.only(left: 12,top: 8),
                 child: Column(
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                 hospitalName,
+                      hospitalName,
                       style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.hospitalText,
+                        color: AppColors.headLine,
                       ),
                     ),
                     const SizedBox(height: 4),
                     Row(
                       children: [
                         // Image.asset('assets/map-pin.png'),
-                        const Icon(Icons.location_on,
-                            size: 16),
+                       Image.asset('assets/map-pin.png',color: AppColors.hospitalLocationText,height: 18,width: 18,),
                         const SizedBox(width: 4),
                         Text(
                           address,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: AppColors
-                                .hospitalLocationText,
+                            color: AppColors.hospitalLocationText,
                           ),
                         ),
                       ],
@@ -113,22 +108,17 @@ class HospitalCard extends StatelessWidget {
                           rating,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors
-                                .hospitalLocationText,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.hospitalLocationText,
                           ),
                         ),
-                        const SizedBox(width: 5),
                         RatingBar.builder(
                           direction: Axis.horizontal,
                           //minRating: 1,
                           allowHalfRating: true,
                           itemCount: 5,
-                          itemPadding:
-                          const EdgeInsets.symmetric(
-                              horizontal: 1.0),
-                          itemBuilder: (context, _) =>
-                          const Icon(
+                          itemPadding: EdgeInsets.zero,
+                          itemBuilder: (context, _) => const Icon(
                             Icons.star,
                             color: Colors.amber,
                           ),
@@ -139,19 +129,17 @@ class HospitalCard extends StatelessWidget {
                           },
                           itemSize: 17,
                           unratedColor: Colors.grey[300],
-                          glow: false,
-                          glowColor:
-                          AppColors.searchScreenRating,
+                          glow: true,
+                          glowColor: AppColors.searchScreenRating,
                           ignoreGestures: false,
                         ),
                         const SizedBox(width: 4),
                         Text(
-                         reviews,
+                          reviews,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: AppColors
-                                .hospitalLocationText,
+                            color: AppColors.hospitalLocationText,
                           ),
                         ),
                       ],
@@ -165,42 +153,44 @@ class HospitalCard extends StatelessWidget {
                         height: 10,
                       ),
                     ),
-                    Row(
-                      children: [
-                        Image.asset(
-                          'assets/routing.png',
-                          height: 22,
-                          width: 22,
-                          fit: BoxFit.fill,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          distanceText,
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors
-                                .hospitalLocationText,
-                          ),
-                        ),
-                        const SizedBox(width: 20),
-                        Image.asset(
-                          'assets/hospital_normal.png',
-                          height: 22,
-                          width: 22,
-                          fit: BoxFit.fill,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          hospitalText,
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors
-                                .hospitalLocationText,
-                          ),
-                        ),
-                      ],
+
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset(
+                      'assets/routing.png',
+                      height: 22,
+                      width: 22,
+                      fit: BoxFit.fill,
+                    ),
+
+                    Text(
+                      distanceText,
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.hospitalLocationText,
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Image.asset(
+                      'assets/hospital_normal.png',
+                      height: 22,
+                      width: 22,
+                      fit: BoxFit.fill,
+                    ),
+                    Text(
+                      hospitalText,
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.hospitalLocationText,
+                      ),
                     ),
                   ],
                 ),

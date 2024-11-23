@@ -38,6 +38,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       floatingActionButton: Stack(
       alignment: Alignment.bottomRight,
       children: [

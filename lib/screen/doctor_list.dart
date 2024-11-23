@@ -32,8 +32,7 @@ class _DoctorListState extends State<DoctorList> {
       "is_available": true
     },
     {
-      "imagePath":
-          "https://i1.feedspot.com/200/5348256.jpg?t=1638262713",
+      "imagePath": "https://i1.feedspot.com/200/5348256.jpg?t=1638262713",
       "name": "Marc Berezin",
       "specialty": "Pathologist",
       "patients": "Accepting Patients",
@@ -88,69 +87,87 @@ class _DoctorListState extends State<DoctorList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
+      // extendBodyBehindAppBar: true,
       appBar: AppBar(
-        flexibleSpace: FlexibleSpaceBar(
-            background: Image.asset(
-          'assets/rectangle_appbar_bg.png',
-          fit: BoxFit.fill,
-        )),
-        toolbarHeight: 120,
+        backgroundColor: AppColors.primary,
+        // flexibleSpace: FlexibleSpaceBar(
+        //     background: Image.asset(
+        //   'assets/rectangle_appbar_bg.png',
+        //   fit: BoxFit.fill,
+        // )),
+        // toolbarHeight: 160,
         elevation: 0,
-        leadingWidth: 24,
-        title: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.arrow_back),
-                    color: AppColors.secondary,
-                  ),
-                  const SizedBox(
-                    width: 70,
-                  ),
-                  Text(
-                    context.getLocalization()?.doctorListTitle ?? '',
-                    style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.secondary,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 48,
-                  ),
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const NotificationScreen()),
-                        );
-                      },
-                      child: Image.asset("assets/bell.png"))
-                ],
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              SearchButton(
-                onPressed: () {},
-                buttonName:
-                    context.getLocalization()?.doctorListSearchButton ?? '',
-              )
-            ],
+        centerTitle: true,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: AppColors.tp,
+            )),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 21),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const NotificationScreen()),
+                );
+              },
+              child: Image.asset("assets/bell.png"),
+            ),
+          ),
+        ],
+        // leadingWidth: 24,
+        title:
+        Text(
+          context.getLocalization()?.doctorListTitle ?? '',
+          style: GoogleFonts.poppins(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: AppColors.secondary,
           ),
         ),
+        // Column(
+        //   crossAxisAlignment: CrossAxisAlignment.center,
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     Text(
+        //       context.getLocalization()?.doctorListTitle ?? '',
+        //       style: GoogleFonts.poppins(
+        //         fontSize: 18,
+        //         fontWeight: FontWeight.w600,
+        //         color: AppColors.secondary,
+        //       ),
+        //     ),
+        //
+        //   ],
+        // ),
         automaticallyImplyLeading: false,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Stack(children: [
+            Image.asset(
+              'assets/rectangle_appbar_bg.png',
+              fit: BoxFit.fill,
+              width: MediaQuery.of(context).size.width,
+              height: 60,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 22),
+              child: SearchButton(
+                onPressed: () {},
+                buttonName:
+                context.getLocalization()?.doctorListSearchButton ?? '',
+              ),
+            )
+          ],),
           Padding(
             padding: const EdgeInsets.only(top: 14),
             child: SizedBox(
@@ -161,45 +178,47 @@ class _DoctorListState extends State<DoctorList> {
                   const SizedBox(
                     width: 16,
                   ),
-                  SizedBox(
-                    width: 98,
-                    height: 43,
-                    child: Card(
-                      child: GestureDetector(
-                        onTap: () {
-                          showModalBottomSheet(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return Container(
-                                  width: 394,
-                                  height: 433,
-                                  decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(20),
-                                        topRight: Radius.circular(20)),
-                                    color: AppColors.secondary,
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          top: 17,
-                                          left: 120,
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              context.getLocalization()?.sortBy??'',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 22,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors.bottomText,
+                  Card(
+                    child: GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return Container(
+                                height: 433,
+                                decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20)),
+                                  color: AppColors.secondary,
+                                ),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: 17,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            child: Align(
+                                              child: Text(
+                                                context
+                                                        .getLocalization()
+                                                        ?.sortBy ??
+                                                    '',
+                                                style: GoogleFonts.poppins(
+                                                  fontSize: 22,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: AppColors.bottomText,
+                                                ),
                                               ),
                                             ),
-                                            const SizedBox(
-                                              width: 40,
-                                            ),
-                                            GestureDetector(
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(right: 24),
+                                            child: GestureDetector(
                                               onTap: () {
                                                 Navigator.pop(context);
                                               },
@@ -209,76 +228,128 @@ class _DoctorListState extends State<DoctorList> {
                                                 color: AppColors.signText1,
                                               ),
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 21,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 17, right: 17),
-                                        child: Container(
-                                          width: 360,
-                                          height: 49,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                      Radius.circular(15)),
-                                              border: Border.all(
-                                                  color:
-                                                      AppColors.bottomTextfield,
-                                                  width: 1),
-                                              color: AppColors.secondary),
-                                          child: RadioListTile<SortOptions>(
-                                            activeColor: AppColors.primary,
-                                            controlAffinity:
-                                                ListTileControlAffinity
-                                                    .trailing,
-                                            title: Text(
-                                              context.getLocalization()?.sortByTextField1??'',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors
-                                                    .bottomTextfieldText,
-                                              ),
-                                            ),
-                                            value: SortOptions.patientStories,
-                                            groupValue: _selectedOption,
-                                            onChanged: (SortOptions? value) {
-                                              setState(() {
-                                                _selectedOption = value;
-                                              });
-                                            },
                                           ),
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 21,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 17, right: 17),
+                                      child: Container(
+                                        height: 49,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                                    Radius.circular(15)),
+                                            border: Border.all(
+                                                color:
+                                                    AppColors.bottomTextfield,
+                                                width: 1),
+                                            color: AppColors.secondary),
+                                        child: RadioListTile<SortOptions>(
+                                          activeColor: AppColors.primary,
+                                          controlAffinity:
+                                              ListTileControlAffinity
+                                                  .trailing,
+                                          title: Text(
+                                            context
+                                                    .getLocalization()
+                                                    ?.sortByTextField1 ??
+                                                '',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors
+                                                  .bottomTextfieldText,
+                                            ),
+                                          ),
+                                          value: SortOptions.patientStories,
+                                          groupValue: _selectedOption,
+                                          onChanged: (SortOptions? value) {
+                                            setState(() {
+                                              _selectedOption = value;
+                                            });
+                                          },
                                         ),
                                       ),
-                                      const SizedBox(
-                                        height: 21,
+                                    ),
+                                    const SizedBox(
+                                      height: 21,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 17, right: 17),
+                                      child: Container(
+                                        height: 49,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                                    Radius.circular(15)),
+                                            border: Border.all(
+                                                color:
+                                                    AppColors.bottomTextfield,
+                                                width: 1),
+                                            color: AppColors.secondary),
+                                        child: RadioListTile<SortOptions>(
+                                          activeColor: AppColors.primary,
+                                          controlAffinity:
+                                              ListTileControlAffinity
+                                                  .trailing,
+                                          title: Text(
+                                            context
+                                                    .getLocalization()
+                                                    ?.sortByTextField2 ??
+                                                '',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors
+                                                  .bottomTextfieldText,
+                                            ),
+                                          ),
+                                          value: SortOptions.patientStories,
+                                          groupValue: _selectedOption,
+                                          onChanged: (SortOptions? value) {
+                                            setState(() {
+                                              _selectedOption = value;
+                                            });
+                                          },
+                                        ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 17, right: 17),
-                                        child: Container(
-                                          width: 360,
-                                          height: 49,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                      Radius.circular(15)),
-                                              border: Border.all(
-                                                  color:
-                                                      AppColors.bottomTextfield,
-                                                  width: 1),
-                                              color: AppColors.secondary),
+                                    ),
+                                    const SizedBox(
+                                      height: 21,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 17, right: 17),
+                                      child: Container(
+                                        height: 49,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                                    Radius.circular(15)),
+                                            border: Border.all(
+                                                color:
+                                                    AppColors.bottomTextfield,
+                                                width: 1),
+                                            color: AppColors.secondary),
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 15),
                                           child: RadioListTile<SortOptions>(
                                             activeColor: AppColors.primary,
                                             controlAffinity:
                                                 ListTileControlAffinity
                                                     .trailing,
                                             title: Text(
-                                              context.getLocalization()?.sortByTextField2??'',
+                                              context
+                                                      .getLocalization()
+                                                      ?.sortByTextField3 ??
+                                                  '',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w400,
@@ -296,116 +367,72 @@ class _DoctorListState extends State<DoctorList> {
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(
-                                        height: 21,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 17, right: 17),
-                                        child: Container(
-                                          width: 360,
-                                          height: 49,
-                                          decoration: BoxDecoration(
+                                    ),
+                                    const SizedBox(
+                                      height: 94,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 17, right: 16),
+                                      child: SizedBox(
+                                        width: MediaQuery.of(context).size.width,
+                                        height: 52,
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                                AppColors.primary,
+                                            shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  const BorderRadius.all(
-                                                      Radius.circular(15)),
-                                              border: Border.all(
-                                                  color:
-                                                      AppColors.bottomTextfield,
-                                                  width: 1),
-                                              color: AppColors.secondary),
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 15),
-                                            child: RadioListTile<SortOptions>(
-                                              activeColor: AppColors.primary,
-                                              controlAffinity:
-                                                  ListTileControlAffinity
-                                                      .trailing,
-                                              title: Text(
-                                                context.getLocalization()?.sortByTextField3??'',
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: AppColors
-                                                      .bottomTextfieldText,
-                                                ),
-                                              ),
-                                              value: SortOptions.patientStories,
-                                              groupValue: _selectedOption,
-                                              onChanged: (SortOptions? value) {
-                                                setState(() {
-                                                  _selectedOption = value;
-                                                });
-                                              },
+                                                  BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text(
+                                            context
+                                                    .getLocalization()
+                                                    ?.applyButton ??
+                                                '',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 19,
+                                              fontWeight: FontWeight.w400,
+                                              color: AppColors.secondary,
                                             ),
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(
-                                        height: 94,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 17, right: 16),
-                                        child: SizedBox(
-                                          width: 361,
-                                          height: 52,
-                                          child: ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor:
-                                                  AppColors.primary,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              ),
-                                            ),
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child: Text(
-                                              context.getLocalization()?.applyButton??'',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 19,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors.secondary,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                );
-                              });
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 5, top: 10),
-                              child: Text(
-                                context.getLocalization()?.sortBy??'',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.signText1.withOpacity(0.70),
+                                    )
+                                  ],
                                 ),
+                              );
+                            });
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5, top: 10),
+                            child: Text(
+                              context.getLocalization()?.sortBy ?? '',
+                              style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.signText1.withOpacity(0.70),
                               ),
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(left: 5, top: 10),
-                              child: Icon(Icons.keyboard_arrow_down),
-                              // Image.asset("assets/chevron-down.png"),
-                            ),
-                          ],
-                        ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 5, top: 10),
+                            child: Icon(Icons.keyboard_arrow_down),
+                            // Image.asset("assets/chevron-down.png"),
+                          ),
+                        ],
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: 98,
                     height: 43,
                     child: GestureDetector(
                       onTap: () {
@@ -424,7 +451,7 @@ class _DoctorListState extends State<DoctorList> {
                             Padding(
                               padding: const EdgeInsets.only(left: 10, top: 11),
                               child: Text(
-                                context.getLocalization()?.filter??'',
+                                context.getLocalization()?.filter ?? '',
                                 style: GoogleFonts.poppins(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w400,
@@ -445,7 +472,6 @@ class _DoctorListState extends State<DoctorList> {
                     ),
                   ),
                   SizedBox(
-
                     child: Card(
                       child: Padding(
                         padding: const EdgeInsets.only(left: 4),
@@ -471,21 +497,21 @@ class _DoctorListState extends State<DoctorList> {
                                 PopupMenuItem(
                                   value: "5/4 star",
                                   child: Text(
-                                    context.getLocalization()?.review1??'',
+                                    context.getLocalization()?.review1 ?? '',
                                   ),
                                 ),
                                 PopupMenuItem(
                                   value: "3/2 star",
-                                  child:
-                                      Text(context.getLocalization()?.review2??''),
+                                  child: Text(
+                                      context.getLocalization()?.review2 ?? ''),
                                 ),
                                 PopupMenuItem(
                                   value: "1 star",
-                                  child:
-                                      Text(context.getLocalization()?.review3??''),
+                                  child: Text(
+                                      context.getLocalization()?.review3 ?? ''),
                                 ),
                               ],
-                              icon:const Icon(Icons.keyboard_arrow_down),
+                              icon: const Icon(Icons.keyboard_arrow_down),
                             ),
                           ],
                         ),
@@ -503,7 +529,7 @@ class _DoctorListState extends State<DoctorList> {
                           Padding(
                             padding: const EdgeInsets.only(left: 11, top: 10),
                             child: Text(
-                              context.getLocalization()?.insurance??'',
+                              context.getLocalization()?.insurance ?? '',
                               style: GoogleFonts.poppins(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w400,

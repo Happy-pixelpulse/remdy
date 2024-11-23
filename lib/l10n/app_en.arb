@@ -4,6 +4,10 @@
   "@splashScreenTitle": {
     "description": "Title text encouraging the user to find a family doctor."
   },
+  "signUpScreenTitle1": "Welcome",
+    "@signUpScreenTitle1": {
+      "description": "Title text encouraging the user to find a family doctor."
+    },
   "signUpScreenTitle": "Let’s Get Started",
   "@signUpScreenTitle": {
     "description": "Title text encouraging the user to find a family doctor."
@@ -40,6 +44,14 @@
   "@advanceSearchTextField1": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
+   "hospitalTitle": "Let’s find Nearest",
+  "@hospitalTitle": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+   "hospitalSubTitle": "Hospital",
+    "@hospitalSubTitle": {
+      "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+    },
   "advanceSearchTextField2": "City/Town:",
   "@advanceSearchTextField2": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
@@ -257,12 +269,8 @@
   "@searchHealthIssue": {
     "description": "Placeholder text for the hospital search bar."
   },
-  "hospitalTitle": "If you are in need of serious medical attention,",
-  "@hospitalTitle": {
-    "description": "Placeholder text for the hospital search bar."
-  },
-  "hospitalSubTitle": "CALL 911 or go to your nearest Emergency Department.",
-  "@hospitalSubTitle": {
+  "hospitalWaringText": "If you are in need of serious medical attention, CALL 911 or go to your nearest Emergency Department.",
+  "@hospitalWaringText": {
     "description": "Placeholder text for the hospital search bar."
   },
   "nearbyMedicalCenters": "Nearby Medical Centers",

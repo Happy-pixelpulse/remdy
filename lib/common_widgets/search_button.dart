@@ -19,27 +19,31 @@ class _SearchButtonState extends State<SearchButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 345,
-        height: 40,
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            color: AppColors.secondary),
-        child: TextField(
-          showCursor: false,
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            prefixIcon: const Icon(
-              Icons.search_outlined,
-              color: AppColors.searchIcon,
-            ),
-            hintText: context.getLocalization()?.doctorListSearchButton ?? '',
-            hintStyle: GoogleFonts.poppins(
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              color: AppColors.searchIcon,
-            ),
+      height: 44,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(16)),
+        // color: Colors.red,
+        color: AppColors.secondary,
+      ),
+      child:TextField(
+        showCursor: false,
+        cursorHeight: 12,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.only(top: 10),
+          border: InputBorder.none,
+          prefixIcon:  Padding(
+            padding: const EdgeInsets.only(right: 18,left: 18),
+            child: Image.asset('assets/search_icon.png')
+          ),
+          hintText: context.getLocalization()?.doctorListSearchButton ?? '',
+          hintStyle: GoogleFonts.poppins(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            color: AppColors.searchIcon,
           ),
         ),
+      ),
     );
   }
 }

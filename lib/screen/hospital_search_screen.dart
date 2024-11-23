@@ -73,12 +73,13 @@ class _HospitalPageState extends State<HospitalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
           'assets/rectangle_appbar_bg.png',
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
         )),
         toolbarHeight: 70,
         backgroundColor: Colors.transparent,
@@ -549,108 +550,119 @@ class _HospitalPageState extends State<HospitalPage> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Stack(
+              fit: StackFit.passthrough,
               children: [
-                Image.asset('assets/rectangle.png'),
-                Positioned(
-                  top: 110,
-                  left: 16,
-                  right: 16,
-                  child: Text(
-                    context.getLocalization()?.title ?? '',
-                    style: GoogleFonts.poppins(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.secondary,
-                    ),
-                  ),
+                Image.asset('assets/rectangle.png',
+                  fit: BoxFit.cover,
+                  width: MediaQuery.of(context).size.width,
                 ),
                 Positioned(
-                  top: 145,
-                  left: 16,
-                  right: 16,
-                  child: Text(
-                    context.getLocalization()?.subTitle ?? '',
-                    style: GoogleFonts.poppins(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.secondary,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 185,
-                  left: 200,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AdvanceSearch()),
-                      );
-                    },
-                    child: Row(
+                  top: MediaQuery.of(context).size.height * 0.13,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          context.getLocalization()?.advanceSearch ?? '',
+                          context.getLocalization()?.hospitalTitle??'',
+                          maxLines: 1,
+                          //overflow: TextOverflow.fade,
                           style: GoogleFonts.poppins(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
+                            fontSize: 32,
+                            fontWeight: FontWeight.w700,
                             color: AppColors.secondary,
                           ),
                         ),
-                        const SizedBox(width: 6),
-                        SizedBox(
-                            width: 22,
-                            height: 22,
-                            child: Image.asset(
-                              'assets/quicksearch.png',
-                              width: 22,
-                              height: 22,
-                            )),
+                        Text(
+                          context.getLocalization()?.hospitalSubTitle??'',
+                          style: GoogleFonts.poppins(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.secondary,
+                          ),
+                        ),
+                        const SizedBox(height: 14,),
+                        Row(
+                          children: [
+                            const Spacer(),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const AdvanceSearch()),
+                                );
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    context.getLocalization()?.advanceSearch??'',
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors.secondary,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  SizedBox(
+                                      width: 22,
+                                      height: 22,
+                                      child: Image.asset(
+                                        'assets/quicksearch.png',
+                                        width: 22,
+                                        height: 22,
+                                      )),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 12,),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Hospital()),
+                            );
+                          },
+                          child: Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: AppColors.secondary),
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 21.96),
+                                  child: Image.asset(
+                                    'assets/search.png',
+                                    width: 26.35,
+                                    height: 26.5,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 18,
+                                ),
+                                Text(
+                                  context.getLocalization()?.searchHealthIssue ?? '',
+                                  // 'Search health issue.......',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.searchBoxText,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 230, left: 16, right: 16),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Hospital()),
-                      );
-                    },
-                    child: Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: AppColors.secondary),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 21.96),
-                            child: Image.asset(
-                              'assets/search.png',
-                              width: 26.35,
-                              height: 26.5,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 18,
-                          ),
-                          Text(
-                            context.getLocalization()?.searchHospital ?? '',
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.searchBoxText,
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
                   ),
                 ),
@@ -658,43 +670,27 @@ class _HospitalPageState extends State<HospitalPage> {
             ),
             const SizedBox(height: 12),
             Padding(
-              padding: const EdgeInsets.only(
-                left: 15,
-                right: 15,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(
-                width: 363,
-                height: 52,
+                width: MediaQuery.of(context).size.width,
+                // height: 46,
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                   border: Border.all(
-                    color: AppColors.waring.withOpacity(0.2),
+                    color: AppColors.waring.withOpacity(0.65),
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 5, left: 2),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 15),
-                        child: Text(
-                          context.getLocalization()?.hospitalTitle ?? '',
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.waring,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        context.getLocalization()?.hospitalSubTitle ?? '',
-                        style: GoogleFonts.poppins(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.waring,
-                        ),
-                      ),
-                    ],
+                  padding: const EdgeInsets.symmetric(horizontal:6,vertical: 6),
+                  child: Text(
+                    context.getLocalization()?.hospitalWaringText ?? '',
+                    maxLines: 2,
+                    overflow: TextOverflow.fade,
+                    style: GoogleFonts.poppins(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.waring,
+                    ),
                   ),
                 ),
               ),
@@ -715,7 +711,7 @@ class _HospitalPageState extends State<HospitalPage> {
             Padding(
               padding: const EdgeInsets.only(left:12),
               child: SizedBox(
-                height: 230,
+                height: 250,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: hospitalList.length,

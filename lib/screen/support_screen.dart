@@ -15,6 +15,7 @@ class _SupportScreenState extends State<SupportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(

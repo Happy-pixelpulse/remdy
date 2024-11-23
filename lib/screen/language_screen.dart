@@ -46,6 +46,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
       );
     }
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(left: 16, right: 17),
         child: ElevatedButton(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:remdy/screen/dashboard_screen.dart';
 import 'package:remdy/screen/setting_screen.dart';
 
+import '../utils/colors.dart';
 import 'favorite_screen.dart';
 import 'hospital_search_screen.dart';
 
@@ -25,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       body: _pages[_selectedIndex],
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(12),

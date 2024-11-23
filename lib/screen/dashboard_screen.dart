@@ -86,12 +86,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
               'assets/rectangle_appbar_bg.png',
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
             )),
         toolbarHeight: 70,
         backgroundColor: Colors.transparent,
@@ -104,8 +105,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     context: context,
                     builder: (BuildContext context) {
                       return Container(
-                        width: 394,
-                        height: 433,
+                        height: 450,
+                         width: MediaQuery.of(context).size.width,
+                        // height: MediaQuery.of(context).size.height,
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -113,44 +115,43 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           color: AppColors.secondary,
                         ),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                top: 17,
-                                left: 34,
-                              ),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    context.getLocalization()?.address ?? '',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.bottomText,
-                                    ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  context.getLocalization()?.address ?? '',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.fade,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.bottomText,
                                   ),
-                                  const SizedBox(
-                                    width: 17,
+                                ),
+                                const SizedBox(
+                                  width: 17,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Icon(
+                                    Icons.cancel_outlined,
+                                    weight: 19,
+                                    color: AppColors.signText1,
                                   ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Icon(
-                                      Icons.cancel_outlined,
-                                      weight: 19,
-                                      color: AppColors.signText1,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                             const SizedBox(
                               height: 21,
                             ),
                             Container(
-                                width: 360,
-                                height: 49,
+                                width:  MediaQuery.of(context).size.width,
+                                // height:  MediaQuery.of(context).size.height,
                                 decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
@@ -187,8 +188,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               height: 21,
                             ),
                             Container(
-                                width: 360,
-                                height: 49,
+                                width:  MediaQuery.of(context).size.width,
+                                // height:  MediaQuery.of(context).size.height,
                                 decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
@@ -224,8 +225,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               height: 21,
                             ),
                             Container(
-                                width: 360,
-                                height: 49,
+                                width:  MediaQuery.of(context).size.width,
+                                // height:  MediaQuery.of(context).size.height,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15),
                                     color: AppColors.secondary),
@@ -261,7 +262,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               padding:
                               const EdgeInsets.only(left: 17, right: 16),
                               child: SizedBox(
-                                width: 361,
+                                width:  MediaQuery.of(context).size.width,
                                 height: 52,
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
@@ -307,8 +308,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     context: context,
                     builder: (BuildContext context) {
                       return Container(
-                        width: 394,
-                        height: 433,
+                        height: 450,
+                        width: MediaQuery.of(context).size.width,
+                        // height: MediaQuery.of(context).size.height,
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -316,44 +318,43 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           color: AppColors.secondary,
                         ),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                top: 17,
-                                left: 34,
-                              ),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    context.getLocalization()?.address??'',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.bottomText,
-                                    ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  context.getLocalization()?.address ?? '',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.fade,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.bottomText,
                                   ),
-                                  const SizedBox(
-                                    width: 17,
+                                ),
+                                const SizedBox(
+                                  width: 17,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Icon(
+                                    Icons.cancel_outlined,
+                                    weight: 19,
+                                    color: AppColors.signText1,
                                   ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Icon(
-                                      Icons.cancel_outlined,
-                                      weight: 19,
-                                      color: AppColors.signText1,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                             const SizedBox(
                               height: 21,
                             ),
                             Container(
-                                width: 360,
-                                height: 49,
+                                width:  MediaQuery.of(context).size.width,
+                                // height:  MediaQuery.of(context).size.height,
                                 decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
@@ -379,7 +380,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
-                                      labelText:context.getLocalization()?.area??'',
+                                      labelText: context.getLocalization()?.area??'',
                                       labelStyle: const TextStyle(
                                           color: AppColors.bottomTextfield),
                                     ),
@@ -390,8 +391,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               height: 21,
                             ),
                             Container(
-                                width: 360,
-                                height: 49,
+                                width:  MediaQuery.of(context).size.width,
+                                // height:  MediaQuery.of(context).size.height,
                                 decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
@@ -427,8 +428,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               height: 21,
                             ),
                             Container(
-                                width: 360,
-                                height: 49,
+                                width:  MediaQuery.of(context).size.width,
+                                // height:  MediaQuery.of(context).size.height,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15),
                                     color: AppColors.secondary),
@@ -464,7 +465,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               padding:
                               const EdgeInsets.only(left: 17, right: 16),
                               child: SizedBox(
-                                width: 361,
+                                width:  MediaQuery.of(context).size.width,
                                 height: 52,
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
@@ -561,119 +562,126 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
+              fit: StackFit.passthrough,
               children: [
-                Image.asset('assets/rectangle.png'),
-                Positioned(
-                  top: 110,
-                  left: 16,
-                  right: 16,
-                   child:Text(//"Let's find a Family",
-                     context.getLocalization()?.title??'',
-                    style: GoogleFonts.poppins(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.secondary,
-                    ),
-                  ),
+                Image.asset('assets/rectangle.png',
+                  fit: BoxFit.cover,
+                  width: MediaQuery.of(context).size.width,
                 ),
-                Positioned(
-                  top: 145,
-                  left: 16,
-                  right: 16,
-                  child: Text(
-                    // "doctor!",
-                    context.getLocalization()?.subTitle??'',
-                    style: GoogleFonts.poppins(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.secondary,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 185,
-                  left: 200,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AdvanceSearch()),
-                      );
-                    },
-                    child: Row(
-                      children: [
-                        Text(
-                          context.getLocalization()?.advanceSearch??'',
-                          // 'Advance Search',
-                          style: GoogleFonts.poppins(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.secondary,
-                          ),
-                        ),
-                        const SizedBox(width: 6),
-                        SizedBox(
-                            width: 22,
-                            height: 22,
-                            child: Image.asset(
-                              'assets/quicksearch.png',
-                              width: 22,
-                              height: 22,
-                            )),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 230, left: 16, right: 16),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DoctorList()),
-                      );
-                    },
-                    child: Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: AppColors.secondary),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 21.96),
-                            child: Image.asset(
-                              'assets/search.png',
-                              width: 26.35,
-                              height: 26.5,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 18,
-                          ),
-                          Text(
-                            context.getLocalization()?.searchHealthIssue ?? '',
-                            // 'Search health issue.......',
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.searchBoxText,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+               Positioned(
+                 top: MediaQuery.of(context).size.height * 0.13,
+                 child: Container(
+                   width: MediaQuery.of(context).size.width,
+                   padding: const EdgeInsets.symmetric(horizontal: 16),
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.start,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       Text(
+                         context.getLocalization()?.title??'',
+                         style: GoogleFonts.poppins(
+                           fontSize: 32,
+                           fontWeight: FontWeight.w700,
+                           color: AppColors.secondary,
+                         ),
+                       ),
+                       Text(
+                         context.getLocalization()?.subTitle??'',
+                         style: GoogleFonts.poppins(
+                           fontSize: 32,
+                           fontWeight: FontWeight.w700,
+                           color: AppColors.secondary,
+                         ),
+                       ),
+                       const SizedBox(height: 14,),
+                       Row(
+                         children: [
+                           const Spacer(),
+                           GestureDetector(
+                             onTap: () {
+                               Navigator.push(
+                                 context,
+                                 MaterialPageRoute(
+                                     builder: (context) => const AdvanceSearch()),
+                               );
+                             },
+                             child: Row(
+                               mainAxisAlignment: MainAxisAlignment.end,
+                               children: [
+                                 Text(
+                                   context.getLocalization()?.advanceSearch??'',
+                                   style: GoogleFonts.poppins(
+                                     fontSize: 13,
+                                     fontWeight: FontWeight.w400,
+                                     color: AppColors.secondary,
+                                   ),
+                                 ),
+                                 const SizedBox(width: 6),
+                                 SizedBox(
+                                     width: 22,
+                                     height: 22,
+                                     child: Image.asset(
+                                       'assets/quicksearch.png',
+                                       width: 22,
+                                       height: 22,
+                                     )),
+                               ],
+                             ),
+                           ),
+                         ],
+                       ),
+                       const SizedBox(height: 12,),
+                       GestureDetector(
+                         onTap: () {
+                           Navigator.push(
+                             context,
+                             MaterialPageRoute(
+                                 builder: (context) => const DoctorList()),
+                           );
+                         },
+                         child: Container(
+                           height: 50,
+                           decoration: BoxDecoration(
+                               borderRadius: BorderRadius.circular(15),
+                               color: AppColors.secondary),
+                           child: Row(
+                             children: [
+                               Padding(
+                                 padding: const EdgeInsets.only(left: 21.96),
+                                 child: Image.asset(
+                                   'assets/search.png',
+                                   width: 26.35,
+                                   height: 26.5,
+                                 ),
+                               ),
+                               const SizedBox(
+                                 width: 18,
+                               ),
+                               Text(
+                                 context.getLocalization()?.searchHealthIssue ?? '',
+                                 // 'Search health issue.......',
+                                 style: GoogleFonts.poppins(
+                                   fontSize: 14,
+                                   fontWeight: FontWeight.w400,
+                                   color: AppColors.searchBoxText,
+                                 ),
+                               ),
+                             ],
+                           ),
+                         ),
+                       ),
+                     ],
+                   ),
+                 ),
+               ),
               ],
             ),
             const SizedBox(height: 19),
             Padding(
-              padding: const EdgeInsets.only(right: 180, top: 10),
+              padding: const EdgeInsets.only(left: 16),
               child: Text(
                 context.getLocalization()?.nearbyDoctor??'',
                 // 'Nearby doctor',
@@ -685,16 +693,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 14),
               child: GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 10),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 15,
                   mainAxisSpacing: 15,
-                  childAspectRatio: 0.75,
+                  childAspectRatio: 0.85,
                 ),
                 itemCount: doctors.length,
                 itemBuilder: (context, index) {

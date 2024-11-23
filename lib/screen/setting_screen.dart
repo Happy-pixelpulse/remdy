@@ -21,6 +21,7 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
@@ -60,7 +61,7 @@ class _SettingScreenState extends State<SettingScreen> {
         automaticallyImplyLeading: false,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 19, right: 19),
+        padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -69,7 +70,6 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             SizedBox(
               height: 45,
-              width: 355,
               child: TextButton(
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
@@ -80,12 +80,12 @@ class _SettingScreenState extends State<SettingScreen> {
                   elevation: 0,
                 ),
                 onPressed: () {},
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: 10,
-                      left: 69,
-                      child: Text(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
                         context.getLocalization()?.proFileScreeSearchButton ??
                             '',
                         style: GoogleFonts.poppins(
@@ -94,16 +94,9 @@ class _SettingScreenState extends State<SettingScreen> {
                           color: AppColors.profileSearch,
                         ),
                       ),
-                    ),
-                    const Positioned(
-                      right: 17,
-                      top: 8,
-                      child: Icon(
-                        Icons.search_outlined,
-                        color: AppColors.searchIcon,
-                      ),
-                    ),
-                  ],
+                       Image.asset('assets/search_icon.png',color: AppColors.hintText,),
+                    ],
+                  ),
                 ),
               ),
             ),

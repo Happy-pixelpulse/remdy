@@ -57,12 +57,12 @@ class HospitalList extends StatelessWidget {
                 child: Image.network(
                   hospitalImage,
                   height: 121,
-                  width: 358,
+                  width: MediaQuery.of(context).size.width,
                   fit: BoxFit.cover,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10,right: 9),
+                padding: const EdgeInsets.only(left: 10, right: 9),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -79,11 +79,11 @@ class HospitalList extends StatelessWidget {
                     // ),
                     IconButton(
                       onPressed: () {},
-                      icon:  const Icon(
+                      icon: const Icon(
                         Icons.favorite_border,
                         color: AppColors.signText1,
                       ),
-                      // iconSize: 35,
+                      iconSize: 24,
                     ),
                   ],
                 ),
@@ -93,8 +93,12 @@ class HospitalList extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    // Image.asset('assets/map-pin.png'),
-                    const Icon(Icons.location_on, size: 18),
+                    Image.asset(
+                      'assets/map-pin.png',
+                      color: AppColors.hospitalLocationText,
+                      height: 18,
+                      width: 18,
+                    ),
                     const SizedBox(width: 4),
                     Text(
                       address,
@@ -158,7 +162,7 @@ class HospitalList extends StatelessWidget {
                       children: [
                         Container(
                           height: 22,
-                          width: 55,
+                          width: MediaQuery.of(context).size.width/6.5,
                           decoration: BoxDecoration(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(7)),
@@ -203,27 +207,26 @@ class HospitalList extends StatelessWidget {
                   ],
                 ),
               ),
-               const Padding(
-                 padding: EdgeInsets.only(left: 10,right: 10),
-                 child: Divider(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Divider(
                   color: AppColors.signText1,
                   thickness: 0.1,
                   height: 10,
-                               ),
-               ),
+                ),
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 10,right: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Image.asset(
                       // distanceImage,
                       'assets/routing.png',
                       height: 22,
-                      width: 22,
                       fit: BoxFit.fill,
                     ),
-                    const SizedBox(width: 4),
                     Text(
                       distanceText,
                       style: GoogleFonts.poppins(
@@ -233,7 +236,10 @@ class HospitalList extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 120),
-                 const Icon(Icons.local_hospital_outlined,color: AppColors.hospitalLocationText,),
+                    const Icon(
+                      Icons.local_hospital_outlined,
+                      color: AppColors.hospitalLocationText,
+                    ),
                     const SizedBox(width: 4),
                     Text(
                       hospitalText,

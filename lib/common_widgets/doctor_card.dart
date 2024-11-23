@@ -34,98 +34,95 @@ class DoctorCard extends StatelessWidget {
               builder: (context) => const DoctorList()),
         );
       },
-      child: SizedBox(
-        height: 198.33,
-        width: 170,
-        child: Card(
+      child: Container(
+        decoration: BoxDecoration(
           color: AppColors.secondary,
-          // shadowColor: AppColors.primary.withOpacity(0.06),
-          semanticContainer: true,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.only(top: 22,right: 45, left: 47),
-                child:  Container(
-                  width: 78,
-                  height: 78,
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 47),
+              child:  CircleAvatar(
+                radius: 58,
+                backgroundImage: NetworkImage(
+                  imagePath,
+                ),
+              ),
+            ),
+            Text(
+             doctorName,
+              maxLines: 2,
+              overflow: TextOverflow.fade,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                color: AppColors.drNameText,
+              ),
+            ),
+            const SizedBox(height: 6,),
+            Text(
+              specialty,
+              maxLines: 1,
+              overflow: TextOverflow.fade,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: AppColors.reviewText,
+              ),
+            ),
+            const SizedBox(height: 5,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RatingBar.builder(
+                  direction: Axis.horizontal,
+                  minRating: 1,
+                  allowHalfRating: true,
+                  itemCount: 1,
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                  itemBuilder: (context, _) =>  const Icon(
+                    Icons.star,
+                    color: Colors.amber,
                   ),
-                  child:CircleAvatar(
-                    //radius: 60,
-                    backgroundImage: NetworkImage(
-                      imagePath,
-                    ),
+                  onRatingUpdate: (rating) {
+                    if (kDebugMode) {
+                      print(rating);
+                    }
+                  },
+                  itemSize: 17,
+                  unratedColor: Colors.grey[300],
+                  glow: false,
+                  glowColor: AppColors.searchScreenRating,
+                  ignoreGestures: false,
+                ),
+                Text(
+                  rating,
+                  maxLines: 1,
+                  overflow: TextOverflow.fade,
+                  style: GoogleFonts.poppins(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.reviewText,
+                  ),
+                ),const SizedBox(width: 5,),
+                Text(
+                  reviews,
+                  maxLines: 1,
+                  overflow: TextOverflow.fade,
+                  style: GoogleFonts.poppins(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.reviewText,
                   ),
                 ),
-              ),
-              Text(
-                doctorName,
-                style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.drNameText,
-                ),
-              ),
-              Text(
-                specialty,
-                style: GoogleFonts.poppins(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.reviewText,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5),
-                child: Row(
-                  children: [
-                    RatingBar.builder(
-                      direction: Axis.horizontal,
-                      minRating: 1,
-                      allowHalfRating: true,
-                      itemCount: 1,
-                      itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      itemBuilder: (context, _) =>  const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      onRatingUpdate: (rating) {
-                        if (kDebugMode) {
-                          print(rating);
-                        }
-                      },
-                      itemSize: 17,
-                      unratedColor: Colors.grey[300],
-                      glow: false,
-                      glowColor: AppColors.searchScreenRating,
-                      ignoreGestures: false,
-                    ),
-                    Text(
-                      rating,
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.reviewText,
-                      ),
-                    ),
-                    Text(
-                      reviews,
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.reviewText,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       ),
     );

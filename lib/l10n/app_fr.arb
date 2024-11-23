@@ -4,6 +4,18 @@
   "@splashScreenTitle": {
     "description": "Title text encouraging the user to find a family doctor."
   },
+   "hospitalTitle": "Allons trouver",
+    "@hospitalTitle": {
+      "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+    },
+     "hospitalSubTitle": "Hopital",
+      "@hospitalSubTitle": {
+        "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+      },
+  "signUpScreenTitle1": "Bienvenue",
+      "@signUpScreenTitle1": {
+        "description": "Title text encouraging the user to find a family doctor."
+      },
   "signUpScreenTitle": "Commencons",
   "@signUpScreenTitle": {
     "description": "Title text "
@@ -124,12 +136,8 @@
   "@patientsDoneButton": {
     "description": "Placeholder text for the hospital search bar."
   },
-  "hospitalTitle": "Si vous avez besoin de soins medicaux serieux,",
-  "@hospitalTitle": {
-    "description": "Placeholder text for the hospital search bar."
-  },
-  "hospitalSubTitle": "APPELEZ LE 911 ou rendez-vous au service d’urgence le plus proche.",
-  "@hospitalSubTitle": {
+  "hospitalWaringText": "Si vous avez besoin de soins medicaux serieux, APPELEZ LE 911 ou rendez-vous au service d’urgence le plus proche.",
+  "@hospitalWaringText": {
     "description": "Placeholder text for the hospital search bar."
   },
   "topHospitals": "Meilleurs hopitaux",

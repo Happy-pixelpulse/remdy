@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/common_app_bar.dart';
+import 'package:remdy/common_widgets/patients_details_text_Field.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 
 
@@ -23,10 +24,11 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       appBar: const CommonAppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 9),
           child: Column(
            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -39,21 +41,23 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    context.getLocalization()?.advanceSearchTextField1??'',
-                    style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.signText1,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 12),
+                    child: Text(
+                      context.getLocalization()?.advanceSearchTextField1??'',
+                      style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.signText1,
+                      ),
                     ),
                   ),
                   Container(
-                    width: 360,
                     height: 41,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
@@ -78,16 +82,18 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    context.getLocalization()?.advanceSearchTextField2??'',
-                    style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.signText1,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 12),
+                    child: Text(
+                      context.getLocalization()?.advanceSearchTextField2??'',
+                      style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.signText1,
+                      ),
                     ),
                   ),
                   Container(
-                    width: 360,
                     height: 41,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
@@ -112,16 +118,18 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    context.getLocalization()?.advanceSearchTextField3??'',
-                    style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.signText1,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 12),
+                    child: Text(
+                      context.getLocalization()?.advanceSearchTextField3??'',
+                      style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.signText1,
+                      ),
                     ),
                   ),
                   Container(
-                    width: 360,
                     height: 41,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
@@ -330,7 +338,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 ],
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -347,7 +355,6 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     height: 6,
                   ),
                   Container(
-                    width: 360,
                     height: 41,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
@@ -358,8 +365,10 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           width: 1), // Set border width
                     ),
                     child: const Padding(
-                      padding: EdgeInsets.only(left: 280),
-                      child: Icon(Icons.keyboard_arrow_down),
+                      padding: EdgeInsets.only(right:5),
+                      child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Icon(Icons.keyboard_arrow_down)),
                     ),
                   )
                 ],
@@ -379,7 +388,6 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                     ),
                   ),
                   Container(
-                    width: 360,
                     height: 41,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
@@ -425,61 +433,62 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 ],
               ),
               const SizedBox(
-                height: 32,
+                height: 25,
               ),
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: (){},
-                    child: Container(
-                      width: 161,
-                      height: 57,
-                      decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(15),
-                        // Adjust radius as needed
-                        border: Border.all(
-                            color: AppColors.signUpTextButtonRadius,
-                            width: 1), // Set border width
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 28),
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.backgroundColor,
+                        side: const BorderSide(color: AppColors.primary),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              15), // Rounded corners
+                        ),
                       ),
-                      child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 35, vertical: 14),
                         child: Text(
-                          context.getLocalization()?.advanceSearchButton1??'',
+                          context.getLocalization()?.advanceSearchButton1 ??
+                              '',
                           style: GoogleFonts.poppins(
+                            color: AppColors.primary, // Text color
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: AppColors.primary,
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 15),
-                  GestureDetector(
-                    onTap: (){},
-                    child: Container(
-                      width: 161,
-                      height: 57,
-                      decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(
-                            color: AppColors.signUpTextButtonRadius,
-                            width: 1),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.secondary,
+                        side: const BorderSide(color: AppColors.signUpTextButtonRadius),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              15), // Rounded corners
+                        ),
                       ),
-                      child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 35, vertical: 14),
                         child: Text(
-                          context.getLocalization()?.advanceSearchButton2??'',
+                          context.getLocalization()?.advanceSearchButton2 ??
+                              '',
                           style: GoogleFonts.poppins(
+                            color: AppColors.signUpTextButtonRadius, // Text color
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: AppColors.signUpTextButtonRadius,
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),

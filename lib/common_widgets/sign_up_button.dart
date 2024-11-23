@@ -16,39 +16,37 @@ class SignUpButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextButton(
-          style: TextButton.styleFrom(
-            padding: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-              side:  BorderSide(
-                color: AppColors.signUpTextButtonRadius.withOpacity(0.79),
-                width: 0.5,
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 46),
+          child: TextButton(
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+                side:  BorderSide(
+                  color: AppColors.signUpTextButtonRadius.withOpacity(0.79),
+                  width: 0.5,
+                ),
               ),
+              backgroundColor: AppColors.secondary,
+              shadowColor:AppColors.signUpTextButtonRadius.withOpacity(0.79),
+              elevation: 4,
+
             ),
-            backgroundColor: AppColors.secondary.withOpacity(0.25),
-            shadowColor:AppColors.signText1.withOpacity(0.25),
-            elevation: 0,
-          ),
-          onPressed: onPressed,
-          child: SizedBox(
-            width: 282,
-            height: 58,
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 9.28,
-                  left: 16.71,
-                  child: Image.asset(
+            onPressed: onPressed,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 17,vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
                     imageName,
                     fit: BoxFit.cover,
                   ),
-                ),
-                Positioned(
-                  top: 18,
-                  left: 80,
-                  child: Text(
+                 const SizedBox(width: 18,),
+                  Text(
                     buttonName,
                     style: GoogleFonts.poppins(
                       fontSize: 16,
@@ -56,8 +54,8 @@ class SignUpButton extends StatelessWidget {
                       color: AppColors.signText1.withOpacity(0.8),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

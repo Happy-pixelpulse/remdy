@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/auth/sign_up_screen.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 
+import '../utils/colors.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -25,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(62, 148, 82, 1),
+      backgroundColor: AppColors.primary,
       body: Align(
         alignment: Alignment.center,
         child: Text(

@@ -18,6 +18,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       floatingActionButton: SizedBox(
         height: 65,
         width: 65,
@@ -30,7 +31,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(left: 23, right: 23),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         child: ElevatedButton(
           onPressed: () {
             // ScaffoldMessenger.of(context).showSnackBar(
@@ -38,28 +39,27 @@ class _DoctorDetailsState extends State<DoctorDetails> {
             // );
           },
           style: ElevatedButton.styleFrom(
+            minimumSize: const Size(0,57),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),
-            minimumSize: const Size(347, 57),
             backgroundColor: AppColors.container,
+
           ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 35),
-            child: Row(
-              children: [
-                Text(
-                  context.getLocalization()?.doctorDetailsJoinWaitingListButton??'',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.secondary,
-                  ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                context.getLocalization()?.doctorDetailsJoinWaitingListButton??'',
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.secondary,
                 ),
-                const SizedBox(width: 10,),
-                const Icon(Icons.av_timer_rounded,color: AppColors.secondary,size: 20,)
-              ],
-            ),
+              ),
+              const SizedBox(width: 10,),
+              const Icon(Icons.av_timer_rounded,color: AppColors.secondary,size: 20,)
+            ],
           ),
         ),
       ),
@@ -731,7 +731,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                 height: 13,
               ),
               Container(
-                width: 361,
+                width: MediaQuery.of(context).size.width,
                 height: 372,
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(1)),
@@ -802,26 +802,31 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                         ),
                       ],
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        minimumSize: const Size(345, 40),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DrDetails()),
-                        );
-                      },
-                      child: Text(
-                        context.getLocalization()?.doctorDetailsReviewButton??'',
-                        style: GoogleFonts.poppins(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.signText1,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DrDetails()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 90),
+                          child: Text(
+                            context.getLocalization()?.doctorDetailsReviewButton??'',
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.signText1,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -912,8 +917,8 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                       ),
                     ),
                    const SizedBox(height: 22,),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40,left: 135),
+                    Align(
+                      alignment: Alignment.bottomCenter,
                       child: Text(
                         'Show More',
                         style: GoogleFonts.poppins(
@@ -927,33 +932,30 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 23,right: 23),
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    minimumSize: const Size(347, 57),
+                    minimumSize: const Size(0,57),
                     backgroundColor: AppColors.primary,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 55),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          context.getLocalization()?.doctorDetailsSendRequestButton??'',
-                          style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.secondary,
-                          ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        context.getLocalization()?.doctorDetailsSendRequestButton??'',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.secondary,
                         ),
-                        const SizedBox(width: 10,),
-                        const Icon(Icons.ios_share,color: AppColors.secondary,size: 20,),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(width: 10,),
+                      const Icon(Icons.ios_share,color: AppColors.secondary,size: 20,),
+                    ],
                   ),
                 ),
               ),

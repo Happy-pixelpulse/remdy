@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color primary = Color(0xFF3E9452);
+  static const Color backgroundColor = Color(0xFFF0F0EC);
+  static const Color backgroundColor2 = Color(0xFFF2F2ED);
   static const Color secondary = Color(0xFFF2F2F2);
   static const Color signUpTextButtonRadius = Color(0xFF979797);
   static const Color signText1 = Color(0xFF000000);
@@ -30,6 +32,7 @@ class AppColors {
   static const Color headLine = Color(0xFF1C2A3A);
   static const Color hospitalText = Color(0xFF4B5563);
   static const Color hospitalLocationText = Color(0xFF6B7280);
+  static const Color patientsContainer = Color(0xFFb5b5b5);
   static const Color container = Color(0xFFD8AA34);
   static const Color profileSearch = Color(0xFF868686);
   static const Color profileContainer = Color(0xFF8A8A8A);

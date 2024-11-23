@@ -10,6 +10,7 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(

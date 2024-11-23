@@ -64,51 +64,52 @@ class _FilterWidgetState extends State<FilterWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 393,
-      height: 451,
+      height: MediaQuery.of(context).size.height/2.1,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-        color: AppColors.secondary,
+        color: AppColors.backgroundColor,
       ),
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 17,
-              left: 150,
+          Card(
+            shape:const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(bottomLeft: Radius.zero,
+                bottomRight: Radius.zero
+              )
             ),
+            margin: const EdgeInsets.only(top: 18),
+            elevation: 4,
+            color: AppColors.backgroundColor,
             child: Row(
               children: [
-                Text(
-                  context.getLocalization()?.filter??'',
-                  style: GoogleFonts.poppins(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.bottomText,
+                Expanded(
+                  child: Align(
+                    child: Text(
+                      context.getLocalization()?.filter??'',
+                      style: GoogleFonts.poppins(
+                        fontSize: 23,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.bottomText,
+                      ),
+                    ),
                   ),
                 ),
-                const SizedBox(
-                  width: 95,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Icon(
-                    Icons.cancel_outlined,
-                    weight: 19,
-                    color: AppColors.signText1,
+                Padding(
+                  padding: const EdgeInsets.only(right: 18),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(
+                      Icons.cancel_outlined,
+                      size: 24,
+                      color: AppColors.signText1,
+                    ),
                   ),
                 ),
               ],
             ),
-          ),
-          const Divider(
-            color: AppColors.bottomTextfield,
-            thickness: 1,
-            indent: 10,
-            endIndent: 10,
           ),
           const SizedBox(
             height: 10,
@@ -117,25 +118,30 @@ class _FilterWidgetState extends State<FilterWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 17),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 20),
-                    ...[
-                      for (int i = 0; i < _filterList.length; i++)
-                        Column(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                if (selectedFilter.filterEnum !=
-                                    _filterList[i].filterEnum) {
-                                  selectedFilter = _filterList[i];
-                                  setState(() {});
-                                }
-                              },
-                              child: SizedBox(
-                                height: 38,
-                                width: 130,
+                padding: const EdgeInsets.only(left: 16
+                ),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  elevation: 4,
+                  color: AppColors.backgroundColor,
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 12),
+                      ...[
+                        for (int i = 0; i < _filterList.length; i++)
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  if (selectedFilter.filterEnum !=
+                                      _filterList[i].filterEnum) {
+                                    selectedFilter = _filterList[i];
+                                    setState(() {});
+                                  }
+                                },
                                 child: Text(
                                   _filterList[i].filterName,
                                   style: GoogleFonts.poppins(
@@ -147,100 +153,94 @@ class _FilterWidgetState extends State<FilterWidget> {
                                   ),
                                 ),
                               ),
-                            ),
-                            const Divider(
-                              color: AppColors.bottomTextfield,
-                              thickness: 1,
-                              indent: 5,
-                              endIndent: 5,
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                          ],
-                        )
+                              const SizedBox(height: 21,
+                              ),
+                            ],
+                          )
+                      ],
                     ],
-                  ],
+                  ),
                 ),
               ),
               Flexible(
-                child: Column(
-                  children: [
-                    ...[
-                      for (int i = 0;
-                          i < _getFilterList(selectedFilter.filterEnum).length;
-                          i++)
-                        RadioListTile<DoctorFilterListData?>(
-                          activeColor: AppColors.primary,
-                            title: Text(
-                              _getFilterList(selectedFilter.filterEnum)[i].name,
-                              style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                                color: _getFilterList(selectedFilter.filterEnum)[i]==_selectedFilter
-                                    ? AppColors.primary
-                                    : AppColors.lightBlack,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  margin: const EdgeInsets.only(left: 16),
+                  elevation: 4,
+                  color: AppColors.backgroundColor,
+                  child: Column(
+                    children: [
+                      ...[
+                        for (int i = 0;
+                            i < _getFilterList(selectedFilter.filterEnum).length;
+                            i++)
+                          RadioListTile<DoctorFilterListData?>(
+                            activeColor: AppColors.primary,
+                              title: Text(
+                                _getFilterList(selectedFilter.filterEnum)[i].name,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: _getFilterList(selectedFilter.filterEnum)[i]==_selectedFilter
+                                      ? AppColors.primary
+                                      : AppColors.lightBlack,
+                                ),
+                                maxLines: 1,
                               ),
-                              maxLines: 1,
-                            ),
-                            controlAffinity: ListTileControlAffinity.trailing,
-                            value: _getFilterList(selectedFilter.filterEnum)[i],
-                            groupValue:
-                            _selectedFilter,
-                            onChanged: (DoctorFilterListData? value) {
-                              if (value != null) {
-                                _selectedFilter = value;
-                                setState(() {});
-                              }
-                            })
+                              controlAffinity: ListTileControlAffinity.trailing,
+                              value: _getFilterList(selectedFilter.filterEnum)[i],
+                              groupValue:
+                              _selectedFilter,
+                              onChanged: (DoctorFilterListData? value) {
+                                if (value != null) {
+                                  _selectedFilter = value;
+                                  setState(() {});
+                                }
+                              })
+                      ],
                     ],
-                  ],
+                  ),
                 ),
               ),
             ],
           ),
-          const SizedBox(
-            height: 60,
-          ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 17, right: 16),
-                child: SizedBox(
-                  width: 145,
-                  height: 50,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.secondary,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                padding: const EdgeInsets.only(left: 17,),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.secondary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      context.getLocalization()?.clearFilters??'',
-                      style: GoogleFonts.poppins(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.filterText,
-                      ),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    context.getLocalization()?.clearFilters??'',
+                    style: GoogleFonts.poppins(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.filterText,
                     ),
                   ),
                 ),
               ),
-              const Spacer(),
               Padding(
                 padding: const EdgeInsets.only(right: 16),
                 child: SizedBox(
-                  width: 145,
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                     ),
                     onPressed: () {
@@ -249,7 +249,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                     child: Text(
                       context.getLocalization()?.showDoctors??'',
                       style: GoogleFonts.poppins(
-                        fontSize: 10,
+                        fontSize: 18,
                         fontWeight: FontWeight.w400,
                         color: AppColors.secondary,
                       ),

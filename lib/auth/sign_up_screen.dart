@@ -66,7 +66,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
+
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(
             'assets/Vector.png',
@@ -74,19 +77,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
             width: MediaQuery.of(context).size.width,
           ),
           const SizedBox(
-            height: 5,
+            height: 25,
           ),
+          Text(
+            context.getLocalization()?.signUpScreenTitle ?? '',
+            style: GoogleFonts.poppins(
+              fontSize: 35,
+              fontWeight: FontWeight.w600,
+              color: AppColors.primary,
+            ),
+          ),
+          const SizedBox(
+            height: 114,
+          ),
+          // Align(
+          //   alignment: Alignment.center,
+          //   child: SignUpButton(
+          //     onPressed: () {
+          //       fetchUser();
+          //       signInWithGoogle(context);
+          //     },
+          //     imageName: 'assets/google.png',
+          //     buttonName: context.getLocalization()?.buttonName1 ?? '',
+          //   ),
+          // ),
           Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                context.getLocalization()?.signUpScreenTitle ?? '',
-                style: GoogleFonts.poppins(
-                  fontSize: 35,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.primary,
-                ),
-              ),
-              const SizedBox(height: 100),
               SignUpButton(
                 onPressed: () {
                   fetchUser();
@@ -101,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 imageName: 'assets/apple.png',
                 buttonName: context.getLocalization()?.buttonName2 ?? '',
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 12),
               Text(
                 context.getLocalization()?.signUpScreenText ?? '',
                 style: GoogleFonts.poppins(

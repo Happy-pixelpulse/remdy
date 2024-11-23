@@ -19,6 +19,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(left: 16,right: 17),
         child: ElevatedButton(
@@ -285,41 +286,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           }).toList(),
                         ),
                       ),
-                      // IconButton(
-                      //   icon:
-                      //   const Icon(Icons.keyboard_arrow_down),
-                      //   onPressed: () {
-                      //     DropdownButton<String>(
-                      //       value: dropdownValue,
-                      //       onChanged: (String? value) {
-                      //         setState(() {
-                      //           dropdownValue = value!;
-                      //         });
-                      //       },
-                      //       underline: const SizedBox(),
-                      //       isExpanded: true,
-                      //       style: const TextStyle(color: Colors.black),
-                      //       dropdownColor: Colors.white,
-                      //       icon: const Icon(Icons.keyboard_arrow_down, color: Colors.black),
-                      //       selectedItemBuilder: (BuildContext context) {
-                      //         return options.map((String value) {
-                      //           return Align(
-                      //             alignment: Alignment.centerLeft,
-                      //             child: Text(
-                      //               dropdownValue,
-                      //             ),
-                      //           );
-                      //         }).toList();
-                      //       },
-                      //       items: options.map<DropdownMenuItem<String>>((String value) {
-                      //         return DropdownMenuItem<String>(
-                      //           value: value,
-                      //           child: Text(value),
-                      //         );
-                      //       }).toList(),
-                      //     );
-                      //   },
-                      // ),
                       enabledBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(10),
