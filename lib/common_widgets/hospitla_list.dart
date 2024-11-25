@@ -40,7 +40,8 @@ class HospitalList extends StatelessWidget {
           MaterialPageRoute(builder: (context) => const HospitalDetails()),
         );
       },
-      child: SizedBox(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 17,right: 17,bottom: 12),
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0),
@@ -115,94 +116,101 @@ class HospitalList extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      rating,
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.hospitalLocationText,
-                      ),
-                    ),
-                    RatingBar.builder(
-                      direction: Axis.horizontal,
-                      //minRating: 1,
-                      allowHalfRating: true,
-                      itemCount: 5,
-                      itemPadding: EdgeInsets.zero,
-                      itemBuilder: (context, _) => const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      onRatingUpdate: (rating) {
-                        if (kDebugMode) {
-                          print(rating);
-                        }
-                      },
-                      itemSize: 17,
-                      unratedColor: Colors.grey[300],
-                      glow: false,
-                      glowColor: AppColors.searchScreenRating,
-                      ignoreGestures: false,
-                    ),
-                    const SizedBox(width: 5),
-                    Text(
-                      reviews,
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.hospitalLocationText,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          rating,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.hospitalLocationText,
+                          ),
+                        ),
+                        RatingBar.builder(
+                          direction: Axis.horizontal,
+                          //minRating: 1,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemPadding: EdgeInsets.zero,
+                          itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          onRatingUpdate: (rating) {
+                            if (kDebugMode) {
+                              print(rating);
+                            }
+                          },
+                          itemSize: 17,
+                          unratedColor: Colors.grey[300],
+                          glow: false,
+                          glowColor: AppColors.searchScreenRating,
+                          ignoreGestures: false,
+                        ),
+                        const SizedBox(width: 5),
+                        Text(
+                          reviews,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.hospitalLocationText,
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(
                       width: 15,
                     ),
-                    Column(
-                      children: [
-                        Container(
-                          height: 22,
-                          width: MediaQuery.of(context).size.width/6.5,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(7)),
-                            border: Border.all(
-                              width: 0.5,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 26),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 22,
+                            width: MediaQuery.of(context).size.width/6.5,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(7)),
+                              border: Border.all(
+                                width: 0.5,
+                                color: AppColors.container,
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    chart,
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors.container,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  Image.asset('assets/trendingup.png')
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            waitingTime,
+                            style: GoogleFonts.poppins(
+                              fontSize: 7,
+                              fontWeight: FontWeight.w500,
                               color: AppColors.container,
                             ),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 5),
-                            child: Row(
-                              children: [
-                                Text(
-                                  chart,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: AppColors.container,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Image.asset('assets/trendingup.png')
-                              ],
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Text(
-                          waitingTime,
-                          style: GoogleFonts.poppins(
-                            fontSize: 7,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.container,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -216,39 +224,47 @@ class HospitalList extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.only(left: 9,right: 17,top: 12,bottom: 17),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
-                    Image.asset(
-                      // distanceImage,
-                      'assets/routing.png',
-                      height: 22,
-                      fit: BoxFit.fill,
+                    Row(
+                      children: [
+                        Image.asset(
+                          // distanceImage,
+                          'assets/routing.png',
+                          height: 22,
+                          fit: BoxFit.fill,
+                        ),
+                        Text(
+                          distanceText,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.hospitalLocationText,
+                          ),
+                        ),
+                      ],
                     ),
-                    Text(
-                      distanceText,
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.hospitalLocationText,
-                      ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.local_hospital_outlined,
+                          color: AppColors.hospitalLocationText,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          hospitalText,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.hospitalLocationText,
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 120),
-                    const Icon(
-                      Icons.local_hospital_outlined,
-                      color: AppColors.hospitalLocationText,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      hospitalText,
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.hospitalLocationText,
-                      ),
-                    ),
+
                   ],
                 ),
               ),

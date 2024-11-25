@@ -17,14 +17,16 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  final List<Map<String, String>> doctors = [
+  final List<Map<String, dynamic>> doctors = [
     {
       "imagePath":
       "https://static.vecteezy.com/system/resources/previews/027/186/029/large_2x/smiling-male-doctor-with-good-test-results-wearing-a-white-coat-and-stethoscope-looking-into-camera-on-isolated-white-background-copy-space-for-health-free-photo.jpg",
       "name": "Dr sua",
       "specialty": "Endocrinology",
       "reviews": "(135 reviews)",
-      "rating": "4.5"
+      "rating": "4.5",
+      "isActive": true,
+
     },
     {
       "imagePath":
@@ -32,7 +34,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       "name": "Dr  Matthew Nagra",
       "specialty": "Victoria",
       "reviews": "(135 reviews)",
-      "rating": "4.3"
+      "rating": "4.3",
+      "isActive": false,
     },
     {
       "imagePath":
@@ -40,7 +43,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       "name": "Dr Joey  Shulman",
       "specialty": "Holistic Nutritionist",
       "reviews": "(135 reviews)",
-      "rating": "4.5"
+      "rating": "4.5",
+      "isActive": false,
     },
     {
       "imagePath":
@@ -48,7 +52,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       "name": "Dr Bill",
       "specialty": "Physicians",
       "reviews": "(135 reviews)",
-      "rating": "4.3"
+      "rating": "4.3",
+      "isActive": false,
     },
     {
       "imagePath":
@@ -56,7 +61,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       "name": "Dr  Andrew Denton",
       "specialty": "Plastic Surgeon",
       "reviews": "(135 reviews)",
-      "rating": "4.3"
+      "rating": "4.3",
+      "isActive": false,
     },
     {
       "imagePath":
@@ -64,7 +70,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       "name": "Dr Schlee",
       "specialty": "Naturopathic",
       "reviews": "(135 reviews)",
-      "rating": "4.5"
+      "rating": "4.5",
+      "isActive": false,
     },
     {
       "imagePath":
@@ -72,7 +79,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       "name": "Dr Daniel Durand",
       "specialty": "Plastic Surgeon",
       "reviews": "(135 reviews)",
-      "rating": "4.3"
+      "rating": "4.3",
+      "isActive": false,
     },
     {
       "imagePath":
@@ -80,7 +88,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       "name": "Dr Courtney",
       "specialty": "Emergency Physician",
       "reviews": "(135 reviews)",
-      "rating": "4.5"
+      "rating": "4.5",
+      "isActive": true,
     },
   ];
   @override
@@ -713,6 +722,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     specialty: doctor["specialty"]!,
                     reviews: doctor["reviews"]!,
                     rating: doctor["rating"]!,
+                    isActive: doctor["isActive"]!,
                   );
                 },
               ),

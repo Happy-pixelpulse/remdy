@@ -300,27 +300,30 @@ class _DrDetailsState extends State<DrDetails> {
                           ),
                           Align(
                             alignment: Alignment.bottomCenter,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                foregroundColor: AppColors.primary,
-                                backgroundColor: AppColors.secondary,
-                                side: const BorderSide(color: AppColors.primary),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                      15), // Rounded corners
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 16),
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  foregroundColor: AppColors.primary,
+                                  backgroundColor: AppColors.secondary,
+                                  side: const BorderSide(color: AppColors.primary),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        15), // Rounded corners
+                                  ),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 59, vertical: 14),
-                                child: Text(
-                                  context.getLocalization()?.patientsDoneButton ??
-                                      '',
-                                  style: GoogleFonts.poppins(
-                                    color: AppColors.primary, // Text color
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 59, vertical: 14),
+                                  child: Text(
+                                    context.getLocalization()?.patientsDoneButton ??
+                                        '',
+                                    style: GoogleFonts.poppins(
+                                      color: AppColors.primary, // Text color
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
                               ),

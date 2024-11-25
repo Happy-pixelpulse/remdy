@@ -5,7 +5,7 @@ import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/notification_screen.dart';
 import 'package:remdy/screen/widgets/filter_widget.dart';
 
-import '../common_widgets/dr_list.dart';
+import '../common_widgets/doctor_list_item.dart';
 import '../utils/colors.dart';
 
 enum FilterEnum { distance, availability, gender, experience }
@@ -123,8 +123,7 @@ class _DoctorListState extends State<DoctorList> {
           ),
         ],
         // leadingWidth: 24,
-        title:
-        Text(
+        title: Text(
           context.getLocalization()?.doctorListTitle ?? '',
           style: GoogleFonts.poppins(
             fontSize: 18,
@@ -152,22 +151,24 @@ class _DoctorListState extends State<DoctorList> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(children: [
-            Image.asset(
-              'assets/rectangle_appbar_bg.png',
-              fit: BoxFit.fill,
-              width: MediaQuery.of(context).size.width,
-              height: 60,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22),
-              child: SearchButton(
-                onPressed: () {},
-                buttonName:
-                context.getLocalization()?.doctorListSearchButton ?? '',
+          Stack(
+            children: [
+              Image.asset(
+                'assets/rectangle_appbar_bg.png',
+                fit: BoxFit.fill,
+                width: MediaQuery.of(context).size.width,
+                height: 60,
               ),
-            )
-          ],),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 22),
+                child: SearchButton(
+                  onPressed: () {},
+                  buttonName:
+                      context.getLocalization()?.doctorListSearchButton ?? '',
+                ),
+              )
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 14),
             child: SizedBox(
@@ -179,6 +180,13 @@ class _DoctorListState extends State<DoctorList> {
                     width: 16,
                   ),
                   Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                      side: BorderSide(
+                          color: AppColors.signText1.withOpacity(0.13),
+                          width: 1),
+                    ),
                     child: GestureDetector(
                       onTap: () {
                         showModalBottomSheet(
@@ -199,7 +207,8 @@ class _DoctorListState extends State<DoctorList> {
                                         top: 17,
                                       ),
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Expanded(
                                             child: Align(
@@ -217,7 +226,8 @@ class _DoctorListState extends State<DoctorList> {
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.only(right: 24),
+                                            padding: const EdgeInsets.only(
+                                                right: 24),
                                             child: GestureDetector(
                                               onTap: () {
                                                 Navigator.pop(context);
@@ -252,8 +262,7 @@ class _DoctorListState extends State<DoctorList> {
                                         child: RadioListTile<SortOptions>(
                                           activeColor: AppColors.primary,
                                           controlAffinity:
-                                              ListTileControlAffinity
-                                                  .trailing,
+                                              ListTileControlAffinity.trailing,
                                           title: Text(
                                             context
                                                     .getLocalization()
@@ -262,8 +271,8 @@ class _DoctorListState extends State<DoctorList> {
                                             style: GoogleFonts.poppins(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w400,
-                                              color: AppColors
-                                                  .bottomTextfieldText,
+                                              color:
+                                                  AppColors.bottomTextfieldText,
                                             ),
                                           ),
                                           value: SortOptions.patientStories,
@@ -296,8 +305,7 @@ class _DoctorListState extends State<DoctorList> {
                                         child: RadioListTile<SortOptions>(
                                           activeColor: AppColors.primary,
                                           controlAffinity:
-                                              ListTileControlAffinity
-                                                  .trailing,
+                                              ListTileControlAffinity.trailing,
                                           title: Text(
                                             context
                                                     .getLocalization()
@@ -306,8 +314,8 @@ class _DoctorListState extends State<DoctorList> {
                                             style: GoogleFonts.poppins(
                                               fontSize: 16,
                                               fontWeight: FontWeight.w400,
-                                              color: AppColors
-                                                  .bottomTextfieldText,
+                                              color:
+                                                  AppColors.bottomTextfieldText,
                                             ),
                                           ),
                                           value: SortOptions.patientStories,
@@ -338,8 +346,8 @@ class _DoctorListState extends State<DoctorList> {
                                                 width: 1),
                                             color: AppColors.secondary),
                                         child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              bottom: 15),
+                                          padding:
+                                              const EdgeInsets.only(bottom: 15),
                                           child: RadioListTile<SortOptions>(
                                             activeColor: AppColors.primary,
                                             controlAffinity:
@@ -375,12 +383,12 @@ class _DoctorListState extends State<DoctorList> {
                                       padding: const EdgeInsets.only(
                                           left: 17, right: 16),
                                       child: SizedBox(
-                                        width: MediaQuery.of(context).size.width,
+                                        width:
+                                            MediaQuery.of(context).size.width,
                                         height: 52,
                                         child: ElevatedButton(
                                           style: ElevatedButton.styleFrom(
-                                            backgroundColor:
-                                                AppColors.primary,
+                                            backgroundColor: AppColors.primary,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10),
@@ -413,18 +421,19 @@ class _DoctorListState extends State<DoctorList> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 5, top: 10),
+                            padding: const EdgeInsets.only(left: 10, top: 10),
                             child: Text(
                               context.getLocalization()?.sortBy ?? '',
                               style: GoogleFonts.poppins(
-                                fontSize: 14,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w400,
                                 color: AppColors.signText1.withOpacity(0.70),
                               ),
                             ),
                           ),
                           const Padding(
-                            padding: EdgeInsets.only(left: 5, top: 10),
+                            padding:
+                                EdgeInsets.only(left: 5, top: 10, right: 10),
                             child: Icon(Icons.keyboard_arrow_down),
                             // Image.asset("assets/chevron-down.png"),
                           ),
@@ -444,6 +453,13 @@ class _DoctorListState extends State<DoctorList> {
                         );
                       },
                       child: Card(
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          side: BorderSide(
+                              color: AppColors.signText1.withOpacity(0.13),
+                              width: 1),
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -463,7 +479,7 @@ class _DoctorListState extends State<DoctorList> {
                               width: 15,
                             ),
                             const Padding(
-                              padding: EdgeInsets.only(top: 11),
+                              padding: EdgeInsets.only(top: 11, right: 10),
                               child: Icon(Icons.tune),
                             )
                           ],
@@ -471,74 +487,83 @@ class _DoctorListState extends State<DoctorList> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 4),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              _selectedReview,
-                              style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black.withOpacity(0.70),
-                              ),
-                            ),
-                            PopupMenuButton<String>(
-                              onSelected: (value) {
-                                setState(() {
-                                  _selectedReview = value;
-                                });
-                              },
-                              itemBuilder: (context) => [
-                                PopupMenuItem(
-                                  value: "5/4 star",
-                                  child: Text(
-                                    context.getLocalization()?.review1 ?? '',
-                                  ),
-                                ),
-                                PopupMenuItem(
-                                  value: "3/2 star",
-                                  child: Text(
-                                      context.getLocalization()?.review2 ?? ''),
-                                ),
-                                PopupMenuItem(
-                                  value: "1 star",
-                                  child: Text(
-                                      context.getLocalization()?.review3 ?? ''),
-                                ),
-                              ],
-                              icon: const Icon(Icons.keyboard_arrow_down),
-                            ),
-                          ],
-                        ),
-                      ),
+                  Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                      side: BorderSide(
+                          color: AppColors.signText1.withOpacity(0.13),
+                          width: 1),
                     ),
-                  ),
-                  SizedBox(
-                    width: 98,
-                    height: 43,
-                    child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 12),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 11, top: 10),
-                            child: Text(
-                              context.getLocalization()?.insurance ?? '',
-                              style: GoogleFonts.poppins(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.signText1.withOpacity(0.70),
-                              ),
+                          Text(
+                            _selectedReview,
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black.withOpacity(0.70),
                             ),
+                          ),
+                          PopupMenuButton<String>(
+                            onSelected: (value) {
+                              setState(() {
+                                _selectedReview = value;
+                              });
+                            },
+                            itemBuilder: (context) => [
+                              PopupMenuItem(
+                                value: "5/4 star",
+                                child: Text(
+                                  context.getLocalization()?.review1 ?? '',
+                                ),
+                              ),
+                              PopupMenuItem(
+                                value: "3/2 star",
+                                child: Text(
+                                    context.getLocalization()?.review2 ?? ''),
+                              ),
+                              PopupMenuItem(
+                                value: "1 star",
+                                child: Text(
+                                    context.getLocalization()?.review3 ?? ''),
+                              ),
+                            ],
+                            icon: const Icon(Icons.keyboard_arrow_down),
                           ),
                         ],
                       ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                      side: BorderSide(
+                          color: AppColors.signText1.withOpacity(0.13),
+                          width: 1),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 11, top: 10, right: 10),
+                          child: Text(
+                            context.getLocalization()?.insurance ?? '',
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.signText1.withOpacity(0.70),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -555,7 +580,7 @@ class _DoctorListState extends State<DoctorList> {
                 itemCount: doctors.length,
                 itemBuilder: (context, index) {
                   final doctor = doctors[index];
-                  return Doctor(
+                  return DoctorListItem(
                     imagePath: doctor["imagePath"],
                     doctorName: doctor["name"],
                     specialty: doctor["specialty"],

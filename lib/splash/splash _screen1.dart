@@ -28,14 +28,14 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 45),
-            child: Text(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
               maxLines: 1,
+              textAlign: TextAlign.center,
               overflow: TextOverflow.fade,
               context.getLocalization()?.splashScreenTitle ?? '',
               style: GoogleFonts.poppins(
@@ -44,16 +44,17 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: AppColors.tp,
               ),
             ),
-          ),
-          Text(
-            context.getLocalization()?.splashScreenTitle2 ?? '',
-            style: GoogleFonts.poppins(
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              color: AppColors.tp,
+            Text(
+              context.getLocalization()?.splashScreenTitle2 ?? '',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: AppColors.tp,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -256,6 +256,10 @@
   "@searchHospitals": {
     "description": "Placeholder text for the hospital search bar."
   },
+  "profileText": "Profile",
+  "@profileText": {
+    "description": "Placeholder text for the hospital search bar."
+  },
   "hospitalDetailsButton1": "Overview",
   "@hospitalDetailsButton1": {
     "description": "Placeholder text for the hospital search bar."

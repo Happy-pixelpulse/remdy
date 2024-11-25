@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/utils/colors.dart';
 
-import '../common_widgets/dr_list.dart';
+import '../common_widgets/doctor_list_item.dart';
 import '../common_widgets/hospitla_list.dart';
 
 class FavoriteScreen extends StatefulWidget {
@@ -72,7 +72,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-      Doctor(
+      DoctorListItem(
       imagePath: doctors['imagePath'],
         doctorName: doctors['name'],
         specialty: doctors['specialty'],

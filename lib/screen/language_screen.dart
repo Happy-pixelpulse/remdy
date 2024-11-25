@@ -48,24 +48,26 @@ class _LanguageScreenState extends State<LanguageScreen> {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 17),
+        padding: const EdgeInsets.only(left: 16, right: 17,bottom: 24),
         child: ElevatedButton(
           onPressed: () {
             toggleLanguage(_isSelectedLanguage?.name??'');
           },
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(20),
             ),
-            minimumSize: const Size(360, 60),
             backgroundColor: AppColors.primary,
           ),
-          child: Text(
-            context.getLocalization()?.languageScreenButton ?? '',
-            style: GoogleFonts.poppins(
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
-              color: AppColors.secondary,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15),
+            child: Text(
+              context.getLocalization()?.languageScreenButton ?? '',
+              style: GoogleFonts.poppins(
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+                color: AppColors.secondary,
+              ),
             ),
           ),
         ),
@@ -75,6 +77,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
             background: Image.asset(
           'assets/rectangle_appbar_bg.png',
           fit: BoxFit.fill,
+              width: MediaQuery.of(context).size.width,
         )),
         toolbarHeight: 90,
         backgroundColor: Colors.transparent,
@@ -100,66 +103,72 @@ class _LanguageScreenState extends State<LanguageScreen> {
         automaticallyImplyLeading: false,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 26,right: 28),
+        padding: const EdgeInsets.symmetric(horizontal: 26),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 19,),
-            Container(
-             width: 339,
-              height: 59,
-              decoration: BoxDecoration(
-                color: AppColors.secondary,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: RadioListTile<Language>(
-                controlAffinity: ListTileControlAffinity.trailing,
-                value: Language.english,
-                groupValue: _isSelectedLanguage,
-                onChanged: (Language? value) {
-                  setState(() {
-                    _isSelectedLanguage = value;
-                  });
-                },
-                title: Text(
-                  'English',
-                  style: TextStyle(
-                    color: _isSelectedLanguage == Language.english
-                        ? AppColors.primary
-                        : AppColors.signText1,
-                    fontSize: 18,
-                  ),
+            Card(
+              color: AppColors.backgroundColor,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 59,
+                decoration: BoxDecoration(
+                  color: AppColors.backgroundColor,
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                activeColor: AppColors.primary,
+                child: RadioListTile<Language>(
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  value: Language.english,
+                  groupValue: _isSelectedLanguage,
+                  onChanged: (Language? value) {
+                    setState(() {
+                      _isSelectedLanguage = value;
+                    });
+                  },
+                  title: Text(
+                    'English',
+                    style: TextStyle(
+                      color: _isSelectedLanguage == Language.english
+                          ? AppColors.primary
+                          : AppColors.signText1,
+                      fontSize: 18,
+                    ),
+                  ),
+                  activeColor: AppColors.primary,
+                ),
               ),
             ),
             const SizedBox(height: 17,),
-            Container(
-              width: 339,
-              height: 59,
-              decoration: BoxDecoration(
-                color: AppColors.secondary,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: RadioListTile<Language>(
-                controlAffinity: ListTileControlAffinity.trailing,
-                value: Language.french,
-                groupValue: _isSelectedLanguage,
-                onChanged: (Language? value) {
-                  setState(() {
-                    _isSelectedLanguage = value;
-                  });
-                },
-                title: Text(
-                  context.getLocalization()?.languageScreenLanguageButton?? '',
-                  style: TextStyle(
-                    color: _isSelectedLanguage == Language.french
-                        ? AppColors.primary
-                        : AppColors.signText1,
-                    fontSize: 18,
-                  ),
+            Card(
+              color: AppColors.backgroundColor,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 59,
+                decoration: BoxDecoration(
+                  color: AppColors.backgroundColor,
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                activeColor:AppColors.primary,
+                child: RadioListTile<Language>(
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  value: Language.french,
+                  groupValue: _isSelectedLanguage,
+                  onChanged: (Language? value) {
+                    setState(() {
+                      _isSelectedLanguage = value;
+                    });
+                  },
+                  title: Text(
+                    context.getLocalization()?.languageScreenLanguageButton?? '',
+                    style: TextStyle(
+                      color: _isSelectedLanguage == Language.french
+                          ? AppColors.primary
+                          : AppColors.signText1,
+                      fontSize: 18,
+                    ),
+                  ),
+                  activeColor:AppColors.primary,
+                ),
               ),
             ),
           ],

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
+import 'package:lottie/lottie.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,12 +37,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
       if (kDebugMode) {
         print(user);
       }
-      if (result != null) {
-        final prefs = await SharedPreferences.getInstance();
-        await prefs.setString('accessToken', googleSignInAuthentication.accessToken!);
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
-      }
-    }
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('accessToken', googleSignInAuthentication.accessToken!);
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+        }
   }
 
   Future<void> fetchUser() async {
@@ -71,10 +70,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(
-            'assets/Vector.png',
-            fit: BoxFit.cover,
-            width: MediaQuery.of(context).size.width,
+          Stack(
+            children: [
+              Image.asset(
+                'assets/Vector.png',
+                fit: BoxFit.cover,
+                width: MediaQuery.of(context).size.width,
+              ),
+              Positioned.fill(
+                child: Align(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 38),
+                    child: Lottie.network(
+                        'https://lottie.host/6f3513d8-bd36-4976-8883-a5489e3b94b2/aKSSveQtS8.json'),
+                  ),
+                ),
+              ),
+            ],
           ),
           const SizedBox(
             height: 25,

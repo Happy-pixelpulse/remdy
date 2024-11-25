@@ -8,6 +8,10 @@
   "@splashScreenTitle2": {
     "description": "Title text encouraging the user to find a family doctor."
   },
+    "profileText": "Profil",
+    "@profileText": {
+      "description": "Placeholder text for the hospital search bar."
+    },
    "hospitalTitle": "Allons trouver",
     "@hospitalTitle": {
       "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."

@@ -80,65 +80,65 @@ class _TermPolicyScrreenState extends State<TermPolicyScrreen> {
                 ),
               ),
               Text(
-                'Application means the software program provided by the Company downloaded by You on any electronic device, named Remdy',
+                '\u2022 Application means the software program provided by the Company downloaded by You on any electronic device, named Remdy',
                 style: GoogleFonts.poppins(
-                  fontSize:10,
+                  fontSize:12,
                   fontWeight: FontWeight.w600,
                   color: AppColors.signUpTextButtonRadius,
                 ),
               ),
               Text(
-                'Application Store means the digital distribution service operated and developed by Apple Inc. (Apple App Store) or Google Inc. (Google Play Store) in which the Application has been downloaded.',
+                '\u2022 Application Store means the digital distribution service operated and developed by Apple Inc. (Apple App Store) or Google Inc. (Google Play Store) in which the Application has been downloaded.',
                 style: GoogleFonts.poppins(
-                  fontSize:10,
+                  fontSize:12,
                   fontWeight: FontWeight.w600,
                   color: AppColors.signUpTextButtonRadius,
                 ),
               ),
               Text(
-                'Affiliate means an entity that controls, is controlled by or is under common control with a party, where "control"means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.',
+                '\u2022 Affiliate means an entity that controls, is controlled by or is under common control with a party, where "control"means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.',
                 style: GoogleFonts.poppins(
-                  fontSize:10,
+                  fontSize:12,
                   fontWeight: FontWeight.w600,
                   color: AppColors.signUpTextButtonRadius,
                 ),
               ),
               Text(
-                'Country refers to: British Columbia, Canada',
+                '\u2022 Country refers to: British Columbia, Canada',
                 style: GoogleFonts.poppins(
-                  fontSize:10,
+                  fontSize:12,
                   fontWeight: FontWeight.w600,
                   color: AppColors.signUpTextButtonRadius,
                 ),
               ),
               Text(
-                'Company (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Remdy.',
+                '\u2022 Company (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Remdy.',
                 style: GoogleFonts.poppins(
-                  fontSize:10,
+                  fontSize:12,
                   fontWeight: FontWeight.w600,
                   color: AppColors.signUpTextButtonRadius,
                 ),
               ),
               Text(
-                'Device means any device that can access the Service such as a computer, a cellphone or a digital tablet.',
+                '\u2022 Device means any device that can access the Service such as a computer, a cellphone or a digital tablet.',
                 style: GoogleFonts.poppins(
-                  fontSize:10,
+                  fontSize:12,
                   fontWeight: FontWeight.w600,
                   color: AppColors.signUpTextButtonRadius,
                 ),
               ),
               Text(
-                'Service refers to the Application.',
+                '\u2022 Service refers to the Application.',
                 style: GoogleFonts.poppins(
-                  fontSize:10,
+                  fontSize:12,
                   fontWeight: FontWeight.w600,
                   color: AppColors.signUpTextButtonRadius,
                 ),
               ),
               Text(
-                'Terms and Conditions (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service. This Terms and Conditions agreement has been created with the help of the Terms and Conditions Generator.',
+                '\u2022 Terms and Conditions (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service. This Terms and Conditions agreement has been created with the help of the Terms and Conditions Generator.',
                 style: GoogleFonts.poppins(
-                  fontSize:10,
+                  fontSize:12,
                   fontWeight: FontWeight.w600,
                   color: AppColors.signUpTextButtonRadius,
                 ),

@@ -56,8 +56,8 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                 ),
       ],
     ),
-
       appBar: AppBar(
+        backgroundColor: AppColors.backgroundColor,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -75,14 +75,14 @@ class _HospitalDetailsState extends State<HospitalDetails> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 9,),
               Container(
                 height: 213,
-                width: 371,
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                 ),
@@ -387,7 +387,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
               ),
               const SizedBox(height: 12,),
               Container(
-                width: 361,
+
                 height: 372,
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(1)),
@@ -462,10 +462,10 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                     const SizedBox(height: 12,),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 40),
                         backgroundColor: AppColors.primary,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
-                        minimumSize: const Size(345, 40),
                       ),
                       onPressed: () {},
                       child: Text(
@@ -516,15 +516,12 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                       ),
                     ),
                     const SizedBox(height: 12,),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 240),
-                      child: Text(
-                        'Comments',
-                        style: GoogleFonts.poppins(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.reviewText,
-                        ),
+                    Text(
+                      'Comments',
+                      style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.reviewText,
                       ),
                     ),
                     const SizedBox(height: 6,),
@@ -566,9 +563,8 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         color: AppColors.reviewText,
                       ),
                     ),
-
                     Padding(
-                      padding: const EdgeInsets.only(top: 45),
+                      padding: const EdgeInsets.only(top: 22),
                       child: Center(
                         child: Text(
                           'Show More',
