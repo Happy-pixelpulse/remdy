@@ -162,35 +162,43 @@ class HospitalCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.asset(
-                      'assets/routing.png',
-                      height: 22,
-                      width: 22,
-                      fit: BoxFit.fill,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          'assets/routing.png',
+                          height: 22,
+                          width: 22,
+                          fit: BoxFit.fill,
+                        ),
+                        Text(
+                          distanceText,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.hospitalLocationText,
+                          ),
+                        ),
+                      ],
                     ),
-
-                    Text(
-                      distanceText,
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.hospitalLocationText,
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    Image.asset(
-                      'assets/hospital_1.png',
-                      height: 16,
-                      width: 16,
-                      fit: BoxFit.fill,
-                    ),
-                    Text(
-                      hospitalText,
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.hospitalLocationText,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Image.asset(
+                          'assets/hospital_1.png',
+                          height: 16,
+                          width: 16,
+                          fit: BoxFit.fill,
+                        ),
+                        Text(
+                          hospitalText,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.hospitalLocationText,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
