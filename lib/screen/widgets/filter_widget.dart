@@ -6,7 +6,9 @@ import '../../common_widgets/doctor_filter_list.dart';
 import '../../common_widgets/filter_list_manager.dart';
 import '../../utils/colors.dart';
 import '../doctor_list.dart';
+enum FilterEnum { distance, availability, gender, experience }
 
+enum SortOptions { patientStories, experience, distance }
 class FilterWidget extends StatefulWidget {
   const FilterWidget({super.key});
 
@@ -65,7 +67,7 @@ class _FilterWidgetState extends State<FilterWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height/2,
+      height: MediaQuery.of(context).size.height/1.5,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
@@ -89,7 +91,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 18),
                       child: Text(
-                        context.getLocalization()?.filter??'',
+                        context.getLocalization()?.filterBy??'',
                         style: GoogleFonts.poppins(
                           fontSize: 23,
                           fontWeight: FontWeight.w400,
@@ -121,189 +123,172 @@ class _FilterWidgetState extends State<FilterWidget> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: IntrinsicHeight(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      elevation: 4,
-                      color: AppColors.backgroundColor,
-                      child: Column(
-                        children: [
-                          ...[
-                            for (int i = 0; i < _filterList.length; i++)
-                              Column(
-                                children: [
-                                  ListTile(
-                                          onTap: () {
-                                            if (selectedFilter.filterEnum !=
-                                                _filterList[i].filterEnum) {
-                                              selectedFilter = _filterList[i];
-                                              setState(() {});
-                                            }
-                                          },
-                                    title:  Text(
-                                      _filterList[i].filterName,
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w400,
-                                        color: _isFilterSelected(_filterList[i])
-                                            ? AppColors.primary
-                                            : AppColors.lightBlack,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 20,left: 10),
-                                    child: Divider(color: AppColors.signText1.withOpacity(0.16)),
-                                  )
-                                ],
-                              ),
-                              // Column(
-                              //   mainAxisAlignment: MainAxisAlignment.center,
-                              //   children: [
-                              //     GestureDetector(
-                              //       onTap: () {
-                              //         if (selectedFilter.filterEnum !=
-                              //             _filterList[i].filterEnum) {
-                              //           selectedFilter = _filterList[i];
-                              //           setState(() {});
-                              //         }
-                              //       },
-                              //       child: Text(
-                              //         _filterList[i].filterName,
-                              //         style: GoogleFonts.poppins(
-                              //           fontSize: 16,
-                              //           fontWeight: FontWeight.w400,
-                              //           color: _isFilterSelected(_filterList[i])
-                              //               ? AppColors.primary
-                              //               : AppColors.lightBlack,
-                              //         ),
-                              //       ),
-                              //     ),
-                              //     const SizedBox(height: 21,
-                              //     ),
-                              //   ],
-                              // )
-                          ],
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      margin: const EdgeInsets.only(left: 16),
-                      // elevation: 4,
-                      color: AppColors.backgroundColor,
-                      child: Column(
-                        children: [
-                          ...[
-                            for (int i = 0;
-                                i < _getFilterList(selectedFilter.filterEnum).length;
-                                i++)
-                              Column(
-                                children: [
-                                  RadioListTile<DoctorFilterListData?>(
-                                    activeColor: AppColors.primary,
-                                      title: Text(
-                                        _getFilterList(selectedFilter.filterEnum)[i].name,
+              child: SingleChildScrollView(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Flexible(
+                      flex: 2,
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        elevation: 4,
+                        color: AppColors.backgroundColor,
+                        child: Column(
+                          children: [
+                            ...[
+                              for (int i = 0; i < _filterList.length; i++)
+                                Column(
+                                  children: [
+                                    ListTile(
+                                            onTap: () {
+                                              if (selectedFilter.filterEnum !=
+                                                  _filterList[i].filterEnum) {
+                                                selectedFilter = _filterList[i];
+                                                setState(() {});
+                                              }
+                                            },
+                                      title:  Text(
+                                        _filterList[i].filterName,
                                         style: GoogleFonts.poppins(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w400,
-                                          color: _getFilterList(selectedFilter.filterEnum)[i]==_selectedFilter
+                                          color: _isFilterSelected(_filterList[i])
                                               ? AppColors.primary
                                               : AppColors.lightBlack,
                                         ),
-                                        maxLines: 1,
                                       ),
-                                      controlAffinity: ListTileControlAffinity.trailing,
-                                      value: _getFilterList(selectedFilter.filterEnum)[i],
-                                      groupValue:
-                                      _selectedFilter,
-                                      onChanged: (DoctorFilterListData? value) {
-                                        if (value != null) {
-                                          _selectedFilter = value;
-                                          setState(() {});
-                                        }
-                                      }),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 20,left: 10),
-                                    child: Divider(color: AppColors.signText1.withOpacity(0.16)),
-                                  )
-                                ],
-                              )
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 20,left: 10),
+                                      child: Divider(color: AppColors.signText1.withOpacity(0.16)),
+                                    )
+                                  ],
+                                ),
+                            ],
                           ],
-                        ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    Expanded(
+                      flex: 3,
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        margin: const EdgeInsets.only(left: 16),
+                        // elevation: 4,
+                        color: AppColors.backgroundColor,
+                        child: Column(
+                          children: [
+                            ...[
+                              for (int i = 0;
+                                  i < _getFilterList(selectedFilter.filterEnum).length;
+                                  i++)
+                                Column(
+                                  children: [
+                                    RadioListTile<DoctorFilterListData?>(
+                                      activeColor: AppColors.primary,
+                                        title: Text(
+                                          _getFilterList(selectedFilter.filterEnum)[i].name,
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400,
+                                            color: _getFilterList(selectedFilter.filterEnum)[i]==_selectedFilter
+                                                ? AppColors.primary
+                                                : AppColors.lightBlack,
+                                          ),
+                                          maxLines: 1,
+                                        ),
+                                        controlAffinity: ListTileControlAffinity.trailing,
+                                        value: _getFilterList(selectedFilter.filterEnum)[i],
+                                        groupValue:
+                                        _selectedFilter,
+                                        onChanged: (DoctorFilterListData? value) {
+                                          if (value != null) {
+                                            _selectedFilter = value;
+                                            setState(() {});
+                                          }
+                                        }),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 20,left: 10),
+                                      child: Divider(color: AppColors.signText1.withOpacity(0.16)),
+                                    )
+                                  ],
+                                )
+                            ],
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 48,left: 16,right: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.tp,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+            padding: const EdgeInsets.only(top: 20,left: 16,right: 16),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.tp,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        minimumSize: const Size(double.infinity, 50),
                       ),
-                      minimumSize: const Size(double.infinity, 50),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 11,horizontal: 17),
-
-                      child: Text(
-                        context.getLocalization()?.clearFilters??'',
-                        style: GoogleFonts.poppins(
-                          fontSize: 19,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.filterText,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+                        child: Text(
+                          context.getLocalization()?.clearFilters??'',
+                          // maxLines: 1,
+                          overflow: TextOverflow.fade,
+                          style: GoogleFonts.poppins(
+                            fontSize: 19,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.filterText,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(width:16 ,),
-                Expanded(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                  const SizedBox(width:8),
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        minimumSize: const Size(double.infinity, 50),
                       ),
-                      minimumSize: const Size(double.infinity, 50),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      context.getLocalization()?.showDoctors??'',
-                      style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.secondary,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        context.getLocalization()?.showDoctors??'',
+                        // maxLines: 1,
+                        overflow: TextOverflow.fade,
+                        style: GoogleFonts.poppins(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.secondary,
+                        ),
                       ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ],

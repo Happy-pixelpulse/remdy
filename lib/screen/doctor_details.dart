@@ -104,17 +104,17 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                       borderRadius: const BorderRadius.all(Radius.circular(30)),
                       child: Image.network(
                         'https://static.vecteezy.com/system/resources/previews/027/186/029/large_2x/smiling-male-doctor-with-good-test-results-wearing-a-white-coat-and-stethoscope-looking-into-camera-on-isolated-white-background-copy-space-for-health-free-photo.jpg',
-                        width: 117,
+                        width: 115,
                         height: 142,
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
                   const SizedBox(
-                    width: 15,
+                    width: 10,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 28),
+                    padding: const EdgeInsets.only(top: 28,),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -206,12 +206,11 @@ class _DoctorDetailsState extends State<DoctorDetails> {
               const SizedBox(
                 height: 27,
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 20, ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Container(
                       height: 130,
                       width: 110,
                       decoration: const BoxDecoration(
@@ -257,7 +256,9 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                         ],
                       ),
                     ),
-                    Container(
+                  ),
+                  Expanded(
+                    child: Container(
                       height: 130,
                       width: 110,
                       decoration: const BoxDecoration(
@@ -302,7 +303,9 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                         ],
                       ),
                     ),
-                    Container(
+                  ),
+                  Expanded(
+                    child: Container(
                       height: 130,
                       width: 110,
                       decoration: const BoxDecoration(
@@ -352,8 +355,8 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               const SizedBox(height: 11),
               SingleChildScrollView(
@@ -673,6 +676,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                 height: 10,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Working time',
@@ -682,9 +686,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                       color: AppColors.drNameText,
                     ),
                   ),
-                  const SizedBox(
-                    width: 33,
-                  ),
+
                   Text(
                     'Mon - Sat (08:30AM - 09:00PM)',
                     style: GoogleFonts.poppins(

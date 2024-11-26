@@ -39,7 +39,7 @@ class DoctorCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 22),
+          padding: const EdgeInsets.only(top: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -66,7 +66,7 @@ class DoctorCard extends StatelessWidget {
                   ),
               ]),
               Padding(
-                padding: const EdgeInsets.only(top: 19),
+                padding: const EdgeInsets.only(top: 12),
                 child: Text(
                   doctorName,
                   maxLines: 2,

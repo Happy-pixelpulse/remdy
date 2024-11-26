@@ -119,6 +119,7 @@ class HospitalList extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           rating,
@@ -149,7 +150,6 @@ class HospitalList extends StatelessWidget {
                           glowColor: AppColors.searchScreenRating,
                           ignoreGestures: false,
                         ),
-                        const SizedBox(width: 5),
                         Text(
                           reviews,
                           style: GoogleFonts.poppins(
@@ -160,11 +160,8 @@ class HospitalList extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      width: 15,
-                    ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 26),
+                      padding: const EdgeInsets.only(right: 11),
                       child: Column(
                         children: [
                           Container(
@@ -203,6 +200,7 @@ class HospitalList extends StatelessWidget {
                           ),
                           Text(
                             waitingTime,
+                            maxLines: 1,
                             style: GoogleFonts.poppins(
                               fontSize: 7,
                               fontWeight: FontWeight.w500,
@@ -249,10 +247,7 @@ class HospitalList extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        const Icon(
-                          Icons.local_hospital_outlined,
-                          color: AppColors.hospitalLocationText,
-                        ),
+                      Image.asset('assets/hospital_1.png'),
                         const SizedBox(width: 4),
                         Text(
                           hospitalText,

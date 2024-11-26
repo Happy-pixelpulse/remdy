@@ -264,7 +264,11 @@
   "@applyButton": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
-  "filter": "Filtre",
+  "filterBy": "Filtrer par",
+  "@filterBy": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
+  "filter": "Filtrer",
   "@filter": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },

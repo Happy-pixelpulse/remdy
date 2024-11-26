@@ -179,9 +179,9 @@ class HospitalCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 20),
                     Image.asset(
-                      'assets/hospital_normal.png',
-                      height: 22,
-                      width: 22,
+                      'assets/hospital_1.png',
+                      height: 16,
+                      width: 16,
                       fit: BoxFit.fill,
                     ),
                     Text(

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/common_app_bar.dart';
-import 'package:remdy/common_widgets/patients_details_text_Field.dart';
 import 'package:remdy/extensions/localization_extension.dart';
-
-
-
 import '../utils/colors.dart';
 
 class AdvanceSearch extends StatefulWidget {
@@ -23,17 +19,17 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: const CommonAppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 9),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
           child: Column(
-           crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                context.getLocalization()?.advanceSearch??'',
+                context.getLocalization()?.advanceSearch ?? '',
                 style: GoogleFonts.poppins(
                   fontSize: 28,
                   fontWeight: FontWeight.w600,
@@ -49,7 +45,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                   Padding(
                     padding: const EdgeInsets.only(left: 12),
                     child: Text(
-                      context.getLocalization()?.advanceSearchTextField1??'',
+                      context.getLocalization()?.advanceSearchTextField1 ?? '',
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -85,7 +81,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                   Padding(
                     padding: const EdgeInsets.only(left: 12),
                     child: Text(
-                      context.getLocalization()?.advanceSearchTextField2??'',
+                      context.getLocalization()?.advanceSearchTextField2 ?? '',
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -103,7 +99,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
-                    child:  const TextField(
+                    child: const TextField(
                       showCursor: false,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -121,7 +117,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                   Padding(
                     padding: const EdgeInsets.only(left: 12),
                     child: Text(
-                      context.getLocalization()?.advanceSearchTextField3??'',
+                      context.getLocalization()?.advanceSearchTextField3 ?? '',
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -139,7 +135,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           color: AppColors.signUpTextButtonRadius,
                           width: 1), // Set border width
                     ),
-                    child:  const TextField(
+                    child: const TextField(
                       showCursor: false,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -153,7 +149,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    context.getLocalization()?.gender??'',
+                    context.getLocalization()?.gender ?? '',
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -176,7 +172,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                             },
                           ),
                           Text(
-                            context.getLocalization()?.genderOption1??'',
+                            context.getLocalization()?.genderOption1 ?? '',
                             style: GoogleFonts.poppins(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
@@ -198,7 +194,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                             },
                           ),
                           Text(
-                            context.getLocalization()?.genderOption2??'',
+                            context.getLocalization()?.genderOption2 ?? '',
                             style: GoogleFonts.poppins(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
@@ -220,7 +216,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                             },
                           ),
                           Text(
-                            context.getLocalization()?.genderOption3??'',
+                            context.getLocalization()?.genderOption3 ?? '',
                             style: GoogleFonts.poppins(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
@@ -244,7 +240,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                         },
                       ),
                       Text(
-                        context.getLocalization()?.genderOption4??'',
+                        context.getLocalization()?.genderOption4 ?? '',
                         style: GoogleFonts.poppins(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -256,7 +252,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 ],
               ),
               Text(
-                context.getLocalization()?.typeofDoctor??'',
+                context.getLocalization()?.typeofDoctor ?? '',
                 style: GoogleFonts.poppins(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
@@ -264,7 +260,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 ),
               ),
               Row(
-               mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -280,7 +276,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                         },
                       ),
                       Text(
-                        context.getLocalization()?.typeofDoctor1??'',
+                        context.getLocalization()?.typeofDoctor1 ?? '',
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
@@ -303,7 +299,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                         },
                       ),
                       Text(
-                        context.getLocalization()?.typeofDoctor2??'',
+                        context.getLocalization()?.typeofDoctor2 ?? '',
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
@@ -326,7 +322,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                         },
                       ),
                       Text(
-                        context.getLocalization()?.genderOption4??'',
+                        context.getLocalization()?.genderOption4 ?? '',
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
@@ -344,7 +340,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    context.getLocalization()?.advanceSearchTextField4??'',
+                    context.getLocalization()?.advanceSearchTextField4 ?? '',
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -365,7 +361,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                           width: 1), // Set border width
                     ),
                     child: const Padding(
-                      padding: EdgeInsets.only(right:5),
+                      padding: EdgeInsets.only(right: 5),
                       child: Align(
                           alignment: Alignment.centerRight,
                           child: Icon(Icons.keyboard_arrow_down)),
@@ -380,7 +376,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    context.getLocalization()?.advanceSearchTextField5??'',
+                    context.getLocalization()?.advanceSearchTextField5 ?? '',
                     style: GoogleFonts.poppins(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -410,7 +406,8 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                         isExpanded: true,
                         style: const TextStyle(color: Colors.black),
                         dropdownColor: Colors.white,
-                        icon: const Icon(Icons.keyboard_arrow_down, color: Colors.black),
+                        icon: const Icon(Icons.keyboard_arrow_down,
+                            color: Colors.black),
                         selectedItemBuilder: (BuildContext context) {
                           return options.map((String value) {
                             return Align(
@@ -421,7 +418,8 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                             );
                           }).toList();
                         },
-                        items: options.map<DropdownMenuItem<String>>((String value) {
+                        items: options
+                            .map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -437,52 +435,64 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 28),
-                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.backgroundColor,
-                        side: const BorderSide(color: AppColors.primary),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              15), // Rounded corners
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(double.infinity, 57),
+                          backgroundColor: AppColors.backgroundColor,
+                          side: const BorderSide(color: AppColors.primary),
+                          shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.circular(15), // Rounded corners
+                          ),
                         ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 35, vertical: 14),
-                        child: Text(
-                          context.getLocalization()?.advanceSearchButton1 ??
-                              '',
-                          style: GoogleFonts.poppins(
-                            color: AppColors.primary, // Text color
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 5, vertical: 17),
+                          child: Text(
+                            context.getLocalization()?.advanceSearchButton1 ??
+                                '',
+                            style: GoogleFonts.poppins(
+                              color: AppColors.primary, // Text color
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.secondary,
-                        side: const BorderSide(color: AppColors.signUpTextButtonRadius),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              15), // Rounded corners
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(double.infinity, 57),
+                          backgroundColor: AppColors.secondary,
+                          side: const BorderSide(
+                              color: AppColors.signUpTextButtonRadius),
+                          shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.circular(15), // Rounded corners
+                          ),
                         ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 35, vertical: 14),
-                        child: Text(
-                          context.getLocalization()?.advanceSearchButton2 ??
-                              '',
-                          style: GoogleFonts.poppins(
-                            color: AppColors.signUpTextButtonRadius, // Text color
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 5, vertical: 10),
+                          child: Text(
+                            context.getLocalization()?.advanceSearchButton2 ??
+                                '',
+                            style: GoogleFonts.poppins(
+                              color: AppColors.signUpTextButtonRadius,
+                              // Text color
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                         ),
                       ),

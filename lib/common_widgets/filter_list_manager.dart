@@ -1,4 +1,6 @@
-import '../screen/doctor_list.dart';
+
+
+import '../screen/widgets/filter_widget.dart';
 
 class FilterListManager {
   final FilterEnum filterEnum;

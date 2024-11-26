@@ -152,7 +152,10 @@
   "@sortByTextField3": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
-  "filter": "Filter",
+  "filterBy": "Filter by",
+  "@filterBy": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  }, "filter": "Filter",
   "@filter": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
@@ -256,10 +259,6 @@
   "@searchHospitals": {
     "description": "Placeholder text for the hospital search bar."
   },
-  "profileText": "Profile",
-  "@profileText": {
-    "description": "Placeholder text for the hospital search bar."
-  },
   "hospitalDetailsButton1": "Overview",
   "@hospitalDetailsButton1": {
     "description": "Placeholder text for the hospital search bar."
@@ -315,6 +314,10 @@
   },
   "patientsCity": "City",
   "@patientsCity": {
+    "description": "Placeholder text for the hospital search bar."
+  },
+  "profileText": "Profile",
+  "@profileText": {
     "description": "Placeholder text for the hospital search bar."
   },
   "patientsProvience": "Provience",

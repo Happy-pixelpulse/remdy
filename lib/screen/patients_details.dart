@@ -150,93 +150,128 @@ class _DrDetailsState extends State<DrDetails> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Flexible(
-                                child: TextField(
-                                  // readOnly: true,
-                                  decoration: InputDecoration(
-                                    suffixIcon: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: DropdownButton<String>(
-                                        value: dropdownValue,
-                                        onChanged: (String? value) {
-                                          setState(() {
-                                            dropdownValue = value!;
-                                          });
-                                        },
-                                        underline: const SizedBox(),
-                                        isExpanded: true,
-                                        style:
-                                            const TextStyle(color: Colors.black),
-                                        dropdownColor: Colors.white,
-                                        selectedItemBuilder:
-                                            (BuildContext context) {
-                                          return options.map((String value) {
-                                            return Align(
-                                              alignment: Alignment.centerLeft,
-                                              child: Text(
-                                                dropdownValue,
-                                              ),
-                                            );
-                                          }).toList();
-                                        },
-                                        items: options
-                                            .map<DropdownMenuItem<String>>(
-                                                (String value) {
-                                          return DropdownMenuItem<String>(
-                                            value: value,
-                                            child: Text(value),
-                                          );
-                                        }).toList(),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 9),
+                                      child: Text(
+                                        "Gender",
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                          color: AppColors.signText1,
+                                        ),
                                       ),
                                     ),
-                                    enabledBorder: const OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(15),
+                                    TextField(
+                                      // readOnly: true,
+                                      decoration: InputDecoration(
+                                        suffixIcon: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: DropdownButton<String>(
+                                            value: dropdownValue,
+                                            onChanged: (String? value) {
+                                              setState(() {
+                                                dropdownValue = value!;
+                                              });
+                                            },
+                                            underline: const SizedBox(),
+                                            isExpanded: true,
+                                            style:
+                                                const TextStyle(color: Colors.black),
+                                            dropdownColor: Colors.white,
+                                            selectedItemBuilder:
+                                                (BuildContext context) {
+                                              return options.map((String value) {
+                                                return Align(
+                                                  alignment: Alignment.centerLeft,
+                                                  child: Text(
+                                                    dropdownValue,
+                                                  ),
+                                                );
+                                              }).toList();
+                                            },
+                                            items: options
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        enabledBorder: const OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(15),
+                                          ),
+                                        ),
+                                        focusedBorder: const OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.all(Radius.circular(15)),
+                                        ),
+                                        labelText: context
+                                                .getLocalization()
+                                                ?.patientsGender ??
+                                            '',
+                                        labelStyle: const TextStyle(
+                                            color: AppColors.signUpTextButtonRadius),
                                       ),
                                     ),
-                                    focusedBorder: const OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                    ),
-                                    labelText: context
-                                            .getLocalization()
-                                            ?.patientsGender ??
-                                        '',
-                                    labelStyle: const TextStyle(
-                                        color: AppColors.signUpTextButtonRadius),
-                                  ),
+                                  ],
                                 ),
                               ),
                               const SizedBox(
                                 width: 10,
                               ),
                               Flexible(
-                                child: TextField(
-                                  controller: _dateController,
-                                  readOnly: true,
-                                  decoration: InputDecoration(
-                                    suffixIcon: IconButton(
-                                      icon: const Icon(Icons.keyboard_arrow_down),
-                                      onPressed: () => _selectDate(context),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 9),
+                                      child: Text(
+                                        context
+                                                .getLocalization()
+                                                ?.patientsDateOfBirth ??
+                                            '',
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                          color: AppColors.signText1,
+                                        ),
+                                      ),
                                     ),
-                                    focusColor: AppColors.signUpTextButtonRadius,
-                                    fillColor: AppColors.signUpTextButtonRadius,
-                                    enabledBorder: const OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
+                                    TextField(
+                                      controller: _dateController,
+                                      readOnly: true,
+                                      decoration: InputDecoration(
+                                        suffixIcon: IconButton(
+                                          icon: const Icon(Icons.keyboard_arrow_down),
+                                          onPressed: () => _selectDate(context),
+                                        ),
+                                        focusColor: AppColors.signUpTextButtonRadius,
+                                        fillColor: AppColors.signUpTextButtonRadius,
+                                        enabledBorder: const OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.all(Radius.circular(15)),
+                                        ),
+                                        focusedBorder: const OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.all(Radius.circular(15)),
+                                        ),
+                                        // labelText: context
+                                        //         .getLocalization()
+                                        //         ?.patientsDateOfBirth ??
+                                        //     '',
+                                        // labelStyle: const TextStyle(
+                                        //     fontSize: 15,
+                                        //     fontWeight: FontWeight.w500,
+                                        //     color: AppColors.signText1),
+                                      ),
                                     ),
-                                    focusedBorder: const OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                    ),
-                                    labelText: context
-                                            .getLocalization()
-                                            ?.patientsDateOfBirth ??
-                                        '',
-                                    labelStyle: const TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w500,
-                                        color: AppColors.signText1),
-                                  ),
+                                  ],
                                 ),
                               ),
                             ],
