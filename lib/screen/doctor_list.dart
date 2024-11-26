@@ -4,7 +4,6 @@ import 'package:remdy/common_widgets/search_button.dart';
 import 'package:remdy/common_widgets/sort_filter.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/notification_screen.dart';
-import 'package:remdy/screen/widgets/filter_widget.dart';
 
 import '../common_widgets/doctor_list_item.dart';
 import '../utils/colors.dart';

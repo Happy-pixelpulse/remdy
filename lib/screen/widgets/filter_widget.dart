@@ -5,7 +5,6 @@ import 'package:remdy/extensions/localization_extension.dart';
 import '../../common_widgets/doctor_filter_list.dart';
 import '../../common_widgets/filter_list_manager.dart';
 import '../../utils/colors.dart';
-import '../doctor_list.dart';
 enum FilterEnum { distance, availability, gender, experience }
 
 enum SortOptions { patientStories, experience, distance }
