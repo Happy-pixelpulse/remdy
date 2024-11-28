@@ -44,7 +44,7 @@ class DoctorListItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(17),
           ),
           child: Card(
-            color: AppColors.secondary,
+            color: AppColors.backgroundColor,
             elevation: 0,
             child: Padding(
               padding: const EdgeInsets.only(

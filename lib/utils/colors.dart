@@ -17,6 +17,7 @@ class AppColors {
   static const Color bottomTextfield = Color(0xFF929292);
   static const Color bottomTextfieldText = Color(0xFF4F4F4F);
   static const Color reviewText = Color(0xFF6B779A);
+  static const Color subReviewText = Color(0xFF2B2B2B);
   static const Color searchIcon = Color(0xFF8a96bc);
   static const Color drList = Color(0xFF263257);
   static const Color searchScreenRating = Color(0xFFfbc723);

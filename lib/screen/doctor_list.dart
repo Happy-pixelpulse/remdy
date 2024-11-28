@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/search_button.dart';
+import 'package:remdy/common_widgets/sort_filter.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/notification_screen.dart';
 import 'package:remdy/screen/widgets/filter_widget.dart';
@@ -81,22 +82,13 @@ class _DoctorListState extends State<DoctorList> {
       "is_available": true
     },
   ];
-  SortOptions? _selectedOption;
-  String _selectedReview = "Review";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      // extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: AppColors.primary,
-        // flexibleSpace: FlexibleSpaceBar(
-        //     background: Image.asset(
-        //   'assets/rectangle_appbar_bg.png',
-        //   fit: BoxFit.fill,
-        // )),
-        // toolbarHeight: 160,
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
@@ -131,21 +123,6 @@ class _DoctorListState extends State<DoctorList> {
             color: AppColors.secondary,
           ),
         ),
-        // Column(
-        //   crossAxisAlignment: CrossAxisAlignment.center,
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //     Text(
-        //       context.getLocalization()?.doctorListTitle ?? '',
-        //       style: GoogleFonts.poppins(
-        //         fontSize: 18,
-        //         fontWeight: FontWeight.w600,
-        //         color: AppColors.secondary,
-        //       ),
-        //     ),
-        //
-        //   ],
-        // ),
         automaticallyImplyLeading: false,
       ),
       body: Column(
@@ -169,408 +146,410 @@ class _DoctorListState extends State<DoctorList> {
               )
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 14),
-            child: SizedBox(
-              height: 50,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  Card(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                      side: BorderSide(
-                          color: AppColors.signText1.withOpacity(0.13),
-                          width: 1),
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        showModalBottomSheet(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Container(
-                                height: 433,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20)),
-                                  color: AppColors.secondary,
-                                ),
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        top: 17,
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Expanded(
-                                            child: Align(
-                                              child: Text(
-                                                context
-                                                        .getLocalization()
-                                                        ?.sortBy ??
-                                                    '',
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 22,
-                                                  fontWeight: FontWeight.w400,
-                                                  color: AppColors.bottomText,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 24),
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: const Icon(
-                                                Icons.cancel_outlined,
-                                                weight: 19,
-                                                color: AppColors.signText1,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 21,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 17, right: 17),
-                                      child: Container(
-                                        height: 49,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.circular(15)),
-                                            border: Border.all(
-                                                color:
-                                                    AppColors.bottomTextfield,
-                                                width: 1),
-                                            color: AppColors.secondary),
-                                        child: RadioListTile<SortOptions>(
-                                          activeColor: AppColors.primary,
-                                          controlAffinity:
-                                              ListTileControlAffinity.trailing,
-                                          title: Text(
-                                            context
-                                                    .getLocalization()
-                                                    ?.sortByTextField1 ??
-                                                '',
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w400,
-                                              color:
-                                                  AppColors.bottomTextfieldText,
-                                            ),
-                                          ),
-                                          value: SortOptions.patientStories,
-                                          groupValue: _selectedOption,
-                                          onChanged: (SortOptions? value) {
-                                            setState(() {
-                                              _selectedOption = value;
-                                            });
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 21,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 17, right: 17),
-                                      child: Container(
-                                        height: 49,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.circular(15)),
-                                            border: Border.all(
-                                                color:
-                                                    AppColors.bottomTextfield,
-                                                width: 1),
-                                            color: AppColors.secondary),
-                                        child: RadioListTile<SortOptions>(
-                                          activeColor: AppColors.primary,
-                                          controlAffinity:
-                                              ListTileControlAffinity.trailing,
-                                          title: Text(
-                                            context
-                                                    .getLocalization()
-                                                    ?.sortByTextField2 ??
-                                                '',
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400,
-                                              color:
-                                                  AppColors.bottomTextfieldText,
-                                            ),
-                                          ),
-                                          value: SortOptions.patientStories,
-                                          groupValue: _selectedOption,
-                                          onChanged: (SortOptions? value) {
-                                            setState(() {
-                                              _selectedOption = value;
-                                            });
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 21,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 17, right: 17),
-                                      child: Container(
-                                        height: 49,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.circular(15)),
-                                            border: Border.all(
-                                                color:
-                                                    AppColors.bottomTextfield,
-                                                width: 1),
-                                            color: AppColors.secondary),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(bottom: 15),
-                                          child: RadioListTile<SortOptions>(
-                                            activeColor: AppColors.primary,
-                                            controlAffinity:
-                                                ListTileControlAffinity
-                                                    .trailing,
-                                            title: Text(
-                                              context
-                                                      .getLocalization()
-                                                      ?.sortByTextField3 ??
-                                                  '',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors
-                                                    .bottomTextfieldText,
-                                              ),
-                                            ),
-                                            value: SortOptions.patientStories,
-                                            groupValue: _selectedOption,
-                                            onChanged: (SortOptions? value) {
-                                              setState(() {
-                                                _selectedOption = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 94,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 17, right: 16),
-                                      child: SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        height: 52,
-                                        child: ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: AppColors.primary,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                          ),
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text(
-                                            context
-                                                    .getLocalization()
-                                                    ?.applyButton ??
-                                                '',
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 19,
-                                              fontWeight: FontWeight.w400,
-                                              color: AppColors.secondary,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              );
-                            });
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10, top: 10),
-                            child: Text(
-                              context.getLocalization()?.sortBy ?? '',
-                              style: GoogleFonts.poppins(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.signText1.withOpacity(0.70),
-                              ),
-                            ),
-                          ),
-                          const Padding(
-                            padding:
-                                EdgeInsets.only(left: 5, top: 10, right: 10),
-                            child: Icon(Icons.keyboard_arrow_down),
-                            // Image.asset("assets/chevron-down.png"),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 43,
-                    child: GestureDetector(
-                      onTap: () {
-                        showModalBottomSheet(
-                          context: context,
-                          builder: (context) {
-                            return const FilterWidget();
-                          },
-                        );
-                      },
-                      child: Card(
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          side: BorderSide(
-                              color: AppColors.signText1.withOpacity(0.13),
-                              width: 1),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10, top: 11),
-                              child: Text(
-                                context.getLocalization()?.filter ?? '',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.signText1.withOpacity(0.70),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(top: 11, right: 10),
-                              child: Icon(Icons.tune),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Card(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                      side: BorderSide(
-                          color: AppColors.signText1.withOpacity(0.13),
-                          width: 1),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            _selectedReview,
-                            style: GoogleFonts.poppins(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black.withOpacity(0.70),
-                            ),
-                          ),
-                          PopupMenuButton<String>(
-                            color: AppColors.tp,
-                            onSelected: (value) {
-                              setState(() {
-                                _selectedReview = value;
-                              });
-                            },
-                            itemBuilder: (context) => [
-                              PopupMenuItem(
-                                value: "5/4 star",
-                                child: Text(
-                                  context.getLocalization()?.review1 ?? '',
-                                ),
-                              ),
-                              PopupMenuItem(
-                                value: "3/2 star",
-                                child: Text(
-                                    context.getLocalization()?.review2 ?? ''),
-                              ),
-                              PopupMenuItem(
-                                value: "1 star",
-                                child: Text(
-                                    context.getLocalization()?.review3 ?? ''),
-                              ),
-                            ],
-                            icon: const Icon(Icons.keyboard_arrow_down),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Card(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                      side: BorderSide(
-                          color: AppColors.signText1.withOpacity(0.13),
-                          width: 1),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 11, top: 10, right: 10),
-                          child: Text(
-                            context.getLocalization()?.insurance ?? '',
-                            style: GoogleFonts.poppins(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.signText1.withOpacity(0.70),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          const SortAndFilter(),
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 14),
+          //   child: SizedBox(
+          //     height: 50,
+          //     child: ListView(
+          //       scrollDirection: Axis.horizontal,
+          //       children: [
+          //         const SizedBox(
+          //           width: 16,
+          //         ),
+          //         Card(
+          //           elevation: 0,
+          //           color: AppColors.backgroundColor,
+          //           shape: RoundedRectangleBorder(
+          //             borderRadius: BorderRadius.circular(15.0),
+          //             side: BorderSide(
+          //                 color: AppColors.signText1.withOpacity(0.13),
+          //                 width: 1),
+          //           ),
+          //           child: GestureDetector(
+          //             onTap: () {
+          //               showModalBottomSheet(
+          //                   context: context,
+          //                   builder: (BuildContext context) {
+          //                     return Container(
+          //                       height: 433,
+          //                       decoration: const BoxDecoration(
+          //                         borderRadius: BorderRadius.only(
+          //                             topLeft: Radius.circular(20),
+          //                             topRight: Radius.circular(20)),
+          //                         color: AppColors.secondary,
+          //                       ),
+          //                       child: Column(
+          //                         children: [
+          //                           Padding(
+          //                             padding: const EdgeInsets.only(
+          //                               top: 17,
+          //                             ),
+          //                             child: Row(
+          //                               mainAxisAlignment:
+          //                                   MainAxisAlignment.spaceBetween,
+          //                               children: [
+          //                                 Expanded(
+          //                                   child: Align(
+          //                                     child: Text(
+          //                                       context
+          //                                               .getLocalization()
+          //                                               ?.sortBy ??
+          //                                           '',
+          //                                       style: GoogleFonts.poppins(
+          //                                         fontSize: 22,
+          //                                         fontWeight: FontWeight.w400,
+          //                                         color: AppColors.bottomText,
+          //                                       ),
+          //                                     ),
+          //                                   ),
+          //                                 ),
+          //                                 Padding(
+          //                                   padding: const EdgeInsets.only(
+          //                                       right: 24),
+          //                                   child: GestureDetector(
+          //                                     onTap: () {
+          //                                       Navigator.pop(context);
+          //                                     },
+          //                                     child: const Icon(
+          //                                       Icons.cancel_outlined,
+          //                                       weight: 19,
+          //                                       color: AppColors.signText1,
+          //                                     ),
+          //                                   ),
+          //                                 ),
+          //                               ],
+          //                             ),
+          //                           ),
+          //                           const SizedBox(
+          //                             height: 21,
+          //                           ),
+          //                           Padding(
+          //                             padding: const EdgeInsets.only(
+          //                                 left: 17, right: 17),
+          //                             child: Container(
+          //                               height: 49,
+          //                               decoration: BoxDecoration(
+          //                                   borderRadius:
+          //                                       const BorderRadius.all(
+          //                                           Radius.circular(15)),
+          //                                   border: Border.all(
+          //                                       color:
+          //                                           AppColors.bottomTextfield,
+          //                                       width: 1),
+          //                                   color: AppColors.secondary),
+          //                               child: RadioListTile<SortOptions>(
+          //                                 activeColor: AppColors.primary,
+          //                                 controlAffinity:
+          //                                     ListTileControlAffinity.trailing,
+          //                                 title: Text(
+          //                                   context
+          //                                           .getLocalization()
+          //                                           ?.sortByTextField1 ??
+          //                                       '',
+          //                                   style: GoogleFonts.poppins(
+          //                                     fontSize: 14,
+          //                                     fontWeight: FontWeight.w400,
+          //                                     color:
+          //                                         AppColors.bottomTextfieldText,
+          //                                   ),
+          //                                 ),
+          //                                 value: SortOptions.patientStories,
+          //                                 groupValue: _selectedOption,
+          //                                 onChanged: (SortOptions? value) {
+          //                                   setState(() {
+          //                                     _selectedOption = value;
+          //                                   });
+          //                                 },
+          //                               ),
+          //                             ),
+          //                           ),
+          //                           const SizedBox(
+          //                             height: 21,
+          //                           ),
+          //                           Padding(
+          //                             padding: const EdgeInsets.only(
+          //                                 left: 17, right: 17),
+          //                             child: Container(
+          //                               height: 49,
+          //                               decoration: BoxDecoration(
+          //                                   borderRadius:
+          //                                       const BorderRadius.all(
+          //                                           Radius.circular(15)),
+          //                                   border: Border.all(
+          //                                       color:
+          //                                           AppColors.bottomTextfield,
+          //                                       width: 1),
+          //                                   color: AppColors.secondary),
+          //                               child: RadioListTile<SortOptions>(
+          //                                 activeColor: AppColors.primary,
+          //                                 controlAffinity:
+          //                                     ListTileControlAffinity.trailing,
+          //                                 title: Text(
+          //                                   context
+          //                                           .getLocalization()
+          //                                           ?.sortByTextField2 ??
+          //                                       '',
+          //                                   style: GoogleFonts.poppins(
+          //                                     fontSize: 16,
+          //                                     fontWeight: FontWeight.w400,
+          //                                     color:
+          //                                         AppColors.bottomTextfieldText,
+          //                                   ),
+          //                                 ),
+          //                                 value: SortOptions.patientStories,
+          //                                 groupValue: _selectedOption,
+          //                                 onChanged: (SortOptions? value) {
+          //                                   setState(() {
+          //                                     _selectedOption = value;
+          //                                   });
+          //                                 },
+          //                               ),
+          //                             ),
+          //                           ),
+          //                           const SizedBox(
+          //                             height: 21,
+          //                           ),
+          //                           Padding(
+          //                             padding: const EdgeInsets.only(
+          //                                 left: 17, right: 17),
+          //                             child: Container(
+          //                               height: 49,
+          //                               decoration: BoxDecoration(
+          //                                   borderRadius:
+          //                                       const BorderRadius.all(
+          //                                           Radius.circular(15)),
+          //                                   border: Border.all(
+          //                                       color:
+          //                                           AppColors.bottomTextfield,
+          //                                       width: 1),
+          //                                   color: AppColors.secondary),
+          //                               child: Padding(
+          //                                 padding:
+          //                                     const EdgeInsets.only(bottom: 15),
+          //                                 child: RadioListTile<SortOptions>(
+          //                                   activeColor: AppColors.primary,
+          //                                   controlAffinity:
+          //                                       ListTileControlAffinity
+          //                                           .trailing,
+          //                                   title: Text(
+          //                                     context
+          //                                             .getLocalization()
+          //                                             ?.sortByTextField3 ??
+          //                                         '',
+          //                                     style: GoogleFonts.poppins(
+          //                                       fontSize: 16,
+          //                                       fontWeight: FontWeight.w400,
+          //                                       color: AppColors
+          //                                           .bottomTextfieldText,
+          //                                     ),
+          //                                   ),
+          //                                   value: SortOptions.patientStories,
+          //                                   groupValue: _selectedOption,
+          //                                   onChanged: (SortOptions? value) {
+          //                                     setState(() {
+          //                                       _selectedOption = value;
+          //                                     });
+          //                                   },
+          //                                 ),
+          //                               ),
+          //                             ),
+          //                           ),
+          //                           const SizedBox(
+          //                             height: 94,
+          //                           ),
+          //                           Padding(
+          //                             padding: const EdgeInsets.only(
+          //                                 left: 17, right: 16),
+          //                             child: SizedBox(
+          //                               width:
+          //                                   MediaQuery.of(context).size.width,
+          //                               height: 52,
+          //                               child: ElevatedButton(
+          //                                 style: ElevatedButton.styleFrom(
+          //                                   backgroundColor: AppColors.primary,
+          //                                   shape: RoundedRectangleBorder(
+          //                                     borderRadius:
+          //                                         BorderRadius.circular(10),
+          //                                   ),
+          //                                 ),
+          //                                 onPressed: () {
+          //                                   Navigator.pop(context);
+          //                                 },
+          //                                 child: Text(
+          //                                   context
+          //                                           .getLocalization()
+          //                                           ?.applyButton ??
+          //                                       '',
+          //                                   style: GoogleFonts.poppins(
+          //                                     fontSize: 19,
+          //                                     fontWeight: FontWeight.w400,
+          //                                     color: AppColors.secondary,
+          //                                   ),
+          //                                 ),
+          //                               ),
+          //                             ),
+          //                           )
+          //                         ],
+          //                       ),
+          //                     );
+          //                   });
+          //             },
+          //             child: Row(
+          //               mainAxisAlignment: MainAxisAlignment.start,
+          //               crossAxisAlignment: CrossAxisAlignment.start,
+          //               children: [
+          //                 Padding(
+          //                   padding: const EdgeInsets.only(left: 10, top: 10),
+          //                   child: Text(
+          //                     context.getLocalization()?.sortBy ?? '',
+          //                     style: GoogleFonts.poppins(
+          //                       fontSize: 15,
+          //                       fontWeight: FontWeight.w400,
+          //                       color: AppColors.signText1.withOpacity(0.70),
+          //                     ),
+          //                   ),
+          //                 ),
+          //                 const Padding(
+          //                   padding:
+          //                       EdgeInsets.only(left: 5, top: 10, right: 10),
+          //                   child: Icon(Icons.keyboard_arrow_down),
+          //                   // Image.asset("assets/chevron-down.png"),
+          //                 ),
+          //               ],
+          //             ),
+          //           ),
+          //         ),
+          //         SizedBox(
+          //           height: 43,
+          //           child: GestureDetector(
+          //             onTap: () {
+          //               showModalBottomSheet(
+          //                 context: context,
+          //                 builder: (context) {
+          //                   return const FilterWidget();
+          //                 },
+          //               );
+          //             },
+          //             child: Card(
+          //               elevation: 0,
+          //               shape: RoundedRectangleBorder(
+          //                 borderRadius: BorderRadius.circular(15.0),
+          //                 side: BorderSide(
+          //                     color: AppColors.signText1.withOpacity(0.13),
+          //                     width: 1),
+          //               ),
+          //               child: Row(
+          //                 mainAxisAlignment: MainAxisAlignment.start,
+          //                 crossAxisAlignment: CrossAxisAlignment.start,
+          //                 children: [
+          //                   Padding(
+          //                     padding: const EdgeInsets.only(left: 10, top: 11),
+          //                     child: Text(
+          //                       context.getLocalization()?.filter ?? '',
+          //                       style: GoogleFonts.poppins(
+          //                         fontSize: 15,
+          //                         fontWeight: FontWeight.w400,
+          //                         color: AppColors.signText1.withOpacity(0.70),
+          //                       ),
+          //                     ),
+          //                   ),
+          //                   const SizedBox(
+          //                     width: 15,
+          //                   ),
+          //                   const Padding(
+          //                     padding: EdgeInsets.only(top: 11, right: 10),
+          //                     child: Icon(Icons.tune),
+          //                   )
+          //                 ],
+          //               ),
+          //             ),
+          //           ),
+          //         ),
+          //         Card(
+          //           elevation: 0,
+          //           shape: RoundedRectangleBorder(
+          //             borderRadius: BorderRadius.circular(15.0),
+          //             side: BorderSide(
+          //                 color: AppColors.signText1.withOpacity(0.13),
+          //                 width: 1),
+          //           ),
+          //           child: Padding(
+          //             padding: const EdgeInsets.only(left: 12),
+          //             child: Row(
+          //               mainAxisAlignment: MainAxisAlignment.start,
+          //               crossAxisAlignment: CrossAxisAlignment.center,
+          //               children: [
+          //                 Text(
+          //                   _selectedReview,
+          //                   style: GoogleFonts.poppins(
+          //                     fontSize: 15,
+          //                     fontWeight: FontWeight.w400,
+          //                     color: Colors.black.withOpacity(0.70),
+          //                   ),
+          //                 ),
+          //                 PopupMenuButton<String>(
+          //                   color: AppColors.tp,
+          //                   onSelected: (value) {
+          //                     setState(() {
+          //                       _selectedReview = value;
+          //                     });
+          //                   },
+          //                   itemBuilder: (context) => [
+          //                     PopupMenuItem(
+          //                       value: "5/4 star",
+          //                       child: Text(
+          //                         context.getLocalization()?.review1 ?? '',
+          //                       ),
+          //                     ),
+          //                     PopupMenuItem(
+          //                       value: "3/2 star",
+          //                       child: Text(
+          //                           context.getLocalization()?.review2 ?? ''),
+          //                     ),
+          //                     PopupMenuItem(
+          //                       value: "1 star",
+          //                       child: Text(
+          //                           context.getLocalization()?.review3 ?? ''),
+          //                     ),
+          //                   ],
+          //                   icon: const Icon(Icons.keyboard_arrow_down),
+          //                 ),
+          //               ],
+          //             ),
+          //           ),
+          //         ),
+          //         Card(
+          //           elevation: 0,
+          //           shape: RoundedRectangleBorder(
+          //             borderRadius: BorderRadius.circular(15.0),
+          //             side: BorderSide(
+          //                 color: AppColors.signText1.withOpacity(0.13),
+          //                 width: 1),
+          //           ),
+          //           child: Row(
+          //             mainAxisAlignment: MainAxisAlignment.start,
+          //             crossAxisAlignment: CrossAxisAlignment.start,
+          //             children: [
+          //               Padding(
+          //                 padding: const EdgeInsets.only(
+          //                     left: 11, top: 10, right: 10),
+          //                 child: Text(
+          //                   context.getLocalization()?.insurance ?? '',
+          //                   style: GoogleFonts.poppins(
+          //                     fontSize: 15,
+          //                     fontWeight: FontWeight.w400,
+          //                     color: AppColors.signText1.withOpacity(0.70),
+          //                   ),
+          //                 ),
+          //               ),
+          //             ],
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           const SizedBox(
             height: 3,
           ),

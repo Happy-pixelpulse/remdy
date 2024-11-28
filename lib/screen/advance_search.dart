@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/common_app_bar.dart';
+import 'package:remdy/common_widgets/square_radio_widget.dart';
 import 'package:remdy/extensions/localization_extension.dart';
+
 import '../utils/colors.dart';
 
 class AdvanceSearch extends StatefulWidget {
@@ -156,101 +158,139 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                       color: AppColors.signText1,
                     ),
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Wrap(
+                    direction: Axis.horizontal,
                     children: [
-                      Row(
-                        children: [
-                          Radio<String>(
-                            activeColor: AppColors.primary,
-                            value: 'Male',
-                            groupValue: selectedGender,
-                            onChanged: (value) {
-                              setState(() {
-                                selectedGender = value;
-                              });
-                            },
-                          ),
-                          Text(
-                            context.getLocalization()?.genderOption1 ?? '',
-                            style: GoogleFonts.poppins(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.signText1,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Radio<String>(
-                            activeColor: AppColors.primary,
-                            value: 'Female',
-                            groupValue: selectedGender,
-                            onChanged: (value) {
-                              setState(() {
-                                selectedGender = value;
-                              });
-                            },
-                          ),
-                          Text(
-                            context.getLocalization()?.genderOption2 ?? '',
-                            style: GoogleFonts.poppins(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.signText1,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Radio<String>(
-                            activeColor: AppColors.primary,
-                            value: 'Non-Binary',
-                            groupValue: selectedGender,
-                            onChanged: (value) {
-                              setState(() {
-                                selectedGender = value;
-                              });
-                            },
-                          ),
-                          Text(
-                            context.getLocalization()?.genderOption3 ?? '',
-                            style: GoogleFonts.poppins(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.signText1,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Radio<String>(
-                        activeColor: AppColors.primary,
-                        value: 'All',
-                        groupValue: selectedGender,
+                      SquareRadioWidget<String>(
+                        selectedItem: selectedGender ?? '',
+                        value: 'Female',
                         onChanged: (value) {
                           setState(() {
                             selectedGender = value;
                           });
                         },
+                        labelText: "Female",
                       ),
-                      Text(
-                        context.getLocalization()?.genderOption4 ?? '',
-                        style: GoogleFonts.poppins(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.signText1,
-                        ),
+                      SquareRadioWidget<String>(
+                        selectedItem: selectedGender ?? '',
+                        value: 'Male',
+                        onChanged: (value) {
+                          setState(() {
+                            selectedGender = value;
+                          });
+                        },
+                        labelText: "Male",
+                      ),
+                      SquareRadioWidget<String>(
+                        selectedItem: selectedGender ?? '',
+                        value: 'Non-Binary',
+                        onChanged: (value) {
+                          setState(() {
+                            selectedGender = value;
+                          });
+                        },
+                        labelText: "Non-Binary",
+                      ),
+                      SquareRadioWidget<String>(
+                        selectedItem: selectedGender ?? '',
+                        value: 'All',
+                        onChanged: (value){
+                          setState(() {
+                            selectedGender = value;
+                          });
+                        },
+                        labelText: "All",
                       ),
                     ],
                   ),
+
+                  // Radio<String>(
+                  //   activeColor: AppColors.primary,
+                  //   value: 'Male',
+                  //   groupValue: selectedGender,
+                  //   onChanged: (value) {
+                  //     setState(() {
+                  //       selectedGender = value;
+                  //     });
+                  //   },
+                  // ),
+                  // Text(
+                  //   context.getLocalization()?.genderOption1 ?? '',
+                  //   style: GoogleFonts.poppins(
+                  //     fontSize: 15,
+                  //     fontWeight: FontWeight.w500,
+                  //     color: AppColors.signText1,
+                  //   ),
+                  // ),
+                  // Row(
+                  //   children: [
+                  //     Radio<String>(
+                  //       activeColor: AppColors.primary,
+                  //       value: 'Female',
+                  //       groupValue: selectedGender,
+                  //       onChanged: (value) {
+                  //         setState(() {
+                  //           selectedGender = value;
+                  //         });
+                  //       },
+                  //     ),
+                  //     Text(
+                  //       context.getLocalization()?.genderOption2 ?? '',
+                  //       style: GoogleFonts.poppins(
+                  //         fontSize: 15,
+                  //         fontWeight: FontWeight.w500,
+                  //         color: AppColors.signText1,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  // Row(
+                  //   children: [
+                  //     Radio<String>(
+                  //       activeColor: AppColors.primary,
+                  //       value: 'Non-Binary',
+                  //       groupValue: selectedGender,
+                  //       onChanged: (value) {
+                  //         setState(() {
+                  //           selectedGender = value;
+                  //         });
+                  //       },
+                  //     ),
+                  //     Text(
+                  //       context.getLocalization()?.genderOption3 ?? '',
+                  //       style: GoogleFonts.poppins(
+                  //         fontSize: 15,
+                  //         fontWeight: FontWeight.w500,
+                  //         color: AppColors.signText1,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  // Row(
+                  //   children: [
+                  //     Radio<String>(
+                  //       activeColor: AppColors.primary,
+                  //       value: 'All',
+                  //       groupValue: selectedGender,
+                  //       onChanged: (value) {
+                  //         setState(() {
+                  //           selectedGender = value;
+                  //         });
+                  //       },
+                  //     ),
+                  //     Text(
+                  //       context.getLocalization()?.genderOption4 ?? '',
+                  //       style: GoogleFonts.poppins(
+                  //         fontSize: 15,
+                  //         fontWeight: FontWeight.w500,
+                  //         color: AppColors.signText1,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
+              const SizedBox(height: 20),
               Text(
                 context.getLocalization()?.typeofDoctor ?? '',
                 style: GoogleFonts.poppins(
@@ -259,77 +299,38 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                   color: AppColors.signText1,
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+              Wrap(
+                direction: Axis.horizontal,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Radio<String>(
-                        activeColor: AppColors.primary,
-                        value: 'Family Doctor',
-                        groupValue: selectedDoctorType,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedDoctorType = value;
-                          });
-                        },
-                      ),
-                      Text(
-                        context.getLocalization()?.typeofDoctor1 ?? '',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.signText1,
-                        ),
-                      ),
-                    ],
+                  SquareRadioWidget<String>(
+                    selectedItem: selectedDoctorType ?? '',
+                    value: 'Family Doctor ',
+                    onChanged: (value) {
+                      setState(() {
+                        selectedDoctorType = value;
+                      });
+                    },
+                    labelText: "Family Doctor ",
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Radio<String>(
-                        activeColor: AppColors.primary,
-                        value: 'Specialist',
-                        groupValue: selectedDoctorType,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedDoctorType = value;
-                          });
-                        },
-                      ),
-                      Text(
-                        context.getLocalization()?.typeofDoctor2 ?? '',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.signText1,
-                        ),
-                      ),
-                    ],
+                  SquareRadioWidget<String>(
+                    selectedItem: selectedDoctorType ?? '',
+                    value: 'Specialist',
+                    onChanged: (value) {
+                      setState(() {
+                        selectedDoctorType = value;
+                      });
+                    },
+                    labelText: "Specialist",
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Radio<String>(
-                        activeColor: AppColors.primary,
-                        value: 'All',
-                        groupValue: selectedDoctorType,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedDoctorType = value;
-                          });
-                        },
-                      ),
-                      Text(
-                        context.getLocalization()?.genderOption4 ?? '',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.signText1,
-                        ),
-                      ),
-                    ],
+                  SquareRadioWidget<String>(
+                    selectedItem: selectedDoctorType ?? '',
+                    value: 'All',
+                    onChanged: (value) {
+                      setState(() {
+                        selectedDoctorType = value;
+                      });
+                    },
+                    labelText: "All",
                   ),
                 ],
               ),

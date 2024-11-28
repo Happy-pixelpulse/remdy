@@ -30,7 +30,7 @@ class SignUpButton extends StatelessWidget {
                   width: 0.5,
                 ),
               ),
-              backgroundColor: AppColors.secondary,
+              backgroundColor: AppColors.backgroundColor,
               shadowColor:AppColors.signUpTextButtonRadius.withOpacity(0.79),
               elevation: 4,
 

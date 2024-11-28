@@ -15,7 +15,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget{
             'assets/rectangle_appbar_bg.png',
             fit: BoxFit.fill,
           )),
-      toolbarHeight: 70,
+      toolbarHeight: 80,
       elevation: 0,
       leadingWidth: 24,
       title: SingleChildScrollView(
