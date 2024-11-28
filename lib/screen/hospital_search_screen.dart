@@ -717,15 +717,18 @@ class _HospitalPageState extends State<HospitalPage> {
                   itemCount: hospitalList.length,
                   itemBuilder: (context, index) {
                     final hospitals = hospitalList[index];
-                    return HospitalCard(
-                      hospitalImage: hospitals["hospitalImage"],
-                      hospitalName: hospitals["hospitalName"],
-                      address: hospitals["address"],
-                      rating: hospitals["rating"],
-                      reviews: hospitals["reviews"],
-                      isLiked: hospitals["is_liked"],
-                      hospitalText: hospitals["hospitalText"],
-                      distanceText: hospitals["distanceText"],
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 14),
+                      child: HospitalCard(
+                        hospitalImage: hospitals["hospitalImage"],
+                        hospitalName: hospitals["hospitalName"],
+                        address: hospitals["address"],
+                        rating: hospitals["rating"],
+                        reviews: hospitals["reviews"],
+                        isLiked: hospitals["is_liked"],
+                        hospitalText: hospitals["hospitalText"],
+                        distanceText: hospitals["distanceText"],
+                      ),
                     );
                   },
                 ),
@@ -733,7 +736,7 @@ class _HospitalPageState extends State<HospitalPage> {
             ),
             const SizedBox(height: 14,),
             Padding(
-              padding: const EdgeInsets.only(left: 12),
+              padding: const EdgeInsets.only(right: 12),
               child: SizedBox(
                 height: 220,
                 child: ListView.builder(
@@ -741,9 +744,12 @@ class _HospitalPageState extends State<HospitalPage> {
                   itemCount: clinicList.length,
                   itemBuilder: (context, index) {
                     final clinic = clinicList[index];
-                    return ClinicCard(
-                      clinicImage: clinic["clinicImage"],
-                      clinicName: clinic["clinicName"],
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 14),
+                      child: ClinicCard(
+                        clinicImage: clinic["clinicImage"],
+                        clinicName: clinic["clinicName"],
+                      ),
                     );
                   },
                 ),

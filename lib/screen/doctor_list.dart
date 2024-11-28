@@ -4,7 +4,6 @@ import 'package:remdy/common_widgets/search_button.dart';
 import 'package:remdy/common_widgets/sort_filter.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/notification_screen.dart';
-import 'package:remdy/screen/widgets/filter_widget.dart';
 
 import '../common_widgets/doctor_list_item.dart';
 import '../utils/colors.dart';
@@ -560,14 +559,18 @@ class _DoctorListState extends State<DoctorList> {
                 itemCount: doctors.length,
                 itemBuilder: (context, index) {
                   final doctor = doctors[index];
-                  return DoctorListItem(
-                    imagePath: doctor["imagePath"],
-                    doctorName: doctor["name"],
-                    specialty: doctor["specialty"],
-                    patients: doctor["patients"],
-                    rating: doctor["rating"],
-                    isLiked: doctor["is_liked"],
-                    isAvailable: doctor["is_available"],
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                        left: 20, top: 5, right: 20, bottom: 8),
+                    child: DoctorListItem(
+                      imagePath: doctor["imagePath"],
+                      doctorName: doctor["name"],
+                      specialty: doctor["specialty"],
+                      patients: doctor["patients"],
+                      rating: doctor["rating"],
+                      isLiked: doctor["is_liked"],
+                      isAvailable: doctor["is_available"],
+                    ),
                   );
                 },
               ),

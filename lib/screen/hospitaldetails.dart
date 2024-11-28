@@ -284,18 +284,16 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                           onTap: (){
                             _launchMaps();
                           },
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
-                            child: Image.network(
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGmvZIregf4zKT_r9yJftlIyqZg8asvGM90Q&s',
-                              width: double.infinity,
-                              //height: 200,
-                              fit: BoxFit.cover,
-                            ),
+                          child: Image.network(
+                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGmvZIregf4zKT_r9yJftlIyqZg8asvGM90Q&s',
+                            width: double.infinity,
+                            //height: 200,
+                            fit: BoxFit.cover,
                           ),
                         ),
                         const SizedBox(height: 10,),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               'Saskatoon City Hospital',
@@ -305,7 +303,6 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                                 color: AppColors.drNameText,
                               ),
                             ),
-                            const SizedBox(width: 60,),
                             Text(
                               'Directions',
                               style: GoogleFonts.poppins(

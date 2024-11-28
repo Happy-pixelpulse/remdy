@@ -39,7 +39,7 @@ class HospitalCard extends StatelessWidget {
       },
       child: SizedBox(
         // height: 500,
-        width: MediaQuery.of(context).size.width / 1.55,
+        width: MediaQuery.of(context).size.width / 1.9,
         child: Card(
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -62,7 +62,7 @@ class HospitalCard extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 8,right: 8),
+                  padding: const EdgeInsets.only(top: 8, right: 8),
                   child: Align(
                       alignment: Alignment.topRight,
                       child: Image.asset(
@@ -73,12 +73,14 @@ class HospitalCard extends StatelessWidget {
                 ),
               ]),
               Padding(
-                padding: const EdgeInsets.only(left: 12,top: 8),
+                padding: const EdgeInsets.only(left: 12, top: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       hospitalName,
+                      maxLines: 1,
+                      overflow: TextOverflow.fade,
                       style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -89,7 +91,12 @@ class HospitalCard extends StatelessWidget {
                     Row(
                       children: [
                         // Image.asset('assets/map-pin.png'),
-                       Image.asset('assets/map-pin.png',color: AppColors.hospitalLocationText,height: 18,width: 18,),
+                        Image.asset(
+                          'assets/map-pin.png',
+                          color: AppColors.hospitalLocationText,
+                          height: 18,
+                          width: 18,
+                        ),
                         const SizedBox(width: 4),
                         Text(
                           address,
@@ -153,7 +160,6 @@ class HospitalCard extends StatelessWidget {
                         height: 10,
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -171,6 +177,7 @@ class HospitalCard extends StatelessWidget {
                           width: 22,
                           fit: BoxFit.fill,
                         ),
+                        const SizedBox(width: 4,),
                         Text(
                           distanceText,
                           style: GoogleFonts.poppins(
@@ -190,6 +197,7 @@ class HospitalCard extends StatelessWidget {
                           width: 16,
                           fit: BoxFit.fill,
                         ),
+                        const SizedBox(width: 4,),
                         Text(
                           hospitalText,
                           style: GoogleFonts.poppins(
