@@ -159,6 +159,10 @@
   "@filter": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
+  "hospitalDirections": "Directions",
+  "@hospitalDirections": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
   "clearFilters": "ClearFilters",
   "@clearFilters": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."

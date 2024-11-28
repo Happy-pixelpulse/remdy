@@ -307,7 +307,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                             ),
                             const SizedBox(width: 60,),
                             Text(
-                              'Directions',
+                              context.getLocalization()?.hospitalDirections ?? '',
                               style: GoogleFonts.poppins(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
