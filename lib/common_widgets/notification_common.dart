@@ -14,11 +14,11 @@ class _NotificationCommonState extends State<NotificationCommon> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 11, vertical:10),
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical:10),
       child: Column(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width,
+            // width: MediaQuery.of(context).size.width,
             // height: 74,
             decoration: const BoxDecoration(
               color: AppColors.backgroundColor,

@@ -32,7 +32,7 @@ class ClinicCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       // height: 209,
-      width: MediaQuery.of(context).size.width / 1.9,
+      width: 232,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
