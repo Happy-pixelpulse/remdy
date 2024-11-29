@@ -30,6 +30,7 @@ class _SearchButtonState extends State<SearchButton> {
         showCursor: false,
         cursorHeight: 12,
         decoration: InputDecoration(
+
           contentPadding: const EdgeInsets.only(top: 10),
           border: InputBorder.none,
           prefixIcon:  Padding(

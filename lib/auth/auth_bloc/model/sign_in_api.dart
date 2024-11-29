@@ -13,7 +13,7 @@ class SignInApi {
         return body.map((e) {
           return SignInRequest(
             googleToken: e['googleToken'] as String,
-            imeiNumber:e['imei_number'] as int,
+            imeiNumber:e['imei_number'] as String,
           );
         }).toList();
       }

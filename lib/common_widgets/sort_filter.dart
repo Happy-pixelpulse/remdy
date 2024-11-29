@@ -64,11 +64,11 @@ class _SortAndFilterState extends State<SortAndFilter> {
                           });
                     },
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 10, top: 10),
+                          padding: const EdgeInsets.only(left: 4, top: 10),
                           child: Text(
                             context.getLocalization()?.sortBy ?? '',
                             style: GoogleFonts.poppins(
@@ -79,7 +79,7 @@ class _SortAndFilterState extends State<SortAndFilter> {
                           ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.only(top: 10, right: 5),
+                          padding: EdgeInsets.only(top: 10, right: 3),
                           child: Icon(Icons.keyboard_arrow_down),
                           // Image.asset("assets/chevron-down.png"),
                         ),

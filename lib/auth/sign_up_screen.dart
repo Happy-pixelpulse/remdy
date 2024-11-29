@@ -1,11 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lottie/lottie.dart';
-import 'package:remdy/auth/auth_bloc/model/sign_in_request.dart';
 import 'package:remdy/auth/auth_bloc/sign_in_bloc.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
@@ -13,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../common_widgets/sign_up_button.dart';
 import '../utils/colors.dart';
+import 'auth_bloc/model/sign_in_request.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -37,15 +36,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
         accessToken: googleSignInAuthentication.accessToken,
       );
       _userCredential = await auth.signInWithCredential(authCredential);
-      User? user = _userCredential?.user;
-      if (kDebugMode) {
-        print(user);
-      }
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString(
-          'accessToken', googleSignInAuthentication.accessToken!);
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+          'idToken', googleSignInAuthentication.idToken ?? '');
+      await prefs.setString('Uid', _userCredential?.user?.uid ?? '');
+      _signInBloc.add(GoogleSignInEvent(
+          signInRequest: SignInRequest(
+              googleToken:
+              _userCredential?.user?.refreshToken ?? '',
+              imeiNumber: '12334444')));
+
     }
   }
 
@@ -62,7 +62,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: BlocListener<SignInBloc, SignInState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if(state is GoogleSignInResponseState){
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+          }else if(state is GoogleSignInErrorState){
+            debugPrint(state.error);
+          }
+        },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -104,14 +111,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SignUpButton(
                   onPressed: () async {
                     // fetchUser();
-                  await signInWithGoogle(context);
-                    _signInBloc.add(GoogleSignInEvent(
-                        signInRequest: SignInRequest(
-                            googleToken:
-                                _userCredential?.user?.refreshToken ?? '',
-                            imeiNumber: 123456)
-                    )
-                    );
+                    await signInWithGoogle(context);
                   },
                   imageName: 'assets/google.png',
                   buttonName: context.getLocalization()?.buttonName1 ?? '',

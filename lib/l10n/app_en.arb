@@ -9,9 +9,9 @@
     "description": "Title text encouraging the user to find a family doctor."
   },
   "signUpScreenTitle1": "Welcome",
-    "@signUpScreenTitle1": {
-      "description": "Title text encouraging the user to find a family doctor."
-    },
+  "@signUpScreenTitle1": {
+    "description": "Title text encouraging the user to find a family doctor."
+  },
   "signUpScreenTitle": "Let’s Get Started",
   "@signUpScreenTitle": {
     "description": "Title text encouraging the user to find a family doctor."
@@ -48,14 +48,14 @@
   "@advanceSearchTextField1": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
-   "hospitalTitle": "Let’s find Nearest",
+  "hospitalTitle": "Let’s find Nearest",
   "@hospitalTitle": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
-   "hospitalSubTitle": "Hospital",
-    "@hospitalSubTitle": {
-      "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
-    },
+  "hospitalSubTitle": "Hospital",
+  "@hospitalSubTitle": {
+    "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+  },
   "advanceSearchTextField2": "City/Town:",
   "@advanceSearchTextField2": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
@@ -155,7 +155,8 @@
   "filterBy": "Filter by",
   "@filterBy": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
-  }, "filter": "Filter",
+  },
+  "filter": "Filter",
   "@filter": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
@@ -266,13 +267,16 @@
   "hospitalDetailsButton1": "Overview",
   "@hospitalDetailsButton1": {
     "description": "Placeholder text for the hospital search bar."
-  }, "hospitalDetailsButton2": "Hospital Quality",
+  },
+  "hospitalDetailsButton2": "Hospital Quality",
   "@hospitalDetailsButton2": {
     "description": "Placeholder text for the hospital search bar."
-  }, "hospitalDetailsButton3": "Reviews",
+  },
+  "hospitalDetailsButton3": "Reviews",
   "@hospitalDetailsButton3": {
     "description": "Placeholder text for the hospital search bar."
-  }, "hospitalDetailsButton4": "Location",
+  },
+  "hospitalDetailsButton4": "Location",
   "@hospitalDetailsButton4": {
     "description": "Placeholder text for the hospital search bar."
   },

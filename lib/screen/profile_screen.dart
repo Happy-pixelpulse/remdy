@@ -74,7 +74,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               color: AppColors.tp,
                             )),
                         Padding(
-                          padding: const EdgeInsets.only(left: 110),
+                          padding: const EdgeInsets.only(left: 90),
                           child: Text(
                             context.getLocalization()?.profileText ?? '',
                             style: GoogleFonts.poppins(
@@ -91,21 +91,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     alignment: Alignment.bottomCenter,
                     child: Stack(children: [
                       Container(
+                        height:131,
+                        width: 131,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(80),
-                            boxShadow: [
-                              const BoxShadow(
+                            boxShadow:const  [
+                              BoxShadow(
                                   color: AppColors.profileRadius,
                                   blurRadius: 4,
                                   offset: Offset(0, 4))
                             ]),
                         child: const CircleAvatar(
-                          radius: 70,
+                          radius: 60,
                           backgroundImage: AssetImage('assets/profilpic.png'),
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 103, left: 98),
+                        padding: EdgeInsets.only(top: 97, left: 88),
                         child: Icon(
                           Icons.add,
                           color: AppColors.signText1,
