@@ -94,7 +94,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(80),
                             boxShadow: [
-                              BoxShadow(
+                              const BoxShadow(
                                   color: AppColors.profileRadius,
                                   blurRadius: 4,
                                   offset: Offset(0, 4))

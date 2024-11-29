@@ -33,7 +33,7 @@ class _SearchButtonState extends State<SearchButton> {
           contentPadding: const EdgeInsets.only(top: 10),
           border: InputBorder.none,
           prefixIcon:  Padding(
-            padding: const EdgeInsets.only(right: 18,left: 18),
+            padding: const EdgeInsets.only(left: 18,right: 14),
             child: Image.asset('assets/search_icon.png')
           ),
           hintText: context.getLocalization()?.doctorListSearchButton ?? '',

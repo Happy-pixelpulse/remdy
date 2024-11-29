@@ -435,7 +435,7 @@ class _AdvanceSearchState extends State<AdvanceSearch> {
                 ),
               ],
             ),
-            const SizedBox(height: 32,),
+            const SizedBox(height: 20,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 28),
               child: Row(

@@ -48,6 +48,8 @@ class SignUpButton extends StatelessWidget {
                  const SizedBox(width: 18,),
                   Text(
                     buttonName,
+                    overflow: TextOverflow.fade,
+                    maxLines: 1,
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,

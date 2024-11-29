@@ -163,7 +163,7 @@
   "@hospitalDirections": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
-  "clearFilters": "ClearFilters",
+  "clearFilters": "Clear Filters",
   "@clearFilters": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },

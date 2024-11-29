@@ -39,7 +39,7 @@ class HospitalCard extends StatelessWidget {
       },
       child: SizedBox(
         // height: 500,
-        width: MediaQuery.of(context).size.width / 1.9,
+        width: 232,
         child: Card(
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -98,12 +98,17 @@ class HospitalCard extends StatelessWidget {
                           width: 18,
                         ),
                         const SizedBox(width: 4),
-                        Text(
-                          address,
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.hospitalLocationText,
+                        Padding(
+                          padding: const EdgeInsets.only(right: 12),
+                          child: Text(
+                            address,
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
+                            style: GoogleFonts.poppins(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.hospitalLocationText,
+                            ),
                           ),
                         ),
                       ],
@@ -140,15 +145,19 @@ class HospitalCard extends StatelessWidget {
                           glowColor: AppColors.searchScreenRating,
                           ignoreGestures: false,
                         ),
-                        const SizedBox(width: 4),
+                        const SizedBox(width: 2),
                         Text(
                           reviews,
+                          maxLines: 1,
+                          overflow: TextOverflow.fade,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
                             color: AppColors.hospitalLocationText,
                           ),
                         ),
+                        const SizedBox(width: 12),
+
                       ],
                     ),
                     const SizedBox(height: 8),
@@ -180,6 +189,8 @@ class HospitalCard extends StatelessWidget {
                         const SizedBox(width: 4,),
                         Text(
                           distanceText,
+                          maxLines: 1,
+                          overflow: TextOverflow.fade,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
@@ -200,6 +211,8 @@ class HospitalCard extends StatelessWidget {
                         const SizedBox(width: 4,),
                         Text(
                           hospitalText,
+                          maxLines: 1,
+                          overflow: TextOverflow.fade,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
