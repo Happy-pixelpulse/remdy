@@ -21,7 +21,6 @@ class _SortAndFilterState extends State<SortAndFilter> {
     '3 / 2 star',
     '1star',
   ];
-  SortOptions? _selectedOption;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ class _SortAndFilterState extends State<SortAndFilter> {
               ),
               SizedBox(
                 height: 43,
-                width: 98,
+                width: 100,
                 child: Card(
                   elevation: 0,
                   color: AppColors.secondary,
@@ -60,7 +59,7 @@ class _SortAndFilterState extends State<SortAndFilter> {
                                     topRight: Radius.circular(20)),
                                 color: AppColors.secondary,
                               ),
-                              child:  const SortBy(),
+                              child: const SortBy(),
                             );
                           });
                     },

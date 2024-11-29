@@ -132,17 +132,20 @@ class _HospitalState extends State<Hospital> {
               itemCount: hospital.length,
               itemBuilder: (context, index) {
                 final hospitals = hospital[index];
-                return HospitalList(
-                  hospitalImage: hospitals["hospitalImage"],
-                  hospitalName: hospitals["hospitalName"],
-                  address: hospitals["address"],
-                  rating: hospitals["rating"],
-                  isLiked: hospitals["is_liked"],
-                  reviews: hospitals["reviews"],
-                  chart: hospitals["chart"],
-                  waitingTime: hospitals["waitingTime"],
-                  hospitalText: hospitals["hospitalText"],
-                  distanceText: hospitals["distanceText"],
+                return Padding(
+                  padding: const EdgeInsets.only(left: 17,right: 17,bottom: 12),
+                  child: HospitalList(
+                    hospitalImage: hospitals["hospitalImage"],
+                    hospitalName: hospitals["hospitalName"],
+                    address: hospitals["address"],
+                    rating: hospitals["rating"],
+                    isLiked: hospitals["is_liked"],
+                    reviews: hospitals["reviews"],
+                    chart: hospitals["chart"],
+                    waitingTime: hospitals["waitingTime"],
+                    hospitalText: hospitals["hospitalText"],
+                    distanceText: hospitals["distanceText"],
+                  ),
                 );
               },
             ),

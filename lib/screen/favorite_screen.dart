@@ -14,91 +14,97 @@ class FavoriteScreen extends StatefulWidget {
 }
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
-  final Map<String, dynamic> doctors =
-    {
-      "imagePath":
-      "https://static.vecteezy.com/system/resources/previews/027/186/029/large_2x/smiling-male-doctor-with-good-test-results-wearing-a-white-coat-and-stethoscope-looking-into-camera-on-isolated-white-background-copy-space-for-health-free-photo.jpg",
-      "name": "Yong Gon Kim",
-      "specialty": "Lab technician",
-      "patients": "Accepting Patients",
-      "rating": "4.8",
-      "is_liked": false,
-      "is_available": true
-    };
-  final Map<String, dynamic> hospital =
-    {
-      "hospitalImage":
-      "https://static.vecteezy.com/system/resources/previews/029/278/288/non_2x/ideal-healthcare-background-with-surrealist-blurry-hospital-scene-ai-generative-free-photo.jpg",
-      "hospitalName": "Saskatoon City Hospital",
-      "is_liked": true,
-      "address": "701 Queen St, Saskatoon",
-      "chart": "35%",
-      "waitingTime": "Estimated Wait Time : 00:30 hrs",
-      "rating": "4.8",
-      "reviews": "(58 Reviews)",
-      // "distanceImage":"",
-      "distanceText": "2.5 km/40min",
-      "hospitalText": "Hospital",
-    };
+  final Map<String, dynamic> doctors = {
+    "imagePath":
+        "https://static.vecteezy.com/system/resources/previews/027/186/029/large_2x/smiling-male-doctor-with-good-test-results-wearing-a-white-coat-and-stethoscope-looking-into-camera-on-isolated-white-background-copy-space-for-health-free-photo.jpg",
+    "name": "Yong Gon Kim",
+    "specialty": "Lab technician",
+    "patients": "Accepting Patients",
+    "rating": "4.8",
+    "is_liked": false,
+    "is_available": true
+  };
+  final Map<String, dynamic> hospital = {
+    "hospitalImage":
+        "https://static.vecteezy.com/system/resources/previews/029/278/288/non_2x/ideal-healthcare-background-with-surrealist-blurry-hospital-scene-ai-generative-free-photo.jpg",
+    "hospitalName": "Saskatoon City Hospital",
+    "is_liked": true,
+    "address": "701 Queen St, Saskatoon",
+    "chart": "35%",
+    "waitingTime": "Estimated Wait Time : 00:30 hrs",
+    "rating": "4.8",
+    "reviews": "(58 Reviews)",
+    // "distanceImage":"",
+    "distanceText": "2.5 km/40min",
+    "hospitalText": "Hospital",
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.backgroundColor,
-      appBar: AppBar(
-        flexibleSpace: FlexibleSpaceBar(
-            background: Image.asset(
-              'assets/rectangle_appbar_bg.png',
-              fit: BoxFit.fill,
-            )),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(Icons.arrow_back),
-          color: AppColors.secondary,
-        ),
-        title: Text(
-          context.getLocalization()?.favorite??'',
-          style: GoogleFonts.poppins(
-            fontSize: 20,
-            fontWeight: FontWeight.w400,
-            color: AppColors.secondary,
+        appBar: AppBar(
+          flexibleSpace: FlexibleSpaceBar(
+              background: Image.asset(
+            'assets/rectangle_appbar_bg.png',
+            fit: BoxFit.fill,
+          )),
+          // leading: IconButton(
+          //   onPressed: () {
+          //     Navigator.pop(context);
+          //   },
+          //   icon: const Icon(Icons.arrow_back),
+          //   color: AppColors.secondary,
+          // ),
+          title: Text(
+            context.getLocalization()?.favorite ?? '',
+            style: GoogleFonts.poppins(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: AppColors.secondary,
+            ),
           ),
+          centerTitle: true,
+          toolbarHeight: 70,
         ),
-        centerTitle: true,
-        toolbarHeight: 70,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-      DoctorListItem(
-      imagePath: doctors['imagePath'],
-        doctorName: doctors['name'],
-        specialty: doctors['specialty'],
-        patients: doctors['patients'],
-        rating:doctors['rating'],
-        isLiked: doctors['is_liked'],
-        isAvailable: doctors['is_available'],
-      ),
-          const SizedBox(height: 15,),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: HospitalList(
-          hospitalImage: hospital["hospitalImage"],
-          hospitalName: hospital["hospitalName"],
-          address: hospital["address"],
-          rating: hospital["rating"],
-          isLiked: hospital["is_liked"],
-          reviews: hospital["reviews"],
-          chart: hospital["chart"],
-          waitingTime: hospital["waitingTime"],
-          hospitalText: hospital["hospitalText"],
-          distanceText: hospital["distanceText"],
-        ),
-      ),
-        ],
-      )
-    );
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 18,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16,right: 16),
+              child: DoctorListItem(
+                imagePath: doctors['imagePath'],
+                doctorName: doctors['name'],
+                specialty: doctors['specialty'],
+                patients: doctors['patients'],
+                rating: doctors['rating'],
+                isLiked: doctors['is_liked'],
+                isAvailable: doctors['is_available'],
+              ),
+            ),
+            const SizedBox(
+              height: 7,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 17,right: 17),
+              child: HospitalList(
+                hospitalImage: hospital["hospitalImage"],
+                hospitalName: hospital["hospitalName"],
+                address: hospital["address"],
+                rating: hospital["rating"],
+                isLiked: hospital["is_liked"],
+                reviews: hospital["reviews"],
+                chart: hospital["chart"],
+                waitingTime: hospital["waitingTime"],
+                hospitalText: hospital["hospitalText"],
+                distanceText: hospital["distanceText"],
+              ),
+            ),
+          ],
+        ));
   }
 }

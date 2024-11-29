@@ -6,6 +6,7 @@ import '../utils/colors.dart';
 class ClinicCard extends StatelessWidget {
   final String clinicImage;
   final String clinicName;
+
   // final String address;
   // final String rating;
   // final String reviews;
@@ -14,7 +15,7 @@ class ClinicCard extends StatelessWidget {
   // final bool isLiked;
 
   const ClinicCard({
-    super.key, 
+    super.key,
     required this.clinicImage,
     required this.clinicName,
     // required this.hospitalName,
@@ -29,9 +30,9 @@ class ClinicCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   SizedBox(
-      height: 209,
-      width: 232,
+    return SizedBox(
+      // height: 209,
+      width: MediaQuery.of(context).size.width / 1.9,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
@@ -53,9 +54,11 @@ class ClinicCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left:12,top:8),
+              padding: const EdgeInsets.only(left: 12, top: 8),
               child: Text(
                 clinicName,
+                maxLines: 1,
+                overflow: TextOverflow.fade,
                 style: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
