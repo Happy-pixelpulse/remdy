@@ -14,7 +14,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     on<GoogleSignInEvent>((event, emit) async {
       const url = 'http://184.169.211.131:3000/api/v1/auth/signInWithGoogle';
       final uri = Uri.parse(url);
-      // debugPrint("token==================>>>>>>>>>>>>>  ${event.signInRequest.googleToken}");
+      debugPrint("token==================>>>>>>>>>>>>>  ${event.signInRequest.googleToken}");
       final response = await http.post(uri, body: event.signInRequest.toJson().toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         SignInResponse signInResponse =

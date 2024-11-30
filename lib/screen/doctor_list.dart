@@ -147,7 +147,7 @@ class _DoctorListState extends State<DoctorList> {
               )
             ],
           ),
-          
+
           const SortAndFilter(),
           const SizedBox(
             height: 3,

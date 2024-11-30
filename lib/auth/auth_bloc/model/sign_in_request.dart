@@ -1,4 +1,3 @@
-
 class SignInRequest {
   final String googleToken;
   final String imeiNumber;

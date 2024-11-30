@@ -28,9 +28,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final GoogleSignIn googleSignIn = GoogleSignIn();
     final GoogleSignInAccount? googleSignInAccount =
         await googleSignIn.signIn();
-    if (googleSignInAccount != null) {
+
       final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount.authentication;
+          await googleSignInAccount!.authentication;
       final AuthCredential authCredential = GoogleAuthProvider.credential(
         idToken: googleSignInAuthentication.idToken,
         accessToken: googleSignInAuthentication.accessToken,
@@ -46,7 +46,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               _userCredential?.user?.refreshToken ?? '',
               imeiNumber: '12334444')));
 
-    }
   }
 
   late SignInBloc _signInBloc;
@@ -110,8 +109,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 SignUpButton(
                   onPressed: () async {
-                    // fetchUser();
-                    await signInWithGoogle(context);
+                    Navigator.pushReplacement(
+                        context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+                    // await signInWithGoogle(context);
                   },
                   imageName: 'assets/google.png',
                   buttonName: context.getLocalization()?.buttonName1 ?? '',

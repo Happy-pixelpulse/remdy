@@ -87,15 +87,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ],
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Stack(children: [
+                  Positioned(
+                    top: MediaQuery.of(context).size.height/5.9,
+                    left: MediaQuery.of(context).size.width/2.9,
+                    child: Stack(
+                        children: [
                       Container(
-                        height:131,
-                        width: 131,
+                        height: 111,
+                        width: 111,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(80),
-                            boxShadow:const  [
+                            boxShadow: const [
                               BoxShadow(
                                   color: AppColors.profileRadius,
                                   blurRadius: 4,
@@ -107,7 +109,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 97, left: 88),
+                        padding: EdgeInsets.only(top: 70, left: 82),
                         child: Icon(
                           Icons.add,
                           color: AppColors.signText1,
@@ -178,23 +180,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         padding: EdgeInsets.only(left: 17, right: 17),
                         child: TextField(
                             keyboardType: TextInputType.phone,
-                          decoration: InputDecoration(
-                            suffixText: "Change",
-                            suffixStyle: TextStyle(color: AppColors.waring1),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
+                            decoration: InputDecoration(
+                              suffixText: "Change",
+                              suffixStyle: TextStyle(color: AppColors.waring1),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
                               ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                            ),
-                            labelText: "Mobile",
-                            labelStyle: TextStyle(
-                                color: AppColors.signUpTextButtonRadius),
-                          )
-                        ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                              ),
+                              labelText: "Mobile",
+                              labelStyle: TextStyle(
+                                  color: AppColors.signUpTextButtonRadius),
+                            )),
                       )),
                   const SizedBox(
                     height: 11,

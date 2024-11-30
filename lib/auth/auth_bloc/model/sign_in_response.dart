@@ -1,7 +1,7 @@
 class SignInResponse {
-  final String message;
-  final String token;
-  final User user;
+  final String? message;
+  final String? token;
+  final User? user;
 
   SignInResponse({
     required this.message,
@@ -18,10 +18,10 @@ class SignInResponse {
 }
 
 class User {
-  final String id;
-  final String email;
-  final String name;
-  final String profilePicture;
+  final String? id;
+  final String? email;
+  final String? name;
+  final String? profilePicture;
 
   User(
       {required this.id,

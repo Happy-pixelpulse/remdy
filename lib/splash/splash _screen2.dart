@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:remdy/utils/colors.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -12,7 +13,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(62, 148, 82, 1),
+        backgroundColor:AppColors.primary,
         body: Center(
           child: Stack(
             children: [
