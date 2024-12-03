@@ -26,26 +26,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Future<void> signInWithGoogle(BuildContext context) async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
-    final GoogleSignInAccount? googleSignInAccount =
-        await googleSignIn.signIn();
-
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount!.authentication;
-      final AuthCredential authCredential = GoogleAuthProvider.credential(
-        idToken: googleSignInAuthentication.idToken,
-        accessToken: googleSignInAuthentication.accessToken,
-      );
-      _userCredential = await auth.signInWithCredential(authCredential);
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString(
-          'idToken', googleSignInAuthentication.idToken ?? '');
-      await prefs.setString('Uid', _userCredential?.user?.uid ?? '');
-      _signInBloc.add(GoogleSignInEvent(
-          signInRequest: SignInRequest(
-              googleToken:
-              _userCredential?.user?.refreshToken ?? '',
-              imeiNumber: '12334444')));
-
+    final prefs = await SharedPreferences.getInstance();
+    bool reAuthenticate = (prefs.getString('idToken') != null &&
+            (prefs.getString('idToken') ?? '').isNotEmpty)
+        ? false
+        : true;
+     GoogleSignInAccount? googleSignInAccount = await googleSignIn
+        .signInSilently(reAuthenticate: reAuthenticate);
+    googleSignInAccount ??= await googleSignIn
+          .signIn();
+    final GoogleSignInAuthentication? googleSignInAuthentication =
+        await googleSignInAccount?.authentication;
+    final AuthCredential authCredential = GoogleAuthProvider.credential(
+      idToken: googleSignInAuthentication?.idToken,
+      accessToken: googleSignInAuthentication?.accessToken,
+    );
+    _userCredential = await auth.signInWithCredential(authCredential);
+    debugPrint("token ======= >>>>>>>>>>>> ${googleSignInAuthentication?.idToken}");
+    await prefs.setString('idToken', googleSignInAuthentication?.idToken ?? '');
+    await prefs.setString('Uid', _userCredential?.user?.uid ?? '');
+    _signInBloc.add(GoogleSignInEvent(
+        signInRequest: SignInRequest(
+            googleToken: googleSignInAuthentication?.idToken ?? '',
+            imeiNumber: '12334444')));
   }
 
   late SignInBloc _signInBloc;
@@ -62,10 +65,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
       backgroundColor: AppColors.backgroundColor,
       body: BlocListener<SignInBloc, SignInState>(
         listener: (context, state) {
-          if(state is GoogleSignInResponseState){
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => const HomeScreen()));
-          }else if(state is GoogleSignInErrorState){
+          if (state is GoogleSignInResponseState) {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()));
+          } else if (state is GoogleSignInErrorState) {
             debugPrint(state.error);
           }
         },
@@ -109,9 +112,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 SignUpButton(
                   onPressed: () async {
-                    Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (context) => const HomeScreen()));
-                    // await signInWithGoogle(context);
+                    // Navigator.pushReplacement(
+                    //     context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+                    await signInWithGoogle(context);
                   },
                   imageName: 'assets/google.png',
                   buttonName: context.getLocalization()?.buttonName1 ?? '',

@@ -88,10 +88,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Positioned(
-                    top: MediaQuery.of(context).size.height/5.9,
-                    left: MediaQuery.of(context).size.width/2.9,
-                    child: Stack(
-                        children: [
+                    top: MediaQuery.of(context).size.height / 5.9,
+                    left: MediaQuery.of(context).size.width / 2.9,
+                    child: Stack(children: [
                       Container(
                         height: 111,
                         width: 111,

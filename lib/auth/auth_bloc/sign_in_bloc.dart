@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -15,7 +16,9 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       const url = 'http://184.169.211.131:3000/api/v1/auth/signInWithGoogle';
       final uri = Uri.parse(url);
       debugPrint("token==================>>>>>>>>>>>>>  ${event.signInRequest.googleToken}");
-      final response = await http.post(uri, body: event.signInRequest.toJson().toString());
+      final response = await http.post(uri,
+          body: event.signInRequest.toJson(),
+          );
       if (response.statusCode == 200 || response.statusCode == 201) {
         SignInResponse signInResponse =
             SignInResponse.fromJson(jsonDecode(response.body));
