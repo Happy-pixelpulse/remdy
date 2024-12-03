@@ -2,9 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:location/location.dart';
 import 'package:remdy/extensions/localization_extension.dart';
-import '../utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../utils/colors.dart';
 
 class HospitalDetails extends StatefulWidget {
   const HospitalDetails({super.key});
@@ -13,12 +15,31 @@ class HospitalDetails extends StatefulWidget {
   State<HospitalDetails> createState() => _HospitalDetailsState();
 }
 
+Location location = Location();
+
 _launchMaps() async {
+  bool _serviceEnabled;
+  PermissionStatus _permissionGranted;
+  LocationData _locationData;
+
+  _serviceEnabled = await location.serviceEnabled();
+  if (!_serviceEnabled) {
+    _serviceEnabled = await location.requestService();
+    if (!_serviceEnabled) {
+      return;
+    }
+  }
+  _permissionGranted = await location.hasPermission();
+  if (_permissionGranted == PermissionStatus.denied) {
+    _permissionGranted = await location.requestPermission();
+    if (_permissionGranted != PermissionStatus.granted) {
+      return;
+    }
+  }
+  _locationData = await location.getLocation();
   String googleUrl =
-  'https://www.google.com/maps/search/?api=1&query=23.0210323,72.6373944';
-      // "comgooglemaps://?center=23.0096896,72.6269952";
-  String appleUrl =
-      "https://maps.apple.com/?sll=23.0210323,72.6373944";
+      'https://www.google.com/maps/search/?api=1&query=${_locationData.latitude.toString()}, ${_locationData.longitude.toString()}';
+  String appleUrl = "https://maps.apple.com/?sll=23.0210323,72.6373944";
   if (await canLaunchUrl(Uri.parse(googleUrl))) {
     if (kDebugMode) {
       print('launching com googleUrl');
@@ -40,22 +61,25 @@ class _HospitalDetailsState extends State<HospitalDetails> {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       floatingActionButton: Stack(
-      alignment: Alignment.bottomRight,
-      children: [
-        SizedBox(
-        height: 65,
-        width: 65,
-        child: FloatingActionButton(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-          onPressed: () {
-          },
-          backgroundColor: AppColors.primary,
-          tooltip: 'Phone',
-          child: const Icon(Icons.phone,color: AppColors.secondary,),
-        ),
-                ),
-      ],
-    ),
+        alignment: Alignment.bottomRight,
+        children: [
+          SizedBox(
+            height: 65,
+            width: 65,
+            child: FloatingActionButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25)),
+              onPressed: () {},
+              backgroundColor: AppColors.primary,
+              tooltip: 'Phone',
+              child: const Icon(
+                Icons.phone,
+                color: AppColors.secondary,
+              ),
+            ),
+          ),
+        ],
+      ),
       appBar: AppBar(
         backgroundColor: AppColors.backgroundColor,
         leading: IconButton(
@@ -67,8 +91,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
         actions: [
           IconButton(
             icon: const Icon(Icons.more_vert),
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
         ],
         elevation: 0,
@@ -79,7 +102,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 9,),
+              const SizedBox(
+                height: 9,
+              ),
               Container(
                 height: 213,
                 width: MediaQuery.of(context).size.width,
@@ -100,18 +125,17 @@ class _HospitalDetailsState extends State<HospitalDetails> {
               Text(
                 "Saskatoon City Hospital",
                 style: GoogleFonts.poppins(
-                  fontSize: 16,
+                    fontSize: 16,
                     fontWeight: FontWeight.w700,
-                    color: AppColors.hospitalText
-                ),
+                    color: AppColors.hospitalText),
               ),
               const SizedBox(height: 8),
               Text(
                 'Explore care at Hospital Center at Orange in Orange, NJ, and compare its services, physicians, and hospital ratings on Healthgrades. Find the best healthcare options for your needs, all in one place.',
                 style: GoogleFonts.poppins(
                   fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.reviewText,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.reviewText,
                 ),
               ),
               const SizedBox(height: 16),
@@ -127,13 +151,12 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         minimumSize: const Size(98, 43),
                       ),
                       onPressed: () {},
-                      child:  Text(
-                        context.getLocalization()?.hospitalDetailsButton1??'',
+                      child: Text(
+                        context.getLocalization()?.hospitalDetailsButton1 ?? '',
                         style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
-                            color: AppColors.signText1.withOpacity(0.70)
-                        ),
+                            color: AppColors.signText1.withOpacity(0.70)),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -142,34 +165,15 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         backgroundColor: AppColors.secondary,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
-                        minimumSize: const Size(143 , 43),
+                        minimumSize: const Size(143, 43),
                       ),
                       onPressed: () {},
-                      child:  Text(
-                        context.getLocalization()?.hospitalDetailsButton2??'',
+                      child: Text(
+                        context.getLocalization()?.hospitalDetailsButton2 ?? '',
                         style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
-                            color: AppColors.signText1.withOpacity(0.70)
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.secondary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        minimumSize: const Size(87, 43),
-                      ),
-                      onPressed: () {},
-                      child:  Text(
-                        context.getLocalization()?.hospitalDetailsButton3??'',
-                        style: GoogleFonts.poppins(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.signText1.withOpacity(0.70)
-                        ),
+                            color: AppColors.signText1.withOpacity(0.70)),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -181,28 +185,47 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         minimumSize: const Size(87, 43),
                       ),
                       onPressed: () {},
-                      child:  Text(
-                        context.getLocalization()?.hospitalDetailsButton4??'',
+                      child: Text(
+                        context.getLocalization()?.hospitalDetailsButton3 ?? '',
                         style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
-                            color: AppColors.signText1.withOpacity(0.70)
-                        ),
+                            color: AppColors.signText1.withOpacity(0.70)),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.secondary,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        minimumSize: const Size(87, 43),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        context.getLocalization()?.hospitalDetailsButton4 ?? '',
+                        style: GoogleFonts.poppins(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.signText1.withOpacity(0.70)),
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 12,),
+              const SizedBox(
+                height: 12,
+              ),
               Text(
                 'Quick Facts',
                 style: GoogleFonts.poppins(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.drNameText
-                ),
+                    color: AppColors.drNameText),
               ),
-              const SizedBox(height: 11,),
+              const SizedBox(
+                height: 11,
+              ),
               Column(
                 children: [
                   Row(
@@ -264,7 +287,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   ),
                 ],
               ),
-              const SizedBox(height: 12,),
+              const SizedBox(
+                height: 12,
+              ),
               SizedBox(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -274,14 +299,15 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                       style: GoogleFonts.poppins(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.drNameText
-                      ),
+                          color: AppColors.drNameText),
                     ),
-                    const SizedBox(height: 5,),
+                    const SizedBox(
+                      height: 5,
+                    ),
                     Column(
                       children: [
                         GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             _launchMaps();
                           },
                           child: Image.network(
@@ -291,7 +317,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        const SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -304,7 +332,8 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                               ),
                             ),
                             Text(
-                              context.getLocalization()?.hospitalDirections ?? '',
+                              context.getLocalization()?.hospitalDirections ??
+                                  '',
                               style: GoogleFonts.poppins(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
@@ -315,11 +344,15 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         ),
                       ],
                     ),
-
-                    const Divider(thickness: 1,),
+                    const Divider(
+                      thickness: 1,
+                    ),
                     Row(
                       children: [
-                        Image.asset('assets/map-pin.png',color: AppColors.signText1,),
+                        Image.asset(
+                          'assets/map-pin.png',
+                          color: AppColors.signText1,
+                        ),
                         const SizedBox(
                           width: 10,
                         ),
@@ -336,7 +369,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   ],
                 ),
               ),
-              const SizedBox(height: 15,),
+              const SizedBox(
+                height: 15,
+              ),
               Text(
                 'Insurance Plans Accepted',
                 style: GoogleFonts.poppins(
@@ -356,23 +391,25 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   color: AppColors.reviewText,
                 ),
               ),
-              const SizedBox(height: 12,),
+              const SizedBox(
+                height: 12,
+              ),
               Text(
                 'Hospital Quality',
                 style: GoogleFonts.poppins(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.drNameText
-                ),
+                    color: AppColors.drNameText),
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               Text(
                 'Clinical Ratings',
                 style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
-                    color: AppColors.reviewText
-                ),
+                    color: AppColors.reviewText),
               ),
               Text(
                 "Research hospital performance and talk to your\ndoctor about what's right for you",
@@ -382,9 +419,10 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   color: AppColors.reviewText,
                 ),
               ),
-              const SizedBox(height: 12,),
+              const SizedBox(
+                height: 12,
+              ),
               Container(
-
                 height: 372,
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(1)),
@@ -392,7 +430,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 7,),
+                    const SizedBox(
+                      height: 7,
+                    ),
                     Text(
                       'Sunrise Health Clinic',
                       style: GoogleFonts.poppins(
@@ -456,7 +496,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 12,),
+                    const SizedBox(
+                      height: 12,
+                    ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 40),
@@ -466,7 +508,8 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                       ),
                       onPressed: () {},
                       child: Text(
-                        context.getLocalization()?.doctorDetailsReviewButton??'',
+                        context.getLocalization()?.doctorDetailsReviewButton ??
+                            '',
                         style: GoogleFonts.poppins(
                           fontSize: 17,
                           fontWeight: FontWeight.w600,
@@ -484,11 +527,14 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                           border: Border.all(
                               color: AppColors.signText1.withOpacity(0.13),
                               width: 2),
-                          borderRadius: const BorderRadius.all(Radius.circular(15)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(15)),
                           color: AppColors.secondary),
                       child: Row(
                         children: [
-                          const SizedBox(width: 11,),
+                          const SizedBox(
+                            width: 11,
+                          ),
                           Center(
                             child: Text(
                               'Sort Most recent',
@@ -499,7 +545,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                               ),
                             ),
                           ),
-                          const SizedBox(width: 11,),
+                          const SizedBox(
+                            width: 11,
+                          ),
                           SizedBox(
                               height: 24,
                               width: 24,
@@ -512,7 +560,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 12,),
+                    const SizedBox(
+                      height: 12,
+                    ),
                     Text(
                       'Comments',
                       style: GoogleFonts.poppins(
@@ -521,7 +571,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                         color: AppColors.reviewText,
                       ),
                     ),
-                    const SizedBox(height: 6,),
+                    const SizedBox(
+                      height: 6,
+                    ),
                     RatingBar.builder(
                       maxRating: 5,
                       direction: Axis.horizontal,
@@ -543,7 +595,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                       glowColor: Colors.amber.withOpacity(0.5),
                       ignoreGestures: false,
                     ),
-                    const SizedBox(height: 6,),
+                    const SizedBox(
+                      height: 6,
+                    ),
                     Text(
                       'April 21st , 2024',
                       style: GoogleFonts.poppins(
