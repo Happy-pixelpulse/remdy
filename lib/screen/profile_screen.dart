@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:remdy/extensions/localization_extension.dart';
+import 'package:remdy/screen/widgets/image_pic.dart';
 
 import '../utils/colors.dart';
 
@@ -14,7 +18,50 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   List<String> options = <String>['Male', 'Female', 'Other'];
   String dropdownValue = 'Male';
+  File? _profileImage;
+  void _showImagePickerDialog() async {
+    final pickerService = ImagePickerService();
 
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Choose Image Source"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text("Gallery"),
+                onTap: () async {
+                  final image = await pickerService.pickImage(ImageSource.gallery);
+                  if (image != null) {
+                    setState(() {
+                      _profileImage = image;
+                    });
+                  }
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.camera_alt),
+                title: const Text("Camera"),
+                onTap: () async {
+                  final image = await pickerService.pickImage(ImageSource.camera);
+                  if (image != null) {
+                    setState(() {
+                      _profileImage = image;
+                    });
+                  }
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,17 +149,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   blurRadius: 4,
                                   offset: Offset(0, 4))
                             ]),
-                        child: const CircleAvatar(
+                        child:  CircleAvatar(
                           radius: 60,
-                          backgroundImage: AssetImage('assets/profilpic.png'),
+                          backgroundImage: _profileImage != null
+                              ? FileImage(_profileImage!)
+                              : const AssetImage('assets/profilpic.png')
+                          as ImageProvider,
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(top: 70, left: 82),
-                        child: Icon(
-                          Icons.add,
-                          color: AppColors.signText1,
-                          size: 35,
+                       Padding(
+                        padding:const EdgeInsets.only(top: 70, left: 82),
+                        child: GestureDetector(
+                          onTap: _showImagePickerDialog,
+                          child: const Icon(
+                            Icons.add,
+                            color: AppColors.signText1,
+                            size: 35,
+                          ),
                         ),
                       )
                     ]),

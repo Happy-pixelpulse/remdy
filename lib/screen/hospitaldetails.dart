@@ -37,6 +37,7 @@ _launchMaps() async {
     }
   }
   _locationData = await location.getLocation();
+  debugPrint('lat long===>>> ${_locationData.latitude.toString()}');
   String googleUrl =
       'https://www.google.com/maps/search/?api=1&query=${_locationData.latitude.toString()}, ${_locationData.longitude.toString()}';
   String appleUrl = "https://maps.apple.com/?sll=23.0210323,72.6373944";

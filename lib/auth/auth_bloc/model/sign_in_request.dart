@@ -1,3 +1,5 @@
+
+
 class SignInRequest {
   final String googleToken;
   final String imeiNumber;
@@ -7,8 +9,8 @@ class SignInRequest {
   SignInRequest({
     required this.googleToken,
     required this.imeiNumber,
-    this.latitude = "56.565654464",
-    this.longitude = "78.645654564",
+    required this.latitude ,
+    required this.longitude ,
   });
 
   Map<String, dynamic> toJson() => <String, dynamic>{

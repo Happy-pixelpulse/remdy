@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:location/location.dart';
 import 'package:lottie/lottie.dart';
 import 'package:remdy/auth/auth_bloc/sign_in_bloc.dart';
 import 'package:remdy/extensions/localization_extension.dart';
@@ -10,6 +11,7 @@ import 'package:remdy/screen/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../common_widgets/sign_up_button.dart';
+import '../screen/hospitaldetails.dart';
 import '../utils/colors.dart';
 import 'auth_bloc/model/sign_in_request.dart';
 
@@ -31,10 +33,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             (prefs.getString('idToken') ?? '').isNotEmpty)
         ? false
         : true;
-     GoogleSignInAccount? googleSignInAccount = await googleSignIn
-        .signInSilently(reAuthenticate: reAuthenticate);
-    googleSignInAccount ??= await googleSignIn
-          .signIn();
+    GoogleSignInAccount? googleSignInAccount =
+        await googleSignIn.signInSilently(reAuthenticate: reAuthenticate);
+    googleSignInAccount ??= await googleSignIn.signIn();
     final GoogleSignInAuthentication? googleSignInAuthentication =
         await googleSignInAccount?.authentication;
     final AuthCredential authCredential = GoogleAuthProvider.credential(
@@ -42,17 +43,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
       accessToken: googleSignInAuthentication?.accessToken,
     );
     _userCredential = await auth.signInWithCredential(authCredential);
-    debugPrint("token ======= >>>>>>>>>>>> ${googleSignInAuthentication?.idToken}");
+    LocationData _locationData;
+    _locationData = await location.getLocation();
+    debugPrint(
+        "token ======= >>>>>>>>>>>> ${_locationData.longitude.toString()} ${_locationData.latitude.toString()} ");
     await prefs.setString('idToken', googleSignInAuthentication?.idToken ?? '');
     await prefs.setString('Uid', _userCredential?.user?.uid ?? '');
     _signInBloc.add(GoogleSignInEvent(
         signInRequest: SignInRequest(
             googleToken: googleSignInAuthentication?.idToken ?? '',
-            imeiNumber: '12334444')));
+            imeiNumber: '12334444',
+            latitude: _locationData.latitude.toString(),
+            longitude: _locationData.longitude.toString())));
   }
-
   late SignInBloc _signInBloc;
-
   @override
   void initState() {
     super.initState();
