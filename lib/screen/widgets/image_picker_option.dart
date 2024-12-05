@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ImagePickerService {
+class ImagePickerOption {
   final ImagePicker _picker = ImagePicker();
 
   Future<File?> pickImage(ImageSource source) async {

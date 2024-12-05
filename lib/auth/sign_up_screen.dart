@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,6 +26,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   UserCredential? _userCredential;
   final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseMessaging fcm = FirebaseMessaging.instance;
 
   Future<void> signInWithGoogle(BuildContext context) async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -56,10 +58,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
             latitude: _locationData.latitude.toString(),
             longitude: _locationData.longitude.toString())));
   }
+
+  void pushNotification() async{
+ await fcm.requestPermission();
+ final token = await fcm.getToken();
+ debugPrint('token ====  >>>>$token');
+  }
+  // Future initialize() async {
+  //   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+  //     print('Got a message whilst in the foreground!');
+  //     print('Message data: ${message.data}');
+  //     if (message.notification != null) {
+  //       print('Message also contained a notification: ${message.notification}');
+  //     }
+  //   });
+  // }
+  //
+  // Future<String?> getToken() async {
+  //   String? token = await _fcm.getToken();
+  //   print('Token: $token');
+  //   return token;
+  // }
+
   late SignInBloc _signInBloc;
+
   @override
   void initState() {
     super.initState();
+    pushNotification();
     _signInBloc = BlocProvider.of<SignInBloc>(context);
   }
 
@@ -90,8 +116,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Align(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 38),
-                      child: Lottie.network(
-                          'https://lottie.host/6f3513d8-bd36-4976-8883-a5489e3b94b2/aKSSveQtS8.json'),
+                      child: Lottie.asset('assets/welcome.json'),
                     ),
                   ),
                 ),
@@ -125,7 +150,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 const SizedBox(height: 8),
                 SignUpButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    pushNotification();
+                  },
                   imageName: 'assets/apple.png',
                   buttonName: context.getLocalization()?.buttonName2 ?? '',
                 ),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:remdy/extensions/localization_extension.dart';
-import 'package:remdy/screen/widgets/image_pic.dart';
+import 'package:remdy/screen/widgets/image_picker_option.dart';
 
 import '../utils/colors.dart';
 
@@ -20,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String dropdownValue = 'Male';
   File? _profileImage;
   void _showImagePickerDialog() async {
-    final pickerService = ImagePickerService();
+    final pickerOption = ImagePickerOption();
 
     await showDialog(
       context: context,
@@ -34,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 leading: const Icon(Icons.photo_library),
                 title: const Text("Gallery"),
                 onTap: () async {
-                  final image = await pickerService.pickImage(ImageSource.gallery);
+                  final image = await pickerOption.pickImage(ImageSource.gallery);
                   if (image != null) {
                     setState(() {
                       _profileImage = image;
@@ -47,7 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 leading: const Icon(Icons.camera_alt),
                 title: const Text("Camera"),
                 onTap: () async {
-                  final image = await pickerService.pickImage(ImageSource.camera);
+                  final image = await pickerOption.pickImage(ImageSource.camera);
                   if (image != null) {
                     setState(() {
                       _profileImage = image;
