@@ -7,6 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:location/location.dart';
 import 'package:lottie/lottie.dart';
 import 'package:remdy/auth/auth_bloc/sign_in_bloc.dart';
+import 'package:remdy/common_widgets/progress_dialog_box.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,6 +28,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   UserCredential? _userCredential;
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseMessaging fcm = FirebaseMessaging.instance;
+
 
   Future<void> signInWithGoogle(BuildContext context) async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -59,26 +61,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             longitude: _locationData.longitude.toString())));
   }
 
-  void pushNotification() async{
- await fcm.requestPermission();
- final token = await fcm.getToken();
- debugPrint('token ====  >>>>$token');
+  void pushNotification() async {
+    await fcm.requestPermission();
+    final token = await fcm.getToken();
+    debugPrint('token ====  >>>>$token');
   }
-  // Future initialize() async {
-  //   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-  //     print('Got a message whilst in the foreground!');
-  //     print('Message data: ${message.data}');
-  //     if (message.notification != null) {
-  //       print('Message also contained a notification: ${message.notification}');
-  //     }
-  //   });
-  // }
-  //
-  // Future<String?> getToken() async {
-  //   String? token = await _fcm.getToken();
-  //   print('Token: $token');
-  //   return token;
-  // }
 
   late SignInBloc _signInBloc;
 
@@ -95,10 +82,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
       backgroundColor: AppColors.backgroundColor,
       body: BlocListener<SignInBloc, SignInState>(
         listener: (context, state) {
-          if (state is GoogleSignInResponseState) {
+          if(state is SignInProgressState){
+            ProgressDialogBox.showLoaderDialog(context);
+          }
+         else if (state is GoogleSignInResponseState) {
+           Navigator.pop(context);
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const HomeScreen()));
           } else if (state is GoogleSignInErrorState) {
+            Navigator.pop(context);
             debugPrint(state.error);
           }
         },
@@ -141,9 +133,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 SignUpButton(
                   onPressed: () async {
-                    // Navigator.pushReplacement(
-                    //     context, MaterialPageRoute(builder: (context) => const HomeScreen()));
                     await signInWithGoogle(context);
+                    //SignInRequestState();
                   },
                   imageName: 'assets/google.png',
                   buttonName: context.getLocalization()?.buttonName1 ?? '',
@@ -151,7 +142,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(height: 8),
                 SignUpButton(
                   onPressed: () {
-                    pushNotification();
+                    // pushNotification();
+                    ProgressDialogBox.showLoaderDialog(context);
                   },
                   imageName: 'assets/apple.png',
                   buttonName: context.getLocalization()?.buttonName2 ?? '',
