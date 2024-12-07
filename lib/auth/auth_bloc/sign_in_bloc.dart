@@ -19,12 +19,12 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     on<GoogleSignInEvent>((event, emit) async {
       const url = 'http://184.169.211.131:3000/api/v1/auth/signInWithGoogle';
       final uri = Uri.parse(url);
-      debugPrint(
-          "token==================>>>>>>>>>>>>>  ${event.signInRequest.googleToken}");
+      // debugPrint(
+      //     "token==================>>>>>>>>>>>>>  ${event.signInRequest.googleToken}");
       emit(SignInProgressState());
       final GoogleSignIn googleSignIn = GoogleSignIn();
       final prefs = await SharedPreferences.getInstance();
-      UserCredential? _userCredential;
+      UserCredential? userCredential;
       Location location = Location();
       final FirebaseAuth auth = FirebaseAuth.instance;
       bool reAuthenticate = (prefs.getString('idToken') != null &&
@@ -40,21 +40,21 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         idToken: googleSignInAuthentication?.idToken,
         accessToken: googleSignInAuthentication?.accessToken,
       );
-      _userCredential = await auth.signInWithCredential(authCredential);
-      LocationData _locationData;
-      _locationData = await location.getLocation();
+      userCredential = await auth.signInWithCredential(authCredential);
+      LocationData locationData;
+      locationData = await location.getLocation();
       debugPrint(
-          "token ======= >>>>>>>>>>>> ${_locationData.longitude.toString()} ${_locationData.latitude.toString()} ");
+          "token ======= >>>>>>>>>>>> ${locationData.longitude.toString()} ${locationData.latitude.toString()} ");
       await prefs.setString(
           'idToken', googleSignInAuthentication?.idToken ?? '');
-      await prefs.setString('Uid', _userCredential.user?.uid ?? '');
+      await prefs.setString('Uid', userCredential.user?.uid ?? '');
       final response = await http.post(
         uri,
         body: SignInRequest(
                 googleToken: googleSignInAuthentication?.idToken ?? '',
                 imeiNumber: '12334444',
-                latitude: _locationData.latitude.toString(),
-                longitude: _locationData.longitude.toString())
+                latitude: locationData.latitude.toString(),
+                longitude: locationData.longitude.toString())
             .toJson(),
       );
       emit(SignInRequestState());
