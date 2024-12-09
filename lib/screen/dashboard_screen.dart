@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/bloc/patient_location_bloc/patient_location_bloc.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/profile_screen.dart';
-
 import '../common_widgets/doctor_card.dart';
 import '../utils/colors.dart';
 import 'advance_search.dart';
@@ -93,13 +92,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
   ];
   late PatientLocationBloc _patientLocationBloc;
-
+  // List<PatientLocationResponse> patientsLocationResponse =[];
   @override
   void initState() {
     super.initState();
     _patientLocationBloc = BlocProvider.of<PatientLocationBloc>(context);
     _patientLocationBloc.add(PatientLocation());
   }
+  // List<PatientLocationResponse> Patient(dynamic responseBody) {
+  //   final parsed =
+  //   (responseBody as List).cast<Map<String, dynamic>>();
+  //   return parsed.map<PatientLocationResponse>((json) => PatientLocationResponse.fromJson(json)).toList();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -531,8 +535,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
+                        // ('${Patient}'),
                           context.getLocalization()?.location ?? '',
-                          // 'Barrie',
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w800,
@@ -542,7 +546,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         const SizedBox(height: 2),
                         Text(
                           context.getLocalization()?.country ?? '',
-                          // 'Ontario, Canada',
                           style: GoogleFonts.poppins(
                             fontSize: 13,
                             fontWeight: FontWeight.w400,

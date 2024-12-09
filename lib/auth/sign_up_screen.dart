@@ -3,19 +3,14 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:location/location.dart';
 import 'package:lottie/lottie.dart';
 import 'package:remdy/auth/auth_bloc/sign_in_bloc.dart';
 import 'package:remdy/common_widgets/progress_dialog_box.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../common_widgets/sign_up_button.dart';
-import '../screen/hospitaldetails.dart';
 import '../utils/colors.dart';
-import 'auth_bloc/model/sign_in_request.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -28,7 +23,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   UserCredential? _userCredential;
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseMessaging fcm = FirebaseMessaging.instance;
-
 
   // Future<void> signInWithGoogle() async {
   //   final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -82,11 +76,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
       backgroundColor: AppColors.backgroundColor,
       body: BlocListener<SignInBloc, SignInState>(
         listener: (context, state) {
-          if(state is SignInProgressState){
+          if (state is SignInProgressState) {
             ProgressDialogBox.showLoaderDialog(context);
-          }
-         else if (state is GoogleSignInResponseState) {
-           Navigator.pop(context);
+          } else if (state is GoogleSignInResponseState) {
+            Navigator.pop(context);
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const HomeScreen()));
           } else if (state is GoogleSignInErrorState) {
@@ -132,7 +125,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SignUpButton(
-                  onPressed: ()  {
+                  onPressed: () {
                     _signInBloc.add(GoogleSignInEvent());
                   },
                   imageName: 'assets/google.png',

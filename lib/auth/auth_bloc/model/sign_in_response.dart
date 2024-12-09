@@ -31,10 +31,10 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      email: json['email'] as String,
-      profilePicture: json['profile_picture'] as String,
+      id: json['id'] as String?,
+      name: json['name'] as String?,
+      email: json['email'] as String?,
+      profilePicture: json['profile_picture'] as String?,
     );
   }
 }

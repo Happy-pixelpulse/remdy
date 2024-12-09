@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:location/location.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,31 +15,29 @@ class HospitalDetails extends StatefulWidget {
   State<HospitalDetails> createState() => _HospitalDetailsState();
 }
 
-Location location = Location();
-
 _launchMaps() async {
-  bool _serviceEnabled;
-  PermissionStatus _permissionGranted;
-  LocationData _locationData;
-
-  _serviceEnabled = await location.serviceEnabled();
-  if (!_serviceEnabled) {
-    _serviceEnabled = await location.requestService();
-    if (!_serviceEnabled) {
-      return;
+  bool serviceEnabled;
+  LocationPermission permission;
+  serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  if (!serviceEnabled) {
+    return Future.error('Location services are disabled.');
+  }
+  permission = await Geolocator.checkPermission();
+  if (permission == LocationPermission.denied) {
+    permission = await Geolocator.requestPermission();
+    if (permission == LocationPermission.denied) {
+      return Future.error('Location permissions are denied');
     }
   }
-  _permissionGranted = await location.hasPermission();
-  if (_permissionGranted == PermissionStatus.denied) {
-    _permissionGranted = await location.requestPermission();
-    if (_permissionGranted != PermissionStatus.granted) {
-      return;
-    }
+  if (permission == LocationPermission.deniedForever) {
+    return Future.error(
+        'Location permissions are permanently denied, we cannot request permissions.');
   }
-  _locationData = await location.getLocation();
-  debugPrint('lat long===>>> ${_locationData.latitude.toString()}');
+  Position position = await Geolocator.getCurrentPosition();
+  double latitude = position.latitude;
+  double longitude = position.longitude;
   String googleUrl =
-      'https://www.google.com/maps/search/?api=1&query=${_locationData.latitude.toString()}, ${_locationData.longitude.toString()}';
+      'https://www.google.com/maps/search/?api=1&query=${latitude.toString()}, ${longitude.toString()}';
   String appleUrl = "https://maps.apple.com/?sll=23.0210323,72.6373944";
   if (await canLaunchUrl(Uri.parse(googleUrl))) {
     if (kDebugMode) {

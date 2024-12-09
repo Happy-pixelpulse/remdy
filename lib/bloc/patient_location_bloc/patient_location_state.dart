@@ -3,7 +3,7 @@ part of 'patient_location_bloc.dart';
 abstract class PatientLocationState {}
 
 final class PatientLocationInitial extends PatientLocationState {}
-
+class PatientLocationRequestState extends PatientLocationState{}
 class PatientLocationResponseState extends PatientLocationState {
   PatientLocationResponse patientLocationResponse;
 
@@ -15,4 +15,6 @@ class PatientLocationErrorState extends PatientLocationState {
 
   PatientLocationErrorState({required this.error});
 }
-class PatientLocationRequestState extends PatientLocationState{}
+
+class PatientLocationSuccessState extends PatientLocationState{}
+

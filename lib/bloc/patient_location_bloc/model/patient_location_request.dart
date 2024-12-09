@@ -3,7 +3,7 @@ class PatientLocationRequest {
   final String longitude;
   final String address;
   final String city;
-  final int userId;
+  final String userId;
 
   PatientLocationRequest(
       {required this.latitude,
