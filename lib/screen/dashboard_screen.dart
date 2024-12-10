@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:remdy/bloc/internet_connection_bloc/internet_connection_bloc.dart';
 import 'package:remdy/bloc/patient_location_bloc/patient_location_bloc.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/profile_screen.dart';
+import 'package:remdy/screen/widgets/shimmer_effect.dart';
+
 import '../common_widgets/doctor_card.dart';
 import '../utils/colors.dart';
 import 'advance_search.dart';
@@ -92,18 +95,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
   ];
   late PatientLocationBloc _patientLocationBloc;
-  // List<PatientLocationResponse> patientsLocationResponse =[];
+  late InternetConnectionBloc _internetConnectionBloc;
+
   @override
   void initState() {
     super.initState();
     _patientLocationBloc = BlocProvider.of<PatientLocationBloc>(context);
     _patientLocationBloc.add(PatientLocation());
+    _internetConnectionBloc =
+    BlocProvider.of<InternetConnectionBloc>(context);
+    _internetConnectionBloc.add(InternetConnection());
   }
-  // List<PatientLocationResponse> Patient(dynamic responseBody) {
-  //   final parsed =
-  //   (responseBody as List).cast<Map<String, dynamic>>();
-  //   return parsed.map<PatientLocationResponse>((json) => PatientLocationResponse.fromJson(json)).toList();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -529,14 +531,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
               },
               child: BlocBuilder<PatientLocationBloc, PatientLocationState>(
                 builder: (context, state) {
-                  if(state is PatientLocationResponseState){
+                  if (state is PatientLocationResponseState) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                        // ('${Patient}'),
-                          context.getLocalization()?.location ?? '',
+                          state.patientLocationResponse.data?.address ?? '',
+                          // context.getLocalization()?.location ?? '',
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w800,
@@ -545,7 +547,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          context.getLocalization()?.country ?? '',
+                          state.patientLocationResponse.data?.city ?? '',
+                          // context.getLocalization()?.country ?? '',
                           style: GoogleFonts.poppins(
                             fontSize: 13,
                             fontWeight: FontWeight.w400,
@@ -554,8 +557,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       ],
                     );
-                  }else{
-                    return Container(color: AppColors.waring,);
+                  } else {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ShimmerEffect(width: 80, height: 20),
+                        const SizedBox(height: 8),
+                        ShimmerEffect(width: 100, height: 16),
+                      ],
+                    );
                   }
                 },
               ),
@@ -743,6 +753,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ),
             ),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: GridView.builder(

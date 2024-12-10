@@ -9,12 +9,10 @@ class PatientLocationResponseState extends PatientLocationState {
 
   PatientLocationResponseState({required this.patientLocationResponse});
 }
-
+class PatientLocationLoaded extends PatientLocationState {}
 class PatientLocationErrorState extends PatientLocationState {
   String error;
 
   PatientLocationErrorState({required this.error});
 }
-
-class PatientLocationSuccessState extends PatientLocationState{}
 

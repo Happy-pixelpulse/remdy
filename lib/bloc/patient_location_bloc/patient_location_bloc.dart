@@ -14,8 +14,6 @@ class PatientLocationBloc
   PatientLocationBloc() : super(PatientLocationInitial()) {
     on<PatientLocationEvent>((event, emit) async {
       Position position = await Geolocator.getCurrentPosition();
-      double latitude = position.latitude;
-      double longitude = position.longitude;
       List<Placemark> placemarks = await placemarkFromCoordinates(position.latitude, position.longitude);
       Placemark place = placemarks.first;
       const url = 'http://184.169.211.131:3000/api/v1/user/patient-location';
@@ -23,20 +21,20 @@ class PatientLocationBloc
       final response = await http.post(
         uri,
         body: PatientLocationRequest(
-          latitude:latitude.toString(),
-          longitude:longitude.toString(),
+          latitude:position.latitude.toString(),
+          longitude:position.longitude.toString(),
           address: place.street.toString(),
-          city: place.country.toString(),
+          city: place.locality.toString(),
           userId: '1',
         ).toJson(),
       );
       emit(PatientLocationRequestState());
+      emit(PatientLocationLoaded());
       if (response.statusCode == 200 || response.statusCode == 201){
         PatientLocationResponse patientLocationResponse =
         PatientLocationResponse.fromJson(jsonDecode(response.body));
         debugPrint('${response.body}');
         emit(PatientLocationResponseState(patientLocationResponse:patientLocationResponse));
-        emit(PatientLocationSuccessState());
       } else {
         emit(PatientLocationErrorState(error: 'Something went wrong'));
       }
