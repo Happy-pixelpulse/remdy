@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:remdy/auth/auth_bloc/sign_in_bloc.dart';
+import 'package:remdy/bloc/home_screen_bloc/home_screen_bloc.dart';
 import 'package:remdy/bloc/internet_connection_bloc/internet_connection_bloc.dart';
-import 'package:remdy/bloc/patient_location_bloc/patient_location_bloc.dart';
 import 'package:remdy/firebase_options.dart';
 import 'package:remdy/language/language_bloc/language_bloc.dart';
 import 'package:remdy/splash/splash%20_screen1.dart';
 
 
-const _kShouldTestAsyncErrorOnInit = false;
-const _kTestingCrashlytics = true;
+// const _kShouldTestAsyncErrorOnInit = false;
+// const _kTestingCrashlytics = true;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
         LanguageBloc()
           ..add(GetLanguage())),
         BlocProvider(create: (context) => SignInBloc()),
-        BlocProvider(create: (context) => PatientLocationBloc()),
+        BlocProvider(create: (context) => HomeScreenBloc()),
         BlocProvider(create: (context) => InternetConnectionBloc()),
       ],
       child: BlocListener<InternetConnectionBloc, InternetConnectionState>(

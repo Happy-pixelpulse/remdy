@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/bloc/internet_connection_bloc/internet_connection_bloc.dart';
-import 'package:remdy/bloc/patient_location_bloc/patient_location_bloc.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/profile_screen.dart';
 import 'package:remdy/screen/widgets/shimmer_effect.dart';
 
+import '../bloc/home_screen_bloc/home_screen_bloc.dart';
+import '../bloc/home_screen_bloc/home_screen_event.dart';
+import '../bloc/home_screen_bloc/home_screen_state.dart';
 import '../common_widgets/doctor_card.dart';
 import '../utils/colors.dart';
 import 'advance_search.dart';
@@ -94,16 +96,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
       "isActive": true,
     },
   ];
-  late PatientLocationBloc _patientLocationBloc;
+  late HomeScreenBloc _homeScreenBloc;
   late InternetConnectionBloc _internetConnectionBloc;
 
   @override
   void initState() {
     super.initState();
-    _patientLocationBloc = BlocProvider.of<PatientLocationBloc>(context);
-    _patientLocationBloc.add(PatientLocation());
-    _internetConnectionBloc =
-    BlocProvider.of<InternetConnectionBloc>(context);
+    _homeScreenBloc = BlocProvider.of<HomeScreenBloc>(context);
+    _homeScreenBloc.add(PatientLocation());
+    _homeScreenBloc.add(NearByDoctor());
+    _internetConnectionBloc = BlocProvider.of<InternetConnectionBloc>(context);
     _internetConnectionBloc.add(InternetConnection());
   }
 
@@ -529,7 +531,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       );
                     });
               },
-              child: BlocBuilder<PatientLocationBloc, PatientLocationState>(
+              child: BlocBuilder<HomeScreenBloc, HomeScreenState>(
                 builder: (context, state) {
                   if (state is PatientLocationResponseState) {
                     return Column(
@@ -753,32 +755,36 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ),
             ),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14),
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.only(top: 10),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 15,
-                  mainAxisSpacing: 15,
-                  childAspectRatio: 0.85,
-                ),
-                itemCount: doctors.length,
-                itemBuilder: (context, index) {
-                  final doctor = doctors[index];
-                  return DoctorCard(
-                    imagePath: doctor["imagePath"]!,
-                    doctorName: doctor["name"]!,
-                    specialty: doctor["specialty"]!,
-                    reviews: doctor["reviews"]!,
-                    rating: doctor["rating"]!,
-                    isActive: doctor["isActive"]!,
-                  );
-                },
-              ),
+            BlocBuilder<HomeScreenBloc, HomeScreenState>(
+              builder: (context, state) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.only(top: 10),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 15,
+                      mainAxisSpacing: 15,
+                      childAspectRatio: 0.85,
+                    ),
+                    itemCount: doctors.length,
+                    itemBuilder: (context, index) {
+                      final doctor = doctors[index];
+                      return DoctorCard(
+                        imagePath: doctor["imagePath"]!,
+                        doctorName: doctor["name"]!,
+                        specialty: doctor["specialty"]!,
+                        reviews: doctor["reviews"]!,
+                        rating: doctor["rating"]!,
+                        isActive: doctor["isActive"]!,
+                      );
+                    },
+                  ),
+                );
+              },
             ),
           ],
         ),
