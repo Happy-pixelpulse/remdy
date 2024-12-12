@@ -1,5 +1,8 @@
 
 
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +14,8 @@ import 'package:remdy/bloc/internet_connection_bloc/internet_connection_bloc.dar
 import 'package:remdy/firebase_options.dart';
 import 'package:remdy/language/language_bloc/language_bloc.dart';
 import 'package:remdy/splash/splash%20_screen1.dart';
+
+import 'common_widgets/build_context.dart';
 
 
 // const _kShouldTestAsyncErrorOnInit = false;
@@ -51,6 +56,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  late AppContext appContext ;
+  late StreamSubscription subscription;
+  @override
+  initState() {
+    super.initState();
+    subscription = Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> results) {
+      // Handle the list of ConnectivityResult here
+    });
+  }
+  @override
+  void dispose() {
+    subscription.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

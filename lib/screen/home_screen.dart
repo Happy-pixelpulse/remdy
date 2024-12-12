@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:remdy/common_widgets/build_context.dart';
 import 'package:remdy/screen/dashboard_screen.dart';
 import 'package:remdy/screen/setting_screen.dart';
 
@@ -15,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-
+late AppContext appContext ;
   final List<Widget> _pages = [
     const DashboardScreen(),
     const HospitalPage(),
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext appContext) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: _pages[_selectedIndex],

@@ -9,6 +9,7 @@ import 'package:remdy/common_widgets/progress_dialog_box.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
 
+import '../common_widgets/build_context.dart';
 import '../common_widgets/sign_up_button.dart';
 import '../utils/colors.dart';
 
@@ -23,7 +24,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   UserCredential? _userCredential;
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseMessaging fcm = FirebaseMessaging.instance;
-
+  late AppContext appContext ;
   // Future<void> signInWithGoogle() async {
   //   final GoogleSignIn googleSignIn = GoogleSignIn();
   //   final prefs = await SharedPreferences.getInstance();
@@ -71,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext appContext) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: BlocListener<SignInBloc, SignInState>(
@@ -126,7 +127,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 SignUpButton(
                   onPressed: () {
-                    _signInBloc.add(GoogleSignInEvent());
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => const HomeScreen()));
+                    // _signInBloc.add(GoogleSignInEvent());
                   },
                   imageName: 'assets/google.png',
                   buttonName: context.getLocalization()?.buttonName1 ?? '',
