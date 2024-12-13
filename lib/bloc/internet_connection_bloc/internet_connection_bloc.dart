@@ -1,17 +1,27 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-part 'internet_connection_event.dart';
-part 'internet_connection_state.dart';
 
-class InternetConnectionBloc extends Bloc<InternetConnectionEvent, InternetConnectionState> {
-  InternetConnectionBloc() : super(InternetConnectionInitial()) {
-    on<InternetConnectionEvent>((event, emit) async {
-     List<ConnectivityResult>  result = await Connectivity().checkConnectivity();
-      if (result == ConnectivityResult.mobile || result == ConnectivityResult.wifi) {
-        emit(UserOnlineState());
+import 'internet_connection_event.dart';
+import 'internet_connection_state.dart';
+
+class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
+  final Connectivity _connectivity;
+
+  ConnectivityBloc(this._connectivity) : super(ConnectivityInitial()) {
+    on<ConnectivityChangedEvent>((event, emit) {
+      if (event.isOnline) {
+        emit(ConnectivityOnline());
       } else {
-        emit(UserOfflineState());
+        emit(ConnectivityOffline());
+      }
+    });
+
+    _connectivity.onConnectivityChanged.listen((result) {
+      if (result == ConnectivityResult.mobile ||
+          result == ConnectivityResult.wifi) {
+        add(ConnectivityChangedEvent(isOnline: true));
+      } else {
+        add(ConnectivityChangedEvent(isOnline: false));
       }
     });
   }

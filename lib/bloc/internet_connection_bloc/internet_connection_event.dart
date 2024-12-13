@@ -1,9 +1,7 @@
+abstract class ConnectivityEvent {}
 
-part of 'internet_connection_bloc.dart';
+class ConnectivityChangedEvent extends ConnectivityEvent {
+  final bool isOnline;
 
-abstract class InternetConnectionEvent {}
-class InternetConnection extends InternetConnectionEvent {}
-class NetworkNotify extends InternetConnectionEvent {
-  final bool isConnected;
-  NetworkNotify({this.isConnected = false});
+  ConnectivityChangedEvent({required this.isOnline});
 }

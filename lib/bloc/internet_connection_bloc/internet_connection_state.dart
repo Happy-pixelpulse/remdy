@@ -1,7 +1,7 @@
-part of 'internet_connection_bloc.dart';
+abstract class ConnectivityState {}
 
-abstract class InternetConnectionState {}
+class ConnectivityInitial extends ConnectivityState {}
 
-final class InternetConnectionInitial extends InternetConnectionState {}
-class UserOnlineState extends InternetConnectionState{}
-class UserOfflineState extends InternetConnectionState{}
+class ConnectivityOnline extends ConnectivityState {}
+
+class ConnectivityOffline extends ConnectivityState {}

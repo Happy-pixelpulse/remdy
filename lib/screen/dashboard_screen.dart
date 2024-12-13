@@ -1,7 +1,9 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/bloc/internet_connection_bloc/internet_connection_bloc.dart';
+import 'package:remdy/bloc/internet_connection_bloc/internet_connection_event.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/profile_screen.dart';
 import 'package:remdy/screen/widgets/shimmer_effect.dart';
@@ -9,6 +11,7 @@ import 'package:remdy/screen/widgets/shimmer_effect.dart';
 import '../bloc/home_screen_bloc/home_screen_bloc.dart';
 import '../bloc/home_screen_bloc/home_screen_event.dart';
 import '../bloc/home_screen_bloc/home_screen_state.dart';
+import '../bloc/internet_connection_bloc/internet_connection_state.dart';
 import '../common_widgets/doctor_card.dart';
 import '../utils/colors.dart';
 import 'advance_search.dart';
@@ -97,7 +100,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     },
   ];
   late HomeScreenBloc _homeScreenBloc;
-  late InternetConnectionBloc _internetConnectionBloc;
+  late ConnectivityBloc _connectivityBloc;
 
   @override
   void initState() {
@@ -105,8 +108,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
     _homeScreenBloc = BlocProvider.of<HomeScreenBloc>(context);
     _homeScreenBloc.add(PatientLocation());
     _homeScreenBloc.add(NearByDoctor());
-    _internetConnectionBloc = BlocProvider.of<InternetConnectionBloc>(context);
-    _internetConnectionBloc.add(InternetConnection());
+    _connectivityBloc = BlocProvider.of<ConnectivityBloc>(context);
+    _connectivityBloc.add(ConnectivityChangedEvent(isOnline: true));
   }
 
   @override
@@ -612,7 +615,27 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
         automaticallyImplyLeading: false,
       ),
-      body: SingleChildScrollView(
+      body: BlocListener<ConnectivityBloc, ConnectivityState>(
+  listener: (context, state) {
+    if (state is ConnectivityOnline) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('You are online!'),
+          backgroundColor: AppColors.primary,
+          duration: Duration(seconds: 2),
+        ),
+      );
+    } else if (state is ConnectivityOffline) {
+      ScaffoldMessenger.of(context).showSnackBar(
+       const SnackBar(
+          content: Text('You are offline!'),
+          backgroundColor: AppColors.waring,
+          duration: Duration(seconds: 2),
+        ),
+      );
+    }
+  },
+  child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -789,6 +812,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ],
         ),
       ),
+),
     );
   }
 }

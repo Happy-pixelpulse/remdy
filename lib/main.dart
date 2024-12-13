@@ -1,5 +1,3 @@
-
-
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -11,17 +9,43 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:remdy/auth/auth_bloc/sign_in_bloc.dart';
 import 'package:remdy/bloc/home_screen_bloc/home_screen_bloc.dart';
 import 'package:remdy/bloc/internet_connection_bloc/internet_connection_bloc.dart';
+
 import 'package:remdy/firebase_options.dart';
 import 'package:remdy/language/language_bloc/language_bloc.dart';
 import 'package:remdy/splash/splash%20_screen1.dart';
-
+import 'bloc/internet_connection_bloc/internet_connection_state.dart';
 import 'common_widgets/build_context.dart';
-
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 // const _kShouldTestAsyncErrorOnInit = false;
 // const _kTestingCrashlytics = true;
 
 Future<void> main() async {
+  final connectionChecker = InternetConnectionChecker.instance;
+
+  final subscription = connectionChecker.onStatusChange.listen(
+        (InternetConnectionStatus status) {
+      if (status == InternetConnectionStatus.connected) {
+        print('Connected to the internet');
+      } else {
+        print('Disconnected from the internet');
+      }
+    },
+  );
+
+  // Remember to cancel the subscription when it's no longer needed
+  subscription.cancel();
+  // final connectionChecker = InternetConnectionChecker.instance;
+  //
+  // final subscription = connectionChecker.onStatusChange.listen(
+  //       (InternetConnectionStatus status) {
+  //     if (status == InternetConnectionStatus.connected) {
+  //       print('Connected to the internet');
+  //     } else {
+  //       print('Disconnected from the internet');
+  //     }
+  //   },
+  // );
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
@@ -56,15 +80,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late AppContext appContext ;
+  late AppContext appContext;
+
   late StreamSubscription subscription;
+  late StreamSubscription inter;
+
   @override
   initState() {
     super.initState();
-    subscription = Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> results) {
-      // Handle the list of ConnectivityResult here
-    });
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((List<ConnectivityResult> results) {});
   }
+
   @override
   void dispose() {
     subscription.cancel();
@@ -75,23 +103,17 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) =>
-        LanguageBloc()
-          ..add(GetLanguage())),
+        BlocProvider(create: (context) => LanguageBloc()..add(GetLanguage())),
         BlocProvider(create: (context) => SignInBloc()),
         BlocProvider(create: (context) => HomeScreenBloc()),
-        BlocProvider(create: (context) => InternetConnectionBloc()),
-      ],
-      child: BlocListener<InternetConnectionBloc, InternetConnectionState>(
+        BlocProvider(create: (context) => ConnectivityBloc(Connectivity())),
+        ],
+      child: BlocListener<ConnectivityBloc, ConnectivityState>(
         listener: (context, state) {
-          if (state is UserOnlineState) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text("You are online")),
-            );
-          } else if (state is UserOfflineState) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text("You are offline")),
-            );
+          if (state is ConnectivityOnline) {
+            const SnackBar(content: Text("You are online"));
+          } else if (state is ConnectivityOffline) {
+            const SnackBar(content: Text("You are offline"));
           }
         },
         child: BlocBuilder<LanguageBloc, LanguageState>(
