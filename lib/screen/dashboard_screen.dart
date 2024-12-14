@@ -109,7 +109,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     _homeScreenBloc.add(PatientLocation());
     _homeScreenBloc.add(NearByDoctor());
     _connectivityBloc = BlocProvider.of<ConnectivityBloc>(context);
-    _connectivityBloc.add(ConnectivityChangedEvent(isOnline: true));
+    _connectivityBloc.add(ConnectivityChangedEvent(isOnline: false));
   }
 
   @override
