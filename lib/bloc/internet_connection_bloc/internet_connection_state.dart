@@ -1,15 +1,7 @@
-abstract class ConnectivityState {}
+abstract class InternetState {}
 
-class ConnectivityInitial extends ConnectivityState {}
+class InternetLoading extends InternetState {}
 
-class ConnectivityOnline extends ConnectivityState {}
+class InternetConnectedState extends InternetState {}
 
-class ConnectivityOffline extends ConnectivityState {}
-
-// abstract class NetworkState {}
-//
-// class NetworkInitial extends NetworkState {}
-//
-// class NetworkSuccess extends NetworkState {}
-//
-// class NetworkFailure extends NetworkState {}
+class InternetDisconnectedState extends InternetState {}

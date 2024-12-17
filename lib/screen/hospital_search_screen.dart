@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/clinic_card.dart';
 import 'package:remdy/extensions/localization_extension.dart';
+import 'package:remdy/screen/widgets/shimmer_effect.dart';
 
+import '../bloc/home_screen_bloc/home_screen_bloc.dart';
+import '../bloc/home_screen_bloc/home_screen_event.dart';
+import '../bloc/home_screen_bloc/home_screen_state.dart';
+import '../bloc/hospital_bloc/hospital_bloc.dart';
+import '../bloc/hospital_bloc/hospital_screen_event.dart';
+import '../bloc/hospital_bloc/hospital_screen_state.dart';
 import '../common_widgets/hospital_card.dart';
 import '../utils/colors.dart';
 import 'advance_search.dart';
@@ -17,41 +25,8 @@ class HospitalPage extends StatefulWidget {
 }
 
 class _HospitalPageState extends State<HospitalPage> {
-  final List<Map<String, dynamic>> hospitalList = [
-    {
-      "hospitalImage":
-          "https://static.vecteezy.com/system/resources/previews/029/278/288/non_2x/ideal-healthcare-background-with-surrealist-blurry-hospital-scene-ai-generative-free-photo.jpg",
-      "hospitalName": "Saskatoon City Hospital",
-      "is_liked": true,
-      "address": "701 Queen St, Saskatoon",
-      "rating": "4.8",
-      "reviews": "(58 Reviews)",
-      "distanceText": "2.5 km/40min",
-      "hospitalText": "Hospital",
-    },
-    {
-      "hospitalImage":
-          "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yNV9zaW1wbGVfM2RfaWxsdXN0cmF0aW9uX29mX2FfcmVjb3Zlcnlfcm9vbV93aV80ZjhkNDIwNC02N2I4LTQwMDQtYTBlNy05YjljMjIyMzE2ZGVfMS5qcGc.jpg",
-      "hospitalName": "St. Joseph’s Hospital",
-      "is_liked": false,
-      "address": "268 Grosvenor St, London",
-      "rating": "4.8",
-      "reviews": "(58 Reviews)",
-      "distanceText": "2.5 km/40min",
-      "hospitalText": "Hospital",
-    },
-    {
-      "hospitalImage":
-          "https://t4.ftcdn.net/jpg/08/46/22/05/360_F_846220562_W5a8Vri4eKlgHmItWKdlRin0KIDhV7Rz.jpg",
-      "hospitalName": "Banff–Mineral Springs Hospital",
-      "is_liked": false,
-      "address": "305 Lynx St, Banff",
-      "rating": "4.8",
-      "reviews": "(58 Reviews)",
-      "distanceText": "2.5 km/40min",
-      "hospitalText": "Hospital",
-    },
-  ];
+  late HomeScreenBloc _homeScreenBloc;
+  late NearByHospitalBloc _nearByHospitalBloc;
   final List<Map<String, dynamic>> clinicList = [
     {
       "clinicImage":
@@ -69,7 +44,14 @@ class _HospitalPageState extends State<HospitalPage> {
       "clinicName": "Saskatoon City Hospital",
     },
   ];
-
+  @override
+  void initState() {
+    super.initState();
+    _homeScreenBloc = BlocProvider.of<HomeScreenBloc>(context);
+    _homeScreenBloc.add(PatientLocation());
+    _nearByHospitalBloc = BlocProvider.of<NearByHospitalBloc>(context);
+    _nearByHospitalBloc.add(NearByHospital());
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -492,28 +474,45 @@ class _HospitalPageState extends State<HospitalPage> {
                       );
                     });
               },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    context.getLocalization()?.location ?? '',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w800,
-                      color: AppColors.secondary,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    context.getLocalization()?.country ?? '',
-                    style: GoogleFonts.poppins(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.secondary,
-                    ),
-                  ),
-                ],
+              child: BlocBuilder<HomeScreenBloc, HomeScreenState>(
+                builder: (context, state) {
+                  if (state is PatientLocationResponseState) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          state.patientLocationResponse.data?.address ?? '',
+                          // context.getLocalization()?.location ?? '',
+                          style: GoogleFonts.poppins(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w800,
+                            color: AppColors.secondary,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          state.patientLocationResponse.data?.city ?? '',
+                          // context.getLocalization()?.country ?? '',
+                          style: GoogleFonts.poppins(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.secondary,
+                          ),
+                        ),
+                      ],
+                    );
+                  } else {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ShimmerEffect(width: 80, height: 20),
+                        const SizedBox(height: 8),
+                        ShimmerEffect(width: 100, height: 16),
+                      ],
+                    );
+                  }
+                },
               ),
             ),
             const Spacer(),
@@ -555,7 +554,8 @@ class _HospitalPageState extends State<HospitalPage> {
             Stack(
               fit: StackFit.passthrough,
               children: [
-                Image.asset('assets/rectangle.png',
+                Image.asset(
+                  'assets/rectangle.png',
                   fit: BoxFit.cover,
                   width: MediaQuery.of(context).size.width,
                 ),
@@ -569,7 +569,7 @@ class _HospitalPageState extends State<HospitalPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          context.getLocalization()?.hospitalTitle??'',
+                          context.getLocalization()?.hospitalTitle ?? '',
                           maxLines: 1,
                           //overflow: TextOverflow.fade,
                           style: GoogleFonts.poppins(
@@ -579,14 +579,16 @@ class _HospitalPageState extends State<HospitalPage> {
                           ),
                         ),
                         Text(
-                          context.getLocalization()?.hospitalSubTitle??'',
+                          context.getLocalization()?.hospitalSubTitle ?? '',
                           style: GoogleFonts.poppins(
                             fontSize: 32,
                             fontWeight: FontWeight.w700,
                             color: AppColors.secondary,
                           ),
                         ),
-                        const SizedBox(height: 14,),
+                        const SizedBox(
+                          height: 14,
+                        ),
                         Row(
                           children: [
                             const Spacer(),
@@ -595,14 +597,16 @@ class _HospitalPageState extends State<HospitalPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const AdvanceSearch()),
+                                      builder: (context) =>
+                                          const AdvanceSearch()),
                                 );
                               },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Text(
-                                    context.getLocalization()?.advanceSearch??'',
+                                    context.getLocalization()?.advanceSearch ??
+                                        '',
                                     style: GoogleFonts.poppins(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w400,
@@ -623,12 +627,15 @@ class _HospitalPageState extends State<HospitalPage> {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const Hospital()),
+                              MaterialPageRoute(
+                                  builder: (context) => const Hospital()),
                             );
                           },
                           child: Container(
@@ -650,7 +657,10 @@ class _HospitalPageState extends State<HospitalPage> {
                                   width: 18,
                                 ),
                                 Text(
-                                  context.getLocalization()?.searchHealthIssue ?? '',
+                                  context
+                                          .getLocalization()
+                                          ?.searchHealthIssue ??
+                                      '',
                                   // 'Search health issue.......',
                                   style: GoogleFonts.poppins(
                                     fontSize: 14,
@@ -681,7 +691,8 @@ class _HospitalPageState extends State<HospitalPage> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:6,vertical: 6),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
                   child: Text(
                     context.getLocalization()?.hospitalWaringText ?? '',
                     maxLines: 2,
@@ -708,33 +719,43 @@ class _HospitalPageState extends State<HospitalPage> {
               ),
             ),
             const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.only(left:12),
-              child: SizedBox(
-                height: 250,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: hospitalList.length,
-                  itemBuilder: (context, index) {
-                    final hospitals = hospitalList[index];
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 14),
-                      child: HospitalCard(
-                        hospitalImage: hospitals["hospitalImage"],
-                        hospitalName: hospitals["hospitalName"],
-                        address: hospitals["address"],
-                        rating: hospitals["rating"],
-                        reviews: hospitals["reviews"],
-                        isLiked: hospitals["is_liked"],
-                        hospitalText: hospitals["hospitalText"],
-                        distanceText: hospitals["distanceText"],
+            BlocBuilder<NearByHospitalBloc, HospitalScreenState>(
+              builder: (context, state) {
+                if(state is NearByHospitalResponseState){
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 12),
+                    child: SizedBox(
+                      height: 250,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: state.nearByHospitalResponseModel.data?.length ?? 0,
+                        itemBuilder: (context, index) {
+                          final hospitals = state.nearByHospitalResponseModel.data?[index];
+                          return Padding(
+                            padding: const EdgeInsets.only(right: 14),
+                            child: HospitalCard(
+                              hospitalImage: hospitals?.hospitalImage ?? '',
+                              hospitalName: hospitals?.name ?? '',
+                              address: hospitals?.address ?? '',
+                              rating:  hospitals?.averageRating ?? '',
+                              reviews:  hospitals?.reviewsCount.toString() ?? '',
+                              isLiked: true,
+                              hospitalText: "Hospital",
+                              distanceText: hospitals?.travelTime.toString() ?? '',
+                            ),
+                          );
+                        },
                       ),
-                    );
-                  },
-                ),
-              ),
+                    ),
+                  );
+                } else {
+                  return Container();
+                }
+              },
             ),
-            const SizedBox(height: 14,),
+            const SizedBox(
+              height: 14,
+            ),
             Padding(
               padding: const EdgeInsets.only(right: 12),
               child: SizedBox(

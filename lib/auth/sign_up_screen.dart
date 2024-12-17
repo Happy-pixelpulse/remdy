@@ -21,7 +21,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  UserCredential? _userCredential;
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseMessaging fcm = FirebaseMessaging.instance;
   late AppContext appContext ;
@@ -127,9 +126,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 SignUpButton(
                   onPressed: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => const HomeScreen()));
-                    // _signInBloc.add(GoogleSignInEvent());
+                    // Navigator.pushReplacement(context,
+                    //     MaterialPageRoute(builder: (context) => const HomeScreen()));
+                    _signInBloc.add(GoogleSignInEvent());
                   },
                   imageName: 'assets/google.png',
                   buttonName: context.getLocalization()?.buttonName1 ?? '',

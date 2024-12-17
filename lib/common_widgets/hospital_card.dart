@@ -98,16 +98,18 @@ class HospitalCard extends StatelessWidget {
                           width: 18,
                         ),
                         const SizedBox(width: 4),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 12),
-                          child: Text(
-                            address,
-                            maxLines: 1,
-                            overflow: TextOverflow.fade,
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.hospitalLocationText,
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 12),
+                            child: Text(
+                              address,
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.hospitalLocationText,
+                              ),
                             ),
                           ),
                         ),

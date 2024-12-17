@@ -1,16 +1,7 @@
-abstract class ConnectivityEvent {}
+abstract class InternetEvent {}
 
-class ConnectivityChangedEvent extends ConnectivityEvent {
-  final bool isOnline;
+class InternetStatusChanged extends InternetEvent {
+  final bool isConnected;
 
-  ConnectivityChangedEvent({required this.isOnline});
+  InternetStatusChanged(this.isConnected);
 }
-// abstract class NetworkEvent {}
-//
-// class NetworkObserve extends NetworkEvent {}
-//
-// class NetworkNotify extends NetworkEvent {
-//   final bool isConnected;
-//
-//   NetworkNotify({this.isConnected = false});
-// }

@@ -15,6 +15,7 @@ import 'model/patients_location/patient_location_response.dart';
 
 class HomeScreenBloc
     extends Bloc<HomeScreenEvent, HomeScreenState> {
+
   HomeScreenBloc() : super(HomeScreenInitial()) {
     on<PatientLocation>((event, emit) async {
       Position position = await Geolocator.getCurrentPosition();
@@ -22,6 +23,7 @@ class HomeScreenBloc
       Placemark place = placemarks.first;
       const url = 'http://184.169.211.131:3000/api/v1/user/patient-location';
       final uri = Uri.parse(url);
+      emit(PatientLocationLoaded());
       final response = await http.post(
         uri,
         body: PatientLocationRequest(
@@ -32,36 +34,35 @@ class HomeScreenBloc
           userId: '1',
         ).toJson(),
       );
-      emit(PatientLocationRequestState());
-      emit(PatientLocationLoaded());
       if (response.statusCode == 200 || response.statusCode == 201){
-        PatientLocationResponse patientLocationResponse =
-        PatientLocationResponse.fromJson(jsonDecode(response.body));
-        debugPrint('${response.body}');
+
+        PatientLocationResponse patientLocationResponse=PatientLocationResponse.fromJson(jsonDecode(response.body));
+        debugPrint(response.body);
         emit(PatientLocationResponseState(patientLocationResponse:patientLocationResponse));
       } else {
         emit(PatientLocationErrorState(error: 'Something went wrong'));
       }
     });
     on<NearByDoctor>((event, emit) async {
-      Position position = await Geolocator.getCurrentPosition();
+      // Position position = await Geolocator.getCurrentPosition();
       const url = 'http://184.169.211.131:3000/api/v1/homepage/get-all-near-by-doctors';
       final uri = Uri.parse(url);
+      emit(NearByDoctorLoaded());
       final response = await http.post(
         uri,
         body: NearByDoctorRequest(
-          latitude:position.latitude.toString(),
-          longitude:position.longitude.toString(),
+          // latitude:position.latitude.toString(),
+          latitude:'28.86207049645749',
+          // longitude:position.longitude.toString(),
+          longitude:"77.00891318824598",
         ).toJson(),
       );
-      emit(NearByDoctorRequestState());
-      // emit(NearByDoctorLoaded());
       if (response.statusCode == 200 || response.statusCode == 201){
         NearByDoctorResponse nearByDoctorResponse =NearByDoctorResponse.fromJson(jsonDecode(response.body));
-        debugPrint('${response.body}');
-        // emit(NearByDoctorResponseState(nearByDoctorResponse:nearByDoctorResponse));
+        debugPrint(response.body);
+        emit(NearByDoctorResponseState(nearByDoctorResponse:nearByDoctorResponse,));
       } else {
-        // emit(NearByDoctorErrorState(error:'Something went wrong'));
+        emit(NearByDoctorErrorState(error:'Something went wrong'));
       }
     });
   }

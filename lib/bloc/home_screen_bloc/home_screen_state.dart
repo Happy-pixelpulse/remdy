@@ -6,7 +6,6 @@ import 'model/patients_location/patient_location_response.dart';
 abstract class HomeScreenState {}
 
 final class HomeScreenInitial extends HomeScreenState {}
-class PatientLocationRequestState extends HomeScreenState{}
 class PatientLocationResponseState extends HomeScreenState {
   PatientLocationResponse patientLocationResponse;
 
@@ -18,10 +17,11 @@ class PatientLocationErrorState extends HomeScreenState {
 
   PatientLocationErrorState({required this.error});
 }
-class NearByDoctorRequestState extends HomeScreenState{}
+
+
 class NearByDoctorResponseState extends HomeScreenState{
   NearByDoctorResponse nearByDoctorResponse;
-  NearByDoctorResponseState({required this.nearByDoctorResponse});
+  NearByDoctorResponseState({required this.nearByDoctorResponse,});
 }
 class NearByDoctorLoaded extends HomeScreenState {}
 class NearByDoctorErrorState extends HomeScreenState{
