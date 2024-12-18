@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:remdy/auth/auth_bloc/sign_in_bloc.dart';
+import 'package:remdy/bloc/doctor_details_bloc/doctor_details_bloc.dart';
 import 'package:remdy/bloc/home_screen_bloc/home_screen_bloc.dart';
 import 'package:remdy/bloc/internet_connection_bloc/internet_connection_bloc.dart';
 import 'package:remdy/firebase_options.dart';
@@ -109,6 +110,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => SignInBloc()),
         BlocProvider(create: (context) => HomeScreenBloc()),
         BlocProvider(create: (context) => NearByHospitalBloc()),
+        BlocProvider(create: (context) => DoctorDetailsBloc()),
         BlocProvider(create: (context) => InternetBloc()..add(InternetStatusChanged(true))),
       ],
       child: BlocListener<InternetBloc, InternetState>(

@@ -1,9 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/patients_details.dart';
+import '../bloc/doctor_details_bloc/doctor_details_bloc.dart';
+import '../bloc/doctor_details_bloc/doctor_details_event.dart';
 import '../utils/colors.dart';
 
 class DoctorDetails extends StatefulWidget {
@@ -14,6 +17,13 @@ class DoctorDetails extends StatefulWidget {
 }
 
 class _DoctorDetailsState extends State<DoctorDetails> {
+  late DoctorDetailsBloc _doctorDetailsBloc;
+  @override
+  void initState() {
+    super.initState();
+    _doctorDetailsBloc = BlocProvider.of<DoctorDetailsBloc>(context);
+    _doctorDetailsBloc.add(DoctorsDetails());
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
