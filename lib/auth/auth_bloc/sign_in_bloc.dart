@@ -21,7 +21,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       final uri = Uri.parse(url);
       // debugPrint(
       //     "token==================>>>>>>>>>>>>>  ${event.signInRequest.googleToken}");
-      emit(SignInProgressState());
+
       final GoogleSignIn googleSignIn = GoogleSignIn();
       final prefs = await SharedPreferences.getInstance();
       UserCredential? userCredential;

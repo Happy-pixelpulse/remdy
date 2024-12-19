@@ -24,36 +24,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseMessaging fcm = FirebaseMessaging.instance;
   late AppContext appContext ;
-  // Future<void> signInWithGoogle() async {
-  //   final GoogleSignIn googleSignIn = GoogleSignIn();
-  //   final prefs = await SharedPreferences.getInstance();
-  //   bool reAuthenticate = (prefs.getString('idToken') != null &&
-  //           (prefs.getString('idToken') ?? '').isNotEmpty)
-  //       ? false
-  //       : true;
-  //   GoogleSignInAccount? googleSignInAccount =
-  //       await googleSignIn.signInSilently(reAuthenticate: reAuthenticate);
-  //   googleSignInAccount ??= await googleSignIn.signIn();
-  //   final GoogleSignInAuthentication? googleSignInAuthentication =
-  //       await googleSignInAccount?.authentication;
-  //   final AuthCredential authCredential = GoogleAuthProvider.credential(
-  //     idToken: googleSignInAuthentication?.idToken,
-  //     accessToken: googleSignInAuthentication?.accessToken,
-  //   );
-  //   _userCredential = await auth.signInWithCredential(authCredential);
-  //   LocationData _locationData;
-  //   _locationData = await location.getLocation();
-  //   debugPrint(
-  //       "token ======= >>>>>>>>>>>> ${_locationData.longitude.toString()} ${_locationData.latitude.toString()} ");
-  //   await prefs.setString('idToken', googleSignInAuthentication?.idToken ?? '');
-  //   await prefs.setString('Uid', _userCredential?.user?.uid ?? '');
-  //   _signInBloc.add(GoogleSignInEvent(
-  //       signInRequest: SignInRequest(
-  //           googleToken: googleSignInAuthentication?.idToken ?? '',
-  //           imeiNumber: '12334444',
-  //           latitude: _locationData.latitude.toString(),
-  //           longitude: _locationData.longitude.toString())));
-  // }
 
   void pushNotification() async {
     await fcm.requestPermission();
@@ -75,12 +45,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: BlocListener<SignInBloc, SignInState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state is SignInProgressState) {
             ProgressDialogBox.showLoaderDialog(context);
-          } else if (state is GoogleSignInResponseState) {
-            Navigator.pop(context);
-            Navigator.pushReplacement(context,
+          } else if (state is GoogleSignInResponseState)  {
+             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const HomeScreen()));
           } else if (state is GoogleSignInErrorState) {
             Navigator.pop(context);

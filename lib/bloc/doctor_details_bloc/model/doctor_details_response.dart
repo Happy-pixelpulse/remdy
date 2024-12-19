@@ -58,7 +58,7 @@ class Doctor {
   final String? deletedAt;
   final DoctorDetails? doctorDetails;
   final List<Reviews?> reviews;
-  final String? patientRequest;
+  final List<dynamic>? patientRequest;
 
   Doctor({
     required this.id,
@@ -97,7 +97,7 @@ class Doctor {
         updatedAt: json['updated_at'] as String?,
         deletedAt: json['deleted_at'] as String?,
         doctorDetails: DoctorDetails.fromJson(json['doctor_details']),
-        patientRequest: json['patient_request'] as String?,
+        patientRequest: json['patient_request'],
         reviews: (json['reviews'] as List)
             .map((reviews) => Reviews.fromJson(reviews))
             .toList());
