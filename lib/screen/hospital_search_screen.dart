@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/common_widgets/clinic_card.dart';
 import 'package:remdy/extensions/localization_extension.dart';
+import 'package:remdy/screen/profile_screen.dart';
 import 'package:remdy/screen/widgets/shimmer_effect.dart';
 
 import '../bloc/home_screen_bloc/home_screen_bloc.dart';
@@ -44,6 +45,7 @@ class _HospitalPageState extends State<HospitalPage> {
       "clinicName": "Saskatoon City Hospital",
     },
   ];
+
   @override
   void initState() {
     super.initState();
@@ -52,6 +54,7 @@ class _HospitalPageState extends State<HospitalPage> {
     _nearByHospitalBloc = BlocProvider.of<NearByHospitalBloc>(context);
     _nearByHospitalBloc.add(NearByHospital());
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -537,10 +540,19 @@ class _HospitalPageState extends State<HospitalPage> {
             SizedBox(
                 width: 44,
                 height: 44,
-                child: Image.asset(
-                  'assets/profilpic.png',
-                  width: 44,
-                  height: 44,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ProfileScreen()),
+                    );
+                  },
+                  child: Image.asset(
+                    'assets/profilpic.png',
+                    width: 44,
+                    height: 44,
+                  ),
                 )),
           ],
         ),
@@ -721,27 +733,30 @@ class _HospitalPageState extends State<HospitalPage> {
             const SizedBox(height: 10),
             BlocBuilder<NearByHospitalBloc, HospitalScreenState>(
               builder: (context, state) {
-                if(state is NearByHospitalResponseState){
+                if (state is NearByHospitalResponseState) {
                   return Padding(
                     padding: const EdgeInsets.only(left: 12),
                     child: SizedBox(
                       height: 250,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: state.nearByHospitalResponseModel.data?.length ?? 0,
+                        itemCount:
+                            state.nearByHospitalResponseModel.data?.length ?? 0,
                         itemBuilder: (context, index) {
-                          final hospitals = state.nearByHospitalResponseModel.data?[index];
+                          final hospitals =
+                              state.nearByHospitalResponseModel.data?[index];
                           return Padding(
                             padding: const EdgeInsets.only(right: 14),
                             child: HospitalCard(
                               hospitalImage: hospitals?.hospitalImage ?? '',
                               hospitalName: hospitals?.name ?? '',
                               address: hospitals?.address ?? '',
-                              rating:  hospitals?.averageRating ?? '',
-                              reviews:  hospitals?.reviewsCount.toString() ?? '',
+                              rating: hospitals?.averageRating ?? '',
+                              reviews: hospitals?.reviewsCount.toString() ?? '',
                               isLiked: true,
                               hospitalText: "Hospital",
-                              distanceText: hospitals?.travelTime.toString() ?? '',
+                              distanceText:
+                                  hospitals?.travelTime.toString() ?? '',
                             ),
                           );
                         },
@@ -749,7 +764,7 @@ class _HospitalPageState extends State<HospitalPage> {
                     ),
                   );
                 } else {
-                  return Container();
+                 return ShimmerEffect(width: 80, height: 20);
                 }
               },
             ),

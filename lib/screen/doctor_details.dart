@@ -124,9 +124,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(30)),
                             child: Image.network(
-                              state.doctorDetailResponse.data?.doctor.first
-                                      ?.profileImageUrl ??
-                                  '',
+                              state.doctorDetailResponse.data?.profileImageUrl ?? '',
                               width: 115,
                               height: 142,
                               fit: BoxFit.cover,
@@ -144,8 +142,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                state.doctorDetailResponse.data?.doctor.first
-                                        ?.doctorDetails?.doctorFullName ??
+                                state.doctorDetailResponse.data?.name ??
                                     '',
                                 style: GoogleFonts.poppins(
                                   fontSize: 18,
@@ -157,16 +154,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                                 height: 7,
                               ),
                               Text(
-                                state
-                                        .doctorDetailResponse
-                                        .data
-                                        ?.doctor
-                                        .first
-                                        ?.doctorDetails
-                                        ?.speciality
-                                        .first
-                                        ?.speciality ??
-                                    '',
+                                state.doctorDetailResponse.data?.specialities?.first?.speciality ?? '',
                                 style: GoogleFonts.poppins(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w400,
@@ -177,7 +165,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                                 height: 7,
                               ),
                               Text(
-                                " ${state.doctorDetailResponse.data?.doctor.first?.doctorDetails?.state?.name.toString() ?? ''} ${state.doctorDetailResponse.data?.doctor.first?.doctorDetails?.city?.city.toString() ?? ''}",
+                                state.doctorDetailResponse.data?.address ?? '',
                                 style: GoogleFonts.poppins(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w400,
@@ -188,9 +176,9 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                                 height: 5,
                               ),
                               Text(
-                                state.doctorDetailResponse.data?.doctor.first
-                                        ?.doctorDetails?.country?.name
-                                        .toString() ??
+                                // state.doctorDetailResponse.data?.doctor.first
+                                //         ?.doctorDetails?.country?.name
+                                //         .toString() ??
                                     '',
                                 style: GoogleFonts.poppins(
                                   fontSize: 13,
@@ -228,9 +216,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                                     width: 13,
                                   ),
                                   Text(
-                                    state.doctorDetailResponse.data?.doctor
-                                            .first?.reviews.first?.rating
-                                            .toString() ??
+                                    state.doctorDetailResponse.data?.rating.toString() ??
                                         '',
                                     style: GoogleFonts.poppins(
                                       fontSize: 14,
@@ -327,8 +313,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                                   height: 10,
                                 ),
                                 Text(
-                                  state.doctorDetailResponse.data?.doctor.first
-                                          ?.doctorDetails?.yearsOfExperience
+                                  state.doctorDetailResponse.data?.experience
                                           .toString() ??
                                       '',
                                   style: GoogleFonts.poppins(
@@ -383,7 +368,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                                   height: 10,
                                 ),
                                 Text(
-                                  state.doctorDetailResponse.data?.averageRating
+                                  state.doctorDetailResponse.data?.ratingCounts
                                           .toString() ??
                                       '',
                                   style: GoogleFonts.poppins(
@@ -508,8 +493,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                             ),
                             Flexible(
                               child: Text(
-                                state.doctorDetailResponse.data?.doctor.first
-                                        ?.doctorDetails?.quickFacts
+                                state.doctorDetailResponse.data?.quickFacts
                                         ?.join(',')
                                         .toString() ??
                                     '',
@@ -553,7 +537,8 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                               width: 10,
                             ),
                             Text(
-                              state.doctorDetailResponse.data?.doctor.first?.doctorDetails?.languageIds?.join(',').toString() ?? '',
+                              '',
+                              // state.doctorDetailResponse.data?.doctor.first?.doctorDetails?.languageIds?.join(',').toString() ?? '',
                               style: GoogleFonts.poppins(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
@@ -636,8 +621,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                       height: 5,
                     ),
                     Text(
-                      state.doctorDetailResponse.data?.doctor.first
-                              ?.doctorDetails?.about
+                      state.doctorDetailResponse.data?.aboutDoctor
                               .toString() ??
                           '',
                       style: GoogleFonts.poppins(
@@ -674,8 +658,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           width: 2,
                         ),
                         Text(
-                          state.doctorDetailResponse.data?.doctor.first
-                                  ?.doctorDetails?.speciality.first?.speciality
+                          state.doctorDetailResponse.data?.specialities?.first?.speciality
                                   .toString() ??
                               '',
                           style: GoogleFonts.poppins(
@@ -700,8 +683,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           width: 2,
                         ),
                         Text(
-                          state.doctorDetailResponse.data?.doctor.first
-                                  ?.doctorDetails?.speciality.first?.issuedOn
+                          state.doctorDetailResponse.data?.specialities?.first?.issuedOn
                                   .toString() ??
                               '',
                           style: GoogleFonts.poppins(
@@ -726,9 +708,8 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           width: 2,
                         ),
                         Text(
-                          state.doctorDetailResponse.data?.doctor.first
-                                  ?.doctorDetails?.speciality.first?.type
-                                  .toString() ??
+                          state.doctorDetailResponse.data?.specialities?.first?.type
+                              .toString() ??
                               '',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
@@ -755,17 +736,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     Row(
                       children: [
                         Text(
-                          state
-                                  .doctorDetailResponse
-                                  .data
-                                  ?.doctor
-                                  .first
-                                  ?.doctorDetails
-                                  ?.postQualifications
-                                  .first
-                                  ?.university
-                                  .toString() ??
-                              '',
+                          state.doctorDetailResponse.data?.postgraduateTraining?.first?.university.toString() ??'',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -776,17 +747,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           width: 5,
                         ),
                         Text(
-                          state
-                                  .doctorDetailResponse
-                                  .data
-                                  ?.doctor
-                                  .first
-                                  ?.doctorDetails
-                                  ?.postQualifications
-                                  .first
-                                  ?.issuedOn
-                                  .toString() ??
-                              '',
+                          state.doctorDetailResponse.data?.postgraduateTraining?.first?.issuedOn.toString() ??'',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -797,10 +758,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           width: 5,
                         ),
                         Text(
-                          state.doctorDetailResponse.data?.doctor.first
-                                  ?.doctorDetails?.postQualifications.first?.avp
-                                  .toString() ??
-                              '',
+                          state.doctorDetailResponse.data?.postgraduateTraining?.first?.avp.toString() ??'',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -826,17 +784,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     Row(
                       children: [
                         Text(
-                          state
-                                  .doctorDetailResponse
-                                  .data
-                                  ?.doctor
-                                  .first
-                                  ?.doctorDetails
-                                  ?.registrationHistory
-                                  .first
-                                  ?.university
-                                  .toString() ??
-                              '',
+                          state.doctorDetailResponse.data?.registrationHistory?.first?.issuedOn.toString() ??'',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -847,17 +795,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           width: 5,
                         ),
                         Text(
-                          state
-                                  .doctorDetailResponse
-                                  .data
-                                  ?.doctor
-                                  .first
-                                  ?.doctorDetails
-                                  ?.registrationHistory
-                                  .first
-                                  ?.issuedOn
-                                  .toString() ??
-                              '',
+                          state.doctorDetailResponse.data?.registrationHistory?.first?.university.toString() ??'',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -868,17 +806,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           width: 5,
                         ),
                         Text(
-                          state
-                                  .doctorDetailResponse
-                                  .data
-                                  ?.doctor
-                                  .first
-                                  ?.doctorDetails
-                                  ?.registrationHistory
-                                  .first
-                                  ?.avp
-                                  .toString() ??
-                              '',
+                          state.doctorDetailResponse.data?.registrationHistory?.first?.avp.toString() ??'',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -902,8 +830,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                       height: 5,
                     ),
                     Text(
-                      state.doctorDetailResponse.data?.doctor.first
-                              ?.doctorDetails?.hospitalPrivilages
+                      state.doctorDetailResponse.data?.hospitalPrevilages
                               ?.join(',')
                               .toString() ??
                           '',
@@ -928,9 +855,10 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                           ),
                         ),
                         Text(
-                          '${state.doctorDetailResponse.data?.doctor.first?.doctorDetails?.workingTime.first?.day.toString() ?? ''} '
-                            '(${state.doctorDetailResponse.data?.doctor.first?.doctorDetails?.workingTime.first?.openTime.toString() ?? ''} '
-                              '${state.doctorDetailResponse.data?.doctor.first?.doctorDetails?.workingTime.first?.closedTime.toString() ?? ''})',
+                          // '${state.doctorDetailResponse.data?.doctor.first?.doctorDetails?.workingTime.first?.day.toString() ?? ''} '
+                          //   '(${state.doctorDetailResponse.data?.doctor.first?.doctorDetails?.workingTime.first?.openTime.toString() ?? ''} '
+                          //     '${state.doctorDetailResponse.data?.doctor.first?.doctorDetails?.workingTime.first?.closedTime.toString() ?? ''})',
+                          '',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -965,8 +893,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                       height: 5,
                     ),
                     Text(
-                      state.doctorDetailResponse.data?.doctor.first
-                              ?.doctorDetails?.insuracePlanAccepted
+                      state.doctorDetailResponse.data?.insurancePlansAccepted
                               ?.join(',')
                               .toString() ??
                           '',
