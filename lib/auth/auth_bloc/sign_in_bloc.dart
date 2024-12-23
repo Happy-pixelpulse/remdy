@@ -3,25 +3,39 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'package:remdy/auth/auth_bloc/model/sign_in_response.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../main.dart';
 import 'model/sign_in_request.dart';
 
 part 'sign_in_event.dart';
+
 part 'sign_in_state.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   SignInBloc() : super(SignInInitial()) {
+    Future<void> _onCheckLocationServices(
+      CheckLocationServices event, Emitter<SignInState> emit) async {
+    final isLocationServiceEnabled =
+    await Geolocator.isLocationServiceEnabled();
+
+    if (isLocationServiceEnabled) {
+      emit(LocationServicesOn());
+    } else {
+      emit(LocationServicesOff());
+    }
+  }
+    on<CheckLocationServices>(_onCheckLocationServices);
     on<GoogleSignInEvent>((event, emit) async {
       const url = 'http://184.169.211.131:3000/api/v1/auth/signInWithGoogle';
       final uri = Uri.parse(url);
       // debugPrint(
       //     "token==================>>>>>>>>>>>>>  ${event.signInRequest.googleToken}");
-
       final GoogleSignIn googleSignIn = GoogleSignIn();
       final prefs = await SharedPreferences.getInstance();
       UserCredential? userCredential;
@@ -32,7 +46,9 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         return Future.error('Location services are disabled.');
       }
       permission = await Geolocator.checkPermission();
-      if (permission == LocationPermission.denied) {
+      if (permission == LocationPermission.always ||
+          permission == LocationPermission.whileInUse) {
+        _showLocationRequestNotification();
         permission = await Geolocator.requestPermission();
         if (permission == LocationPermission.denied) {
           return Future.error('Location permissions are denied');
@@ -47,41 +63,62 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       double longitude = position.longitude;
       final FirebaseAuth auth = FirebaseAuth.instance;
       bool reAuthenticate = (prefs.getString('idToken') != null &&
-              (prefs.getString('idToken') ?? '').isNotEmpty)
+          (prefs.getString('idToken') ?? '').isNotEmpty)
           ? false
           : true;
       GoogleSignInAccount? googleSignInAccount =
-          await googleSignIn.signInSilently(reAuthenticate: reAuthenticate);
+      await googleSignIn.signInSilently(reAuthenticate: reAuthenticate);
       googleSignInAccount ??= await googleSignIn.signIn();
       final GoogleSignInAuthentication? googleSignInAuthentication =
-          await googleSignInAccount?.authentication;
+      await googleSignInAccount?.authentication;
       final AuthCredential authCredential = GoogleAuthProvider.credential(
         idToken: googleSignInAuthentication?.idToken,
         accessToken: googleSignInAuthentication?.accessToken,
       );
       userCredential = await auth.signInWithCredential(authCredential);
       debugPrint(
-          "token ======= >>>>>>>>>>>> ${longitude.toString()} ${latitude.toString()} ");
+          "token ======= >>>>>>>>>>>> ${longitude.toString()} ${latitude
+              .toString()} ");
       await prefs.setString(
           'idToken', googleSignInAuthentication?.idToken ?? '');
       await prefs.setString('Uid', userCredential.user?.uid ?? '');
       final response = await http.post(
         uri,
         body: SignInRequest(
-                googleToken: googleSignInAuthentication?.idToken ?? '',
-                imeiNumber: '12334444',
-                latitude: latitude.toString(),
-                longitude: longitude.toString())
+            googleToken: googleSignInAuthentication?.idToken ?? '',
+            imeiNumber: '12334444',
+            latitude: latitude.toString(),
+            longitude: longitude.toString())
             .toJson(),
       );
       emit(SignInRequestState());
       if (response.statusCode == 200 || response.statusCode == 201) {
         SignInResponse signInResponse =
-            SignInResponse.fromJson(jsonDecode(response.body));
+        SignInResponse.fromJson(jsonDecode(response.body));
         emit(GoogleSignInResponseState(signInResponse: signInResponse));
       } else {
         emit(GoogleSignInErrorState(error: 'Something went wrong'));
       }
     });
+  }
+  Future<void> _showLocationRequestNotification() async {
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+    AndroidNotificationDetails(
+      'location_channel',
+      'Location Services',
+      importance: Importance.high,
+      priority: Priority.high,
+    );
+
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+      0,
+      'Enable Location Services',
+      'Please enable location services to use this app properly.',
+      platformChannelSpecifics,
+    );
   }
 }

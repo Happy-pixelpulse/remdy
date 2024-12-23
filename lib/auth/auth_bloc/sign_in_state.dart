@@ -18,3 +18,7 @@ class GoogleSignInErrorState extends SignInState {
 
 class SignInProgressState extends SignInState{}
 class SignInRequestState extends SignInState{}
+
+class LocationServicesOn extends SignInState {}
+
+class LocationServicesOff extends SignInState {}

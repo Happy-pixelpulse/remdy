@@ -9,7 +9,6 @@ import 'package:remdy/common_widgets/progress_dialog_box.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/home_screen.dart';
 
-import '../common_widgets/build_context.dart';
 import '../common_widgets/sign_up_button.dart';
 import '../utils/colors.dart';
 
@@ -23,7 +22,6 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseMessaging fcm = FirebaseMessaging.instance;
-  late AppContext appContext ;
 
   void pushNotification() async {
     await fcm.requestPermission();
@@ -41,7 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   @override
-  Widget build(BuildContext appContext) {
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: BlocListener<SignInBloc, SignInState>(
@@ -54,6 +52,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
           } else if (state is GoogleSignInErrorState) {
             Navigator.pop(context);
             debugPrint(state.error);
+          } else if(state is LocationServicesOff){
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('please enable Location'),
+                backgroundColor: AppColors.waring,
+                duration: Duration(seconds: 15),
+              ),
+            );
           }
         },
         child: Column(

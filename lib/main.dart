@@ -6,6 +6,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:remdy/auth/auth_bloc/sign_in_bloc.dart';
 import 'package:remdy/bloc/doctor_details_bloc/doctor_details_bloc.dart';
@@ -23,33 +24,23 @@ import 'common_widgets/build_context.dart';
 // const _kShouldTestAsyncErrorOnInit = false;
 // const _kTestingCrashlytics = true;
 
-Future<void> main() async {
-  final connectionChecker = InternetConnectionChecker.instance;
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+FlutterLocalNotificationsPlugin();
 
-  final subscription = connectionChecker.onStatusChange.listen(
-    (InternetConnectionStatus status) {
-      if (status == InternetConnectionStatus.connected) {
-        print('Connected to the internet');
-      } else {
-        print('Disconnected from the internet');
-      }
-    },
+Future<void> initializeNotifications() async {
+  const AndroidInitializationSettings initializationSettingsAndroid =
+  AndroidInitializationSettings('@mipmap/ic_launcher');
+
+  const InitializationSettings initializationSettings =
+  InitializationSettings(android: initializationSettingsAndroid);
+
+  await flutterLocalNotificationsPlugin.initialize(
+    initializationSettings,
   );
-
-  // Remember to cancel the subscription when it's no longer needed
-  subscription.cancel();
-  // final connectionChecker = InternetConnectionChecker.instance;
-  //
-  // final subscription = connectionChecker.onStatusChange.listen(
-  //       (InternetConnectionStatus status) {
-  //     if (status == InternetConnectionStatus.connected) {
-  //       print('Connected to the internet');
-  //     } else {
-  //       print('Disconnected from the internet');
-  //     }
-  //   },
-  // );
+}
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+   initializeNotifications();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   // const fatalError = true;
@@ -111,7 +102,10 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => HomeScreenBloc()),
         BlocProvider(create: (context) => NearByHospitalBloc()),
         BlocProvider(create: (context) => DoctorDetailsBloc()),
-        BlocProvider(create: (context) => InternetBloc()..add(InternetStatusChanged(true))),
+        BlocProvider(create: (context) => SignInBloc()..add(CheckLocationServices())),
+        BlocProvider(
+            create: (context) =>
+                InternetBloc()..add(InternetStatusChanged(true))),
       ],
       child: BlocListener<InternetBloc, InternetState>(
         listener: (context, state) {
