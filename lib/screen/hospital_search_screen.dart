@@ -152,7 +152,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                       labelText:
                                           context.getLocalization()?.area ?? '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                     obscureText: true,
                                   ),
@@ -192,7 +192,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                           context.getLocalization()?.building ??
                                               '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                   ),
                                 )),
@@ -228,7 +228,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                           context.getLocalization()?.landMark ??
                                               '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                   ),
                                 )),
@@ -361,7 +361,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                       labelText:
                                           context.getLocalization()?.area ?? '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                     obscureText: true,
                                   ),
@@ -401,7 +401,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                           context.getLocalization()?.building ??
                                               '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                   ),
                                 )),
@@ -437,7 +437,7 @@ class _HospitalPageState extends State<HospitalPage> {
                                           context.getLocalization()?.landMark ??
                                               '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                   ),
                                 )),

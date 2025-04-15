@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "60301424444-bj6ruijfkkdvr3vbd5c86p5kqnm68er4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.remdy",
+            "certificate_hash": "9712bd20c3ebcfe57f1342f27083d1eb60f98481"
+          }
+        },
+        {
           "client_id": "60301424444-mn86fdcht2vitaktfm9hc1kno58vf81l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -1,13 +1,18 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:remdy/bloc/user_profile_bloc/user_profile_event.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/widgets/image_picker_option.dart';
+import 'package:remdy/screen/widgets/shimmer_effect.dart';
 
+import '../bloc/user_profile_bloc/user_profile_bloc.dart';
+import '../bloc/user_profile_bloc/user_profile_state.dart';
 import '../utils/colors.dart';
-
+import '../bloc/user_profile_bloc/model/use_profile_response_model.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -19,6 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   List<String> options = <String>['Male', 'Female', 'Other'];
   String dropdownValue = 'Male';
   File? _profileImage;
+
   void _showImagePickerDialog() async {
     final pickerOption = ImagePickerOption();
 
@@ -34,7 +40,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 leading: const Icon(Icons.photo_library),
                 title: const Text("Gallery"),
                 onTap: () async {
-                  final image = await pickerOption.pickImage(ImageSource.gallery);
+                  final image =
+                      await pickerOption.pickImage(ImageSource.gallery);
                   if (image != null) {
                     setState(() {
                       _profileImage = image;
@@ -47,7 +54,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 leading: const Icon(Icons.camera_alt),
                 title: const Text("Camera"),
                 onTap: () async {
-                  final image = await pickerOption.pickImage(ImageSource.camera);
+                  final image =
+                      await pickerOption.pickImage(ImageSource.camera);
                   if (image != null) {
                     setState(() {
                       _profileImage = image;
@@ -62,6 +70,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
       },
     );
   }
+
+  late UserProfileBloc _userProfileBloc;
+  late UseProfileResponse useProfileResponse;
+
+  @override
+  void initState() {
+    _userProfileBloc = BlocProvider.of<UserProfileBloc>(context);
+    _userProfileBloc.add(UserProFile());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -149,16 +168,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   blurRadius: 4,
                                   offset: Offset(0, 4))
                             ]),
-                        child:  CircleAvatar(
+                        child: CircleAvatar(
                           radius: 60,
                           backgroundImage: _profileImage != null
                               ? FileImage(_profileImage!)
                               : const AssetImage('assets/profilpic.png')
-                          as ImageProvider,
+                                  as ImageProvider,
                         ),
                       ),
-                       Padding(
-                        padding:const EdgeInsets.only(top: 70, left: 82),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 70, left: 82),
                         child: GestureDetector(
                           onTap: _showImagePickerDialog,
                           child: const Icon(
@@ -173,182 +192,379 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(
-                    height: 19,
-                  ),
-                  Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 49,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
+      Padding(
+        padding:
+        const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 19,
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                height: 49,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 17, right: 17),
+                  child: TextField(
+                    keyboardType: TextInputType.name,
+                    decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.cancel_outlined),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 17, right: 17),
-                        child: TextField(
-                          keyboardType: TextInputType.name,
-                          decoration: InputDecoration(
-                            suffixIcon: IconButton(
-                              icon: const Icon(Icons.cancel_outlined),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                            ),
-                            labelText: "Name",
-                            labelStyle: const TextStyle(
-                                color: AppColors.signUpTextButtonRadius),
+                      enabledBorder: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      focusedBorder: const OutlineInputBorder(
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(10)),
+                      ),
+                      labelText: "Name",
+                      labelStyle: const TextStyle(
+                          color: AppColors.signUpTextButtonRadius),
+                    ),
+                  ),
+                )),
+            const SizedBox(
+              height: 11,
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                height: 49,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 17, right: 17),
+                  child: TextField(
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        suffixText: "Change",
+                        suffixStyle:
+                        TextStyle(color: AppColors.waring1),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
                           ),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius:
+                          BorderRadius.all(Radius.circular(10)),
+                        ),
+                        labelText: "Mobile",
+                        labelStyle: TextStyle(
+                            color: AppColors.signUpTextButtonRadius),
                       )),
-                  const SizedBox(
-                    height: 11,
-                  ),
-                  Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 49,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
+                )),
+            const SizedBox(
+              height: 11,
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                height: 49,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 17, right: 17),
+                  child: TextField(
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      suffixText: "Change",
+                      suffixStyle:
+                      TextStyle(color: AppColors.waring1),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.only(left: 17, right: 17),
-                        child: TextField(
-                            keyboardType: TextInputType.phone,
-                            decoration: InputDecoration(
-                              suffixText: "Change",
-                              suffixStyle: TextStyle(color: AppColors.waring1),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(10)),
+                      ),
+                      labelText: "Email",
+                      labelStyle: TextStyle(
+                          color: AppColors.signUpTextButtonRadius),
+                    ),
+                  ),
+                )),
+            const SizedBox(
+              height: 11,
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                height: 49,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 17, right: 17),
+                  child: TextField(
+                    // readOnly: true,
+                    decoration: InputDecoration(
+                      suffixIcon: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: DropdownButton<String>(
+                          value: dropdownValue,
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropdownValue = value!;
+                            });
+                          },
+                          underline: const SizedBox(),
+                          isExpanded: true,
+                          style: const TextStyle(color: Colors.black),
+                          dropdownColor: Colors.white,
+                          selectedItemBuilder:
+                              (BuildContext context) {
+                            return options.map((String value) {
+                              return Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  dropdownValue,
+                                ),
+                              );
+                            }).toList();
+                          },
+                          items: options
+                              .map<DropdownMenuItem<String>>(
+                                  (String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                        ),
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      focusedBorder: const OutlineInputBorder(
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(10)),
+                      ),
+                      labelText: "Gender",
+                      labelStyle: const TextStyle(
+                          color: AppColors.signUpTextButtonRadius),
+                    ),
+                  ),
+                )),
+          ],
+        ),
+      ),
+            BlocBuilder<UserProfileBloc, UserProfileState>(
+              builder: (context, state) {
+                debugPrint("error====>>>>>${UserProfileResponseState}");
+                if(state is UserProfileResponseState){
+                  return Padding(
+                    padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(
+                          height: 19,
+                        ),
+                        Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 49,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10)),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 17, right: 17),
+                              child: TextField(
+                                // controller: useProfileResponse?.data!.name.toString(),
+                                keyboardType: TextInputType.name,
+                                decoration: InputDecoration(
+                                  suffixIcon: IconButton(
+                                    icon: const Icon(Icons.cancel_outlined),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  enabledBorder: const OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                  focusedBorder: const OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                  ),
+                                  labelText: "Name",
+                                  labelStyle: const TextStyle(
+                                      color: AppColors.signUpTextButtonRadius),
                                 ),
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                              ),
-                              labelText: "Mobile",
-                              labelStyle: TextStyle(
-                                  color: AppColors.signUpTextButtonRadius),
                             )),
-                      )),
-                  const SizedBox(
-                    height: 11,
-                  ),
-                  Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 49,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.only(left: 17, right: 17),
-                        child: TextField(
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            suffixText: "Change",
-                            suffixStyle: TextStyle(color: AppColors.waring1),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                            ),
-                            labelText: "Email",
-                            labelStyle: TextStyle(
-                                color: AppColors.signUpTextButtonRadius),
-                          ),
+                        const SizedBox(
+                          height: 11,
                         ),
-                      )),
-                  const SizedBox(
-                    height: 11,
-                  ),
-                  Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 49,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 17, right: 17),
-                        child: TextField(
-                          // readOnly: true,
-                          decoration: InputDecoration(
-                            suffixIcon: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: DropdownButton<String>(
-                                value: dropdownValue,
-                                onChanged: (String? value) {
-                                  setState(() {
-                                    dropdownValue = value!;
-                                  });
-                                },
-                                underline: const SizedBox(),
-                                isExpanded: true,
-                                style: const TextStyle(color: Colors.black),
-                                dropdownColor: Colors.white,
-                                selectedItemBuilder: (BuildContext context) {
-                                  return options.map((String value) {
-                                    return Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        dropdownValue,
+                        Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 49,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10)),
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.only(left: 17, right: 17),
+                              child: TextField(
+                                  keyboardType: TextInputType.phone,
+                                  decoration: InputDecoration(
+                                    suffixText: "Change",
+                                    suffixStyle:
+                                    TextStyle(color: AppColors.waring1),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(10),
                                       ),
-                                    );
-                                  }).toList();
-                                },
-                                items: options.map<DropdownMenuItem<String>>(
-                                    (String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
-                              ),
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                            ),
-                            labelText: "Gender",
-                            labelStyle: const TextStyle(
-                                color: AppColors.signUpTextButtonRadius),
-                          ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                    ),
+                                    labelText: "Mobile",
+                                    labelStyle: TextStyle(
+                                        color: AppColors.signUpTextButtonRadius),
+                                  )),
+                            )),
+                        const SizedBox(
+                          height: 11,
                         ),
-                      )),
-                ],
-              ),
+                        Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 49,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10)),
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.only(left: 17, right: 17),
+                              child: TextField(
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: InputDecoration(
+                                  suffixText: "Change",
+                                  suffixStyle:
+                                  TextStyle(color: AppColors.waring1),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                  ),
+                                  labelText: "Email",
+                                  labelStyle: TextStyle(
+                                      color: AppColors.signUpTextButtonRadius),
+                                ),
+                              ),
+                            )),
+                        const SizedBox(
+                          height: 11,
+                        ),
+                        Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 49,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10)),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 17, right: 17),
+                              child: TextField(
+                                // readOnly: true,
+                                decoration: InputDecoration(
+                                  suffixIcon: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: DropdownButton<String>(
+                                      value: dropdownValue,
+                                      onChanged: (String? value) {
+                                        setState(() {
+                                          dropdownValue = value!;
+                                        });
+                                      },
+                                      underline: const SizedBox(),
+                                      isExpanded: true,
+                                      style: const TextStyle(color: Colors.black),
+                                      dropdownColor: Colors.white,
+                                      selectedItemBuilder:
+                                          (BuildContext context) {
+                                        return options.map((String value) {
+                                          return Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              dropdownValue,
+                                            ),
+                                          );
+                                        }).toList();
+                                      },
+                                      items: options
+                                          .map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                    ),
+                                  ),
+                                  enabledBorder: const OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                  focusedBorder: const OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                  ),
+                                  labelText: "Gender",
+                                  labelStyle: const TextStyle(
+                                      color: AppColors.signUpTextButtonRadius),
+                                ),
+                              ),
+                            )),
+                      ],
+                    ),
+                  );
+                }  else {
+                  return ShimmerEffect(width: 80, height: 20);
+                }
+              },
             ),
           ],
         ),

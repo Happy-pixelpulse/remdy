@@ -1,4 +1,4 @@
-part of 'user_profile_bloc.dart';
+abstract class UserProfileEvent {}
 
-@immutable
-sealed class UserProfileEvent {}
+class UserProFile extends UserProfileEvent{}
+

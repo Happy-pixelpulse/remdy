@@ -109,7 +109,7 @@ class _SortByState extends State<SortBy> {
       child: Container(
         decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(15)),
-            border: Border.all(color: AppColors.bottomTextfield, width: 1),
+            border: Border.all(color: AppColors.bottomTextField, width: 1),
             color: AppColors.secondary),
         child: RadioListTile<SortOptions>(
           activeColor: AppColors.primary,
@@ -121,7 +121,7 @@ class _SortByState extends State<SortBy> {
             style: GoogleFonts.poppins(
               fontSize: 16,
               fontWeight: FontWeight.w400,
-              color: AppColors.bottomTextfieldText,
+              color: AppColors.bottomTextFieldText,
             ),
           ),
           value: sortOptions,

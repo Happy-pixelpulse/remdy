@@ -1,6 +1,6 @@
 class NearByDoctorRequest {
-  final String latitude;
-  final String longitude;
+  final String? latitude;
+  final String? longitude;
 
   NearByDoctorRequest(
       {required this.latitude,

@@ -1,5 +1,3 @@
-
-
 abstract class HomeScreenEvent {}
 
 class PatientLocation extends HomeScreenEvent{}

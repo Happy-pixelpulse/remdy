@@ -52,6 +52,10 @@
   "@hospitalTitle": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
+  "pickLocationTitle": "Select a location",
+    "@hospitalTitle": {
+      "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+    },
   "hospitalSubTitle": "Hospital",
   "@hospitalSubTitle": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
@@ -124,6 +128,10 @@
   "@doctorListSearchButton": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
   },
+   "locationSearchButton": "Search for area, street name.....",
+    "@doctorListSearchButton": {
+      "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."
+    },
   "doctorDetailsSendRequestButton": "Send Request",
   "@doctorDetailsSendRequestButton": {
     "description": "Titre encourageant l'utilisateur à trouver un médecin de famille."

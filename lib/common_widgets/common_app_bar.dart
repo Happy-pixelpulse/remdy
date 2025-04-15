@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remdy/extensions/localization_extension.dart';
 import '../screen/notification_screen.dart';
+import '../utils/AppSpacing.dart';
 import '../utils/colors.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,37 +18,8 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
-      toolbarHeight: 80,
+      toolbarHeight: AppSpacing.appSpacing_80,
       elevation: 0,
-      // leadingWidth: 24,
-      // title: Row(
-      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //   children: [
-      //     IconButton(
-      //       onPressed: () {
-      //         Navigator.pop(context);
-      //       },
-      //       icon: const Icon(Icons.arrow_back),
-      //       color: AppColors.secondary,
-      //     ),
-      //     const SizedBox(
-      //       width: 30,
-      //     ),
-      //
-      //     const SizedBox(
-      //       width: 55,
-      //     ),
-      //     GestureDetector(
-      //         onTap:(){
-      //           Navigator.push(
-      //             context,
-      //             MaterialPageRoute(
-      //                 builder: (context) => const NotificationScreen()),
-      //           );
-      //         },
-      //         child: Image.asset("assets/bell.png"))
-      //   ],
-      // ),
       title: Text(
         context.getLocalization()?.advanceSearch ?? '',
         style: GoogleFonts.poppins(
@@ -71,7 +43,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
         )
       ],
       leading: Padding(
-        padding: const EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.only(left: AppSpacing.appSpacing_20),
         child: IconButton(
           onPressed: () {
             Navigator.pop(context);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../utils/AppSpacing.dart';
 import '../utils/colors.dart';
 
 class ClinicCard extends StatelessWidget {
@@ -43,8 +44,8 @@ class ClinicCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(8.0),
-                topRight: Radius.circular(8.0),
+                topLeft: Radius.circular(AppSpacing.appSpacing_8),
+                topRight: Radius.circular(AppSpacing.appSpacing_8),
               ),
               child: Image.network(
                 clinicImage,
@@ -54,7 +55,7 @@ class ClinicCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 12, top: 8),
+              padding: const EdgeInsets.only(left: AppSpacing.appSpacing_12, top: AppSpacing.appSpacing_8),
               child: Text(
                 clinicName,
                 maxLines: 1,

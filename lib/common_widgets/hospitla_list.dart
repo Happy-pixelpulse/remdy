@@ -42,7 +42,7 @@ class HospitalList extends StatelessWidget {
       },
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(16),
         ),
         elevation: 3,
         child: Column(

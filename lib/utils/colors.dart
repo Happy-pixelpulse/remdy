@@ -2,20 +2,24 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color primary = Color(0xFF3E9452);
+  static const Color favorite = Color(0xFF49AC60);
   static const Color doctorListBackground = Color(0xFFF2F2F1);
   static const Color active = Color(0xFF3E65FF);
   static const Color profileRadius = Color(0xFFB6B6B6);
   static const Color backgroundColor = Color(0xFFF0F0EC);
   static const Color backgroundColor2 = Color(0xFFF2F2ED);
   static const Color secondary = Color(0xFFF2F2F2);
+  static const Color favoriteDr = Color(0xFF9FDCD9);
+  static const Color favoriteDr1 = Color(0xFFF5F5F7);
+  static const Color favoriteHospital = Color(0xFF8D8D8D);
   static const Color signUpTextButtonRadius = Color(0xFF979797);
   static const Color signText1 = Color(0xFF000000);
   static const Color lightBlack = Color(0xFF252525);
   static const Color searchBoxText = Color(0xFF8A96BC);
   static const Color drNameText = Color(0xFF222B45);
   static const Color bottomText = Color(0xFF393939);
-  static const Color bottomTextfield = Color(0xFF929292);
-  static const Color bottomTextfieldText = Color(0xFF4F4F4F);
+  static const Color bottomTextField = Color(0xFF929292);
+  static const Color bottomTextFieldText = Color(0xFF4F4F4F);
   static const Color reviewText = Color(0xFF6B779A);
   static const Color subReviewText = Color(0xFF2B2B2B);
   static const Color searchIcon = Color(0xFF8a96bc);

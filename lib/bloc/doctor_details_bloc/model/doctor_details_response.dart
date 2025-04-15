@@ -10,7 +10,8 @@ class DoctorDetailResponse {
     return DoctorDetailResponse(
         message: json['message'] as String,
         success: json['success'] as bool,
-        data: Data.fromJson(json['data']));
+        data: Data.fromJson(json['data'])
+    );
   }
 }
 

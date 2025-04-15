@@ -6,6 +6,7 @@ import 'package:remdy/bloc/internet_connection_bloc/internet_connection_event.da
 import 'package:remdy/extensions/localization_extension.dart';
 import 'package:remdy/screen/profile_screen.dart';
 import 'package:remdy/screen/widgets/shimmer_effect.dart';
+import 'package:remdy/utils/AppSpacing.dart';
 
 import '../bloc/home_screen_bloc/home_screen_bloc.dart';
 import '../bloc/home_screen_bloc/home_screen_event.dart';
@@ -28,7 +29,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   late HomeScreenBloc _homeScreenBloc;
   late InternetBloc _internetBloc;
-  PatientLocationResponse? patientLocationResponse;
+  PatientLocationResponse? _patientLocationResponse;
 
   @override
   void initState() {
@@ -136,7 +137,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       labelText:
                                           context.getLocalization()?.area ?? '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                     obscureText: true,
                                   ),
@@ -176,7 +177,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           context.getLocalization()?.building ??
                                               '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                   ),
                                 )),
@@ -212,7 +213,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           context.getLocalization()?.landMark ??
                                               '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                   ),
                                 )),
@@ -345,7 +346,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       labelText:
                                           context.getLocalization()?.area ?? '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                     obscureText: true,
                                   ),
@@ -385,7 +386,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           context.getLocalization()?.building ??
                                               '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                   ),
                                 )),
@@ -421,7 +422,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           context.getLocalization()?.landMark ??
                                               '',
                                       labelStyle: const TextStyle(
-                                          color: AppColors.bottomTextfield),
+                                          color: AppColors.bottomTextField),
                                     ),
                                   ),
                                 )),
@@ -465,18 +466,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 listener: (context, state) {
                   if (state is PatientLocationResponseState) {
                     _homeScreenBloc.add(NearByDoctor());
-                    patientLocationResponse = state.patientLocationResponse;
+                    _patientLocationResponse = state.patientLocationResponse;
                   }
                 },
                 child: BlocBuilder<HomeScreenBloc, HomeScreenState>(
                   builder: (context, state) {
-                    if (patientLocationResponse == null) {
+                    debugPrint("error====>>>>>${_patientLocationResponse?.success}");
+                    if (_patientLocationResponse == null) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ShimmerEffect(width: 80, height: 20),
-                          const SizedBox(height: 8),
-                          ShimmerEffect(width: 100, height: 16),
+                          ShimmerEffect(width: AppSpacing.appSpacing_80, height: AppSpacing.appSpacing_20),
+                          const SizedBox(height: AppSpacing.appSpacing_8),
+                          ShimmerEffect(width: 100, height: AppSpacing.appSpacing_16),
                         ],
                       );
                     } else {
@@ -485,7 +487,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            patientLocationResponse?.data?.address ?? '',
+                            _patientLocationResponse?.data?.address ?? '',
                             // context.getLocalization()?.location ?? '',
                             style: GoogleFonts.poppins(
                               fontSize: 16,
@@ -493,9 +495,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               color: AppColors.secondary,
                             ),
                           ),
-                          const SizedBox(height: 2),
+                          const SizedBox(height: AppSpacing.appSpacing_2),
                           Text(
-                            patientLocationResponse?.data?.city ?? '',
+                            _patientLocationResponse?.data?.city ?? '',
                             // context.getLocalization()?.country ?? '',
                             style: GoogleFonts.poppins(
                               fontSize: 13,
@@ -520,15 +522,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 );
               },
               child: SizedBox(
-                  width: 24,
-                  height: 24,
+                  width: AppSpacing.appSpacing_24,
+                  height:AppSpacing.appSpacing_24,
                   child: Image.asset(
                     'assets/bell.png',
-                    width: 24,
-                    height: 24,
+                    width: AppSpacing.appSpacing_24,
+                    height: AppSpacing.appSpacing_24,
                   )),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: AppSpacing.appSpacing_12),
             InkWell(
               onTap: () {
                 Navigator.push(
@@ -538,12 +540,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 );
               },
               child: SizedBox(
-                  width: 44,
-                  height: 44,
+                  width: AppSpacing.appSpacing_44,
+                  height: AppSpacing.appSpacing_44,
                   child: Image.asset(
                     'assets/profilpic.png',
-                    width: 44,
-                    height: 44,
+                    width: AppSpacing.appSpacing_44,
+                    height: AppSpacing.appSpacing_44,
                   )),
             ),
           ],
@@ -609,7 +611,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ),
                           ),
                           const SizedBox(
-                            height: 14,
+                            height: AppSpacing.appSpacing_14,
                           ),
                           Row(
                             children: [
@@ -639,12 +641,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     ),
                                     const SizedBox(width: 6),
                                     SizedBox(
-                                        width: 22,
-                                        height: 22,
+                                        width: AppSpacing.appSpacing_22,
+                                        height: AppSpacing.appSpacing_22,
                                         child: Image.asset(
                                           'assets/quicksearch.png',
-                                          width: 22,
-                                          height: 22,
+                                          width: AppSpacing.appSpacing_22,
+                                          height: AppSpacing.appSpacing_22,
                                         )),
                                   ],
                                 ),
@@ -652,7 +654,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 12,
+                            height: AppSpacing.appSpacing_12,
                           ),
                           GestureDetector(
                             onTap: () {
@@ -678,7 +680,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     ),
                                   ),
                                   const SizedBox(
-                                    width: 18,
+                                    width: AppSpacing.appSpacing_18,
                                   ),
                                   Text(
                                     context
@@ -702,7 +704,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 19),
+              const SizedBox(height: AppSpacing.appSpacing_18),
               Padding(
                 padding: const EdgeInsets.only(left: 16),
                 child: Text(
@@ -719,11 +721,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 builder: (context, state) {
                   if (state is NearByDoctorResponseState) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 14),
+                      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.appSpacing_14),
                       child: GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        padding: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: AppSpacing.appSpacing_10),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
@@ -748,7 +750,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     );
                   } else {
-                    return ShimmerEffect(width: 80, height: 20);
+                    return ShimmerEffect(width: AppSpacing.appSpacing_80, height: AppSpacing.appSpacing_20);
                   }
                 },
               ),

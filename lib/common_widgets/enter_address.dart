@@ -94,7 +94,7 @@ class _EnterAddressState extends State<EnterAddress> {
                               ),
                               labelText: context.getLocalization()?.area??'',
                               labelStyle: const TextStyle(
-                                  color: AppColors.bottomTextfield),
+                                  color: AppColors.bottomTextField),
                             ),
                             obscureText: true,
                           ),
@@ -132,7 +132,7 @@ class _EnterAddressState extends State<EnterAddress> {
                               ),
                               labelText: context.getLocalization()?.building??'',
                               labelStyle: const TextStyle(
-                                  color: AppColors.bottomTextfield),
+                                  color: AppColors.bottomTextField),
                             ),
                           ),
                         )),
@@ -166,7 +166,7 @@ class _EnterAddressState extends State<EnterAddress> {
                               ),
                               labelText: context.getLocalization()?.landMark??'',
                               labelStyle: const TextStyle(
-                                  color: AppColors.bottomTextfield),
+                                  color: AppColors.bottomTextField),
                             ),
                           ),
                         )),
