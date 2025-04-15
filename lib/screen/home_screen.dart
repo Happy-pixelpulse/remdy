@@ -5,7 +5,6 @@ import 'package:remdy/screen/setting_screen.dart';
 
 import '../utils/colors.dart';
 import 'favorite_screen.dart';
-import 'favorite_screen2.dart';
 import 'hospital_search_screen.dart';
 
 class HomeScreen extends StatefulWidget {

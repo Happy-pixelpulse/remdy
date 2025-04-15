@@ -11,7 +11,7 @@ import 'package:remdy/auth/auth_bloc/model/sign_in_response.dart';
 import 'package:remdy/utils/app_const.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../main.dart';
+
 import 'model/sign_in_request.dart';
 
 part 'sign_in_event.dart';

@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:geocoding/geocoding.dart';
+
 import 'package:http/http.dart' as http;
-import 'package:geolocator/geolocator.dart';
+
 import 'package:remdy/utils/app_const.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'hospital_model/near_by_hospital_response_model.dart';
@@ -15,8 +15,8 @@ class NearByHospitalBloc
     extends Bloc<NearByHospital, HospitalScreenState> {
   NearByHospitalBloc() : super(HospitalScreenInitial()) {
     on<NearByHospital>((event, emit) async {
-      Position position = await Geolocator.getCurrentPosition();
-      List<Placemark> placemarks = await placemarkFromCoordinates(position.latitude, position.longitude);
+      // Position position = await Geolocator.getCurrentPosition();
+      // List<Placemark> placemarks = await placemarkFromCoordinates(position.latitude, position.longitude);
       final prefs = await SharedPreferences.getInstance();
       String? token = prefs.getString('idToken');
       // const url = 'http://184.169.211.131:3000/api/v1/hospitals/get-all-near-by-hospitals';
@@ -39,7 +39,7 @@ class NearByHospitalBloc
       debugPrint('Near by Hospital===>> ${response.body}');
       if (response.statusCode == 200 || response.statusCode == 201){
         NearByHospitalResponseModel nearByHospitalResponseModel = NearByHospitalResponseModel.fromJson(jsonDecode(response.body));
-        debugPrint('${response.body}');
+        debugPrint(response.body);
        emit(NearByHospitalResponseState(nearByHospitalResponseModel:nearByHospitalResponseModel));
       } else {
         emit(NearByHospitalErrorState(error: 'Something went wrong'));

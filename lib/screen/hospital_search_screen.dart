@@ -699,7 +699,7 @@ class _HospitalPageState extends State<HospitalPage> {
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                   border: Border.all(
-                    color: AppColors.waring.withOpacity(0.65),
+                    color: AppColors.waring,
                   ),
                 ),
                 child: Padding(

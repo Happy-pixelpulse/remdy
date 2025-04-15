@@ -20,8 +20,8 @@ import 'bloc/internet_connection_bloc/internet_connection_state.dart';
 import 'bloc/user_profile_bloc/user_profile_bloc.dart';
 import 'common_widgets/build_context.dart';
 
-const _kShouldTestAsyncErrorOnInit = false;
-const _kTestingCrashlytics = true;
+// const _kShouldTestAsyncErrorOnInit = false;
+// const _kTestingCrashlytics = true;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +40,7 @@ Future<void> main() async {
   );
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-  const fatalError = true;
+  // const fatalError = true;
   // FlutterError.onError = (errorDetails) {
   //   if (fatalError) {
   //     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
