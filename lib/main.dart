@@ -77,9 +77,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late AppContext appContext;
-  late StreamSubscription subscription;
-  late StreamSubscription inter;
+  // late AppContext appContext;
+  // late StreamSubscription subscription;
+  // late StreamSubscription inter;
 
   @override
   Widget build(BuildContext context) {
@@ -91,11 +91,8 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => NearByHospitalBloc()),
         BlocProvider(create: (context) => DoctorDetailsBloc()),
         BlocProvider(create: (context) => UserProfileBloc()),
-        BlocProvider(
-            create: (context) => SignInBloc()..add(CheckLocationServices())),
-        BlocProvider(
-            create: (context) =>
-                InternetBloc()..add(InternetStatusChanged(true))),
+        BlocProvider(create: (context) => SignInBloc()..add(CheckLocationServices())),
+        BlocProvider(create: (context) => InternetBloc()..add(InternetStatusChanged(true))),
       ],
       child: BlocListener<InternetBloc, InternetState>(
         listener: (context, state) {

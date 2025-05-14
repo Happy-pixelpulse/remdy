@@ -249,9 +249,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             Expanded(
               child: TabBarView(
                 children: [
-
                   ListView.builder(
-                    padding: const EdgeInsets.all(16),
+                    // padding: const EdgeInsets.all(16),
                     itemCount: doctors.length,
                     itemBuilder: (context, index) {
                       final doctor = doctors[index];
@@ -303,15 +302,14 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                       // );
                     },
                   ),
-
                   ListView.builder(
-                    padding: const EdgeInsets.all(16),
+                    // padding: const EdgeInsets.all(16),
                     itemCount: hospital.length,
                     itemBuilder: (context, index) {
                       final hospitals = hospital[index];
                       return Padding(
                         padding:
-                        const EdgeInsets.only(left: 17, right: 17, bottom: 12),
+                        const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
                         child: HospitalList(
                           hospitalImage: hospitals["hospitalImage"],
                           hospitalName: hospitals["hospitalName"],

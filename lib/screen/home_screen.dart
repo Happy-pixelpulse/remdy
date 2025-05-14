@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:remdy/common_widgets/build_context.dart';
 import 'package:remdy/screen/dashboard_screen.dart';
+import 'package:remdy/screen/favorite_screen2.dart';
 import 'package:remdy/screen/setting_screen.dart';
 
 import '../utils/colors.dart';
@@ -23,7 +24,6 @@ late AppContext appContext ;
     const FavoriteScreen(),
     const SettingScreen(),
   ];
-
   @override
   Widget build(BuildContext appContext) {
     return Scaffold(
