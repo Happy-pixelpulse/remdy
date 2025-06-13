@@ -10,7 +10,8 @@ class PatientLocationResponse {
     return PatientLocationResponse(
         message: json['message'] as String,
         success: json['success'] as bool,
-        data: Data.fromJson(json['data']));
+        data: Data.fromJson(json['data'])
+    );
   }
 }
 
