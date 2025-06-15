@@ -8,15 +8,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:remdy/auth/auth_bloc/sign_in_bloc.dart';
+import 'package:remdy/bloc/doctor_by_postal_code/doctor_by_postal_code_bloc.dart';
 import 'package:remdy/bloc/doctor_details_bloc/doctor_details_bloc.dart';
 import 'package:remdy/bloc/home_screen_bloc/home_screen_bloc.dart';
 import 'package:remdy/bloc/internet_connection_bloc/internet_connection_bloc.dart';
+import 'package:remdy/bloc/wish_list_doctor/wish_list_doctor_bloc.dart';
 import 'package:remdy/firebase_options.dart';
 import 'package:remdy/language/language_bloc/language_bloc.dart';
 import 'package:remdy/splash/splash%20_screen1.dart';
 import 'bloc/hospital_bloc/hospital_bloc.dart';
 import 'bloc/internet_connection_bloc/internet_connection_event.dart';
 import 'bloc/internet_connection_bloc/internet_connection_state.dart';
+import 'bloc/patient_details_bloc/patient_bloc.dart';
 import 'bloc/user_profile_bloc/user_profile_bloc.dart';
 // import 'common_widgets/build_context.dart';
 
@@ -88,6 +91,9 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => LanguageBloc()..add(GetLanguage())),
         BlocProvider(create: (context) => SignInBloc()),
         BlocProvider(create: (context) => HomeScreenBloc()),
+        BlocProvider(create: (context) => PatientsListBloc()),
+        BlocProvider(create: (context) => DoctorByPostalCodeBloc()),
+        BlocProvider(create: (context) => WishListDoctorBloc()),
         BlocProvider(create: (context) => NearByHospitalBloc()),
         BlocProvider(create: (context) => DoctorDetailsBloc()),
         BlocProvider(create: (context) => UserProfileBloc()),

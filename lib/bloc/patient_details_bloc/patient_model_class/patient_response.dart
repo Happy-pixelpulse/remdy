@@ -16,13 +16,13 @@ class PatientResponse {
         data: Data.fromJson(json['data']));
   }
 }
-
+//DoctorByPostalCodeResponse
 class Data {
   final int? id;
   final String? fullName;
   final String? patientEmail;
   final String? phoneNumber;
-  final String? address;
+  final List<String>? address;
   final String? pinCode;
   final String? dob;
   final String? hadFamilyDoctor;
@@ -64,7 +64,7 @@ class Data {
       fullName: json['full_name'] as String?,
       patientEmail: json['patient_email'] as String?,
       phoneNumber: json['phone_number'] as String?,
-      address: json['address'] as String?,
+      address: json['address'].cast<String>(),
       pinCode: json['pincode'] as String?,
       dob: json['dob'] as String?,
       hadFamilyDoctor: json['had_family_doctor'] as String?,
